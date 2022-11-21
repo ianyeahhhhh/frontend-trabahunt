@@ -11,8 +11,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title> TrabaHunt | Subscription</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
     <!-- BS Stepper -->
@@ -37,7 +39,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="package-info">
 
                     <hr>
-                    <button class="btn btn-primary" style="width: 100%;" onclick="">
+                    <button class="btn btn-primary" style="width: 100%;" onclick="chooseDirectHire()">
                         Select
                     </button>
                 </div>
@@ -49,7 +51,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="package-info">
 
                     <hr>
-                    <button class="btn btn-primary" style="width: 100%;" onclick="">
+                    <button class="btn btn-primary" style="width: 100%;" onclick="chooseAgency()">
                         Select
                     </button>
                 </div>
@@ -87,46 +89,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
 
     <script>
-        function chooseBasic() {
-            var package = 'Basic';
-            var subscription_type_code = 1;
-            subscribe(package, subscription_type_code);
-        }
-
-        function chooseBranding() {
-            var package = 'Branding';
-            var subscription_type_code = 2;
-            subscribe(package, subscription_type_code);
-        }
-
-        function subscribe(package, subscription_type_code) {
-            console.log('I choose the ' + package + ' type of package.');
-            var date = new Date();
-            var current_date = (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
-
+        function chooseDirectHire() {
             axios({
-                    method: 'post',
-                    url: baseurl + 'company_subscription/',
-                    data: {
-                        subscription_date: current_date,
-                        expiry_date: 'empty muna daw',
-                        package_quantity: 'empty muna din',
-                        subscription_status: 'Active',
-                        subscription_type_code: subscription_type_code,
-                        subscription_type: package,
-                        company_id: localStorage.getItem('company_id_when_created'),
-                        package_id: 0,
-                        user_account_id: localStorage.getItem('U_user_account_id')
-                    }
+                method: 'put',
+                url: baseurl + 'candidate_profile/todirecthire/' + localStorage.getItem('U_user_account_id')
+            })
+                .then(function (data) {
+                    alert("User account created. Please log-in now.");
+                    window.open("candidate-login.html", "_self");
                 })
-                .then(function(data) {
-                    console.log(data);
-                    alert('Subscription chosen. Please login now.');
-                    window.open('employer-login.html', '_self');
-                })
-                .catch(function(data, err) {
+                .catch(function (data, err) {
                     console.error(err);
-                    console.log(data);
+                })
+        }
+
+        function chooseAgency() {
+            axios({
+                method: 'put',
+                url: baseurl + 'candidate_profile/toagency/' + localStorage.getItem('U_user_account_id')
+            })
+                .then(function (data) {
+                    alert("User account created. Please log-in now.");
+                    window.open("candidate-login.html", "_self");
+                })
+                .catch(function (data, err) {
+                    console.error(err);
                 })
         }
     </script>

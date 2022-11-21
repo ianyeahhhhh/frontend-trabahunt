@@ -11,8 +11,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Employer | Profile</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
     <!-- BS Stepper -->
@@ -40,9 +42,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
-                    <li class=" nav-item d-none d-sm-inline-block ">
-                        <h5 class="navbar-header"><b>Profile</b></h5>
-                    </li>
+                <li class=" nav-item d-none d-sm-inline-block ">
+                    <h5 class="navbar-header"><b>Profile</b></h5>
+                </li>
                 </li>
             </ul>
 
@@ -74,7 +76,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar -->
             <div class="sidebar">
                 <nav class="mt-2 ">
-                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
+                        data-accordion="false ">
                         <!-- Add icons to the links using the .nav-icon class
                            with font-awesome or any other icon font library -->
                         <li class="nav-item ">
@@ -153,19 +156,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="card card-sticky card-warning card-outline">
                                     <div class="card-body box-profile">
                                         <div class="text-center">
-                                            <img class="profile-user-img img-fluid img-circle" src="/dist/img/company-empty-image.png" alt="User profile picture">
+                                            <img class="profile-user-img img-fluid img-circle"
+                                                src="/dist/img/company-empty-image.png" alt="User profile picture">
                                         </div>
                                         <h3 id="display_company_name" class="profile-username text-center">Company Name
                                         </h3>
 
-                                        <p id="display_establishment_date" class="text-muted text-center">Establishment Date Here</p>
+                                        <p id="display_establishment_date" class="text-muted text-center">Establishment
+                                            Date Here</p>
 
                                         <ul class="list-group list-group-unbordered mb-3">
                                             <li class="list-group-item">
-                                                <span><i class="fas fa-phone-alt"></i></span> <a class="float-right" id="display_company_contact_number">Contact No. Here</a>
+                                                <span><i class="fas fa-phone-alt"></i></span> <a class="float-right"
+                                                    id="display_company_contact_number">Contact No. Here</a>
                                             </li>
                                             <li class="list-group-item">
-                                                <span><i class="fas fa-map-marker-alt"></i></span> <a class="float-right" id="display_address">Location Here</a>
+                                                <span><i class="fas fa-map-marker-alt"></i></span> <a
+                                                    class="float-right" id="display_address">Location Here</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -417,13 +424,43 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script>
         axios({
             method: 'get',
-            url: baseurl + 'company_subscription/' + localStorage.getItem('U_user_account_id')
+            url: baseurl + 'company_profile/' + localStorage.getItem('U_user_account_id')
         })
             .then(function (data) {
-                document.getElementById('package_type').innerHTML = data.data.subscription_type;
-                document.getElementById('subscription_date').innerHTML = data.data.subscription_date;
-                document.getElementById('expiration_date').innerHTML = data.data.expiry_date;
-                document.getElementById('subscription_status').innerHTML = data.data.subscription_status;
+                document.getElementById('display_company_name').innerHTML = data.data.company_name;
+                document.getElementById('display_company_name_1').innerHTML = data.data.company_name;
+                document.getElementById('display_establishment_date').innerHTML = data.data.establishment_date;
+                document.getElementById('display_establishment_date_1').innerHTML = data.data.establishment_date;
+                document.getElementById('display_company_website_url').innerHTML = data.data.company_website_url;
+
+                axios({
+                    method: 'get',
+                    url: baseurl + 'company_addition_info/' + localStorage.getItem('U_user_account_id')
+                })
+                    .then(function (data) {
+                        document.getElementById('display_registration_number').innerHTML = data.data.registration_number;
+                        document.getElementById('display_company_contact_number').innerHTML = data.data.company_contact_number;
+                        document.getElementById('display_company_contact_number_1').innerHTML = data.data.company_contact_number;
+                        var address = data.data.city + ', ' + data.data.zip_code + " " + data.data.region + ', ' + data.data.country;
+                        document.getElementById('display_address').innerHTML = address;
+                        document.getElementById('display_address_1').innerHTML = address;
+
+                        axios({
+                            method: 'get',
+                            url: baseurl + 'user_account/' + localStorage.getItem('U_user_account_id')
+                        })
+                            .then(function (data) {
+                                document.getElementById("employer_display_name").innerHTML = data.data.email;
+                                document.getElementById("display_email").innerHTML = data.data.email;
+                                document.getElementById("display_contact_number_2").innerHTML = data.data.contact_number;
+                            })
+                            .catch(function (data, err) {
+                                console.error(err);
+                            })
+                    })
+                    .catch(function (data, err) {
+                        console.error(err);
+                    })
             })
             .catch(function (data, err) {
                 console.error(err);

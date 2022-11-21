@@ -324,7 +324,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     <input id="display_nationality" type="text" class="form-control" placeholder="Enter nationality">
                                                 </div>
                                             </div>
-                                            <div class="row row-custom">
+                                            <!-- <div class="row row-custom">
                                                 <div class="col-sm-3">
                                                     <p class="text-muted">
                                                         Employment Type
@@ -337,7 +337,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                         <option value="Agency">Agency</option>
                                                     </select>
                                                 </div>
-                                            </div>
+                                            </div> -->
 
                                             <hr>
                                             <div class="row">
@@ -594,6 +594,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             url: baseurl + 'candidate_profile/' + localStorage.getItem('U_user_account_id')
         })
             .then(function (data) {
+                localStorage.setItem('candidate_type', data.data.candidate_type);
                 document.getElementById('display_full_name').innerHTML = data.data.full_name;
                 document.getElementById('display_first_name').value = data.data.first_name;
                 document.getElementById('display_middle_name').value = data.data.middle_name;
@@ -606,7 +607,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 document.getElementById('display_region').value = data.data.region;
                 document.getElementById('display_country').value = data.data.country;
                 document.getElementById('display_nationality').value = data.data.nationality;
-                document.getElementById('display_candidate_type').value = data.data.candidate_type;
 
                 axios({
                     method: 'get',
@@ -673,8 +673,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     region: $("#display_region").val(),
                     country: $("#display_country").val(),
                     nationality: $("#display_nationality").val(),
-                    candidate_type: $("#display_candidate_type").val(),
+                    candidate_type: localStorage.getItem('candidate_type'),
                     candidate_image: "",
+                    status_from_hr: "None",
                     age: 21,
                     user_account_id: localStorage.getItem('U_user_account_id')
                 }

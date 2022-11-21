@@ -179,9 +179,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 .then(function (data) {
                                     localStorage.setItem("U_session_info_id", data.data.data.session_info_id);
                                     localStorage.setItem("loginTime", data.data.data.time_of_login);
-                                    alert("Candidate Login Successful. Redirecting to Dashboard...");
-                                    // alert("SESSION_INFO_SUCCESS");
-                                    window.open("candidate-dashboard.html", "_self");
+
+                                    axios({
+                                        method: 'get',
+                                        url: baseurl + 'candidate_profile/' + localStorage.getItem('U_user_account_id')
+                                    })
+                                        .then(function (data) {
+                                            if (data.data.candidate_type == 'Direct Hire') {
+                                                alert("Candidate Login Successful. Redirecting to Dashboard...");
+                                                window.open("candidate-dashboard.html", "_self");
+                                            }
+                                            else{
+                                                alert("Candidate Login Successful. Redirecting to Dashboard...");
+                                                window.open("candidate-agent-dashboard.html", "_self");
+                                            }
+                                        })
+                                        .catch(function (data, err) {
+                                            console.error(err);
+                                        })
+
                                 })
                                 .catch(function (data, err) {
                                     alert("SESSION_INFO_FAILED");

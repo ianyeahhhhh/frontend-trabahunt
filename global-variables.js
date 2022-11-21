@@ -1,1 +1,1 @@
-const baseurl = "https://trabahunt-backend1.herokuapp.com/"
+const baseurl = "http://127.0.0.1:8000/"

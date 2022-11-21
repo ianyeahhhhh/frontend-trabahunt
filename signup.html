@@ -185,6 +185,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         country: "",
                                         nationality: "",
                                         candidate_image: "",
+                                        status_from_hr: "",
                                         user_account_id: parseInt(localStorage.getItem("U_user_account_id"))
                                     }
                                 })
@@ -227,8 +228,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                             }
                                                         })
                                                             .then(function () {
-                                                                alert("User account created. Please login now.");
-                                                                window.open("candidate-login.html", "_self");
+                                                                alert("Choose empoyment Type...");
+                                                                window.open("candidate-choose-employment.html", "_self");
                                                             })
                                                             .catch(function (err, data) {
                                                                 console.error(err);
