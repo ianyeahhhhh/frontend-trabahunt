@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Candidate | Profile</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
+    <!-- BS Stepper -->
+    <link rel="stylesheet" href="/plugins/bs-stepper/css/bs-stepper.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="../../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet " href="dist/css/adminlte.min.css ">
+    <link rel="icon" href="dist/img/logo-head.png" type="image/x-icon">
+    <script src="global-variables.js"></script>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+
+    <!-- <body onload="if (localStorage.getItem('C_userSession')==null) self.location='candidate-login.html';"></body> -->
+    <div class="wrapper">
+        <!--NAV BAR START-->
+        <nav class="main-header navbar navbar-expand nav-custom-candidate">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
+                    <li class=" nav-item d-none d-sm-inline-block ">
+                        <h5 class="navbar-header"><b>Candidate Profile</b></h5>
+                    </li>
+                </li>
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto ">
+                <li class="nav-item dropdown ">
+                    <a class="navbar-right-item" data-toggle="dropdown" href="#">
+                        <i class="fas fa-user-alt"></i>
+                        <span id="candidate_display_name" class="user-name">CANDIDATE NAME HERE</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
+                        <!-- <div class="dropdown-divider "></div> -->
+                        <a href="candidate-view-profile.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="candidate-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
+                                    class="fas fa-sign-out-alt"></i></span> Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <!--NAV BAR END-->
+
+        <!--SIDE BAR START-->
+        <aside class="main-sidebar main-sidebar-custom sidebar-light-primary elevation-4 ">
+            <!-- Brand Logo -->
+            <a href="candidate-dashboard.html" class="brand-link">
+                <img src="/dist/img/logo-head.png " alt="TrabaHunt Logo " class="brand-image ">
+                <span class="brand-text font-weight-bold ">TrabaHunt</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <nav class="mt-2 ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                        <!-- Add icons to the links using the .nav-icon class
+                           with font-awesome or any other icon font library -->
+                        <li class="nav-item ">
+                            <a href="candidate-dashboard.html" class="nav-link ">
+                                <i class="nav-icon fas fa-columns "></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="candidate-job-search.html" class="nav-link ">
+                                <i class="nav-icon fas fa-search"></i>
+                                <p>
+                                    Job Search
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="candidate-list-job-offers.html" class="nav-link ">
+                                <i class="nav-icon fas fa-briefcase"></i>
+                                <p>
+                                    Job Offers
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="# " class="nav-link ">
+                                <i class="nav-icon fas fa-list-ol"></i>
+                                <p style="margin-right: .4rem; ">
+                                    My Job Applications
+                                </p>
+                                <span><i class="right fas fa-angle-left "></i></span>
+                            </a>
+                            <ul class="nav nav-treeview ">
+                                <li class="nav-item ">
+                                    <a href="candidate-job-app-list.html" class="nav-link ">
+                                        <p>Job Applications List</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="candidate-pending-job-app.html" class="nav-link ">
+                                        <p>Pending Job Applications</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="candidate-view-company.html" class="nav-link ">
+                                <i class="nav-icon fas fa-building"></i>
+                                <p style="margin-right: .8rem; ">
+                                    Company Profile
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="sidebar-custom">
+                <a href="candidate-faqs.html" class="btn btn-link">Need Help?</a>
+            </div>
+
+            <!-- /.sidebar -->
+        </aside>
+        <!--SIDE BAR END-->
+
+        <div class="content-wrapper">
+            <div class="container-fluid" style="padding: 2rem 1rem;">
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <!-- Profile Image -->
+                                <div class="card card-sticky card-success card-outline">
+                                    <div class="card-body box-profile">
+                                        <div class="text-center">
+                                            <img class="profile-user-img img-fluid img-circle" src="/dist/img/empty-image.jpg" alt="User profile picture">
+                                        </div>
+                                        <h3 id="display_full_name" class="profile-username text-center">Marcus Erean
+                                        </h3>
+
+                                        <p class="text-muted text-center">Software Engineer</p>
+
+                                        <ul class="list-group list-group-unbordered mb-3">
+                                            <li class="list-group-item">
+                                                <span><i class="fas fa-envelope"></i></span> <a class="float-right" id="display_email">marcus@gmail.com</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <i class="fas fa-phone-alt"></i> <a class="float-right">+63 914 361
+                                                    8544</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <i class="fas fa-money-bill"></i> <a class="float-right">PHP 10,000</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- /.card-body -->
+                                </div>
+                                <!-- /.card -->
+                            </div>
+                            <div class="col-md-9">
+                                <!-- Profile -->
+                                <div class="card card-success">
+                                    <div class="card-header">
+                                        <h3 class="card-title"><b>My Profile</b></h3>
+                                        <a href="candidate-edit-profile.html" class="float-right"><i
+                                                class="fas fa-edit"></i> Edit</a>
+                                    </div>
+                                    <!-- /.card-header -->
+
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <strong>
+                                                    <i class="fas fa-user"></i> INFORMATION
+                                                </strong>
+                                            </div>
+                                        </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Full Name
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="display_full_name_1">
+                                                    Marcus Erean B. Modelo
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Gender
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="display_gender">
+                                                    Male
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Birthdate
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='display_birth_date'>
+                                                    September 13, 1999
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Address
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='display_address'>
+                                                    Quezon City, 1001 NCR, Philippines
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Nationality
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='display_nationality'>
+                                                    Filipino
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Employment Type
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='display_candidate_type'>
+                                                    Direct Hire
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <strong>
+                                                    <i class="fas fa-graduation-cap"></i> EDUCATION
+                                                </strong>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Insitute/ University Name
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='display_institute_university_name'>Default Insitute/ University Name
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Location
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='display_institute_university_location'>Default Quezon City, Philippines
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Highest Educational Attainment
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='display_highest_education_attainment'>Default Bachelor's / College Degree
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Field of Study
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='display_field_of_study'>Default Computer Science / Information Technology
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Major
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='display_major'>Information Technology Management</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Date Graduated
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='display_date_graduated'>March 18, 1999</p>
+                                            </div>
+                                        </div>
+
+                                        <hr>
+
+                                        <!--EXP DETAIL START-->
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <strong>
+                                                    <i class="fas fa-map-marker-alt mr-1"></i> EXPERIENCE DETAIL
+                                                </strong>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Experience Level
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="display_experience_level">Intern or looking for part-time job</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Work Experience (if with work experience)
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="display_work_experience">-</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Description
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="display_experience_description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis porro fugiat assumenda ipsum reprehenderit sapiente sit, quisquam quam quia similique? Quam consequuntur fuga ipsum eligendi assumenda,
+                                                    aut tempore sunt vel?</p>
+                                            </div>
+                                        </div>
+
+                                        <hr>
+
+                                        <!--RESUME-->
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <strong>
+                                                    <i class="fas fa-file"></i> RESUME
+                                                </strong>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Uploaded Resume
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <a href="#">marcus-resume.pdf</a>
+                                            </div>
+
+                                        </div>
+                                        <!--Account-->
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <strong>
+                                                    <i class="fas fa-user-lock"></i> Account Details
+                                                </strong>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Contact Number
+                                                </p>
+                                            </div>
+                                            <div class="col-8">
+                                                <p id="display_contact_number">Sample Contact Number</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Email
+                                                </p>
+                                            </div>
+                                            <div class="col-8">
+                                                <p id="display_email_1">Sample@sample.com</p>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Password
+                                                </p>
+                                            </div>
+                                            <div class="col-8">
+                                                <p>******</p>
+                                            </div>
+                                        </div> -->
+                                    </div>
+
+                                </div>
+
+                                <!-- /.card-body -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="main-footer ">
+        <div class="float-right d-none d-sm-block ">
+            <b>Traba</b>Hunt
+        </div>
+        <strong>Copyright &copy; 2022 All rights reserved.
+    </footer>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js "></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js "></script>
+    <!-- overlayScrollbars -->
+    <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js "></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+
+    <script>
+        document.getElementById("candidate_display_name").innerHTML = localStorage.getItem("U_email");
+    </script>
+
+    <script>
+        axios({
+            method: 'get',
+            url: baseurl + 'candidate_profile/' + localStorage.getItem('U_user_account_id')
+        })
+            .then(function (data) {
+                document.getElementById('display_full_name').innerHTML = data.data.full_name;
+                document.getElementById('display_full_name_1').innerHTML = data.data.full_name;
+                document.getElementById('display_gender').innerHTML = data.data.gender;
+                document.getElementById('display_birth_date').innerHTML = data.data.birth_date;
+                var address = data.data.city + ', ' + data.data.zip_code + " " + data.data.region + ', ' + data.data.country;
+                document.getElementById('display_address').innerHTML = address;
+                document.getElementById('display_nationality').innerHTML = data.data.nationality;
+                document.getElementById('display_candidate_type').innerHTML = data.data.candidate_type;
+
+                axios({
+                    method: 'get',
+                    url: baseurl + 'candidate_education_detail/' + localStorage.getItem('U_user_account_id')
+                })
+                    .then(function (data) {
+                        document.getElementById('display_institute_university_name').innerHTML = data.data.institute_university_name;
+                        document.getElementById('display_institute_university_location').innerHTML = data.data.institute_university_location;
+                        document.getElementById('display_highest_education_attainment').innerHTML = data.data.highest_education_attainment;
+                        document.getElementById('display_field_of_study').innerHTML = data.data.field_of_study;
+                        document.getElementById('display_major').innerHTML = data.data.major;
+                        document.getElementById('display_date_graduated').innerHTML = data.data.graduation_date;
+
+                        axios({
+                            method: 'get',
+                            url: baseurl + 'user_account/' + localStorage.getItem('U_user_account_id')
+                        })
+                            .then(function (data) {
+                                document.getElementById("display_email").innerHTML = data.data.email;
+                                document.getElementById("display_email_1").innerHTML = data.data.email;
+                                document.getElementById('display_contact_number').innerHTML = data.data.contact_number;
+
+                                axios({
+                                    method: 'get',
+                                    url: baseurl + 'candidate_experience_detail/' + localStorage.getItem('U_user_account_id')
+                                })
+                                    .then(function (data) {
+                                        document.getElementById("display_experience_level").innerHTML = data.data.experience_level;
+                                        document.getElementById("display_work_experience").innerHTML = data.data.year_month_work_experience;
+                                        document.getElementById("display_experience_description").innerHTML = data.data.experience_description;
+                                    })
+                                    .catch(function (data, err) {
+                                        console.error(err);
+                                    })
+                            })
+                            .catch(function (data, err) {
+                                console.error(err);
+                            })
+                    })
+                    .catch(function (data, err) {
+                        console.error(err);
+                        console.log(data);
+                    })
+            })
+            .catch(function (data, err) {
+                console.error(err);
+                console.log(data);
+            })
+    </script>
+</body>
+
+</html>

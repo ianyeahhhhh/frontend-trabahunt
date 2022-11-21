@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Employer | All Candidates</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
+    <!-- BS Stepper -->
+    <link rel="stylesheet" href="/plugins/bs-stepper/css/bs-stepper.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="../../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet " href="dist/css/adminlte.min.css ">
+    <link rel="icon" href="dist/img/logo-head.png" type="image/x-icon">
+    <script src="global-variables.js"></script>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+
+    <body onload="if (localStorage.getItem('E_userSession')==null) self.location='employer-login.html';"></body>
+    <div class="wrapper">
+        <!--NAV BAR START-->
+        <nav class="main-header navbar navbar-expand nav-custom-emp">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
+                    <li class=" nav-item d-none d-sm-inline-block ">
+                        <h5 class="navbar-header"><b>Candidate Information</b></h5>
+                    </li>
+                </li>
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto ">
+                <li class="nav-item dropdown ">
+                    <a class="navbar-right-item" data-toggle="dropdown" href="#">
+                        <i class="fas fa-user-alt"></i>
+                        <span id="employer_display_name" class="user-name">COMPANY NAME HERE</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
+                        <!-- <div class="dropdown-divider "></div> -->
+                        <a href="employer-view-profile.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
+                                    class="fas fa-sign-out-alt"></i></span> Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <!--NAV BAR END-->
+
+        <!--SIDE BAR START-->
+        <aside class="main-sidebar main-sidebar-custom sidebar-light-primary elevation-4 ">
+            <!-- Brand Logo -->
+            <a href="employer-branding-dashboard.html " class="brand-link">
+                <img src="/dist/img/logo-head.png " alt="TrabaHunt Logo " class="brand-image ">
+                <span class="brand-text font-weight-bold ">TrabaHunt</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <nav class="mt-2 ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                        <!-- Add icons to the links using the .nav-icon class
+                           with font-awesome or any other icon font library -->
+                        <li class="nav-item ">
+                            <a href="employer-branding-dashboard.html" class="nav-link ">
+                                <i class="nav-icon fas fa-columns "></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="employer-search-candidates.html" class="nav-link ">
+                                <i class="nav-icon fas fa-search"></i>
+                                <p>
+                                    Search Applicants
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="employer-list-job-offered.html" class="nav-link ">
+                                <i class="nav-icon fas fa-briefcase"></i>
+                                <p>
+                                    Job Offered
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="# " class="nav-link ">
+                                <i class="nav-icon fas fa-ad "></i>
+                                <p style="margin-right: .8rem; ">
+                                    Job Advertisement
+                                </p>
+                                <span><i class="right fas fa-angle-left "></i></span>
+                            </a>
+                            <ul class="nav nav-treeview ">
+                                <li class="nav-item ">
+                                    <a href="employer-create-job-ads.html" class="nav-link ">
+                                        <p>Create Job Ads</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="employer-job-ads-list.html" class="nav-link ">
+                                        <p>Job Ads List</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="employer-pending-job-ads.html" class="nav-link ">
+                                        <p>Pending Job Ads</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a href="employer-all-candidates.html" class="nav-link ">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>
+                                    All Candidates
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a href="employer-list-employee.html" class="nav-link ">
+                                <i class="nav-icon fas fa-user-tie"></i>
+                                <p>
+                                    Employees
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link ">
+                                <i class="nav-icon fas fa-layer-group"></i>
+                                <p style="margin-right: .8rem;">
+                                    Subscription
+                                </p>
+                                <span><i class="right fas fa-angle-left "></i></span>
+                            </a>
+                            <ul class="nav nav-treeview ">
+                                <li class="nav-item ">
+                                    <a href="employer-branding-mgt.html" class="nav-link ">
+                                        <p>Manage Subscription</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="employer-branding-pending-payment.html" class="nav-link ">
+                                        <p>Pending payment</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="sidebar-custom">
+                <a href="employer-faqs.html" class="btn btn-link">Need Help?</a>
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+        <!--SIDE BAR END-->
+
+        <!--cancelled interview MODAL-->
+        <!--modal start-->
+        <div class="modal fade" id="cancel-interview-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Cancel Interview</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to cancel this interview? If yes, please provide the details below:</p>
+                        <label>Cancellation Details</label>
+                        <textarea class="form-control" rows="3" id="interview_remarks" placeholder="Enter details..."></textarea>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="reject_and_cancel()">Submit</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <!--resched interview MODAL-->
+        <!--modal start-->
+        <div class="modal fade" id="resched-interview-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><b>Re-schedule Interview</b></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div>
+                                <div class="form-group">
+                                    <label>Date</label>
+                                    <input type="text" class="form-control" id="interview_date" placeholder="Ex: September 1, 2022">
+                                </div>
+                                <div class="form-group">
+                                    <label>Time</label>
+                                    <input type="text" class="form-control" id="interview_time" placeholder="Ex: 9:30 AM">
+                                </div>
+                                <div class="form-group">
+                                    <label>Location</label>
+                                    <textarea class="form-control" rows="2" id="interview_location" placeholder="Enter location..."></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Additional Information</label>
+                                    <textarea class="form-control" rows="2" id="interview_additional_info" placeholder="Enter additional information"></textarea>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </form>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" onclick="resched()">Submit</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!--./modal-->
+
+        <!--accept MODAL-->
+        <!--modal start-->
+        <div class="modal fade" id="accept-candidate-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Accept Candidate</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to accept this candidate?</p>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="acceptHire()">Confirm</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <div class="content-wrapper">
+            <div class="container-fluid" style="padding: 2rem 1rem;">
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <!-- Profile Image -->
+                                <div class="card card-sticky card-success card-outline">
+                                    <div class="card-body box-profile">
+                                        <div class="text-center">
+                                            <img class="profile-user-img img-fluid img-circle" src="/dist/img/empty-image.jpg" alt="User profile picture">
+                                        </div>
+                                        <h3 id="display_full_name" class="profile-username text-center">Default Name
+                                        </h3>
+
+                                        <p class="text-muted text-center">Default Software Engineer</p>
+
+                                        <ul class="list-group list-group-unbordered mb-3">
+                                            <li class="list-group-item">
+                                                <span><i class="fas fa-envelope"></i></span> <a class="float-right">default@gmail.com</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <i class="fas fa-phone-alt"></i> <a class="float-right">default
+                                                    Contact</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <i class="fas fa-money-bill"></i> <a class="float-right">Default expect
+                                                    salary</a>
+                                            </li>
+                                        </ul>
+                                        <a class="btn btn-primary btn-block" data-toggle="modal" data-target="#resched-interview-modal"><span><i
+                                                    class="fas fa-edit"></i></span> Re-schedule</a>
+                                        <a class="btn btn-danger btn-block" data-toggle="modal" data-target="#cancel-interview-modal"><span><i
+                                                    class="fas fa-ban"></i></span> Cancel Interview</a>
+                                        <hr>
+                                        <a class="btn btn-success btn-block" data-toggle="modal" data-target="#accept-candidate-modal"><span><i
+                                                    class="fas fa-check"></i></span> Accept Candidate</a>
+                                    </div>
+                                    <!-- /.card-body -->
+                                </div>
+                                <!-- /.card -->
+
+                            </div>
+                            <div class="col-md-9">
+                                <!-- Profile -->
+                                <div class="card card-success">
+                                    <div class="card-header">
+                                        <h3 class="card-title"><b>Candidate Profile and Interview Details</b></h3>
+                                    </div>
+                                    <!-- /.card-header -->
+
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <strong>
+                                                    <i class="fas fa-user"></i> INFORMATION
+                                                </strong>
+                                            </div>
+                                        </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Full Name
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="display_full_name_1">
+                                                    Default name
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Gender
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="display_gender">
+                                                    Default Male
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Birthdate
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='display_birth_date'>
+                                                    Default September 13, 1999
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Address
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='display_address'>
+                                                    Default Quezon City, 1001 NCR, Philippines
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Nationality
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='display_nationality'>
+                                                    Default Filipino
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <strong>
+                                                    <i class="fas fa-graduation-cap"></i> EDUCATION
+                                                </strong>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Insitute/ University Name
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='display_institute_university_name'>Default Insitute/ University Name
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Location
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='display_institute_university_location'>Default Quezon City, Philippines
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Highest Educational Attainment
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='display_highest_educational_attainment'>Default Bachelor's / College Degree
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Field of Study
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='display_field_of_study'>Default Computer Science / Information Technology
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Major
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='display_major'>Information Technology Management</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Date Graduated
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='display_date_graduated'>March 18, 1999</p>
+                                            </div>
+                                        </div>
+
+                                        <hr>
+
+                                        <!--EXP DETAIL START-->
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <strong>
+                                                    <i class="fas fa-map-marker-alt mr-1"></i> EXPERIENCE DETAIL
+                                                </strong>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Experience Level
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p>Intern or looking for part-time job</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Description
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis porro fugiat assumenda ipsum reprehenderit sapiente sit, quisquam quam quia similique? Quam consequuntur fuga ipsum eligendi assumenda,
+                                                    aut tempore sunt vel?</p>
+                                            </div>
+                                        </div>
+
+                                        <hr>
+
+                                        <!--RESUME-->
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <strong>
+                                                    <i class="fas fa-file"></i> RESUME
+                                                </strong>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Uploaded Resume
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <a href="#">marcus-resume.pdf</a>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <!--INTERVIEW DETAILS-->
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <strong>
+                                                    <i class="fas fa-info-circle"></i> INTERVIEW DETAILS
+                                                </strong>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Date & Time
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="display_interview_date_and_time">Default date & time</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Location
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="display_interview_location">Default location</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Status
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="display_interview_status">Default status</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Employer Remarks
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="display_interview_remarks">Default remarks</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Additional Information
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="display_interview_additional_info">Default additional information
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- /.card-body -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </section>
+            </div>
+
+        </div>
+
+        <footer class="main-footer ">
+            <div class="float-right d-none d-sm-block ">
+                <b>Traba</b>Hunt
+            </div>
+            <strong>Copyright &copy; 2022 All rights reserved.
+        </footer>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js "></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js "></script>
+    <!-- overlayScrollbars -->
+    <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js "></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+
+    <script>
+        document.getElementById("employer_display_name").innerHTML = localStorage.getItem("U_email");
+    </script>
+
+    <script>
+        axios({
+            method: 'get',
+            url: baseurl + 'candidate_profile/' + localStorage.getItem('candidate_id_clicked')
+        })
+            .then(function (data) {
+                console.log('get candidate profile');
+                console.log(data);
+                console.log('--------');
+                document.getElementById('display_full_name').innerHTML = data.data.full_name;
+                document.getElementById('display_full_name_1').innerHTML = data.data.full_name;
+                document.getElementById('display_gender').innerHTML = data.data.gender;
+                document.getElementById('display_birth_date').innerHTML = data.data.birth_date;
+                var address = data.data.city + ", " + data.data.zip_code + " " + data.data.region + ", " + data.data.country;
+                document.getElementById('display_address').innerHTML = address;
+                document.getElementById('display_nationality').innerHTML = data.data.nationality;
+
+                axios({
+                    method: 'get',
+                    url: baseurl + 'candidate_education_detail/' + localStorage.getItem('candidate_id_clicked')
+                })
+                    .then(function (data) {
+                        console.log('get candidate education detail');
+                        console.log(data);
+                        console.log('--------');
+                        document.getElementById('display_institute_university_name').innerHTML = data.data.institute_university_name;
+                        document.getElementById('display_institute_university_location').innerHTML = data.data.institute_university_location;
+                        document.getElementById('display_highest_educational_attainment').innerHTML = data.data.highest_education_attainment;
+                        document.getElementById('display_field_of_study').innerHTML = data.data.field_of_study;
+                        document.getElementById('display_major').innerHTML = data.data.major;
+                        document.getElementById('display_date_graduated').innerHTML = data.data.graduation_date;
+
+                        axios({
+                            method: 'get',
+                            url: baseurl + 'interview_info/' + localStorage.getItem('job_application_id_clicked')
+                        })
+                            .then(function (data) {
+                                console.log('get interview info');
+                                console.log(data);
+                                console.log('--------');
+                                document.getElementById('display_interview_date_and_time').innerHTML = data.data.interview_date + ", " + data.data.interview_time;
+                                document.getElementById('display_interview_location').innerHTML = data.data.interview_location;
+                                document.getElementById('display_interview_status').innerHTML = data.data.interview_status;
+                                document.getElementById('display_interview_additional_info').innerHTML = data.data.interview_additional_info;
+                                document.getElementById('display_interview_remarks').innerHTML = data.data.interview_remarks;
+                            })
+                            .catch(function (data, err) {
+                                console.error(err);
+                                console.log(data);
+                            })
+                    })
+                    .catch(function (data, err) {
+                        console.error(err);
+                    })
+            })
+            .catch(function (data, err) {
+                console.error(err);
+            })
+    </script>
+
+    <script>
+        function acceptHire() {
+            axios({
+                method: 'put',
+                url: baseurl + 'job_application/accept/' + localStorage.getItem('job_application_id_clicked')
+            })
+                .then(function (data) {
+                    console.log('accept job application');
+                    console.log(data);
+                    console.log('--------');
+                    axios({
+                        method: 'get',
+                        url: baseurl + 'job_application/' + localStorage.getItem('job_application_id_clicked')
+                    })
+                        .then(function (data) {
+                            console.log('get job application');
+                            console.log(data);
+                            console.log('--------');
+                            localStorage.setItem('hired_full_name', data.data.full_name);
+                            localStorage.setItem('candidate_id_clicked', data.data.candidate_id);
+
+                            axios({
+                                method: 'put',
+                                url: baseurl + 'interview_info/accept/' + localStorage.getItem('job_application_id_clicked')
+                            })
+                                .then(function (data) {
+                                    axios({
+                                        method: 'get',
+                                        url: baseurl + 'job_post/get_one/' + localStorage.getItem('job_post_id_clicked')
+                                    })
+                                        .then(function (data) {
+                                            console.log('get job post');
+                                            console.log(data);
+                                            console.log('--------');
+                                            localStorage.setItem('hired_position', data.data.job_position_level);
+
+                                            axios({
+                                                method: 'post',
+                                                url: baseurl + 'employee_info/',
+                                                data: {
+                                                    full_name: localStorage.getItem('hired_full_name'),
+                                                    position: localStorage.getItem('hired_position'),
+                                                    hired_by: localStorage.getItem('U_user_account_id'),
+                                                    candidate_id: localStorage.getItem('candidate_id_clicked')
+                                                }
+                                            })
+                                                .then(function (data) {
+                                                    alert('Employee is now Hired/Accepted.');
+                                                    window.open('employer-list-employee.html', '_self');
+                                                })
+                                                .catch(function (data, err) {
+                                                    console.error(err);
+                                                })
+                                        })
+                                        .catch(function (data, err) {
+                                            console.error(err);
+                                        })
+                                })
+                                .catch(function (data, err) {
+                                    console.error(err);
+                                })
+                        })
+                        .catch(function (data, err) {
+                            console.error(err);
+                        })
+                })
+                .catch(function (data, err) {
+                    console.error(err);
+                })
+        }
+
+        function reject_and_cancel() {
+            axios({
+                method: 'put',
+                url: baseurl + 'job_application/reject/' + localStorage.getItem('job_application_id_clicked')
+            })
+                .then(function (data) {
+                    axios({
+                        method: 'put',
+                        url: baseurl + 'interview_info/cancel/' + localStorage.getItem('job_application_id_clicked')
+                    })
+                        .then(function (data) {
+                            alert('Cancelled.');
+                            window.open('employer-all-candidates.html', '_self');
+                        })
+                        .catch(function (data, err) {
+                            console.error(err);
+                        })
+                })
+                .catch(function (data, err) {
+                    console.error(err);
+                })
+        }
+
+        function resched() {
+            axios({
+                method: 'put',
+                url: baseurl + 'interview_info/' + localStorage.getItem('job_application_id_clicked'),
+                data: {
+                    candidate_profile_id: localStorage.getItem("candidate_id_clicked"),
+                    interview_date: $("#interview_date").val(),
+                    interview_time: $("#interview_time").val(),
+                    interview_location: $("#interview_location").val(),
+                    interview_additional_info: $("#interview_additional_info").val(),
+                    interview_remarks: 'INTERVIEW REMARKS',
+                    interview_status: 'Pending'
+                }
+            })
+                .then(function (data) {
+                    alert('Interview Rescheduled');
+                    window.open('employer-all-candidates.html', '_self');
+                })
+                .catch(function (data, err) {
+                    console.error(err);
+                })
+        }
+    </script>
+</body>
+
+</html>

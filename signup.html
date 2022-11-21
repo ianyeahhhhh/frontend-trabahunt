@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> TrabaHunt | Signup</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
+    <!-- BS Stepper -->
+    <link rel="stylesheet" href="/plugins/bs-stepper/css/bs-stepper.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet " href="dist/css/adminlte.min.css ">
+    <link rel="icon" href="dist/img/logo-head.png" type="image/x-icon">
+    <script src="global-variables.js"></script>
+</head>
+
+<body class="bg-container register-page">
+    <div class="register-box">
+        <div class="card card-primary">
+            <div class="card-header text-center">
+                <h3>Sign Up</h3>
+            </div>
+            <div class="card-body">
+                <p class="login-box-msg">Create an account</p>
+                <form id="signupForm">
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label>Email</label>
+                            <input id="email" type="email" name="email" class="form-control"
+                                placeholder="sample@email.com">
+                        </div>
+                        <div class="form-group col-6">
+                            <label>Contact Number</label>
+                            <input id="contact_number" type="text" name="contact_number" class="form-control"
+                                placeholder="Ex: 09123456789" maxlength="11">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label>Password</label>
+                            <input id="password" type="password" id="password" name="password" class="form-control"
+                                placeholder="Password">
+
+                        </div>
+                        <div class="form-group col-6">
+                            <label>Confirm Password</label>
+                            <input type="password" name="retypePassword" class="form-control"
+                                placeholder="Re-type Password">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label>Role</label>
+                            <select id="user_account_type" class="form-control select2">
+                                <option selected="selected" disabled="disabled">Select a role</option>
+                                <option value="Candidate">Candidate</option>
+                                <option value="Employer">Employer</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="form-group icheck-primary">
+                                <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+                                <label for="agreeTerms">I agree to the <a href="#">terms</a>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button class="btn btn-primary btn-block">Sign Up</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+                <div class="text-center">
+                    <p>- OR -</p>
+                </div>
+
+                <div class="social-auth-links text-center">
+                    <a href="#" class="btn btn-block btn-danger">
+                        <i class="fab fa-google-plus mr-2"></i> Sign up using Google
+                    </a>
+                </div>
+
+                <a href="candidate-home.html" class="text-center">I already have an account</a>
+            </div>
+            <!-- /.form-box -->
+        </div>
+    </div>
+    <!-- /.card -->
+    </div>
+    <!-- /.login-box -->
+    </div>
+    <!-- REQUIRED SCRIPTS -->
+
+    <!-- jQuery -->
+    <script src="/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Select2 -->
+    <script src="/plugins/select2/js/select2.full.min.js"></script>
+    <!-- Bootstrap4 Duallistbox -->
+    <script src="/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+    <!-- InputMask -->
+    <script src="/plugins/moment/moment.min.js"></script>
+    <script src="/plugins/inputmask/jquery.inputmask.min.js"></script>
+    <!-- date-range-picker -->
+    <script src="/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- bootstrap color picker -->
+    <script src="/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Bootstrap Switch -->
+    <script src="/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+    <!-- BS-Stepper -->
+    <script src="/plugins/bs-stepper/js/bs-stepper.min.js"></script>
+    <!-- dropzonejs -->
+    <script src="/plugins/dropzone/min/dropzone.min.js"></script>
+    <!-- jquery-validation -->
+    <script src="/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="/plugins/jquery-validation/additional-methods.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+
+    <!-- Page specific script -->
+    <script>
+        $(function () {
+            $.validator.setDefaults({
+                submitHandler: function () {
+                    //CREATE USER_ACCOUNT
+                    axios({
+                        method: 'post',
+                        url: baseurl + 'user_account/',
+                        data: {
+                            email: $("#email").val(),
+                            password: $("#password").val(),
+                            contact_number: $("#contact_number").val(),
+                            user_account_type: document.getElementById("user_account_type").value,
+                            account_status: "Active"
+                        }
+                    })
+                        .then(function (data) {
+                            // alert("User Account Successfully Created.");
+                            localStorage.setItem("U_user_account_id", data.data.data.user_account_id);
+                            localStorage.setItem("U_email", data.data.data.email);
+                            localStorage.setItem("U_password", data.data.data.password);
+                            localStorage.setItem("U_contact_number", data.data.data.contact_number);
+                            localStorage.setItem("U_account_status", data.data.data.account_status);
+                            localStorage.setItem("U_user_account_type", data.data.data.user_account_type);
+
+                            if (document.getElementById("user_account_type").value == "Candidate") {
+                                // CREATE CANDIDATE_PROFILE
+                                axios({
+                                    method: 'post',
+                                    url: baseurl + 'candidate_profile/',
+                                    data: {
+                                        candidate_type: "",
+                                        first_name: "",
+                                        middle_name: "",
+                                        last_name: "",
+                                        suffix_name: "",
+                                        age: 0,
+                                        gender: "",
+                                        birth_date: "",
+                                        zip_code: "",
+                                        city: "",
+                                        region: "",
+                                        country: "",
+                                        nationality: "",
+                                        candidate_image: "",
+                                        user_account_id: parseInt(localStorage.getItem("U_user_account_id"))
+                                    }
+                                })
+                                    .then(function () {
+                                        // alert("Candidate Profile Successfully Created.");
+                                        // CREATE CANDIDATE_EDUCATION_DETAIL
+                                        axios({
+                                            method: 'post',
+                                            url: baseurl + 'candidate_education_detail/',
+                                            data: {
+                                                institute_university_name: "",
+                                                highest_education_attainment: "",
+                                                institute_university_location: "",
+                                                field_of_study: "",
+                                                major: "",
+                                                graduation_date: "",
+                                                user_account_id: parseInt(localStorage.getItem("U_user_account_id"))
+                                            }
+                                        })
+                                            .then(function () {
+                                                // alert("Candidate Education Detail Successfully Created.");
+                                                //RESUME
+                                                axios({
+                                                    method: 'post',
+                                                    url: baseurl + 'candidate_resume/',
+                                                    data: {
+                                                        user_account_id: parseInt(localStorage.getItem("U_user_account_id")),
+                                                        resume: ""
+                                                    }
+                                                })
+                                                    .then(function (data) {
+                                                        axios({
+                                                            method: 'post',
+                                                            url: baseurl + 'candidate_experience_detail/',
+                                                            data: {
+                                                                experience_level: "",
+                                                                experience_description: "",
+                                                                year_month_work_experience: "",
+                                                                user_account_id: parseInt(localStorage.getItem("U_user_account_id"))
+                                                            }
+                                                        })
+                                                            .then(function () {
+                                                                alert("User account created. Please login now.");
+                                                                window.open("candidate-login.html", "_self");
+                                                            })
+                                                            .catch(function (err, data) {
+                                                                console.error(err);
+                                                            })
+                                                    })
+                                                    .catch(function (data) {
+                                                        alert("Resume Creation Failed");
+                                                    })
+                                            })
+                                            .catch(err => {
+                                                console.error(err);
+                                            })
+                                    })
+                                    .catch(err => {
+                                        console.error(err);
+                                    })
+                            } else if (document.getElementById("user_account_type").value == "Employer") {
+                                // CREATE COMPANY_PROFILE
+                                axios({
+                                    method: 'post',
+                                    url: baseurl + 'company_profile/',
+                                    data: {
+                                        company_name: "",
+                                        profile_description: "",
+                                        establishment_date: "",
+                                        company_website_url: "",
+                                        company_logo: "",
+                                        user_account_id: parseInt(localStorage.getItem("U_user_account_id"))
+                                    }
+                                })
+                                    .then(function (data) {
+                                        localStorage.setItem('company_id_when_created', data.data.data.company_id);
+                                        // alert("Company Profile Creation Done.");
+                                        axios({
+                                            method: 'post',
+                                            url: baseurl + 'company_addition_info/',
+                                            data: {
+                                                user_account_id: parseInt(localStorage.getItem("U_user_account_id")),
+                                                registration_number: "",
+                                                country: "",
+                                                region: "",
+                                                zip_code: "",
+                                                city: "",
+                                                company_contact_number: ""
+                                            }
+                                        })
+                                            .then(function () {
+                                                // alert("Company Addition Info Creation Done. Please choose your subscription package.");
+                                                alert("User account created. Please choose your subscription package.");
+                                                window.open("employer-choose-subscription.html", "_self");
+                                            })
+                                            .catch(function (err) {
+                                                console.error(err);
+                                            })
+                                    })
+                                    .catch(err => {
+                                        console.error(err);
+                                    })
+                            }
+                        })
+                        .catch(err => {
+                            console.error(err);
+                            alert("User Account Creation Failed.");
+                        })
+                }
+            });
+            $('#signupForm').validate({
+                rules: {
+                    email: {
+                        required: true,
+                        email: true,
+                    },
+                    contactNo: {
+                        required: true,
+                        minlength: 11
+                    },
+                    password: {
+                        required: true,
+                        minlength: 8
+                    },
+                    retypePassword: {
+                        required: true,
+                        minlength: 8,
+                        equalTo: "#password"
+                    },
+                    terms: {
+                        required: true
+                    },
+                },
+                messages: {
+                    email: {
+                        required: "Please enter a email address",
+                        email: "Please enter a valid email address"
+                    },
+                    contactNo: {
+                        required: "Please enter your contact number",
+                        minlength: "Invalid contact number"
+                    },
+                    password: {
+                        required: "Please provide a password",
+                        minlength: "Password must be at least 8 characters long"
+                    },
+                    retypePassword: {
+                        required: "Please re-type your password",
+                        minlength: "Password must be at least 8 characters long",
+                        equalTo: "Password didn't match"
+                    },
+                    terms: "Please accept our terms"
+                },
+                errorElement: 'span',
+                errorPlacement: function (error, element) {
+                    error.addClass('invalid-feedback');
+                    element.closest('.form-group').append(error);
+                },
+                highlight: function (element, errorClass, validClass) {
+                    $(element).addClass('is-invalid');
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                    $(element).removeClass('is-invalid');
+                },
+            });
+            //Initialize Select2 Elements
+            $('.select2').select2()
+
+            //Initialize Select2 Elements
+            $('.select2bs4').select2({
+                theme: 'bootstrap4'
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

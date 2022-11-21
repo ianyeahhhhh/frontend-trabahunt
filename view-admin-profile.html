@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Admin | Profile</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
+    <!-- BS Stepper -->
+    <link rel="stylesheet" href="/plugins/bs-stepper/css/bs-stepper.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="../../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet " href="dist/css/adminlte.min.css ">
+    <link rel="icon" href="dist/img/logo-head.png" type="image/x-icon">
+    <script src="global-variables.js"></script>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+
+    <body onload="if (localStorage.getItem('adminSession')==null) self.location='admin-home.html';"></body>
+    <div class="wrapper">
+        <!--NAV BAR START-->
+        <nav class="main-header navbar navbar-expand nav-custom">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <li class=" nav-item d-none d-sm-inline-block ">
+                        <h5 class="navbar-header"><b>Admin Profile</b></h5>
+                    </li>
+                </li>
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto ">
+                <li class="nav-item dropdown ">
+                    <a class="navbar-right-item" data-toggle="dropdown" href="#">
+                        <i class="far fa-user "></i>
+                        <span id="admin_email_1" class="user-name">Admin Email Here</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
+                        <a href="view-admin-profile.html" class="dropdown-item ">Profile</a>
+                        <a href="admin-logout.html" class="dropdown-item">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <!--NAV BAR END-->
+
+        <!--SIDE BAR START-->
+        <aside class="main-sidebar sidebar-light-primary elevation-4 ">
+            <!-- Brand Logo -->
+            <a href="/admin-dashboard.html " class="brand-link">
+                <img src="/dist/img/logo-head.png " alt="TrabaHunt Logo " class="brand-image ">
+                <span class="brand-text font-weight-bold ">TrabaHunt</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <nav class="mt-2 ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                        <!-- Add icons to the links using the .nav-icon class
+                           with font-awesome or any other icon font library -->
+                        <li class="nav-item ">
+                            <a href="admin-dashboard.html" class="nav-link ">
+                                <i class="nav-icon fas fa-columns "></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="# " class="nav-link ">
+                                <i class="nav-icon fas fa-users "></i>
+                                <p style="margin-right: 1rem; ">
+                                    User Management
+                                </p>
+                                <span><i class="right fas fa-angle-left "></i></span>
+                            </a>
+                            <ul class="nav nav-treeview ">
+                                <li class="nav-item ">
+                                    <a href="candidate-list.html" class="nav-link ">
+                                        <p>Candidates</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="employer-list.html" class="nav-link ">
+                                        <p>Employers</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="# " class="nav-link ">
+                                <i class="nav-icon fas fa-ad "></i>
+                                <p style="margin-right: .8rem; ">
+                                    Job Advertisement
+                                </p>
+                                <span><i class="right fas fa-angle-left "></i></span>
+                            </a>
+                            <ul class="nav nav-treeview ">
+                                <li class="nav-item ">
+                                    <a href="job-ads-list.html" class="nav-link ">
+                                        <p>Job Ads List</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="pending-job-ads.html" class="nav-link ">
+                                        <p>Pending Job Ads</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a href="admin-manage-requests.html" class="nav-link ">
+                                <i class="nav-icon fas fa-file-alt"></i>
+                                <p>
+                                    Request Forms
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link ">
+                                <i class="nav-icon fas fa-file-invoice-dollar"></i>
+                                <p style="margin-right: .8rem;">
+                                    Billings
+                                </p>
+                                <span><i class="right fas fa-angle-left "></i></span>
+                            </a>
+                            <ul class="nav nav-treeview ">
+                                <li class="nav-item ">
+                                    <a href="admin-billing-basic.html" class="nav-link ">
+                                        <p>Basic Package</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="admin-billing-branded.html" class="nav-link ">
+                                        <p>Branded Package</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="package-list.html" class="nav-link ">
+                                <i class="nav-icon fas fa-layer-group "></i>
+                                <p>
+                                    Packages
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="admin-transaction-logs.html" class="nav-link ">
+                                <i class="nav-icon fas fa-list"></i>
+                                <p>
+                                    Transaction Logs
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+        <!--SIDE BAR END-->
+
+        <div class="content-wrapper">
+            <div class="container-fluid" style="padding: 2rem 1rem;">
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <!-- Profile Image -->
+                                <div class="card card-sticky card-primary card-outline">
+                                    <div class="card-body box-profile">
+                                        <div class="text-center">
+                                            <img class="profile-user-img img-fluid img-circle" src="/dist/img/empty-image.jpg" alt="User profile picture">
+                                        </div>
+                                        <h3 id="admin_full_name_1" class="profile-username text-center">Admin Full Name</h3>
+
+                                        <p class="text-muted text-center">System Administrator</p>
+
+                                        <ul class="list-group  mb-3">
+                                            <li class="list-group-item">
+                                                <span><i class="fas fa-envelope"></i></span> <a class="float-right" id="admin_email_3">Admin Email Here</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- /.card-body -->
+                                </div>
+                                <!-- /.card -->
+
+                            </div>
+                            <div class="col-md-9">
+                                <!-- Profile -->
+                                <div class="card card-default">
+                                    <div class="card-header">
+                                        <h3 class="card-title"><b>System Administrator Profile</b></h3>
+                                        <a href="edit-admin-profile.html" class="float-right"><i class="fas fa-edit"></i></a>
+                                    </div>
+                                    <!-- /.card-header -->
+
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <strong>
+                                                    <i class="fas fa-info-circle"></i> INFORMATION
+                                                </strong>
+                                            </div>
+                                        </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Full Name
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="admin_full_name_2">
+                                                    <!-- Yor Z. Forger -->
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Email
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="admin_email_2">
+                                                    <!-- admin@admin.com -->
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- /.card-body -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </section>
+            </div>
+
+        </div>
+
+
+
+        <footer class="main-footer ">
+            <div class="float-right d-none d-sm-block ">
+                <b>Traba</b>Hunt
+            </div>
+            <strong>Copyright &copy; 2022 All rights reserved.
+        </footer>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js "></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js "></script>
+    <!-- overlayScrollbars -->
+    <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js "></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+
+    <!-- <script>
+        document.getElementById("admin_full_name_1").innerHTML = localStorage.getItem("admin_full_name");
+        document.getElementById("admin_full_name_2").innerHTML = localStorage.getItem("admin_full_name");
+        document.getElementById("admin_email_1").innerHTML = localStorage.getItem("admin_email");
+        document.getElementById("admin_email_2").innerHTML = localStorage.getItem("admin_email");
+        document.getElementById("admin_email_3").innerHTML = localStorage.getItem("admin_email");
+    </script> -->
+</body>
+
+</html>

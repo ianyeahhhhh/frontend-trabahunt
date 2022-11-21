@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TrabaHunt | Login</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel=" stylesheet " href="plugins/fontawesome-free/css/all.min.css ">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet " href="dist/css/adminlte.min.css ">
+    <link rel="icon" href="dist/img/logo-head.png" type="image/x-icon">
+    <script src="global-variables.js"></script>
+</head>
+
+<body>
+    <div class="bg-container login-page">
+        <div class="login-box">
+            <div class="card card-primary">
+                <div class="card-header text-center ">
+                    <a class="h3 "><b>Employer</b> Login</a>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form id="quickForm">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" name="email" class="form-control" id="email" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" class="form-control" id="password"
+                                placeholder="Password">
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="icheck-primary">
+                                    <input type="checkbox" id="remember">
+                                    <label for="remember">
+                                        Remember Me
+                                    </label>
+
+                                </div>
+                            </div>
+                            <div class="col-4 text-right">
+                                <a href="forgot-pass.html">Forgot?</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                        <div class="social-auth-links text-center mt-2 mb-3 ">
+                            <button type="submit" class="btn btn-primary btn-block ">Log In</button>
+                        </div>
+                        <span>Don't have an account?</span><a href="signup.html" class="text-center"> Sign up
+                            here</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.login-box -->
+    </div>
+    <!-- REQUIRED SCRIPTS -->
+
+    <!-- jQuery -->
+    <script src="/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js "></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.min.js "></script>
+    <!-- jquery-validation -->
+    <script src="/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="/plugins/jquery-validation/additional-methods.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+
+    <!-- Page specific script -->
+    <script>
+        $(function () {
+            $.validator.setDefaults({
+                submitHandler: function () {
+                    var loginTime = new Date().toString();
+                    axios({
+                        method: 'post',
+                        url: baseurl + 'login/',
+                        data: {
+                            username: $("#email").val(),
+                            password: $("#password").val()
+                        },
+                        headers: {
+                            'Content-Type': 'multipart/form-data'
+                        }
+                    })
+                        .then(function (data) {
+                            // console.log(data);
+                            localStorage.setItem('U_user_account_id', data.data.data.user_account_id);
+                            localStorage.setItem('E_userSession', data.data.access_token);
+                            localStorage.setItem('U_account_status', data.data.data.account_status);
+                            localStorage.setItem('U_contact_number', data.data.data.contact_number);
+                            localStorage.setItem('U_email', data.data.data.email);
+                            localStorage.setItem('U_updated_at', data.data.data.updated_at);
+
+                            // SESSION INFO
+                            axios({
+                                method: 'post',
+                                url: baseurl + 'session_info/',
+                                data: {
+                                    user_account_id: localStorage.getItem('U_user_account_id'),
+                                    time_of_login: loginTime,
+                                    time_of_logout: "LOGOUT_TIME"
+                                }
+                            })
+                                .then(function (data) {
+                                    localStorage.setItem("E_session_info_id", data.data.data.session_info_id);
+                                    localStorage.setItem("loginTime", data.data.data.time_of_login);
+
+                                    // EMPLOYER SUBSCRIPTION
+                                    axios({
+                                        method: 'get',
+                                        url: baseurl + 'company_subscription/' + localStorage.getItem('U_user_account_id')
+                                    })
+                                        .then(function (data) {
+                                            if (data.data.subscription_type_code == 1) {
+                                                alert("Employer Login Successful. Redirecting to Dashboard...");
+                                                window.open("employer-basic-dashboard.html", "_self");
+                                            }
+                                            else {
+                                                alert("Employer Login Successful. Redirecting to Dashboard...");
+                                                window.open("employer-branding-dashboard.html", "_self");
+                                            }
+                                        })
+                                        .catch(function (data, err) {
+                                            console.log(data);
+                                            console.error(err);
+                                        })
+                                })
+                                .catch(function (data, err) {
+                                    alert("SESSION_INFO_FAILED");
+                                    console.error(err);
+                                    console.log(data);
+                                })
+                        })
+                        .catch(function (err) {
+                            alert("Invalid Credentials. Please try again...");
+                            console.error(err);
+                        })
+                }
+            });
+            $('#quickForm').validate({
+                rules: {
+                    email: {
+                        required: true,
+                        email: true,
+                    },
+                    password: {
+                        required: true
+                    },
+                    terms: {
+                        required: true
+                    },
+                },
+                messages: {
+                    email: {
+                        required: "Please enter a email address",
+                        email: "Please enter a valid email address"
+                    },
+                    password: {
+                        required: "Please provide a password"
+                    },
+                    terms: "Please accept our terms"
+                },
+                errorElement: 'span',
+                errorPlacement: function (error, element) {
+                    error.addClass('invalid-feedback');
+                    element.closest('.form-group').append(error);
+                },
+                highlight: function (element, errorClass, validClass) {
+                    $(element).addClass('is-invalid');
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                    $(element).removeClass('is-invalid');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
