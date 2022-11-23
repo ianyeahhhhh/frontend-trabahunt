@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Employer | Payment</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
+    <!-- BS Stepper -->
+    <link rel="stylesheet" href="/plugins/bs-stepper/css/bs-stepper.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="../../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet " href="dist/css/adminlte.min.css ">
+    <link rel="icon" href="dist/img/logo-head.png" type="image/x-icon">
+    <script src="global-variables.js"></script>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <!-- <body onload="if (localStorage.getItem('adminSession')==null) self.location='admin-home.html';"></body> -->
+    <div class="wrapper">
+        <!--NAV BAR START-->
+        <nav class="main-header navbar navbar-expand nav-custom">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <li class=" nav-item d-none d-sm-inline-block ">
+                        <h5 class="navbar-header"><b>Subscription</b></h5>
+                    </li>
+                </li>
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto ">
+                <li class="nav-item dropdown ">
+                    <a class="navbar-right-item" data-toggle="dropdown" href="#">
+                        <i class="fas fa-user-alt"></i>
+                        <span id="employer_display_name" class="user-name">COMPANY NAME HERE</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
+                        <!-- <div class="dropdown-divider "></div> -->
+                        <a href="employer-basic-view-profile.html" class="dropdown-item "><span><i
+                            class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="employer-basic-view-acc.html" class="dropdown-item "><span><i class="fas fa-user-lock"></i></span> Account</a>
+                        <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
+                            class="fas fa-sign-out-alt"></i></span> Logout</a>
+                    </div>
+                </li>
+            </ul>
+            <!--/Right navbar links-->
+
+        </nav>
+        <!--NAV BAR END-->
+
+        <!--SIDE BAR START-->
+        <aside class="main-sidebar sidebar-light-primary elevation-4 ">
+            <!-- Brand Logo -->
+            <a href="/employer-basic-dashboard.html " class="brand-link">
+                <img src="/dist/img/logo-head.png" alt="TrabaHunt Logo " class="brand-image">
+                <span class="brand-text font-weight-bold ">TrabaHunt</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <nav class="mt-2 ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                        <!-- Add icons to the links using the .nav-icon class
+                           with font-awesome or any other icon font library -->
+                        <li class="nav-item ">
+                            <a href="employer-basic-dashboard.html" class="nav-link ">
+                                <i class="nav-icon fas fa-columns "></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link ">
+                                <i class="nav-icon fas fa-file-alt"></i>
+                                <p style="margin-right: .8rem;">
+                                    Request
+                                </p>
+                                <span><i class="right fas fa-angle-left "></i></span>
+                            </a>
+                            <ul class="nav nav-treeview ">
+                                <li class="nav-item ">
+                                    <a href="employer-request-form.html" class="nav-link ">
+                                        <p>Create request</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="employer-request-history.html" class="nav-link ">
+                                        <p>Request history</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="employer-basic-employees.html" class="nav-link ">
+                                <i class="nav-icon fas fa-user-tie"></i>
+                                <p>
+                                    Employees
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link ">
+                                <i class="nav-icon fas fa-layer-group"></i>
+                                <p style="margin-right: .8rem;">
+                                    Subscription
+                                </p>
+                                <span><i class="right fas fa-angle-left "></i></span>
+                            </a>
+                            <ul class="nav nav-treeview ">
+                                <li class="nav-item ">
+                                    <a href="employer-basic-mgt.html" class="nav-link ">
+                                        <p>Manage Subscription</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="employer-pending-payment.html" class="nav-link ">
+                                        <p>Pending payment</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+        <!--SIDE BAR END-->
+
+        <!--payment confirm MODAL-->
+        <!--modal start-->
+        <div class="modal fade" id="payment-confirm-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Payment Confirmation</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p><span><b>This is a non-refundable purchase</b></span>. <br> By proceeding to pay below, I have read, understood and accepted all <span><a href="#">Terms of Use.</a></span></p>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="">Confirm payment</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <div class="content-wrapper">
+            <div class="container-fluid" style="padding: 2rem 1rem;">
+                <div class="row">
+                    <div class="col-9">
+                        <div class="callout callout-primary">
+                            <p class="float-right"> Price</p>
+                            <p>Package type</p>
+                            <hr>
+                            <p class="float-right"><b>10,000 / Monthly</b></p>
+                            <h5><span><i class="fas fa-layer-group "></i></span> <b>Basic Package</b></h5>
+                            <p style="font-size: 12px;">Sample-Package-ID-HD3BKC90CA-0</p>
+                            <a href="employer-basic-mgt.html">Package Details</a>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card">
+                            <div class="card-header">
+                                <h class="card-title"><b>BILLING STATUS</b></h3>
+                            </div>
+                            <div class="card-body">
+                                <p>
+                                    Payment is <span class="badge badge-success">Up-to-date</span>
+                                </p>
+                                <hr>
+                                <p>
+                                    Next billing date: <b>December 11, 2022</b>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-9">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title"><b>PAYMENT</b></h3>
+                            </div>
+                            <form>
+                                <div class="card-body">
+                                    <!--Personal details-->
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <strong>
+                                            Personal Details
+                                        </strong>
+                                        </div>
+                                    </div>
+                                    <div class="row  row-custom">
+                                        <div class="col-sm-3">
+                                            <p class="text-muted">
+                                                Full name <span class="required-sign"> *</span>
+                                            </p>
+                                        </div>
+                                        <div class="col-6 form-group">
+                                            <input id="full_name" name="full_name" type="text" class="form-control" placeholder="Enter your full name">
+                                        </div>
+                                    </div>
+                                    <div class="row  row-custom">
+                                        <div class="col-sm-3">
+                                            <p class="text-muted">
+                                                Email <span class="required-sign"> *</span>
+                                            </p>
+                                        </div>
+                                        <div class="col-6 form-group">
+                                            <input id="email" name="email" type="email" class="form-control" placeholder="Enter your email">
+                                        </div>
+                                    </div>
+                                    <!--/Personal Details-->
+                                    <hr>
+                                    <!--Payment method-->
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <strong>
+                                            Payment Method
+                                        </strong>
+                                        </div>
+                                    </div>
+                                    <div class="row row-custom">
+                                        <div class="col-6 form-group">
+                                            <select id="payment_type" name="payment_type" size="1" class="form-control select2" style="width: 100%;">
+                                            <option value="" selected="selected" disabled="disabled">Select payment method
+                                            </option>
+                                            <option value="Bank transfer" label="Bank transfer">Bank transfer</option>
+                                            <option value="Debit/ Credit Card" label="Debit/ Credit Card">Debit/ Credit Card</option>
+                                            <option value="GCash" label="GCash">GCash</option>
+                                            <option value="Paymaya" label="Paypal">Paymaya</option>
+                                            
+                                        </select>
+                                        </div>
+                                    </div>
+                                    <!--/Payment method-->
+                                </div>
+                            </form>
+                            <div class="card-footer">
+                                <button class="btn btn-success" data-toggle="modal" data-target="#payment-confirm-modal"> Submit payment</button>
+                                <a href="payment-invoice-print.html" rel="noopener" target="_blank" class="btn btn-default float-right"><i class="fas fa-print"></i> Print Invoice</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <footer class="main-footer ">
+            <div class="float-right d-none d-sm-block ">
+                <b>Traba</b>Hunt
+            </div>
+            <strong>Copyright &copy; 2022 All rights reserved.
+        </footer>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js "></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js "></script>
+    <!-- overlayScrollbars -->
+    <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js "></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js "></script>
+    <!-- Select2 -->
+    <script src="../../plugins/select2/js/select2.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script> 
+
+    <script>
+        document.getElementById("employer_display_name").innerHTML = localStorage.getItem("U_email");
+    </script>
+
+    <script>
+        $(function () {
+            //Initialize Select2 Elements
+            $('.select2').select2()
+        });
+    </script>
+</body>
+
+</html>

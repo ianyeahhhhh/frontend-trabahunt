@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Employer | Search Applicants</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
+    <!-- BS Stepper -->
+    <link rel="stylesheet" href="/plugins/bs-stepper/css/bs-stepper.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="../../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet " href="dist/css/adminlte.min.css ">
+    <link rel="icon" href="dist/img/logo-head.png" type="image/x-icon">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <script src="global-variables.js"></script>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+
+    <!--<body onload="if (localStorage.getItem('E_userSession')==null) self.location='employer-login.html';"></body>-->
+    <div class="wrapper">
+        <!--NAV BAR START-->
+        <nav class="main-header navbar navbar-expand nav-custom-emp">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
+                    <li class=" nav-item d-none d-sm-inline-block ">
+                        <h5 class="navbar-header"><b>Search applicants</b></h5>
+                    </li>
+                </li>
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto ">
+                <li class="nav-item dropdown ">
+                    <a class="navbar-right-item" data-toggle="dropdown" href="#">
+                        <i class="fas fa-user-alt"></i>
+                        <span id="employer_display_name" class="user-name">COMPANY NAME HERE</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
+                        <!-- <div class="dropdown-divider "></div> -->
+                        <a href="employer-view-profile.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="employer-branding-view-acc.html" class="dropdown-item "><span><i class="fas fa-user-lock"></i></span> Account</a>
+                        <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
+                                    class="fas fa-sign-out-alt"></i></span> Logout</a>
+                    </div>
+                </li>
+            </ul>
+            <!--/Right navbar links-->
+
+        </nav>
+        <!--NAV BAR END-->
+
+        <!--SIDE BAR START-->
+        <aside class="main-sidebar main-sidebar-custom sidebar-light-primary elevation-4 ">
+            <!-- Brand Logo -->
+            <a href="employer-branding-dashboard.html " class="brand-link">
+                <img src="/dist/img/logo-head.png " alt="TrabaHunt Logo " class="brand-image ">
+                <span class="brand-text font-weight-bold ">TrabaHunt</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <nav class="mt-2 ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                        <!-- Add icons to the links using the .nav-icon class
+                           with font-awesome or any other icon font library -->
+                        <li class="nav-item ">
+                            <a href="employer-branding-dashboard.html" class="nav-link ">
+                                <i class="nav-icon fas fa-columns "></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="employer-search-candidates.html" class="nav-link ">
+                                <i class="nav-icon fas fa-search"></i>
+                                <p>
+                                    Search Applicants
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="employer-list-job-offered.html" class="nav-link ">
+                                <i class="nav-icon fas fa-briefcase"></i>
+                                <p>
+                                    Job Offered
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="# " class="nav-link ">
+                                <i class="nav-icon fas fa-ad "></i>
+                                <p style="margin-right: .8rem; ">
+                                    Job Advertisement
+                                </p>
+                                <span><i class="right fas fa-angle-left "></i></span>
+                            </a>
+                            <ul class="nav nav-treeview ">
+                                <li class="nav-item ">
+                                    <a href="employer-create-job-ads.html" class="nav-link ">
+                                        <p>Create Job Ads</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="employer-job-ads-list.html" class="nav-link ">
+                                        <p>Job Ads List</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="employer-pending-job-ads.html" class="nav-link ">
+                                        <p>Pending Job Ads</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a href="employer-all-candidates.html" class="nav-link ">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>
+                                    All Candidates
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a href="employer-list-employee.html" class="nav-link ">
+                                <i class="nav-icon fas fa-user-tie"></i>
+                                <p>
+                                    Employees
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link ">
+                                <i class="nav-icon fas fa-layer-group"></i>
+                                <p style="margin-right: .8rem;">
+                                    Subscription
+                                </p>
+                                <span><i class="right fas fa-angle-left "></i></span>
+                            </a>
+                            <ul class="nav nav-treeview ">
+                                <li class="nav-item ">
+                                    <a href="employer-branding-mgt.html" class="nav-link ">
+                                        <p>Manage Subscription</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="employer-branding-pending-payment.html" class="nav-link ">
+                                        <p>Pending payment</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="sidebar-custom">
+                <a href="employer-faqs.html" class="btn btn-link">Need Help?</a>
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+        <!--SIDE BAR END-->
+
+        <div class="content-wrapper">
+            <div class="container-fluid" style="padding: 2rem 1rem;">
+                <!--DATATABLE START-->
+                <div class="card">
+                    <div class="card-header">
+                        <h5><b>List of Applicants</b></h5>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>User Account ID</th>
+                                    <th>Email</th>
+                                    <th>Contact Number</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <!-- <tbody>
+                                <td>1</td>
+                                <td>Sample</td>
+                                <td>sample@gmail.com</td>
+                                <td>Computer Science/ Information Technology</td>
+                                <td>Fresh Graduate</td>
+                                <td>
+                                    <a href='employer-view-searched-applicant.html'><button type='button'
+                                            class='btn btn-warning btn-sm'><i class='fas fa-eye'></i></button></a>
+                                    <a href="employer-job-offer.html"><button type='button'
+                                            class='btn btn-primary btn-sm'><i
+                                                class="fas fa-paper-plane"></i></button></a>
+                                </td>
+                            </tbody> -->
+                            <tfoot>
+                                <tr>
+                                    <th>User Account ID</th>
+                                    <th>Email</th>
+                                    <th>Contact Number</th>
+                                    <th>Action</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+                <!--DATATABLE END-->
+            </div>
+
+        </div>
+
+        <footer class="main-footer ">
+            <div class="float-right d-none d-sm-block ">
+                <b>Traba</b>Hunt
+            </div>
+            <strong>Copyright &copy; 2022 All rights reserved.
+        </footer>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js "></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js "></script>
+    <!-- overlayScrollbars -->
+    <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js "></script>
+    <!-- AdminLTE App -->
+    <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="../../plugins/jszip/jszip.min.js"></script>
+    <script src="../../plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="../../plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+
+    <script>
+        document.getElementById("employer_display_name").innerHTML = localStorage.getItem("U_email");
+    </script>
+
+    <script>
+        axios({
+            method: 'get',
+            url: baseurl + 'user_account/all_candidate'
+        })
+            .then(function (data) {
+                var table = $("#example1").DataTable({
+                    data: data.data,
+                    columns: [
+                        { data: 'user_account_id' },
+                        { data: 'email' },
+                        { data: 'contact_number' },
+                        {
+                            data: null,
+                            render: function (data) {
+                                return "<button type='button' onclick='viewCandidate()' class='btn btn-warning btn-sm'><i class='fas fa-eye'></i></button>" +
+                                    "       <button type='button' onclick='offerJob()' class='btn btn-primary btn-sm'><i class='fas fa-paper-plane'></i></button>"
+                            }
+                        }
+                    ],
+                    "responsive": true,
+                    "lengthChange": true,
+                    "autoWidth": false,
+                    "searching": true
+                })
+                $('#example1').on('click', 'tbody .btn-sm', function () {
+                    var data_row = table.row($(this).closest('tr')).data();
+                    localStorage.setItem('user_account_id_clicked', data_row.user_account_id);
+                })
+            })
+            .catch(function (data, err) {
+                console.error(err);
+            })
+    </script>
+
+    <script>
+        function viewCandidate() {
+            window.open('employer-view-searched-applicant.html', '_self');
+        }
+
+        function offerJob() {
+            window.open('employer-job-offer.html', '_self');
+        }
+    </script>
+
+</body>
+
+</html>

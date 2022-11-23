@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Candidate | Account</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
+    <!-- BS Stepper -->
+    <link rel="stylesheet" href="/plugins/bs-stepper/css/bs-stepper.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="../../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet " href="dist/css/adminlte.min.css ">
+    <link rel="icon" href="dist/img/logo-head.png" type="image/x-icon">
+    <script src="global-variables.js"></script>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+
+    <!-- <body onload="if (localStorage.getItem('C_userSession')==null) self.location='candidate-login.html';"></body> -->
+    <div class="wrapper">
+        <!--NAV BAR START-->
+        <nav class="main-header navbar navbar-expand nav-custom-candidate">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
+                    <li class=" nav-item d-none d-sm-inline-block ">
+                        <h5 class="navbar-header"><b>Account</b></h5>
+                    </li>
+                </li>
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto ">
+                <li class="nav-item dropdown ">
+                    <a class="navbar-right-item" data-toggle="dropdown" href="#">
+                        <i class="fas fa-user-alt"></i>
+                        <span id="candidate_display_name" class="user-name">CANDIDATE NAME HERE</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
+                        <!-- <div class="dropdown-divider "></div> -->
+                        <a href="candidate-agent-view-profile.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="candidate-agent-view-acc.html" class="dropdown-item "><span><i class="fas fa-user-lock"></i></span> Account</a>
+                        <a href="candidate-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
+                                    class="fas fa-sign-out-alt"></i></span> Logout</a>
+                    </div>
+                </li>
+            </ul>
+            <!--/Right navbar links-->
+        </nav>
+        <!--NAV BAR END-->
+
+        <!--SIDE BAR START-->
+        <aside class="main-sidebar main-sidebar-custom sidebar-light-primary elevation-4 ">
+            <!-- Brand Logo -->
+            <a href="candidate-dashboard.html" class="brand-link">
+                <img src="/dist/img/logo-head.png " alt="TrabaHunt Logo " class="brand-image ">
+                <span class="brand-text font-weight-bold ">TrabaHunt</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <nav class="mt-2 ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                        <!-- Add icons to the links using the .nav-icon class
+                           with font-awesome or any other icon font library -->
+                        <li class="nav-item ">
+                            <a href="candidate-agent-dashboard.html" class="nav-link ">
+                                <i class="nav-icon fas fa-columns "></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="candidate-agent-view-job-offer.html" class="nav-link ">
+                                <i class="nav-icon fas fa-briefcase"></i>
+                                <p>
+                                    Job Offers
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="sidebar-custom">
+                <a href="candidate-faqs.html" class="btn btn-link">Need Help?</a>
+            </div>
+
+            <!-- /.sidebar -->
+        </aside>
+        <!--SIDE BAR END-->
+
+        <!--edit acc confirmation MODAL-->
+        <!--modal start-->
+        <div class="modal fade" id="edit-confirmation-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Update Account Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>To confirm, please enter your old password</p>
+                        <form>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="old_pass" placeholder="Enter your old password"></input>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="">Update</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <div class="content-wrapper">
+            <div class="container-fluid" style="padding: 2rem 1rem;">
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <!-- Profile Image -->
+                                <div class="card card-sticky card-success card-outline">
+                                    <div class="card-body box-profile">
+                                        <div class="text-center">
+                                            <img class="profile-user-img img-fluid img-circle" src="/dist/img/empty-image.jpg" alt="User profile picture">
+                                        </div>
+                                        <h3 id="display_full_name" class="profile-username text-center">Default
+                                        </h3>
+
+                                        <p class="text-muted text-center">DEFAULT Software Engineer</p>
+
+                                        <ul class="list-group list-group-unbordered mb-3">
+                                            <li class="list-group-item">
+                                                <span><i class="fas fa-envelope"></i></span> <a id="display_email" class="float-right">default@gmail.com</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <i class="fas fa-phone-alt"></i> <a class="float-right">default+63 914
+                                                    361
+                                                    8544</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <i class="fas fa-money-bill"></i> <a class="float-right">defaultPHP
+                                                    10,000</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-body" style="padding-top: .5rem;">
+                                        <p><b>Deactivate Account</b></p>
+                                        <button type="button" class="btn btn-danger btn-block" onclick="deactivate()"><span><i class="fas fa-user-times"></i></span><b>
+                                                Deactivate</b>
+                                        </button>
+                                    </div>
+                                    <!-- /.card-body -->
+                                </div>
+                                <!-- /.card -->
+
+                            </div>
+                            <div class="col-md-9">
+                                <!-- Profile -->
+                                <div class="card card-success">
+                                    <div class="card-header">
+                                        <h3 class="card-title"><b>Edit account</b></h3>
+                                        <a href="candidate-agent-view-acc.html" class="float-right"><i
+                                                class="fas fa-eye"></i> View</a>
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <form id="editAccount">
+                                        <div class="card-body">
+                                            <!--Account-->
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <strong>
+                                                        <i class="fas fa-user-lock"></i> Account Details
+                                                    </strong>
+                                                </div>
+                                            </div>
+                                            <div class="row  row-custom">
+                                                <div class="col-sm-3">
+                                                    <p class="text-muted">
+                                                        Contact Number
+                                                    </p>
+                                                </div>
+                                                <div class="col-8">
+                                                    <input id="contact_number" class="form-control" placeholder="Ex. 09123456789">
+                                                </div>
+                                            </div>
+                                            <div class="row  row-custom">
+                                                <div class="col-sm-3">
+                                                    <p class="text-muted">
+                                                        Email
+                                                    </p>
+                                                </div>
+                                                <div class="col-8">
+                                                    <input id="email" type="email" class="form-control" placeholder="sample@sample.com">
+                                                </div>
+                                            </div>
+                                            <div class="row  row-custom">
+                                                <div class="col-sm-3">
+                                                    <p class="text-muted">
+                                                        New Password
+                                                    </p>
+                                                </div>
+                                                <div class="form-group col-8">
+                                                    <input name="new_password" id="newPass" type="password" class="form-control" placeholder="Enter new password">
+                                                </div>
+                                            </div>
+                                            <div class="row row-custom">
+                                                <div class="col-sm-3">
+                                                    <p class="text-muted">
+                                                        Re-type Password
+                                                    </p>
+                                                </div>
+                                                <div class="form-group col-8">
+                                                    <input name="confirm_password" type="password" class="form-control" placeholder="Confirm password">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button type="button" class="btn btn-success" data-toggle='modal' data-target='#edit-confirmation-modal' onclick="">Save</button>
+                                        </div>
+                                </div>
+
+                                <!-- /.card-body -->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </section>
+            </div>
+        </div>
+
+        <footer class="main-footer ">
+            <div class="float-right d-none d-sm-block ">
+                <b>Traba</b>Hunt
+            </div>
+            <strong>Copyright &copy; 2022 All rights reserved.
+        </footer>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js "></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js "></script>
+    <!-- overlayScrollbars -->
+    <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js "></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <!-- jquery-validation -->
+    <script src="/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="/plugins/jquery-validation/additional-methods.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+
+    <script>
+        document.getElementById("candidate_display_name").innerHTML = localStorage.getItem("U_email");
+    </script>
+
+    <script>
+        axios({
+            method: 'get',
+            url: baseurl + 'candidate_profile/' + localStorage.getItem('U_user_account_id')
+        })
+            .then(function (data) {
+                localStorage.setItem('candidate_type', data.data.candidate_type);
+                localStorage.setItem('status_from_hr', data.data.status_from_hr);
+                document.getElementById('display_full_name').innerHTML = data.data.full_name;
+                document.getElementById('display_first_name').value = data.data.first_name;
+                document.getElementById('display_middle_name').value = data.data.middle_name;
+                document.getElementById('display_last_name').value = data.data.last_name;
+                document.getElementById('display_suffix_name').value = data.data.suffix_name;
+                document.getElementById('display_gender').value = data.data.gender;
+                document.getElementById('display_birth_date').value = data.data.birth_date;
+                document.getElementById('display_city').value = data.data.city;
+                document.getElementById('display_zip_code').value = data.data.zip_code;
+                document.getElementById('display_region').value = data.data.region;
+                document.getElementById('display_country').value = data.data.country;
+                document.getElementById('display_nationality').value = data.data.nationality;
+
+                axios({
+                    method: 'get',
+                    url: baseurl + 'candidate_education_detail/' + localStorage.getItem('U_user_account_id')
+                })
+                    .then(function (data) {
+                        document.getElementById('display_institute_university_name').value = data.data.institute_university_name;
+                        document.getElementById('display_institute_university_location').value = data.data.institute_university_location;
+                        document.getElementById('display_highest_education_attainment').value = data.data.highest_education_attainment;
+                        document.getElementById('display_field_of_study').value = data.data.field_of_study;
+                        document.getElementById('display_major').value = data.data.major;
+                        document.getElementById('display_date_graduated').value = data.data.graduation_date;
+
+                        axios({
+                            method: 'get',
+                            url: baseurl + 'candidate_experience_detail/' + localStorage.getItem('U_user_account_id')
+                        })
+                            .then(function (data) {
+                                document.getElementById("experience_level").value = data.data.experience_level;
+                                document.getElementById("experience_description").value = data.data.experience_description;
+                                document.getElementById("year_month_work_experience").value = data.data.year_month_work_experience;
+
+                                axios({
+                                    method: 'get',
+                                    url: baseurl + 'user_account/' + localStorage.getItem('U_user_account_id')
+                                })
+                                    .then(function (data) {
+                                        document.getElementById("email").value = data.data.email;
+                                        document.getElementById("contact_number").value = data.data.contact_number;
+                                    })
+                                    .catch(function (data, err) {
+                                        console.error(err);
+                                    })
+                            })
+                            .catch(function (data, err) {
+                                console.error(err);
+                            })
+                    })
+                    .catch(function (data, err) {
+                        console.error(err);
+                        console.log(data);
+                    })
+            })
+            .catch(function (data, err) {
+                console.error(err);
+                console.log(data);
+            })
+    </script>
+
+    <script>
+        function editSave() {
+            axios({
+                method: 'put',
+                url: baseurl + 'candidate_profile/' + localStorage.getItem('U_user_account_id'),
+                data: {
+                    first_name: $("#display_first_name").val(),
+                    middle_name: $("#display_middle_name").val(),
+                    last_name: $("#display_last_name").val(),
+                    suffix_name: $("#display_suffix_name").val(),
+                    gender: $("#display_gender").val(),
+                    birth_date: $("#display_birth_date").val(),
+                    city: $("#display_city").val(),
+                    zip_code: $("#display_zip_code").val(),
+                    region: $("#display_region").val(),
+                    country: $("#display_country").val(),
+                    nationality: $("#display_nationality").val(),
+                    candidate_type: localStorage.getItem('candidate_type'),
+                    candidate_image: "",
+                    status_from_hr: localStorage.getItem('status_from_hr'),
+                    age: 21,
+                    user_account_id: localStorage.getItem('U_user_account_id')
+                }
+            })
+                .then(function (data) {
+                    axios({
+                        method: 'put',
+                        url: baseurl + 'candidate_education_detail/' + localStorage.getItem('U_user_account_id'),
+                        data: {
+                            institute_university_name: $("#display_institute_university_name").val(),
+                            institute_university_location: $("#display_institute_university_location").val(),
+                            highest_education_attainment: $("#display_highest_education_attainment").val(),
+                            field_of_study: $("#display_field_of_study").val(),
+                            major: $("#display_major").val(),
+                            graduation_date: $("#display_date_graduated").val(),
+                            user_account_id: localStorage.getItem('U_user_account_id')
+                        }
+                    })
+                        .then(function (data) {
+                            axios({
+                                method: 'put',
+                                url: baseurl + 'candidate_experience_detail/' + localStorage.getItem('U_user_account_id'),
+                                data: {
+                                    user_account_id: localStorage.getItem('U_user_account_id'),
+                                    experience_level: $("#experience_level").val(),
+                                    experience_description: $("#experience_description").val(),
+                                    year_month_work_experience: $("#year_month_work_experience").val(),
+                                }
+                            })
+                                .then(function (data) {
+                                    axios({
+                                        method: 'put',
+                                        url: baseurl + 'user_account/' + localStorage.getItem('U_user_account_id'),
+                                        data: {
+                                            email: $("#email").val(),
+                                            password: $("#password").val(),
+                                            contact_number: $("#contact_number").val(),
+                                            user_account_type: 'Candidate',
+                                            account_status: 'Active'
+                                        }
+                                    })
+                                        .then(function (data) {
+                                            alert('Candidate Details Updated.');
+                                            window.open('candidate-agent-view-profile.html', '_self');
+                                        })
+                                        .catch(function (data, err) {
+                                            console.error(err);
+                                        })
+                                })
+                                .catch(function (data, err) {
+                                    console.error(err);
+                                    console.log(data);
+                                })
+                        })
+                        .catch(function (data, err) {
+                            console.error(err);
+                            console.log(data);
+                        })
+                })
+                .catch(function (data, err) {
+                    console.error(err);
+                    console.log(data);
+                })
+        }
+
+
+        function deactivate() {
+            axios({
+                method: 'delete',
+                url: baseurl + 'user_account/' + localStorage.getItem('U_user_account_id')
+            })
+                .then(function (data) {
+                    alert('User Account Deactivated');
+                    window.open('candidate-logout.html', '_self');
+                })
+                .catch(function (data, err) {
+                    console.error(err);
+                    console.log(data);
+                })
+        }
+    </script>
+    <script>
+        $('#editAccount').validate({
+                rules: {
+                    new_password: {
+                        required: true,
+                        minlength: 8
+                    },
+                    confirm_password: {
+                        required: true,
+                        equalTo: "#newPass"
+                    }
+                },
+                messages: {
+                    new_password: {
+                        required: "Please provide a password",
+                        minlength: "Password must be at least 8 characters long"
+                    },
+                    confirm_password: {
+                        required: "Please re-type your password",
+                        minlength: "Password must be at least 8 characters long",
+                        equalTo: "Password didn't match"
+                    }
+                },
+                errorElement: 'span',
+                errorPlacement: function (error, element) {
+                    error.addClass('invalid-feedback');
+                    element.closest('.form-group').append(error);
+                },
+                highlight: function (element, errorClass, validClass) {
+                    $(element).addClass('is-invalid');
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                    $(element).removeClass('is-invalid');
+                },
+            });
+    </script>
+
+</body>
+
+</html>
