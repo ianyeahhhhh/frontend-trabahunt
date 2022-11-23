@@ -11,8 +11,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Candidate | Account</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
     <!-- BS Stepper -->
@@ -41,9 +43,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
-                    <li class=" nav-item d-none d-sm-inline-block ">
-                        <h5 class="navbar-header"><b>Account</b></h5>
-                    </li>
+                <li class=" nav-item d-none d-sm-inline-block ">
+                    <h5 class="navbar-header"><b>Account</b></h5>
+                </li>
                 </li>
             </ul>
 
@@ -58,7 +60,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- <div class="dropdown-divider "></div> -->
                         <a href="candidate-agent-view-profile.html" class="dropdown-item "><span><i
                                     class="fas fa-user-circle"></i></span> Profile</a>
-                        <a href="candidate-agent-view-acc.html" class="dropdown-item "><span><i class="fas fa-user-lock"></i></span> Account</a>
+                        <a href="candidate-agent-view-acc.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-lock"></i></span> Account</a>
                         <a href="candidate-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
                                     class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
@@ -78,7 +81,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar -->
             <div class="sidebar">
                 <nav class="mt-2 ">
-                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
+                        data-accordion="false ">
                         <!-- Add icons to the links using the .nav-icon class
                            with font-awesome or any other icon font library -->
                         <li class="nav-item ">
@@ -118,7 +122,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="card card-sticky card-success card-outline">
                                     <div class="card-body box-profile">
                                         <div class="text-center">
-                                            <img class="profile-user-img img-fluid img-circle" src="/dist/img/empty-image.jpg" alt="User profile picture">
+                                            <img class="profile-user-img img-fluid img-circle"
+                                                src="/dist/img/empty-image.jpg" alt="User profile picture">
                                         </div>
                                         <h3 id="display_full_name" class="profile-username text-center">Marcus Erean
                                         </h3>
@@ -127,7 +132,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                                         <ul class="list-group list-group-unbordered mb-3">
                                             <li class="list-group-item">
-                                                <span><i class="fas fa-envelope"></i></span> <a class="float-right" id="display_email">marcus@gmail.com</a>
+                                                <span><i class="fas fa-envelope"></i></span> <a class="float-right"
+                                                    id="display_email">marcus@gmail.com</a>
                                             </li>
                                             <li class="list-group-item">
                                                 <i class="fas fa-phone-alt"></i> <a class="float-right">+63 914 361
@@ -228,64 +234,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script>
         axios({
             method: 'get',
-            url: baseurl + 'candidate_profile/' + localStorage.getItem('U_user_account_id')
+            url: baseurl + 'user_account/' + localStorage.getItem('U_user_account_id')
         })
             .then(function (data) {
-                document.getElementById('display_full_name').innerHTML = data.data.full_name;
-                document.getElementById('display_full_name_1').innerHTML = data.data.full_name;
-                document.getElementById('display_gender').innerHTML = data.data.gender;
-                document.getElementById('display_birth_date').innerHTML = data.data.birth_date;
-                var address = data.data.city + ', ' + data.data.zip_code + " " + data.data.region + ', ' + data.data.country;
-                document.getElementById('display_address').innerHTML = address;
-                document.getElementById('display_nationality').innerHTML = data.data.nationality;
-                document.getElementById('display_candidate_type').innerHTML = data.data.candidate_type;
-
-                axios({
-                    method: 'get',
-                    url: baseurl + 'candidate_education_detail/' + localStorage.getItem('U_user_account_id')
-                })
-                    .then(function (data) {
-                        document.getElementById('display_institute_university_name').innerHTML = data.data.institute_university_name;
-                        document.getElementById('display_institute_university_location').innerHTML = data.data.institute_university_location;
-                        document.getElementById('display_highest_education_attainment').innerHTML = data.data.highest_education_attainment;
-                        document.getElementById('display_field_of_study').innerHTML = data.data.field_of_study;
-                        document.getElementById('display_major').innerHTML = data.data.major;
-                        document.getElementById('display_date_graduated').innerHTML = data.data.graduation_date;
-
-                        axios({
-                            method: 'get',
-                            url: baseurl + 'user_account/' + localStorage.getItem('U_user_account_id')
-                        })
-                            .then(function (data) {
-                                document.getElementById("display_email").innerHTML = data.data.email;
-                                document.getElementById("display_email_1").innerHTML = data.data.email;
-                                document.getElementById('display_contact_number').innerHTML = data.data.contact_number;
-
-                                axios({
-                                    method: 'get',
-                                    url: baseurl + 'candidate_experience_detail/' + localStorage.getItem('U_user_account_id')
-                                })
-                                    .then(function (data) {
-                                        document.getElementById("display_experience_level").innerHTML = data.data.experience_level;
-                                        document.getElementById("display_work_experience").innerHTML = data.data.year_month_work_experience;
-                                        document.getElementById("display_experience_description").innerHTML = data.data.experience_description;
-                                    })
-                                    .catch(function (data, err) {
-                                        console.error(err);
-                                    })
-                            })
-                            .catch(function (data, err) {
-                                console.error(err);
-                            })
-                    })
-                    .catch(function (data, err) {
-                        console.error(err);
-                        console.log(data);
-                    })
+                document.getElementById('display_contact_number').innerHTML = data.data.contact_number;
+                document.getElementById('display_email_1').innerHTML = data.data.email;
             })
             .catch(function (data, err) {
-                console.error(err);
                 console.log(data);
+                console.error(err);
             })
     </script>
 

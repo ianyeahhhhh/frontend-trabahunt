@@ -401,19 +401,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             var address = data.data.city + ', ' + data.data.zip_code + " " + data.data.region + ', ' + data.data.country;
                             document.getElementById('display_address').innerHTML = address;
                             document.getElementById('display_address_1').innerHTML = address;
-
-                            axios({
-                                    method: 'get',
-                                    url: baseurl + 'user_account/' + localStorage.getItem('U_user_account_id')
-                                })
-                                .then(function(data) {
-                                    document.getElementById("employer_display_name").innerHTML = data.data.email;
-                                    document.getElementById("display_email").innerHTML = data.data.email;
-                                    document.getElementById("display_contact_number_2").innerHTML = data.data.contact_number;
-                                })
-                                .catch(function(data, err) {
-                                    console.error(err);
-                                })
                         })
                         .catch(function(data, err) {
                             console.error(err);
