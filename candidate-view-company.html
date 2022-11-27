@@ -240,7 +240,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script>
         $(document).ready(function () {
             $(function () {
-                axios({
+                const conn1 = axios({
                     method: 'get',
                     url: baseurl + 'company_profile/'
                 })
@@ -281,7 +281,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function viewCompanyDetails() {
-            window.open("candidate-view-company-details.html", "_self")
+            window.open("candidate-view-company-details.html", "_self").reload();
         }
     </script>
 </body>

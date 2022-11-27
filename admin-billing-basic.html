@@ -268,7 +268,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         var subsciption_type_code = 1;
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'company_subscription/all_basic/' + parseInt(subsciption_type_code)
         })
@@ -313,7 +313,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function viewSubscription(){
-            window.open('admin-billing-details.html', '_self');
+            window.open('admin-billing-details.html', '_self').reload();
         }
     </script>
 

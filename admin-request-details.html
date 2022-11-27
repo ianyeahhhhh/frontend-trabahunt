@@ -431,7 +431,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'company_profile/' + localStorage.getItem('user_account_id_clicked')
         })
@@ -444,7 +444,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        axios({
+        const conn2 = axios({
             method: 'get',
             url: baseurl + 'request_form/' + localStorage.getItem('request_id_clicked')
         })

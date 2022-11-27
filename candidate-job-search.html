@@ -230,7 +230,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script>
         $(document).ready(function () {
             $(function () {
-                axios({
+                const conn1 = axios({
                     method: 'get',
                     url: baseurl + 'job_post/all/except_pending_for_candidate/'
                 })
@@ -271,7 +271,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function viewSpecificJobAd() {
-            window.open("candidate-job-ads-details.html", "_self");
+            window.open("candidate-job-ads-details.html", "_self").reload();
         }
     </script>
     <!--DATATABLE SCRIPT END-->

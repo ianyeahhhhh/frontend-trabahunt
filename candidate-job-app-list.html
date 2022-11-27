@@ -248,7 +248,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script>
         $(document).ready(function () {
             $(function () {
-                axios({
+                const conn1 = axios({
                     method: 'get',
                     url: baseurl + 'job_application/all/except_pending_candidate/' + localStorage.getItem('U_user_account_id')
                 })
@@ -274,7 +274,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         })
                         $('#example1').on('click', 'tbody .btn-sm', function () {
                             var data_row = table.row($(this).closest('tr')).data();
-                            console.log(data_row);
                             localStorage.setItem("job_application_id_clicked", data_row.job_application_id);
                             localStorage.setItem("job_post_id_clicked", data_row.job_post_id);
                         })
@@ -289,12 +288,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function viewJobApplication() {
-            window.open("candidate-job-app-history.html", "_self");
+            window.open("candidate-job-app-history.html", "_self").reload();
         }
 
 
         function viewJobAppStatus() {
-            window.open("candidate-job-app-status.html", "_self");
+            window.open("candidate-job-app-status.html", "_self").reload();
         }
     </script>
 

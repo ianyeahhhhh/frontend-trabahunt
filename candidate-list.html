@@ -286,7 +286,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script>
         $(document).ready(function () {
             $(function () {
-                axios({
+                const conn1 = axios({
                     method: 'get',
                     url: baseurl + 'user_account/all_candidate'
                 })
@@ -324,7 +324,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function viewSpecificCandidate() {
-            window.open('view-candidate-profile.html', '_self');
+            window.open('view-candidate-profile.html', '_self').reload();
         }
     </script>
 

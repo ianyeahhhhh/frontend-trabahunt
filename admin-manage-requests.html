@@ -331,7 +331,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'request_form/'
         })
@@ -384,7 +384,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function viewRequest(){
-            window.open('admin-request-details.html', '_self');
+            window.open('admin-request-details.html', '_self').reload();
         }
 
         function transfer(){

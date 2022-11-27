@@ -372,7 +372,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'job_offer/for_employer/' + localStorage.getItem('job_offer_id_clicked')
         })
@@ -384,7 +384,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 document.getElementById('display_job_location').innerHTML = job_location;
                 document.getElementById('display_job_offer_description').innerHTML = data.data.job_offer_description;
 
-                axios({
+                const conn1 = axios({
                     method: 'get',
                     url: baseurl + 'interview_info/' + localStorage.getItem('interview_info_id_clicked')
                 })
@@ -394,7 +394,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         document.getElementById('display_interview_location').innerHTML = data.data.interview_location;
                         document.getElementById('display_interview_additional_info').innerHTML = data.data.interview_additional_info;
 
-                        axios({
+                        const conn1 = axios({
                             method: 'get',
                             url: baseurl + 'company_profile/' + localStorage.getItem('company_id_clicked')
                         })
@@ -416,13 +416,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function acceptJobOffer() {
-            axios({
+            const conn1 = axios({
                 method: 'put',
                 url: baseurl + 'job_offer/accept/' + localStorage.getItem('job_offer_id_clicked')
             })
                 .then(function (data) {
                     alert('Job offer accepted.');
-                    window.open('candidate-list-job-offers.html', '_self');
+                    window.open('candidate-list-job-offers.html', '_self').reload();
                 })
                 .catch(function (data, err) {
                     console.error(err);
@@ -430,13 +430,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         }
 
         function rejectJobOffer() {
-            axios({
+            const conn1 = axios({
                 method: 'put',
                 url: baseurl + 'job_offer/reject/' + localStorage.getItem('job_offer_id_clicked')
             })
                 .then(function (data) {
                     alert('Job offer rejected.');
-                    window.open('candidate-list-job-offers.html', '_self');
+                    window.open('candidate-list-job-offers.html', '_self').reload();
                 })
                 .catch(function (data, err) {
                     console.error(err);

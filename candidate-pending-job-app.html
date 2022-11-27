@@ -254,7 +254,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script>
         $(document).ready(function () {
             $(function () {
-                axios({
+                const conn1 = axios({
                     method: 'get',
                     url: baseurl + 'job_application/all/pending_candidate/' + localStorage.getItem('U_user_account_id')
                 })
@@ -295,7 +295,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function viewJobApplication() {
-            window.open('candidate-job-app-status.html', '_self');
+            window.open('candidate-job-app-status.html', '_self').reload();
         }
     </script>
 

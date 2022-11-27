@@ -286,7 +286,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function submitApplication() {
-            axios({
+            const conn1 = axios({
                 method: 'post',
                 url: baseurl + 'job_application/',
                 data: {
@@ -301,7 +301,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             })
                 .then(function (data) {
                     // alert('Job Application Submitted');
-                    axios({
+                    const conn1 = axios({
                         method: 'post',
                         url: baseurl + 'interview_info/',
                         data: {
@@ -319,7 +319,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         .then(function (data) {
                             // alert('interview_info created.');
                             alert('Job Application Submitted.');
-                            window.open('candidate-pending-job-app.html', '_self');
+                            window.open('candidate-pending-job-app.html', '_self').reload();
                         })
                         .catch(function (data, err) {
                             console.error(err);

@@ -90,13 +90,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function chooseDirectHire() {
-            axios({
+            const conn1 = axios({
                 method: 'put',
                 url: baseurl + 'candidate_profile/todirecthire/' + localStorage.getItem('U_user_account_id')
             })
                 .then(function (data) {
                     alert("User account created. Please log-in now.");
-                    window.open("candidate-login.html", "_self");
+                    window.open("candidate-login.html", "_self").reload();
                 })
                 .catch(function (data, err) {
                     console.error(err);
@@ -104,13 +104,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         }
 
         function chooseAgency() {
-            axios({
+            const conn1 = axios({
                 method: 'put',
                 url: baseurl + 'candidate_profile/toagency/' + localStorage.getItem('U_user_account_id')
             })
                 .then(function (data) {
                     alert("User account created. Please log-in now.");
-                    window.open("candidate-login.html", "_self");
+                    window.open("candidate-login.html", "_self").reload();
                 })
                 .catch(function (data, err) {
                     console.error(err);

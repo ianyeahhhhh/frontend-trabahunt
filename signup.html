@@ -139,7 +139,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             $.validator.setDefaults({
                 submitHandler: function() {
                     //CREATE USER_ACCOUNT
-                    axios({
+                    const conn1 = axios({
                             method: 'post',
                             url: baseurl + 'user_account/',
                             data: {
@@ -161,7 +161,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                             if (document.getElementById("user_account_type").value == "Candidate") {
                                 // CREATE CANDIDATE_PROFILE
-                                axios({
+                                const conn1 = axios({
                                         method: 'post',
                                         url: baseurl + 'candidate_profile/',
                                         data: {
@@ -186,7 +186,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     .then(function() {
                                         // alert("Candidate Profile Successfully Created.");
                                         // CREATE CANDIDATE_EDUCATION_DETAIL
-                                        axios({
+                                        const conn1 = axios({
                                                 method: 'post',
                                                 url: baseurl + 'candidate_education_detail/',
                                                 data: {
@@ -202,7 +202,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             .then(function() {
                                                 // alert("Candidate Education Detail Successfully Created.");
                                                 //RESUME
-                                                axios({
+                                                const conn1 = axios({
                                                         method: 'post',
                                                         url: baseurl + 'candidate_resume/',
                                                         data: {
@@ -223,7 +223,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                             })
                                                             .then(function() {
                                                                 alert("Choose empoyment Type...");
-                                                                window.open("candidate-choose-employment.html", "_self");
+                                                                window.open("candidate-choose-employment.html", "_self").reload();
                                                             })
                                                             .catch(function(err, data) {
                                                                 console.error(err);
@@ -242,7 +242,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     })
                             } else if (document.getElementById("user_account_type").value == "Employer") {
                                 // CREATE COMPANY_PROFILE
-                                axios({
+                                const conn1 = axios({
                                         method: 'post',
                                         url: baseurl + 'company_profile/',
                                         data: {
@@ -257,7 +257,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     .then(function(data) {
                                         localStorage.setItem('company_id_when_created', data.data.data.company_id);
                                         // alert("Company Profile Creation Done.");
-                                        axios({
+                                        const conn1 = axios({
                                                 method: 'post',
                                                 url: baseurl + 'company_addition_info/',
                                                 data: {
@@ -273,7 +273,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             .then(function() {
                                                 // alert("Company Addition Info Creation Done. Please choose your subscription package.");
                                                 alert("User account created. Please choose your subscription package.");
-                                                window.open("employer-choose-subscription.html", "_self");
+                                                window.open("employer-choose-subscription.html", "_self").reload();
                                             })
                                             .catch(function(err) {
                                                 console.error(err);

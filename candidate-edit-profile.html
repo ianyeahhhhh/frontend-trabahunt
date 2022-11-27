@@ -582,7 +582,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'candidate_profile/' + localStorage.getItem('U_user_account_id')
         })
@@ -601,7 +601,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 document.getElementById('display_country').value = data.data.country;
                 document.getElementById('display_nationality').value = data.data.nationality;
 
-                axios({
+                const conn1 = axios({
                     method: 'get',
                     url: baseurl + 'candidate_education_detail/' + localStorage.getItem('U_user_account_id')
                 })
@@ -613,7 +613,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         document.getElementById('display_major').value = data.data.major;
                         document.getElementById('display_date_graduated').value = data.data.graduation_date;
 
-                        axios({
+                        const conn1 = axios({
                             method: 'get',
                             url: baseurl + 'candidate_experience_detail/' + localStorage.getItem('U_user_account_id')
                         })
@@ -639,7 +639,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function editSave() {
-            axios({
+            const conn1 = axios({
                 method: 'put',
                 url: baseurl + 'candidate_profile/' + localStorage.getItem('U_user_account_id'),
                 data: {
@@ -662,7 +662,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 }
             })
                 .then(function (data) {
-                    axios({
+                    const conn1 = axios({
                         method: 'put',
                         url: baseurl + 'candidate_education_detail/' + localStorage.getItem('U_user_account_id'),
                         data: {
@@ -676,7 +676,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                     })
                         .then(function (data) {
-                            axios({
+                            const conn1 = axios({
                                 method: 'put',
                                 url: baseurl + 'candidate_experience_detail/' + localStorage.getItem('U_user_account_id'),
                                 data: {
@@ -688,7 +688,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             })
                                 .then(function (data) {
                                     alert('Candidate Details Updated.');
-                                    window.open('candidate-view-profile.html', '_self');
+                                    window.open('candidate-view-profile.html', '_self').reload();
                                 })
                                 .catch(function (data, err) {
                                     console.error(err);
@@ -707,13 +707,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
         function deactivate() {
-            axios({
+            const conn1 = axios({
                 method: 'delete',
                 url: baseurl + 'user_account/' + localStorage.getItem('U_user_account_id')
             })
                 .then(function (data) {
                     alert('User Account Deactivated');
-                    window.open('candidate-logout.html', '_self');
+                    window.open('candidate-logout.html', '_self').reload();
                 })
                 .catch(function (data, err) {
                     console.error(err);
