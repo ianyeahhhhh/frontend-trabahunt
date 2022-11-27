@@ -26,7 +26,7 @@
                 alert("Candidate Logged Out");
                 if (localStorage.getItem('C_userSession') != null) {
                     localStorage.clear();
-                    window.open("candidate-home.html", "_self");
+                    window.open("candidate-home.html", "_self").reload();
                 }
             })
             .catch(function (data, error) {

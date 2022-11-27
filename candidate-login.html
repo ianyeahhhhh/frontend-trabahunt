@@ -187,11 +187,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         .then(function (data) {
                                             if (data.data.candidate_type == 'Direct Hire') {
                                                 alert("Candidate Login Successful. Redirecting to Dashboard...");
-                                                window.open("candidate-dashboard.html", "_self");
+                                                window.open("candidate-dashboard.html", "_self").reload();
                                             }
                                             else{
                                                 alert("Candidate Login Successful. Redirecting to Dashboard...");
-                                                window.open("candidate-agent-dashboard.html", "_self");
+                                                window.open("candidate-agent-dashboard.html", "_self").reload();
                                             }
                                         })
                                         .catch(function (data, err) {
