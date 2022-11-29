@@ -343,7 +343,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         function editAdminProfile() {
             var fullName = $("#first_name").val() + " " + $("#middle_name").val() + " " + $("#last_name").val() + " " + $("#suffix_name").val();
             console.log(fullName);
-            authAxios({
+            const conn1 = authAxios({
                 method: 'put',
                 url: baseurl + 'admin_profile/' + parseInt(localStorage.getItem("admin_id")),
                 data: {
@@ -364,7 +364,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     console.log(data.data.data.email);
                     console.log(data.data.data.full_name);
                     alert("Admin Profile Updated Successfully.");
-                    window.open("view-admin-profile.html", "_self");
+                    window.open("view-admin-profile.html", "_self").reload();
                 })
                 .catch(function (data, err) {
                     console.log(data);

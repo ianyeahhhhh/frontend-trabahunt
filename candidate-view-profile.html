@@ -473,40 +473,44 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 document.getElementById('display_address').innerHTML = address;
                 document.getElementById('display_nationality').innerHTML = data.data.nationality;
                 document.getElementById('display_candidate_type').innerHTML = data.data.candidate_type;
-
-                const conn1 = axios({
-                    method: 'get',
-                    url: baseurl + 'candidate_education_detail/' + localStorage.getItem('U_user_account_id')
-                })
-                    .then(function (data) {
-                        document.getElementById('display_institute_university_name').innerHTML = data.data.institute_university_name;
-                        document.getElementById('display_institute_university_location').innerHTML = data.data.institute_university_location;
-                        document.getElementById('display_highest_education_attainment').innerHTML = data.data.highest_education_attainment;
-                        document.getElementById('display_field_of_study').innerHTML = data.data.field_of_study;
-                        document.getElementById('display_major').innerHTML = data.data.major;
-                        document.getElementById('display_date_graduated').innerHTML = data.data.graduation_date;
-
-                        const conn1 = axios({
-                            method: 'get',
-                            url: baseurl + 'candidate_experience_detail/' + localStorage.getItem('U_user_account_id')
-                        })
-                            .then(function (data) {
-                                document.getElementById("display_experience_level").innerHTML = data.data.experience_level;
-                                document.getElementById("display_work_experience").innerHTML = data.data.year_month_work_experience;
-                                document.getElementById("display_experience_description").innerHTML = data.data.experience_description;
-                            })
-                            .catch(function (data, err) {
-                                console.error(err);
-                            })
-                    })
-                    .catch(function (data, err) {
-                        console.error(err);
-                        console.log(data);
-                    })
             })
             .catch(function (data, err) {
                 console.error(err);
                 console.log(data);
+            })
+    </script>
+
+    <script>
+        const conn2 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_education_detail/' + localStorage.getItem('U_user_account_id')
+        })
+            .then(function (data) {
+                document.getElementById('display_institute_university_name').innerHTML = data.data.institute_university_name;
+                document.getElementById('display_institute_university_location').innerHTML = data.data.institute_university_location;
+                document.getElementById('display_highest_education_attainment').innerHTML = data.data.highest_education_attainment;
+                document.getElementById('display_field_of_study').innerHTML = data.data.field_of_study;
+                document.getElementById('display_major').innerHTML = data.data.major;
+                document.getElementById('display_date_graduated').innerHTML = data.data.graduation_date;
+            })
+            .catch(function (data, err) {
+                console.error(err);
+                console.log(data);
+            })
+    </script>
+    
+    <script>
+        const conn3 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_experience_detail/' + localStorage.getItem('U_user_account_id')
+        })
+            .then(function (data) {
+                document.getElementById("display_experience_level").innerHTML = data.data.experience_level;
+                document.getElementById("display_work_experience").innerHTML = data.data.year_month_work_experience;
+                document.getElementById("display_experience_description").innerHTML = data.data.experience_description;
+            })
+            .catch(function (data, err) {
+                console.error(err);
             })
     </script>
 </body>

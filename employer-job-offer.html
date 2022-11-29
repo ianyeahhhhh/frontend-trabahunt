@@ -585,7 +585,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'candidate_profile/' + localStorage.getItem('user_account_id_clicked')
         })
@@ -600,7 +600,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script>
         function send() {
             var salary = document.getElementById('currency').value + " " + $("#monthly").val()
-            axios({
+            const conn2 = axios({
                 method: 'post',
                 url: baseurl + 'interview_info/',
                 data: {
@@ -619,14 +619,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     localStorage.setItem('interview_info_id', data.data.data.interview_info_id);
                     // alert('Interview Info Created.');
 
-                    axios({
+                    const conn3 = axios({
                         method: 'get',
                         url: baseurl + 'company_profile/' + localStorage.getItem('U_user_account_id')
                     })
                         .then(function (data) {
                             localStorage.setItem('company_id', data.data.company_id);
 
-                            axios({
+                            const conn4 = axios({
                                 method: 'post',
                                 url: baseurl + 'job_offer/',
                                 data: {
@@ -649,7 +649,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 .then(function (data) {
                                     // alert('Job Offer Created.');
                                     alert('Job Offer Sent.');
-                                    window.open('employer-search-candidates.html', '_self');
+                                    window.open('employer-search-candidates.html', '_self').reload();
                                 })
                                 .catch(function (data, err) {
                                     console.error(err);

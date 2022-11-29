@@ -534,7 +534,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'candidate_profile/' + localStorage.getItem("candidate_id_clicked")
         })
@@ -548,7 +548,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 document.getElementById('display_address').innerHTML = address
                 document.getElementById('display_nationality').innerHTML = data.data.nationality;
 
-                axios({
+                const conn2 = axios({
                     method: 'get',
                     url: baseurl + 'candidate_education_detail/' + localStorage.getItem("candidate_id_clicked")
                 })
@@ -573,7 +573,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function enlist() {
-            axios({
+            const conn3 = axios({
                 method: 'put',
                 url: baseurl + 'interview_info/' + localStorage.getItem('job_application_id_clicked'),
                 data: {
@@ -589,13 +589,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 }
             })
                 .then(function (data) {
-                    axios({
+                    
+                    const conn4 = axios({
                         method: 'put',
                         url: baseurl + 'job_application/enlist/' + localStorage.getItem('job_application_id_clicked'),
                     })
                         .then(function (data) {
                             alert('Candidate Enlisted.');
-                            window.open('employer-view-applicants.html', '_self');
+                            window.open('employer-view-applicants.html', '_self').reload();
                         })
                         .catch(function (data, err) {
                             console.error(err);
@@ -607,13 +608,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         }
 
         function remove() {
-            axios({
+            const conn1 = axios({
                 method: 'put',
                 url: baseurl + 'job_application/reject/' + localStorage.getItem('job_application_id_clicked'),
             })
                 .then(function (data) {
                     alert('Applicant Rejected.');
-                    window.open('employer-view-applicants.html', '_self');
+                    window.open('employer-view-applicants.html', '_self').reload();
                 })
                 .catch(function (data, err) {
                     console.error(err);

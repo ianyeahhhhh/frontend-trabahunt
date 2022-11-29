@@ -291,7 +291,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         $(document).ready(function () {
             $(function () {
                 document.getElementById("employer_display_name").innerHTML = localStorage.getItem("U_email");
-                axios({
+
+                const conn1 = axios({
                     method: 'get',
                     url: baseurl + 'job_post/all/pending/' + localStorage.getItem("U_user_account_id")
                 })
@@ -330,11 +331,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function toViewAdInfo() {
-            window.open("employer-view-job-ads.html", "_self");
+            window.open("employer-view-job-ads.html", "_self").reload();
         }
 
         function toUpdateAdInfo() {
-            window.open("employer-update-job-ads.html", "_self");
+            window.open("employer-update-job-ads.html", "_self").reload();
         }
     </script>
 

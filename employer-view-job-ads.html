@@ -404,7 +404,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         document.getElementById("employer_display_name").innerHTML = localStorage.getItem("U_email");
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'job_post/get_one/' + localStorage.getItem('job_post_id_clicked'),
         })
@@ -419,7 +419,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 console.error(err);
             })
 
-        axios({
+        const conn2 = axios({
             method: 'get',
             url: baseurl + 'job_additional_info/' + localStorage.getItem('job_post_id_clicked'),
         })
@@ -432,7 +432,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 console.error(err);
             })
 
-        axios({
+        const conn3 = axios({
             method: 'get',
             url: baseurl + 'job_location/' + localStorage.getItem('job_post_id_clicked'),
         })

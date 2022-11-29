@@ -434,7 +434,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         document.getElementById("admin_email").innerHTML = localStorage.getItem("admin_email");
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'company_profile/' + parseInt(localStorage.getItem("id_of_selected_employer"))
         })
@@ -444,7 +444,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 document.getElementById("display_establishment_date").innerHTML = data.data.establishment_date;
                 document.getElementById("display_company_description").innerHTML = data.data.profile_description;
 
-                axios({
+                const conn2 = axios({
                     method: 'get',
                     url: baseurl + 'company_addition_info/' + parseInt(localStorage.getItem("id_of_selected_employer"))
                 })
@@ -467,13 +467,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function deactivateEmployer() {
-            authAxios({
+            const conn3 = authAxios({
                 method: 'delete',
                 url: baseurl + 'user_account/' + parseInt(localStorage.getItem("id_of_selected_employer"))
             })
                 .then(function (data) {
                     alert("Employer Deactivated.");
-                    window.open("employer-list.html", "_self");
+                    window.open("employer-list.html", "_self").reload();
                 })
                 .catch(function (data, err) {
                     alert("Error deactivating employer.");

@@ -295,7 +295,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script>
         $(document).ready(function () {
             $(function () {
-                axios({
+                const conn1 = axios({
                     method: 'get',
                     url: baseurl + 'job_post/all/except_pending/' + localStorage.getItem('U_user_account_id')
                 })
@@ -337,13 +337,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function deleteJobAd() {
-            axios({
+            const conn1 = axios({
                 method: 'delete',
                 url: baseurl + 'job_post/' + localStorage.getItem('job_post_id_clicked')
             })
                 .then(function (data) {
                     alert('Job Post Deleted');
-                    window.open("employer-job-ads-list.html", "_self");
+                    window.open("employer-job-ads-list.html", "_self").reload();
                 })
                 .catch(function (data, err) {
                     console.error(err);

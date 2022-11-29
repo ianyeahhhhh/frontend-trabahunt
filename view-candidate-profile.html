@@ -467,7 +467,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         document.getElementById("admin_email").innerHTML = localStorage.getItem("admin_email");
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'candidate_profile/' + parseInt(localStorage.getItem("id_of_selected_candidate"))
         })
@@ -480,7 +480,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 document.getElementById("display_address").innerHTML = address;
                 document.getElementById("display_nationality").innerHTML = data.data.nationality;
 
-                axios({
+                const conn2 = axios({
                     method: 'get',
                     url: baseurl + 'candidate_education_detail/' + parseInt(localStorage.getItem("id_of_selected_candidate"))
                 })
@@ -505,13 +505,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function deactivateCandidate() {
-            authAxios({
+            const conn3 = authAxios({
                 method: 'delete',
                 url: baseurl + 'user_account/' + parseInt(localStorage.getItem("id_of_selected_candidate"))
             })
                 .then(function (data) {
                     alert("Candidate Deactivated.");
-                    window.open("candidate-list.html", "_self");
+                    window.open("candidate-list.html", "_self").reload();
                 })
                 .catch(function (data, err) {
                     alert("Error deactivating candidate.");

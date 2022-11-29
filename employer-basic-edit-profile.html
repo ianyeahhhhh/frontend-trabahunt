@@ -370,7 +370,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'company_profile/' + localStorage.getItem('U_user_account_id')
         })
@@ -381,7 +381,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 document.getElementById('display_establishment_date_1').value = data.data.establishment_date;
                 document.getElementById('display_company_website_url').value = data.data.company_website_url;
 
-                axios({
+                const conn2 = axios({
                     method: 'get',
                     url: baseurl + 'company_addition_info/' + localStorage.getItem('U_user_account_id')
                 })
@@ -407,7 +407,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function saveEdit() {
-            axios({
+            const conn1 = axios({
                 method: 'put',
                 url: baseurl + 'company_profile/' + localStorage.getItem('U_user_account_id'),
                 data: {
@@ -421,7 +421,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             })
                 .then(function (data) {
                     // alert('Commpany Profile Updated.');
-                    axios({
+                    const conn2 = axios({
                         method: 'put',
                         url: baseurl + 'company_addition_info/' + localStorage.getItem('U_user_account_id'),
                         data: {
@@ -437,7 +437,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         .then(function (data) {
                             // alert('Commpany Additional Info Updated.');
                             alert('Employer Details Updated.');
-                            window.open('employer-basic-view-profile.html', '_self');
+                            window.open('employer-basic-view-profile.html', '_self').reload();
                         })
                         .catch(function (data, err) {
                             console.error(err);

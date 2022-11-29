@@ -268,7 +268,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'user_account/' + localStorage.getItem('U_user_account_id')
         })

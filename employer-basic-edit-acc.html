@@ -376,7 +376,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function updateAccount() {
-            axios({
+            const conn1 = axios({
                 method: 'put',
                 url: baseurl + 'user_account/' + localStorage.getItem('U_user_account_id'),
                 data: {
@@ -389,7 +389,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             })
                 .then(function (data) {
                     alert('Account Details Updated.');
-                    window.open('employer-basic-view-acc.html', '_self');
+                    window.open('employer-basic-view-acc.html', '_self').reload();
                     console.log(data);
                 })
                 .catch(function (data, err) {

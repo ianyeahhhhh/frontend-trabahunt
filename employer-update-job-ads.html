@@ -565,7 +565,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             $.validator.setDefaults({
                 submitHandler: function () {
                     // UPDATE JOB LOCATION, 
-                    axios({
+                    const conn1 = axios({
                         url: baseurl + 'job_location/' + localStorage.getItem('job_post_id_clicked'),
                         method: 'put',
                         data: {
@@ -583,7 +583,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             // CREATE JOB POST
                             // alert("JOB LOCATION UPDATED");
                             var salary = document.getElementById("currency").value + " MIN: " + $("#salary_min").val() + " MAX: " + $("#salary_max").val();
-                            axios({
+                            
+                            const conn2 = axios({
                                 url: baseurl + 'job_post/' + localStorage.getItem('job_post_id_clicked'),
                                 method: 'put',
                                 data: {
@@ -600,7 +601,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 .then(function (data) {
                                     // alert("JOB POST UPDATED.");
                                     // CREATE JOB ADDITIONAL INFO
-                                    axios({
+                                    
+                                    const conn3 = axios({
                                         url: baseurl + 'job_additional_info/' + localStorage.getItem('job_post_id_clicked'),
                                         method: 'put',
                                         data: {
@@ -614,7 +616,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         .then(function (data) {
                                             // alert("JOB ADDITIONAL INFO UPDATED");
                                             alert('Job Ads Updated.');
-                                            window.open("employer-job-ads-list.html", "_self");
+                                            window.open("employer-job-ads-list.html", "_self").reload();
                                         })
                                         .catch(function (data, err) {
                                             alert("JOB ADDITIONAL INFO UPDATION FAILED");

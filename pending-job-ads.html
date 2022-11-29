@@ -306,7 +306,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script>
         $(document).ready(function () {
             $(function () {
-                axios({
+                const conn1 = axios({
                     method: 'get',
                     url: baseurl + 'job_post/all/pending'
                 })
@@ -348,17 +348,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function toViewAdInfo() {
-            window.open("view-pending-job-ad-info.html", "_self");
+            window.open("view-pending-job-ad-info.html", "_self").reload();
         }
 
         function acceptJobAd() {
-            axios({
+            const conn2 = axios({
                 url: baseurl + 'job_post/accept_job_ad/' + localStorage.getItem('job_post_id_clicked'),
                 method: 'put'
             })
                 .then(function (data) {
                     alert('Job Post Accepted');
-                    window.open("job-ads-list.html", "_self");
+                    window.open("job-ads-list.html", "_self").reload();
                 })
                 .catch(function (data) {
                     alert('Error Accepting Job Post');
@@ -367,13 +367,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         }
 
         function rejectJobAd() {
-            axios({
+            const conn3 = axios({
                 url: baseurl + 'job_post/reject_job_ad/' + localStorage.getItem('job_post_id_clicked'),
                 method: 'put'
             })
                 .then(function (data) {
                     alert('Job Post Rejected');
-                    window.open("job-ads-list.html", "_self");
+                    window.open("job-ads-list.html", "_self").reload();
                 })
                 .catch(function (data) {
                     alert('Error Rejecting Job Post');

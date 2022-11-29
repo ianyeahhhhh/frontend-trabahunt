@@ -608,7 +608,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             $.validator.setDefaults({
                 submitHandler: function () {
                     // CREATE JOB LOCATION FIRST FOR JOB LOCATION ID
-                    axios({
+                    const conn1 = axios({
                         url: baseurl + 'job_location/',
                         method: 'post',
                         data: {
@@ -626,7 +626,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             localStorage.setItem('E_job_location_id', data.data.data.job_location_id);
                             var salary = document.getElementById("currency").value + " MIN: " + $("#salary_min").val() + " MAX: " + $("#salary_max").val();
 
-                            axios({
+                            const conn2 = axios({
                                 url: baseurl + 'job_post/',
                                 method: 'post',
                                 data: {
@@ -646,7 +646,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     console.log(data);
                                     console.log('------');
 
-                                    axios({
+                                    const conn3 = axios({
                                         url: baseurl + 'job_location/' + localStorage.getItem('E_job_post_id'),
                                         method: 'put',
                                         data: {
@@ -662,7 +662,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             console.log(data);
                                             console.log('------');
 
-                                            axios({
+                                            const conn4 = axios({
                                                 url: baseurl + 'job_additional_info/',
                                                 method: 'post',
                                                 data: {
@@ -678,7 +678,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     console.log(data);
                                                     console.log('------');
                                                     alert('Job Ads Posted.');
-                                                    window.open("employer-job-ads-list.html", "_self");
+                                                    window.open("employer-job-ads-list.html", "_self").reload();
                                                 })
                                                 .catch(function (data, err) {
                                                     alert("JOB ADDITIONAL INFO CREATION FAILED");

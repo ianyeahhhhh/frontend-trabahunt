@@ -264,7 +264,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'job_application/all/' + localStorage.getItem('U_user_account_id')
         })
@@ -277,7 +277,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        axios({
+        const conn2 = axios({
             method: 'get',
             url: baseurl + 'job_post/all/accepted/' + localStorage.getItem('U_user_account_id')
         })
@@ -290,7 +290,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        axios({
+        const conn3 = axios({
             method: 'get',
             url: baseurl + 'job_post/all/rejected/' + localStorage.getItem('U_user_account_id')
         })
@@ -303,7 +303,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        axios({
+        const conn4 = axios({
             method: 'get',
             url: baseurl + 'job_post/all/pending/' + localStorage.getItem('U_user_account_id')
         })

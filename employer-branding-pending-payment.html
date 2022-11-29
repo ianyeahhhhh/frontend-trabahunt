@@ -334,58 +334,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script>
         document.getElementById("employer_display_name").innerHTML = localStorage.getItem("U_email");
     </script>
-
-    <script>
-        axios({
-            method: 'get',
-            url: baseurl + 'job_application/all/' + localStorage.getItem('U_user_account_id')
-        })
-            .then(function (data) {
-                document.getElementById("display_total_applicants").innerHTML = data.data.length;
-            })
-            .catch(function (data, err) {
-                console.error(err);
-            })
-    </script>
-
-    <script>
-        axios({
-            method: 'get',
-            url: baseurl + 'job_post/all/accepted/' + localStorage.getItem('U_user_account_id')
-        })
-            .then(function (data) {
-                document.getElementById("total_accepted_job_posts").innerHTML = data.data.length;
-            })
-            .catch(function (data, err) {
-                console.error(err);
-            })
-    </script>
-
-    <script>
-        axios({
-            method: 'get',
-            url: baseurl + 'job_post/all/rejected/' + localStorage.getItem('U_user_account_id')
-        })
-            .then(function (data) {
-                document.getElementById("total_rejected_job_posts").innerHTML = data.data.length;
-            })
-            .catch(function (data, err) {
-                console.error(err);
-            })
-    </script>
-
-    <script>
-        axios({
-            method: 'get',
-            url: baseurl + 'job_post/all/pending/' + localStorage.getItem('U_user_account_id')
-        })
-            .then(function (data) {
-                document.getElementById("total_pending_job_posts").innerHTML = data.data.length;
-            })
-            .catch(function (data, err) {
-                console.error(err);
-            })
-    </script>
+    
 </body>
 
 </html>

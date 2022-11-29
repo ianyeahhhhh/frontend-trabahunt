@@ -451,7 +451,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'job_post/get_one/' + localStorage.getItem('job_post_id_clicked')
         })
@@ -462,7 +462,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 document.getElementById('display_job_description').innerHTML = data.data.job_description;
                 document.getElementById('display_job_post_status').innerHTML = data.data.job_post_status;
 
-                axios({
+                const conn2 = axios({
                     method: 'get',
                     url: baseurl + 'job_additional_info/' + localStorage.getItem('job_post_id_clicked')
                 })
@@ -472,7 +472,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         document.getElementById('display_career_level').innerHTML = data.data.career_level;
                         document.getElementById('display_job_type_name').innerHTML = data.data.job_type_name;
 
-                        axios({
+                        const conn3 = axios({
                             method: 'get',
                             url: baseurl + 'job_location/' + localStorage.getItem('job_post_id_clicked')
                         })
@@ -480,7 +480,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 var address = data.data.city + ", " + data.data.zip_code + " " + data.data.region + ", " + data.data.country;
                                 document.getElementById('display_address').innerHTML = address;
 
-                                axios({
+                                const conn4 = axios({
                                     method: 'get',
                                     url: baseurl + 'company_profile/' + localStorage.getItem('user_account_id_clicked')
                                 })

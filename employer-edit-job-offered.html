@@ -587,7 +587,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'job_offer/for_employer/' + localStorage.getItem('job_offer_id_clicked')
         })
@@ -600,7 +600,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 document.getElementById('country').value = data.data.country;
                 document.getElementById('job_offer_description').value = data.data.job_offer_description;
 
-                axios({
+                const conn2 = axios({
                     method: 'get',
                     url: baseurl + 'interview_info/' + localStorage.getItem('interview_info_id_clicked')
                 })
@@ -609,7 +609,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         document.getElementById('interview_time').value = data.data.interview_time;
                         document.getElementById('interview_location').value = data.data.interview_location;
                         document.getElementById('interview_additional_info').value = data.data.interview_additional_info;
-                        axios({
+
+                        const conn3 = axios({
                             method: 'get',
                             url: baseurl + 'candidate_profile/' + localStorage.getItem('offered_to_id_clicked')
                         })
@@ -631,7 +632,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function save() {
-            axios({
+            const conn1 = axios({
                 method: 'put',
                 url: baseurl + 'job_offer/' + localStorage.getItem('job_offer_id_clicked'),
                 data: {
@@ -654,7 +655,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 .then(function (data) {
                     // alert('Job Offer Updated.');
 
-                    axios({
+                    const conn2 = axios({
                         method: 'put',
                         url: baseurl + 'interview_info/' + localStorage.getItem('interview_info_id_clicked'),
                         data: {
@@ -669,7 +670,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     })
                         .then(function (data) {
                             alert('Job Offer updated.');
-                            window.open('employer-view-job-offered.html', '_self');
+                            window.open('employer-view-job-offered.html', '_self').reload();
                         })
                         .catch(function (data, err) {
                             console.error(err);

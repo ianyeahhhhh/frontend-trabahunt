@@ -488,7 +488,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'candidate_profile/' + localStorage.getItem('candidate_id_clicked')
         })
@@ -501,7 +501,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 document.getElementById('display_address').innerHTML = address;
                 document.getElementById('display_nationality').innerHTML = data.data.nationality;
 
-                axios({
+                const conn2 = axios({
                     method: 'get',
                     url: baseurl + 'candidate_education_detail/' + localStorage.getItem('candidate_id_clicked')
                 })
@@ -513,7 +513,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         document.getElementById('display_major').innerHTML = data.data.major;
                         document.getElementById('display_date_graduated').innerHTML = data.data.graduation_date;
 
-                        axios({
+                        const conn3 = axios({
                             method: 'get',
                             url: baseurl + 'employee_info/get_one/' + localStorage.getItem('employee_id_clicked')
                         })

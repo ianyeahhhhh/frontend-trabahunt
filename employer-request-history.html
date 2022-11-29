@@ -270,7 +270,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'request_form/all_requests/' + localStorage.getItem('U_user_account_id')
         })
@@ -319,17 +319,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function viewRequest() {
-            window.open('employer-request-details.html', '_self');
+            window.open('employer-request-details.html', '_self').reload();
         }
 
         function cancelRequest() {
-            axios({
+            const conn2 = axios({
                 method: 'put',
                 url: baseurl + 'request_form/cancel_request/' + localStorage.getItem('request_id_clicked')
             })
                 .then(function (data) {
                     alert('Request cancelled.');
-                    window.open('employer-request-history.html', '_self');
+                    window.open('employer-request-history.html', '_self').reload();
                 })
                 .catch(function (data, err) {
                     console.error(err);

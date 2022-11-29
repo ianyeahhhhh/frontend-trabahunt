@@ -573,7 +573,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         $(function () {
             $.validator.setDefaults({
                 submitHandler: function () {
-                    axios({
+                    const conn1 = axios({
                         method: 'post',
                         url: baseurl + 'request_form',
                         data: {
@@ -594,7 +594,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         .then(function (data) {
                             console.log(data);
                             alert('Request Form submitted.');
-                            window.open('employer-request-history.html', '_self');
+                            window.open('employer-request-history.html', '_self').reload();
                         })
                         .catch(function (data, err) {
                             console.log(data);
