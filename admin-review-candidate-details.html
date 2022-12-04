@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Admin | User Management</title>
+    <title>Admin | Review Accounts</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -27,6 +27,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Theme style -->
     <link rel="stylesheet " href="dist/css/adminlte.min.css ">
     <link rel="icon" href="dist/img/logo-head.png" type="image/x-icon">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <script src="global-variables.js"></script>
 </head>
 
@@ -39,10 +43,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
-                            class="fas fa-bars"></i></a>
+                    <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                     <li class=" nav-item d-none d-sm-inline-block ">
-                        <h5 class="navbar-header"><b>Dashboard</b></h5>
+                        <h5 class="navbar-header"><b>Candidate Account</b></h5>
                     </li>
                 </li>
             </ul>
@@ -63,6 +66,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </li>
             </ul>
             <!--/Right navbar links-->
+
         </nav>
         <!--NAV BAR END-->
 
@@ -204,6 +208,60 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </aside>
         <!--SIDE BAR END-->
 
+        <!--transfer acc MODAL-->
+        <!--modal start-->
+        <div class="modal fade" id="transfer-acc-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Confirmation</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to transfer this account to HR?</p>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="">Transfer</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <!--admin remarks MODAL-->
+        <!--modal start-->
+        <div class="modal fade" id="admin-remarks-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Remarks</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="2" id="reason" placeholder="Provide the details to candidate..."></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="">Submit</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
         <div class="content-wrapper">
             <div class="container-fluid" style="padding: 2rem 1rem;">
                 <section class="content">
@@ -234,23 +292,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             </li>
                                         </ul>
 
-                                        <a href="#" class="btn btn-success btn-block"><span><i
-                                                    class="fas fa-paper-plane"></i></span> <b>Contact me</b></a>
+                                        <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#transfer-acc-modal"><span><i
+                                                    class="fas fa-paper-plane"></i></span> <b> Transfer to HR</b></a>
+                                        <a href="#" class="btn btn-warning btn-block" data-toggle="modal" data-target="#admin-remarks-modal"><span><i class="fas fa-exclamation-circle"></i></span> <b> Incomplete</b></a>
                                     </div>
-                                    <hr>
                                     <!-- /.card-body -->
-                                    <div class="card-body">
-                                        <p><b>Deactivate Account</b></p>
-                                        <button type="button" class="btn btn-danger btn-block" onclick="deactivateCandidate()"><span><i class="fas fa-user-times"></i></span><b>Deactivate</b>
-                                        </button>
-                                    </div>
                                 </div>
                                 <!-- /.card -->
 
                             </div>
                             <div class="col-md-9">
                                 <!-- Profile -->
-                                <div class="card card-success">
+                                <div class="card card-default">
                                     <div class="card-header">
                                         <h3 class="card-title"><b>Candidate Profile</b></h3>
                                     </div>
@@ -479,68 +532,33 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- AdminLTE App -->
     <script src="../../dist/js/adminlte.min.js "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="../../plugins/jszip/jszip.min.js"></script>
+    <script src="../../plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="../../plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+
 
     <script>
-        const authAxios = axios.create({
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("adminSession")
-            }
-        })
+        document.getElementById("admin_display_name").innerHTML = localStorage.getItem("admin_email");
     </script>
 
+    <!--TOOLTIP script-->
     <script>
-        document.getElementById("admin_email").innerHTML = localStorage.getItem("admin_email");
-        const conn1 = axios({
-            method: 'get',
-            url: baseurl + 'candidate_profile/' + parseInt(localStorage.getItem("id_of_selected_candidate"))
-        })
-            .then(function (data) {
-                console.log(data);
-                var address = data.data.city + ", " + data.data.zip_code + " " + data.data.region + ", " + data.data.country;
-                document.getElementById("display_full_name").innerHTML = data.data.full_name;
-                document.getElementById("display_full_name_1").innerHTML = data.data.full_name;
-                document.getElementById("display_gender").innerHTML = data.data.gender;
-                document.getElementById("display_address").innerHTML = address;
-                document.getElementById("display_nationality").innerHTML = data.data.nationality;
-
-                const conn2 = axios({
-                    method: 'get',
-                    url: baseurl + 'candidate_education_detail/' + parseInt(localStorage.getItem("id_of_selected_candidate"))
-                })
-                    .then(function (data) {
-                        console.log(data);
-                        document.getElementById("display_institute_university_name").innerHTML = data.data.institute_university_name;
-                        document.getElementById("display_institute_university_location").innerHTML = data.data.institute_university_location;
-                        document.getElementById("display_highest_educational_attainment").innerHTML = data.data.highest_education_attainment;
-                        document.getElementById("display_field_of_study").innerHTML = data.data.field_of_study;
-                        document.getElementById("display_major").innerHTML = data.data.major;
-                        document.getElementById("display_date_graduated").innerHTML = data.data.graduation_date;
-                    })
-                    .catch(function (data, err) {
-                        console.error(err);
-                    })
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip({
+                trigger: 'hover'
             })
-            .catch(function (data, err) {
-                console.log(data);
-                console.error(err);
-            })
-    </script>
-
-    <script>
-        function deactivateCandidate() {
-            const conn3 = authAxios({
-                method: 'delete',
-                url: baseurl + 'user_account/' + parseInt(localStorage.getItem("id_of_selected_candidate"))
-            })
-                .then(function (data) {
-                    alert("Candidate Deactivated.");
-                    window.open("candidate-list.html", "_self").reload();
-                })
-                .catch(function (data, err) {
-                    alert("Error deactivating candidate.");
-                    console.error(err);
-                })
-        }
+        });
     </script>
 </body>
 

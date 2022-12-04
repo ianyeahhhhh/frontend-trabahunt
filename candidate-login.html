@@ -173,7 +173,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 data: {
                                     user_account_id: localStorage.getItem('U_user_account_id'),
                                     time_of_login: loginTime,
-                                    time_of_logout: "LOGOUT_TIME"
+                                    time_of_logout: loginTime
                                 }
                             })
                                 .then(function (data) {
@@ -185,13 +185,34 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         url: baseurl + 'candidate_profile/' + localStorage.getItem('U_user_account_id')
                                     })
                                         .then(function (data) {
+                                            localStorage.setItem('candidate_type', data.data.candidate_type);
                                             if (data.data.candidate_type == 'Direct Hire') {
-                                                alert("Candidate Login Successful. Redirecting to Dashboard...");
-                                                window.open("candidate-dashboard.html", "_self").reload();
+                                                if (data.data.review_status == 'Setting Up') {
+                                                    alert("Complete Profile Setup First!");
+                                                    return window.open("candidate-register-profile.html", "_self").reload();
+                                                }
+                                                else if (data.data.review_status == 'Setted Up') {
+                                                    alert("Account currently being reviewed.");
+                                                    return window.open("candidate-review-account-dashboard.html", "_self").reload();
+                                                }
+                                                else {
+                                                    alert("Candidate Login Successful. Redirecting to Dashboard...");
+                                                    return window.open("candidate-dashboard.html", "_self").reload();
+                                                }
                                             }
-                                            else{
-                                                alert("Candidate Login Successful. Redirecting to Dashboard...");
-                                                window.open("candidate-agent-dashboard.html", "_self").reload();
+                                            else {
+                                                if (data.data.review_status == 'Setting Up') {
+                                                    alert("Complete Profile Setup First!");
+                                                    return window.open("candidate-register-profile.html", "_self").reload();
+                                                }
+                                                else if (data.data.review_status == 'Setted Up') {
+                                                    alert("Account currently being reviewed.");
+                                                    return window.open("candidate-review-account-dashboard.html", "_self").reload();
+                                                }
+                                                else {
+                                                    alert("Candidate Login Successful. Redirecting to Dashboard...");
+                                                    return window.open("candidate-agent-dashboard.html", "_self").reload();
+                                                }
                                             }
                                         })
                                         .catch(function (data, err) {

@@ -11,8 +11,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title> TrabaHunt | Signup</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
     <!-- BS Stepper -->
@@ -40,22 +42,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="row">
                         <div class="form-group col-6">
                             <label>Email</label>
-                            <input id="email" type="email" name="email" class="form-control" placeholder="sample@email.com">
+                            <input id="email" type="email" name="email" class="form-control"
+                                placeholder="sample@email.com">
                         </div>
                         <div class="form-group col-6">
                             <label>Contact Number</label>
-                            <input id="contact_number" type="text" name="contact_number" class="form-control" placeholder="Ex: 09123456789" maxlength="11">
+                            <input id="contact_number" type="text" name="contact_number" class="form-control"
+                                placeholder="Ex: 09123456789" maxlength="11">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-6">
                             <label>Password</label>
-                            <input id="password" type="password" id="password" name="password" class="form-control" placeholder="Password">
+                            <input id="password" type="password" id="password" name="password" class="form-control"
+                                placeholder="Password">
 
                         </div>
                         <div class="form-group col-6">
                             <label>Confirm Password</label>
-                            <input type="password" name="retypePassword" class="form-control" placeholder="Re-type Password">
+                            <input type="password" name="retypePassword" class="form-control"
+                                placeholder="Re-type Password">
                         </div>
                     </div>
                     <div class="row">
@@ -135,22 +141,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Page specific script -->
     <script>
-        $(function() {
+        $(function () {
             $.validator.setDefaults({
-                submitHandler: function() {
+                submitHandler: function () {
                     //CREATE USER_ACCOUNT
                     const conn1 = axios({
-                            method: 'post',
-                            url: baseurl + 'user_account/',
-                            data: {
-                                email: $("#email").val(),
-                                password: $("#password").val(),
-                                contact_number: $("#contact_number").val(),
-                                user_account_type: document.getElementById("user_account_type").value,
-                                account_status: "Active"
-                            }
-                        })
-                        .then(function(data) {
+                        method: 'post',
+                        url: baseurl + 'user_account/',
+                        data: {
+                            email: $("#email").val(),
+                            password: $("#password").val(),
+                            contact_number: $("#contact_number").val(),
+                            user_account_type: document.getElementById("user_account_type").value,
+                            account_status: "Active"
+                        }
+                    })
+                        .then(function (data) {
                             // alert("User Account Successfully Created.");
                             localStorage.setItem("U_user_account_id", data.data.data.user_account_id);
                             localStorage.setItem("U_email", data.data.data.email);
@@ -162,74 +168,74 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             if (document.getElementById("user_account_type").value == "Candidate") {
                                 // CREATE CANDIDATE_PROFILE
                                 const conn2 = axios({
-                                        method: 'post',
-                                        url: baseurl + 'candidate_profile/',
-                                        data: {
-                                            candidate_type: "",
-                                            first_name: "",
-                                            middle_name: "",
-                                            last_name: "",
-                                            suffix_name: "",
-                                            age: 0,
-                                            gender: "",
-                                            birth_date: "",
-                                            zip_code: "",
-                                            city: "",
-                                            region: "",
-                                            country: "",
-                                            nationality: "",
-                                            candidate_image: "",
-                                            status_from_hr: "",
-                                            user_account_id: parseInt(localStorage.getItem("U_user_account_id"))
-                                        }
-                                    })
-                                    .then(function() {
+                                    method: 'post',
+                                    url: baseurl + 'candidate_profile/',
+                                    data: {
+                                        candidate_type: "",
+                                        first_name: "",
+                                        middle_name: "",
+                                        last_name: "",
+                                        suffix_name: "",
+                                        age: 0,
+                                        gender: "",
+                                        birth_date: "",
+                                        zip_code: "",
+                                        city: "",
+                                        region: "",
+                                        country: "",
+                                        nationality: "",
+                                        candidate_image: "",
+                                        review_status: "Setting Up",
+                                        user_account_id: parseInt(localStorage.getItem("U_user_account_id"))
+                                    }
+                                })
+                                    .then(function () {
                                         // alert("Candidate Profile Successfully Created.");
                                         // CREATE CANDIDATE_EDUCATION_DETAIL
                                         const conn3 = axios({
-                                                method: 'post',
-                                                url: baseurl + 'candidate_education_detail/',
-                                                data: {
-                                                    institute_university_name: "",
-                                                    highest_education_attainment: "",
-                                                    institute_university_location: "",
-                                                    field_of_study: "",
-                                                    major: "",
-                                                    graduation_date: "",
-                                                    user_account_id: parseInt(localStorage.getItem("U_user_account_id"))
-                                                }
-                                            })
-                                            .then(function() {
+                                            method: 'post',
+                                            url: baseurl + 'candidate_education_detail/',
+                                            data: {
+                                                institute_university_name: "",
+                                                highest_education_attainment: "",
+                                                institute_university_location: "",
+                                                field_of_study: "",
+                                                major: "",
+                                                graduation_date: "",
+                                                user_account_id: parseInt(localStorage.getItem("U_user_account_id"))
+                                            }
+                                        })
+                                            .then(function () {
                                                 // alert("Candidate Education Detail Successfully Created.");
                                                 //RESUME
                                                 const conn4 = axios({
-                                                        method: 'post',
-                                                        url: baseurl + 'candidate_resume/',
-                                                        data: {
-                                                            user_account_id: parseInt(localStorage.getItem("U_user_account_id")),
-                                                            resume: ""
-                                                        }
-                                                    })
-                                                    .then(function(data) {
+                                                    method: 'post',
+                                                    url: baseurl + 'candidate_resume/',
+                                                    data: {
+                                                        user_account_id: parseInt(localStorage.getItem("U_user_account_id")),
+                                                        resume: ""
+                                                    }
+                                                })
+                                                    .then(function (data) {
                                                         const conn5 = axios({
-                                                                method: 'post',
-                                                                url: baseurl + 'candidate_experience_detail/',
-                                                                data: {
-                                                                    experience_level: "",
-                                                                    experience_description: "",
-                                                                    year_month_work_experience: "",
-                                                                    user_account_id: parseInt(localStorage.getItem("U_user_account_id"))
-                                                                }
-                                                            })
-                                                            .then(function() {
+                                                            method: 'post',
+                                                            url: baseurl + 'candidate_experience_detail/',
+                                                            data: {
+                                                                experience_level: "",
+                                                                experience_description: "",
+                                                                year_month_work_experience: "",
+                                                                user_account_id: parseInt(localStorage.getItem("U_user_account_id"))
+                                                            }
+                                                        })
+                                                            .then(function () {
                                                                 alert("Choose empoyment Type...");
                                                                 window.open("candidate-choose-employment.html", "_self").reload();
                                                             })
-                                                            .catch(function(err, data) {
+                                                            .catch(function (err, data) {
                                                                 console.error(err);
                                                             })
                                                     })
-                                                    .catch(function(data) {
+                                                    .catch(function (data) {
                                                         alert("Resume Creation Failed");
                                                     })
                                             })
@@ -243,39 +249,39 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             } else if (document.getElementById("user_account_type").value == "Employer") {
                                 // CREATE COMPANY_PROFILE
                                 const conn2 = axios({
-                                        method: 'post',
-                                        url: baseurl + 'company_profile/',
-                                        data: {
-                                            company_name: "",
-                                            profile_description: "",
-                                            establishment_date: "",
-                                            company_website_url: "",
-                                            company_logo: "",
-                                            user_account_id: parseInt(localStorage.getItem("U_user_account_id"))
-                                        }
-                                    })
-                                    .then(function(data) {
+                                    method: 'post',
+                                    url: baseurl + 'company_profile/',
+                                    data: {
+                                        company_name: "",
+                                        profile_description: "",
+                                        establishment_date: "",
+                                        company_website_url: "",
+                                        company_logo: "",
+                                        review_status: "Setting Up",
+                                        user_account_id: parseInt(localStorage.getItem("U_user_account_id"))
+                                    }
+                                })
+                                    .then(function (data) {
                                         localStorage.setItem('company_id_when_created', data.data.data.company_id);
                                         // alert("Company Profile Creation Done.");
                                         const conn3 = axios({
-                                                method: 'post',
-                                                url: baseurl + 'company_addition_info/',
-                                                data: {
-                                                    user_account_id: parseInt(localStorage.getItem("U_user_account_id")),
-                                                    registration_number: "",
-                                                    country: "",
-                                                    region: "",
-                                                    zip_code: "",
-                                                    city: "",
-                                                    company_contact_number: ""
-                                                }
-                                            })
-                                            .then(function() {
+                                            method: 'post',
+                                            url: baseurl + 'company_addition_info/',
+                                            data: {
+                                                user_account_id: parseInt(localStorage.getItem("U_user_account_id")),
+                                                registration_number: "",
+                                                country: "",
+                                                region: "",
+                                                zip_code: "",
+                                                city: ""
+                                            }
+                                        })
+                                            .then(function () {
                                                 // alert("Company Addition Info Creation Done. Please choose your subscription package.");
                                                 alert("User account created. Please choose your subscription package.");
                                                 window.open("employer-choose-subscription.html", "_self").reload();
                                             })
-                                            .catch(function(err) {
+                                            .catch(function (err) {
                                                 console.error(err);
                                             })
                                     })
@@ -334,14 +340,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     terms: "Please accept our terms"
                 },
                 errorElement: 'span',
-                errorPlacement: function(error, element) {
+                errorPlacement: function (error, element) {
                     error.addClass('invalid-feedback');
                     element.closest('.form-group').append(error);
                 },
-                highlight: function(element, errorClass, validClass) {
+                highlight: function (element, errorClass, validClass) {
                     $(element).addClass('is-invalid');
                 },
-                unhighlight: function(element, errorClass, validClass) {
+                unhighlight: function (element, errorClass, validClass) {
                     $(element).removeClass('is-invalid');
                 },
             });

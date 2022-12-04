@@ -49,16 +49,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <ul class="navbar-nav ml-auto ">
                 <li class="nav-item dropdown ">
                     <a class="navbar-right-item" data-toggle="dropdown" href="#">
-                        <i class="far fa-user "></i>
-                        <span id="admin_display_name " class="user-name ">Admin Name Here</span>
+                        <i class="fas fa-user-alt"></i>
+                        <span id="admin_display_name" class="user-name">ADMIN NAME HERE</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
-                        <!-- <div class="dropdown-divider "></div> -->
-                        <a href="view-admin-profile.html" class="dropdown-item ">Profile</a>
-                        <a href="admin-logout.html" class="dropdown-item ">Logout</a>
+                        <a href="view-admin-profile.html" class="dropdown-item"><span><i
+                            class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="admin-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
+                            class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
+            <!--/Right navbar links-->
         </nav>
         <!--NAV BAR END-->
 
@@ -100,6 +102,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </li>
                                 <li class="nav-item ">
                                     <a href="employer-list.html" class="nav-link ">
+                                        <p>Employers</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="# " class="nav-link ">
+                                <i class="nav-icon fas fa-eye"></i>
+                                <p style="margin-right: 1rem; ">
+                                    Review Accounts
+                                </p>
+                                <span><i class="right fas fa-angle-left "></i></span>
+                            </a>
+                            <ul class="nav nav-treeview ">
+                                <li class="nav-item ">
+                                    <a href="admin-review-candidate.html" class="nav-link ">
+                                        <p>Candidates</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="admin-review-employers.html" class="nav-link ">
                                         <p>Employers</p>
                                     </a>
                                 </li>

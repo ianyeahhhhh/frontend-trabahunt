@@ -539,7 +539,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         })
             .then(function (data) {
                 localStorage.setItem('candidate_type', data.data.candidate_type);
-                localStorage.setItem('status_from_hr', data.data.status_from_hr);
+                localStorage.setItem('review_status', data.data.review_status);
                 document.getElementById('display_full_name').innerHTML = data.data.full_name;
                 document.getElementById('display_first_name').value = data.data.first_name;
                 document.getElementById('display_middle_name').value = data.data.middle_name;
@@ -608,7 +608,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     nationality: $("#display_nationality").val(),
                     candidate_type: localStorage.getItem('candidate_type'),
                     candidate_image: "",
-                    status_from_hr: localStorage.getItem('status_from_hr'),
+                    review_status: localStorage.getItem('review_status'),
                     age: 21,
                     user_account_id: localStorage.getItem('U_user_account_id')
                 }

@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Admin | User Management</title>
+    <title>Admin | Review Accounts</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -27,6 +27,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Theme style -->
     <link rel="stylesheet " href="dist/css/adminlte.min.css ">
     <link rel="icon" href="dist/img/logo-head.png" type="image/x-icon">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <script src="global-variables.js"></script>
 </head>
 
@@ -39,10 +43,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
-                            class="fas fa-bars"></i></a>
+                    <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                     <li class=" nav-item d-none d-sm-inline-block ">
-                        <h5 class="navbar-header"><b>Dashboard</b></h5>
+                        <h5 class="navbar-header"><b>Employer Account</b></h5>
                     </li>
                 </li>
             </ul>
@@ -63,6 +66,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </li>
             </ul>
             <!--/Right navbar links-->
+
         </nav>
         <!--NAV BAR END-->
 
@@ -204,6 +208,60 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </aside>
         <!--SIDE BAR END-->
 
+        <!--approve MODAL-->
+        <!--modal start-->
+        <div class="modal fade" id="transfer-acc-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Confirmation</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to approve this account?</p>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="">Approve</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <!--admin remarks MODAL-->
+        <!--modal start-->
+        <div class="modal fade" id="admin-remarks-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Remarks</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="2" id="reason" placeholder="Provide the details to employer..."></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="">Submit</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
         <div class="content-wrapper">
             <div class="container-fluid" style="padding: 2rem 1rem;">
                 <section class="content">
@@ -211,48 +269,39 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <div class="row">
                             <div class="col-md-3">
                                 <!-- Profile Image -->
-                                <div class="card card-sticky card-success card-outline">
+                                <div class="card card-sticky card-warning card-outline">
                                     <div class="card-body box-profile">
                                         <div class="text-center">
-                                            <img class="profile-user-img img-fluid img-circle" src="/dist/img/empty-image.jpg" alt="User profile picture">
+                                            <img class="profile-user-img img-fluid img-circle" src="/dist/img/company-empty-image.png" alt="User profile picture">
                                         </div>
-                                        <h3 id="display_full_name" class="profile-username text-center">Marcus Erean
+                                        <h3 id="display_company_name" class="profile-username text-center">Modelo Inc.
                                         </h3>
 
-                                        <p class="text-muted text-center">Software Engineer</p>
+                                        <p class="text-muted text-center">Full stack web developer</p>
 
                                         <ul class="list-group list-group-unbordered mb-3">
                                             <li class="list-group-item">
-                                                <span><i class="fas fa-envelope"></i></span> <a class="float-right">marcus@gmail.com</a>
+                                                <i class="fas fa-globe"></i> <a class="float-right">www.modelo-inc.com</a>
                                             </li>
                                             <li class="list-group-item">
-                                                <i class="fas fa-phone-alt"></i> <a class="float-right">+63 914 361
-                                                    8544</a>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <i class="fas fa-money-bill"></i> <a class="float-right">PHP 10,000</a>
+                                                <i class="fas fa-envelope"></i> <a class="float-right">modelo-inc@gmail.com</a>
                                             </li>
                                         </ul>
 
-                                        <a href="#" class="btn btn-success btn-block"><span><i
-                                                    class="fas fa-paper-plane"></i></span> <b>Contact me</b></a>
+                                        <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#transfer-acc-modal"><span><i
+                                            class="fas fa-check"></i></span> <b> Approve</b></a>
+                                        <a href="#" class="btn btn-warning btn-block" data-toggle="modal" data-target="#admin-remarks-modal"><span><i class="fas fa-exclamation-circle"></i></span> <b> Incomplete</b></a>
                                     </div>
-                                    <hr>
                                     <!-- /.card-body -->
-                                    <div class="card-body">
-                                        <p><b>Deactivate Account</b></p>
-                                        <button type="button" class="btn btn-danger btn-block" onclick="deactivateCandidate()"><span><i class="fas fa-user-times"></i></span><b>Deactivate</b>
-                                        </button>
-                                    </div>
                                 </div>
                                 <!-- /.card -->
 
                             </div>
                             <div class="col-md-9">
                                 <!-- Profile -->
-                                <div class="card card-success">
+                                <div class="card card-default">
                                     <div class="card-header">
-                                        <h3 class="card-title"><b>Candidate Profile</b></h3>
+                                        <h3 class="card-title"><b>Company Profile</b></h3>
                                     </div>
                                     <!-- /.card-header -->
 
@@ -260,44 +309,78 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <strong>
-                                                    <i class="fas fa-user"></i> INFORMATION
+                                                    <i class="fas fa-building"></i> INFORMATION
                                                 </strong>
                                             </div>
                                         </div>
                                         <div class="row row-custom">
                                             <div class="col-sm-3">
                                                 <p class="text-muted">
-                                                    Full Name
+                                                    Company Name
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id="display_full_name_1">
-                                                    Marcus Erean B. Modelo
+                                                <p id="display_company_name_1">
+                                                    Default Modelo Incorporation
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="row row-custom">
                                             <div class="col-sm-3">
                                                 <p class="text-muted">
-                                                    Gender
+                                                    Establishment Date
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id="display_gender">
-                                                    Male
+                                                <p id="display_establishment_date">
+                                                    Default December 25, 2000
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="row row-custom">
                                             <div class="col-sm-3">
                                                 <p class="text-muted">
-                                                    Birthdate
+                                                    Website
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_birth_date'>
-                                                    September 13, 1999
+                                                <p id="display_company_website_url">
+                                                    sample Website
                                                 </p>
+                                            </div>
+                                        </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Company Description
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="display_company_description">
+                                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod, mollitia. Consequatur libero impedit eaque sunt? Consectetur soluta beatae aperiam laboriosam aliquid modi corrupti ullam? Tempora et nulla reiciendis unde deserunt.
+                                                </p>
+                                            </div>
+                                        </div>
+
+
+                                        <hr>
+
+                                        <!--ADD INFO START-->
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <strong>
+                                                    <i class="fas fa-info-circle"></i> ADDITIONAL INFORMATION
+                                                </strong>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Registration Number
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="display_registration_number">Default 00-1358-102</p>
                                             </div>
                                         </div>
                                         <div class="row row-custom">
@@ -307,150 +390,88 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_address'>
-                                                    Quezon City, 1001 NCR, Philippines
+                                                <p id="display_address">
+                                                    Default Quezon City, 1001 NCR, Philippines
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <hr>
+
+                                        <!--PACKAGE-->
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <strong>
+                                                    <i class="fas fa-layer-group"></i> Package
+                                                </strong>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Package Type
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p>Branding</p>
+                                            </div>
+                                        </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Subscription Date
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p>
+                                                    June 6, 2014
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="row row-custom">
                                             <div class="col-sm-3">
                                                 <p class="text-muted">
-                                                    Nationality
+                                                    Expiration Date
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_nationality'>
-                                                    Filipino
+                                                <p>
+                                                    June 6, 2015
                                                 </p>
+                                            </div>
+                                        </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Subscription Status
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <span class="badge bg-danger">Expired</span>
                                             </div>
                                         </div>
 
                                         <hr>
+                                        <!--DOCUMENTS-->
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <strong>
-                                                    <i class="fas fa-graduation-cap"></i> EDUCATION
+                                                    <i class="fas fa-file"></i> LEGAL DOCUMENTS
                                                 </strong>
                                             </div>
                                         </div>
-                                        <div class="row  row-custom">
+                                        <div class="row row-custom">
                                             <div class="col-sm-3">
                                                 <p class="text-muted">
-                                                    Insitute/ University Name
+                                                    Documents
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_institute_university_name'>Default Insitute/ University Name</p>
-                                            </div>
-                                        </div>
-                                        <div class="row  row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Location
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id='display_institute_university_location'>Default Quezon City, Philippines
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row  row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Highest Educational Attainment
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id='display_highest_educational_attainment'>Default Bachelor's / College Degree
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row  row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Field of Study
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id='display_field_of_study'>Default Computer Science / Information Technology
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row  row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Major
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id='display_major'>Information Technology Management</p>
-                                            </div>
-                                        </div>
-                                        <div class="row  row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Date Graduated
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id='display_date_graduated'>March 18, 1999</p>
+                                                <a href="#">company-registration-cert.pdf</a>
                                             </div>
                                         </div>
 
-                                        <hr>
-
-                                        <!--EXP DETAIL START-->
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <strong>
-                                                    <i class="fas fa-map-marker-alt mr-1"></i> EXPERIENCE DETAIL
-                                                </strong>
-                                            </div>
-                                        </div>
-                                        <div class="row  row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Experience Level
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p>Intern or looking for part-time job</p>
-                                            </div>
-                                        </div>
-                                        <div class="row  row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Description
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis porro fugiat assumenda ipsum reprehenderit sapiente sit, quisquam quam quia similique? Quam consequuntur fuga ipsum eligendi assumenda,
-                                                    aut tempore sunt vel?</p>
-                                            </div>
-                                        </div>
-
-                                        <hr>
-
-                                        <!--RESUME-->
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <strong>
-                                                    <i class="fas fa-file"></i> RESUME
-                                                </strong>
-                                            </div>
-                                        </div>
-                                        <div class="row  row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Uploaded Resume
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <a href="#">marcus-resume.pdf</a>
-                                            </div>
-                                        </div>
                                     </div>
-
                                     <!-- /.card-body -->
                                 </div>
                             </div>
@@ -479,68 +500,33 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- AdminLTE App -->
     <script src="../../dist/js/adminlte.min.js "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="../../plugins/jszip/jszip.min.js"></script>
+    <script src="../../plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="../../plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+
 
     <script>
-        const authAxios = axios.create({
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("adminSession")
-            }
-        })
+        document.getElementById("admin_display_name").innerHTML = localStorage.getItem("admin_email");
     </script>
 
+    <!--TOOLTIP script-->
     <script>
-        document.getElementById("admin_email").innerHTML = localStorage.getItem("admin_email");
-        const conn1 = axios({
-            method: 'get',
-            url: baseurl + 'candidate_profile/' + parseInt(localStorage.getItem("id_of_selected_candidate"))
-        })
-            .then(function (data) {
-                console.log(data);
-                var address = data.data.city + ", " + data.data.zip_code + " " + data.data.region + ", " + data.data.country;
-                document.getElementById("display_full_name").innerHTML = data.data.full_name;
-                document.getElementById("display_full_name_1").innerHTML = data.data.full_name;
-                document.getElementById("display_gender").innerHTML = data.data.gender;
-                document.getElementById("display_address").innerHTML = address;
-                document.getElementById("display_nationality").innerHTML = data.data.nationality;
-
-                const conn2 = axios({
-                    method: 'get',
-                    url: baseurl + 'candidate_education_detail/' + parseInt(localStorage.getItem("id_of_selected_candidate"))
-                })
-                    .then(function (data) {
-                        console.log(data);
-                        document.getElementById("display_institute_university_name").innerHTML = data.data.institute_university_name;
-                        document.getElementById("display_institute_university_location").innerHTML = data.data.institute_university_location;
-                        document.getElementById("display_highest_educational_attainment").innerHTML = data.data.highest_education_attainment;
-                        document.getElementById("display_field_of_study").innerHTML = data.data.field_of_study;
-                        document.getElementById("display_major").innerHTML = data.data.major;
-                        document.getElementById("display_date_graduated").innerHTML = data.data.graduation_date;
-                    })
-                    .catch(function (data, err) {
-                        console.error(err);
-                    })
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip({
+                trigger: 'hover'
             })
-            .catch(function (data, err) {
-                console.log(data);
-                console.error(err);
-            })
-    </script>
-
-    <script>
-        function deactivateCandidate() {
-            const conn3 = authAxios({
-                method: 'delete',
-                url: baseurl + 'user_account/' + parseInt(localStorage.getItem("id_of_selected_candidate"))
-            })
-                .then(function (data) {
-                    alert("Candidate Deactivated.");
-                    window.open("candidate-list.html", "_self").reload();
-                })
-                .catch(function (data, err) {
-                    alert("Error deactivating candidate.");
-                    console.error(err);
-                })
-        }
+        });
     </script>
 </body>
 

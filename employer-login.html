@@ -122,31 +122,50 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 data: {
                                     user_account_id: localStorage.getItem('U_user_account_id'),
                                     time_of_login: loginTime,
-                                    time_of_logout: "LOGOUT_TIME"
+                                    time_of_logout: loginTime
                                 }
                             })
                                 .then(function (data) {
                                     localStorage.setItem("E_session_info_id", data.data.data.session_info_id);
                                     localStorage.setItem("loginTime", data.data.data.time_of_login);
 
-                                    // EMPLOYER SUBSCRIPTION
                                     const conn3 = axios({
                                         method: 'get',
-                                        url: baseurl + 'company_subscription/' + localStorage.getItem('U_user_account_id')
+                                        url: baseurl + 'company_profile/' + localStorage.getItem('U_user_account_id')
                                     })
                                         .then(function (data) {
-                                            if (data.data.subscription_type_code == 1) {
-                                                alert("Employer Login Successful. Redirecting to Dashboard...");
-                                                window.open("employer-basic-dashboard.html", "_self").reload();
+                                            if (data.data.review_status == 'Setting Up') {
+                                                alert("Complete Profile Setup First!");
+                                                return window.open("employer-register-profile.html", "_self").reload();
+                                            }
+                                            else if (data.data.review_status == 'Setted Up') {
+                                                alert("Account currently being reviewed.");
+                                                return window.open("employer-review-account-dashboard.html", "_self").reload();
                                             }
                                             else {
-                                                alert("Employer Login Successful. Redirecting to Dashboard...");
-                                                window.open("employer-branding-dashboard.html", "_self").reload();
+                                                // EMPLOYER SUBSCRIPTION
+                                                const conn4 = axios({
+                                                    method: 'get',
+                                                    url: baseurl + 'company_subscription/' + localStorage.getItem('U_user_account_id')
+                                                })
+                                                    .then(function (data) {
+                                                        if (data.data.subscription_type_code == 1) {
+                                                            alert("Employer Login Successful. Redirecting to Dashboard...");
+                                                            window.open("employer-basic-dashboard.html", "_self").reload();
+                                                        }
+                                                        else {
+                                                            alert("Employer Login Successful. Redirecting to Dashboard...");
+                                                            window.open("employer-branding-dashboard.html", "_self").reload();
+                                                        }
+                                                    })
+                                                    .catch(function (data, err) {
+                                                        console.log(data);
+                                                        console.error(err);
+                                                    })
                                             }
                                         })
                                         .catch(function (data, err) {
-                                            console.log(data);
-                                            console.error(err);
+
                                         })
                                 })
                                 .catch(function (data, err) {

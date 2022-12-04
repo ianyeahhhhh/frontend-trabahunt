@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin | Job Ads Management</title>
+    <title>Admin | Review Accounts</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -27,10 +27,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Theme style -->
     <link rel="stylesheet " href="dist/css/adminlte.min.css ">
     <link rel="icon" href="dist/img/logo-head.png" type="image/x-icon">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <script src="global-variables.js"></script>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
+
+    <!-- <body onload="if (localStorage.getItem('adminSession')==null) self.location='admin-home.html';"></body> -->
     <div class="wrapper">
         <!--NAV BAR START-->
         <nav class="main-header navbar navbar-expand nav-custom">
@@ -39,8 +45,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                     <li class=" nav-item d-none d-sm-inline-block ">
-                        <!-- <a class="navbar-left-item " class="nav-link"><b>Dashboard</b></a> -->
-                        <h5 class="navbar-header"><b>Package Management</b></h5>
+                        <h5 class="navbar-header"><b>Employers Account</b></h5>
                     </li>
                 </li>
             </ul>
@@ -203,78 +208,123 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </aside>
         <!--SIDE BAR END-->
 
+        <!--approve MODAL-->
+        <!--modal start-->
+        <div class="modal fade" id="transfer-acc-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Confirmation</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to approve this account?</p>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="">Approve</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <!--admin remarks MODAL-->
+        <!--modal start-->
+        <div class="modal fade" id="admin-remarks-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Remarks</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="2" id="reason" placeholder="Provide the details to employer..."></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="">Submit</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
         <div class="content-wrapper">
             <div class="container-fluid" style="padding: 2rem 1rem;">
-                <section class="content">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-xl-auto">
-                                <!-- Profile -->
-                                <div class="card card-warning">
-                                    <div class="card-header">
-                                        <h3 class="card-title"><b>Edit Package Information</b></h3>
-                                    </div>
-                                    <!-- /.card-header -->
-                                    <form action="">
-
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <strong>
-                                                    <i class="fas fa-layer-group"></i> INFORMATION
-                                                </strong>
-                                                </div>
-                                            </div>
-                                            <div class="row row-custom">
-                                                <div class="col-sm-4">
-                                                    <p class="text-muted">
-                                                        Package Name
-                                                    </p>
-                                                </div>
-                                                <div class="col-8">
-                                                    <input type="text" class="form-control" placeholder="Enter package name">
-                                                </div>
-                                            </div>
-
-                                            <div class="row row-custom">
-                                                <div class="col-sm-4">
-                                                    <p class="text-muted">
-                                                        Package Description
-                                                    </p>
-                                                </div>
-                                                <div class="col-8">
-                                                    <textarea class="form-control" rows="3" cols="100" placeholder="Description"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="row row-custom">
-                                                <div class="col-sm-4">
-                                                    <p class="text-muted">
-                                                        Price
-                                                    </p>
-                                                </div>
-                                                <div class="col-8">
-                                                    <input type="text" class="form-control" placeholder="Enter price">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- /.card-body -->
-                                        <div class="card-footer">
-                                            <button type="submit" class="btn btn-success">Save</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- /.row -->
+                <!--DATATABLE START-->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"><b>Employer List</b></h3>
                     </div>
-                    <!-- /.container-fluid -->
-                </section>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Company name</th>
+                                    <th>Email</th>
+                                    <th>Date Created</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Sample</td>
+                                    <td>Sample</td>
+                                    <td>Sample</td>
+                                    <td>Sample</td>
+                                    <td>Sample</td>
+                                    <td>
+                                        <a href="admin-review-employer-details.html"><button type="button"
+                                                    class="btn btn-default btn-sm" data-toggle="tooltip"
+                                                    data-placement="top" title="View details"><i
+                                                        class="fas fa-eye"></i></button></a>
+
+                                        <span data-toggle="tooltip" data-placement="top" title="Approve">
+                                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+                                                    data-target="#transfer-acc-modal"><i class="fas fa-check"></i></button>
+                                            </span>
+
+                                        <span data-toggle="tooltip" data-placement="top" title="Incomplete">
+                                                <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+                                                    data-target="#admin-remarks-modal"><i class="fas fa-exclamation-circle"></i></button>
+                                            </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Company name</th>
+                                    <th>Email</th>
+                                    <th>Date Created</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+                <!--DATATABLE END-->
             </div>
-
         </div>
-
-
 
         <footer class="main-footer ">
             <div class="float-right d-none d-sm-block ">
@@ -293,6 +343,34 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- AdminLTE App -->
     <script src="../../dist/js/adminlte.min.js "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="../../plugins/jszip/jszip.min.js"></script>
+    <script src="../../plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="../../plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+
+
+    <script>
+        document.getElementById("admin_display_name").innerHTML = localStorage.getItem("admin_email");
+    </script>
+
+    <!--TOOLTIP script-->
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip({
+                trigger: 'hover'
+            })
+        });
+    </script>
 </body>
 
 </html>

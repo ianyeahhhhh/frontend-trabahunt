@@ -96,6 +96,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             })
                 .then(function (data) {
                     alert("User account created. Please log-in now.");
+                    localStorage.setItem('candidate_type', data.data.candidate_type);
                     window.open("candidate-login.html", "_self").reload();
                 })
                 .catch(function (data, err) {
@@ -110,6 +111,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             })
                 .then(function (data) {
                     alert("User account created. Please log-in now.");
+                    localStorage.setItem('candidate_type', data.data.candidate_type);
                     window.open("candidate-login.html", "_self").reload();
                 })
                 .catch(function (data, err) {

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Review Account</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
+    <!-- BS Stepper -->
+    <link rel="stylesheet" href="/plugins/bs-stepper/css/bs-stepper.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="../../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet " href="dist/css/adminlte.min.css ">
+    <link rel="icon" href="dist/img/logo-head.png" type="image/x-icon">
+    <script src="global-variables.js"></script>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+
+    <!-- <body onload="if (localStorage.getItem('C_userSession')==null) self.location='candidate-login.html';"></body> -->
+    <div class="wrapper">
+        <!--NAV BAR START-->
+        <nav class="main-header navbar navbar-expand nav-custom-review">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
+                <li class=" nav-item d-none d-sm-inline-block ">
+                    <h5 class="navbar-header"><b>Dashboard</b></h5>
+                </li>
+                </li>
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto ">
+                <li class="nav-item dropdown ">
+                    <a class="navbar-right-item" data-toggle="dropdown" href="#">
+                        <i class="fas fa-user-alt"></i>
+                        <span id="candidate_display_name" class="user-name">EMPLOYER NAME HERE</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
+                        <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
+                                    class="fas fa-sign-out-alt"></i></span> Logout</a>
+                    </div>
+                </li>
+            </ul>
+            <!--/Right navbar links-->
+        </nav>
+        <!--NAV BAR END-->
+
+        <!--SIDE BAR START-->
+        <aside class="main-sidebar main-sidebar-custom sidebar-light-primary elevation-4 ">
+            <!-- Brand Logo -->
+            <a href="candidate-dashboard.html" class="brand-link">
+                <img src="/dist/img/logo-head.png " alt="TrabaHunt Logo " class="brand-image ">
+                <span class="brand-text font-weight-bold ">TrabaHunt</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <nav class="mt-2 ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
+                        data-accordion="false ">
+                        <!-- Add icons to the links using the .nav-icon class
+                           with font-awesome or any other icon font library -->
+                        <li class="nav-item ">
+                            <a href="account-review-dashboard.html" class="nav-link ">
+                                <i class="nav-icon fas fa-columns "></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- /.sidebar -->
+        </aside>
+        <!--SIDE BAR END-->
+
+        <!--remarks MODAL-->
+        <!--modal start-->
+        <div class="modal fade" id="remarks-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"> <b>Remarks</b> </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p> Your account is currently being reviewed...
+                            <br><br>Please make sure that the information needed are complete to ensure account
+                            enabling:<br> • Company Information <br> • Additional Information <br> • Legal Documents
+                            <br><br>Account will be reviewed within the day and you can access your complete dashboard
+                            once reviewing is successful.
+                            <br><br>Come back again after some time :)
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <div class="content-wrapper">
+            <div class="container-fluid" style="padding: 2rem 1rem;">
+                <div class="row">
+                    <div class="col-10">
+                        <div class="callout callout-warning">
+                            <p id='date_created' class="float-right"> Date created</p>
+                            <p><b>Account status</b></p>
+                            <hr>
+                            <p><b>For Reviewing</b></p>
+                            <a href="" data-toggle="modal" data-target="#remarks-modal">View admin remarks</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10">
+                        <!-- Profile -->
+                        <div class="card card-warning">
+                            <!-- /.card-header -->
+                            <div class="card-header">
+                                <h3 class="card-title"><b>My profile</b></h3>
+                                <a href="employer-review-edit-profile.html" class="float-right"><i
+                                        class="fas fa-eye"></i> Edit</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <strong>
+                                            <i class="fas fa-building"></i> INFORMATION
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Company Name
+                                        </p>
+                                    </div>
+                                    <div class="col-9">
+                                        <p id="company_name">
+                                            Default Modelo Incorporation
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Establishment Date
+                                        </p>
+                                    </div>
+                                    <div class="col-9">
+                                        <p id="establishment_date">
+                                            Default December 25, 2000
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Website
+                                        </p>
+                                    </div>
+                                    <div class="col-9">
+                                        <p id="company_website_url">
+                                            sample Website
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Company Description
+                                        </p>
+                                    </div>
+                                    <div class="col-9">
+                                        <p id="profile_description">
+                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod, mollitia.
+                                            Consequatur libero impedit eaque sunt? Consectetur soluta beatae aperiam
+                                            laboriosam aliquid modi corrupti ullam? Tempora et nulla reiciendis unde
+                                            deserunt.
+                                        </p>
+                                    </div>
+                                </div>
+
+
+                                <hr>
+
+                                <!--ADD INFO START-->
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <strong>
+                                            <i class="fas fa-info-circle"></i> ADDITIONAL INFORMATION
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div class="row  row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Registration Number
+                                        </p>
+                                    </div>
+                                    <div class="col-9">
+                                        <p id="registration_number">Default 00-1358-102</p>
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Address
+                                        </p>
+                                    </div>
+                                    <div class="col-9">
+                                        <p id="address">
+                                            Default Quezon City, 1001 NCR, Philippines
+                                        </p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <!--DOCUMENTS-->
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <strong>
+                                            <i class="fas fa-file"></i> LEGAL DOCUMENTS
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Documents
+                                        </p>
+                                    </div>
+                                    <div class="col-9">
+                                        <a href="#">company-registration-cert.pdf</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <footer class="main-footer ">
+            <div class="float-right d-none d-sm-block ">
+                <b>Traba</b>Hunt
+            </div>
+            <strong>Copyright &copy; 2022 All rights reserved.
+        </footer>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js "></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js "></script>
+    <!-- overlayScrollbars -->
+    <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js "></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+
+    <script>
+        document.getElementById("candidate_display_name").innerHTML = localStorage.getItem("U_email");
+    </script>
+
+    <script>
+        const conn1 = axios({
+            method: 'get',
+            url: baseurl + 'company_profile/' + localStorage.getItem('U_user_account_id')
+        })
+            .then(function (data) {
+                document.getElementById('company_name').innerHTML = data.data.company_name;
+                document.getElementById('establishment_date').innerHTML = data.data.establishment_date;
+                document.getElementById('company_website_url').innerHTML = data.data.company_website_url;
+                document.getElementById('profile_description').innerHTML = data.data.profile_description;
+                document.getElementById('date_created').innerHTML = 'Date Created (YYYY-MM-DD): ' + String(data.data.created_at).substring(0, 10);
+            })
+            .catch(function (data, err) {
+                console.log(data);
+            })
+
+        const conn2 = axios({
+            method: 'get',
+            url: baseurl + 'company_addition_info/' + localStorage.getItem('U_user_account_id')
+        })
+            .then(function (data) {
+                document.getElementById('registration_number').innerHTML = data.data.registration_number;
+                var address = data.data.city + ' ' + data.data.zip_code + ' ' + data.data.region + ' ' + data.data.country;
+                document.getElementById('address').innerHTML = address;
+            })
+            .catch(function (data, err) {
+                console.log(data);
+            })
+    </script>
+
+</body>
+
+</html>
