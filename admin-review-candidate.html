@@ -56,7 +56,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item dropdown ">
                     <a class="navbar-right-item" data-toggle="dropdown" href="#">
                         <i class="fas fa-user-alt"></i>
-                        <span id="admin_display_name" class="user-name">ADMIN NAME HERE</span>
+                        <span id="admin_display_name" class="user-name">Admin</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
                         <a href="view-admin-profile.html" class="dropdown-item"><span><i
@@ -222,11 +222,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Are you sure you want to transfer this account to HR?</p>
+                        <p>Are you sure you want to <b>Grant Dashboard Access</b> to this account?</p>
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" onclick="">Transfer</button>
+                        <button type="button" class="btn btn-primary" onclick="grantAccess()">Grant</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->
@@ -293,10 +293,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <td>Sample</td>
                                     <td>Sample</td>
                                     <td>
-                                        <a href="admin-review-candidate-details.html"><button type="button"
-                                                class="btn btn-default btn-sm" data-toggle="tooltip"
-                                                data-placement="top" title="View details"><i
-                                                    class="fas fa-eye"></i></button></a>
+                                        <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip"
+                                            data-placement="top" title="View details"><i
+                                                class="fas fa-eye"></i></button>
 
                                         <span data-toggle="tooltip" data-placement="top" title="Transfer to HR">
                                             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
@@ -387,7 +386,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         { data: 'review_status' },
                         {
                             data: function (data) {
-                                return 1
+                                if (data.review_status == 'Active') {
+                                    return "<button type='button' onclick='viewAcc()' class='btn btn-default btn-sm' data-toggle='tooltip'" +
+                                        "data-placement='top' title='View details'><i class='fas fa-eye'></i></button>"
+                                }
+                                if (data.candidate_type == 'Agency') {
+                                    return "<button type='button' onclick='viewAcc()' class='btn btn-default btn-sm' data-toggle='tooltip'" +
+                                        "data-placement='top' title='View details'><i class='fas fa-eye'></i></button>" +
+                                        "<span data-toggle='tooltip' data-placement='top' title='Grant Access'>   " +
+                                        "   <button type='button' class='btn btn-primary btn-sm' data-toggle='modal'" +
+                                        "data-target='#transfer-acc-modal'><i class='fas fa-paper-plane'></i></button></span>"
+                                }
+                                else if (data.candidate_type == 'Direct Hire') {
+                                    return "<button type='button' onclick='viewAcc()' class='btn btn-default btn-sm' data-toggle='tooltip'" +
+                                        "data-placement='top' title='View details'><i class='fas fa-eye'></i></button>" +
+                                        "<span data-toggle='tooltip' data-placement='top' title='Grant Access'>   " +
+                                        "   <button type='button' class='btn btn-primary btn-sm' data-toggle='modal'" +
+                                        "data-target='#transfer-acc-modal'><i class='fas fa-paper-plane'></i></button></span>"
+                                }
                             }
                         }
                     ],
@@ -398,11 +414,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 })
                 $('#example1').on('click', 'tbody .btn-sm', function () {
                     var data_row = table.row($(this).closest('tr')).data();
+                    localStorage.setItem('candidate_id_clicked', data_row.user_account_id);
                 })
             })
             .catch(function (data, err) {
                 console.error(err);
             })
+    </script>
+
+    <script>
+        function viewAcc() {
+            return window.open('admin-review-candidate-details.html', '_self').reload();
+        }
+
+        function grantAccess() {
+            const conn1 = axios({
+                method: 'put',
+                url: baseurl + 'candidate_profile/grantaccess/' + localStorage.getItem('candidate_id_clicked')
+            })
+                .then(function (data) {
+                    alert('Candidate Activated and Granted Dashboard Access.');
+                    return window.open('admin-review-candidate.html', '_self').reload();
+                })
+                .catch(function (data, err) {
+                    console.log(data);
+                })
+        }
     </script>
 </body>
 

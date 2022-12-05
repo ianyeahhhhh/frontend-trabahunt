@@ -11,8 +11,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Admin | Review Accounts</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
     <!-- BS Stepper -->
@@ -35,18 +37,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-
-    <!-- <body onload="if (localStorage.getItem('adminSession')==null) self.location='admin-home.html';"></body> -->
     <div class="wrapper">
         <!--NAV BAR START-->
         <nav class="main-header navbar navbar-expand nav-custom">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-                    <li class=" nav-item d-none d-sm-inline-block ">
-                        <h5 class="navbar-header"><b>Candidate Account</b></h5>
-                    </li>
+                    <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
+                <li class=" nav-item d-none d-sm-inline-block ">
+                    <h5 class="navbar-header"><b>Candidate Account</b></h5>
+                </li>
                 </li>
             </ul>
 
@@ -59,9 +60,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </a>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
                         <a href="view-admin-profile.html" class="dropdown-item"><span><i
-                            class="fas fa-user-circle"></i></span> Profile</a>
+                                    class="fas fa-user-circle"></i></span> Profile</a>
                         <a href="admin-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
-                            class="fas fa-sign-out-alt"></i></span> Logout</a>
+                                    class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
@@ -81,7 +82,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar -->
             <div class="sidebar">
                 <nav class="mt-2 ">
-                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
+                        data-accordion="false ">
                         <!-- Add icons to the links using the .nav-icon class
                            with font-awesome or any other icon font library -->
                         <li class="nav-item ">
@@ -220,11 +222,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Are you sure you want to transfer this account to HR?</p>
+                        <p>Are you sure you want to <b>Grant Dashboard Access</b> to this account?</p>
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" onclick="">Transfer</button>
+                        <button type="button" class="btn btn-primary" onclick='grantAccess()'>Grant</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->
@@ -247,7 +249,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="modal-body">
                         <form>
                             <div class="form-group">
-                                <textarea class="form-control" rows="2" id="reason" placeholder="Provide the details to candidate..."></textarea>
+                                <textarea class="form-control" rows="2" id="reason"
+                                    placeholder="Provide the details to candidate..."></textarea>
                             </div>
                         </form>
                     </div>
@@ -272,16 +275,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="card card-sticky card-success card-outline">
                                     <div class="card-body box-profile">
                                         <div class="text-center">
-                                            <img class="profile-user-img img-fluid img-circle" src="/dist/img/empty-image.jpg" alt="User profile picture">
+                                            <img class="profile-user-img img-fluid img-circle"
+                                                src="/dist/img/empty-image.jpg" alt="User profile picture">
                                         </div>
-                                        <h3 id="display_full_name" class="profile-username text-center">Marcus Erean
+                                        <h3 id="full_name" class="profile-username text-center">Marcus Erean
                                         </h3>
 
                                         <p class="text-muted text-center">Software Engineer</p>
 
                                         <ul class="list-group list-group-unbordered mb-3">
                                             <li class="list-group-item">
-                                                <span><i class="fas fa-envelope"></i></span> <a class="float-right">marcus@gmail.com</a>
+                                                <span><i class="fas fa-envelope"></i></span> <a
+                                                    class="float-right">marcus@gmail.com</a>
                                             </li>
                                             <li class="list-group-item">
                                                 <i class="fas fa-phone-alt"></i> <a class="float-right">+63 914 361
@@ -292,9 +297,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             </li>
                                         </ul>
 
-                                        <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#transfer-acc-modal"><span><i
-                                                    class="fas fa-paper-plane"></i></span> <b> Transfer to HR</b></a>
-                                        <a href="#" class="btn btn-warning btn-block" data-toggle="modal" data-target="#admin-remarks-modal"><span><i class="fas fa-exclamation-circle"></i></span> <b> Incomplete</b></a>
+                                        <button class="btn btn-primary btn-block"
+                                            data-toggle="modal" data-target="#transfer-acc-modal"><span><i
+                                                    class="fas fa-paper-plane"></i></span> <b> Grant Dashboard
+                                                Access</b></button>
                                     </div>
                                     <!-- /.card-body -->
                                 </div>
@@ -324,7 +330,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id="display_full_name_1">
+                                                <p id="full_name_1">
                                                     Marcus Erean B. Modelo
                                                 </p>
                                             </div>
@@ -336,7 +342,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id="display_gender">
+                                                <p id="gender">
                                                     Male
                                                 </p>
                                             </div>
@@ -348,8 +354,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_birth_date'>
-                                                    September 13, 1999
+                                                <p id='birth_date'>
+                                                    Default September 13, 1999
                                                 </p>
                                             </div>
                                         </div>
@@ -360,8 +366,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_address'>
-                                                    Quezon City, 1001 NCR, Philippines
+                                                <p id='address'>
+                                                    Default Quezon City, 1001 NCR, Philippines
                                                 </p>
                                             </div>
                                         </div>
@@ -372,7 +378,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_nationality'>
+                                                <p id='nationality'>
                                                     Filipino
                                                 </p>
                                             </div>
@@ -393,7 +399,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_institute_university_name'>Default Insitute/ University Name</p>
+                                                <p id='institute_university_name'>Default Insitute/ University Name</p>
                                             </div>
                                         </div>
                                         <div class="row  row-custom">
@@ -403,7 +409,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_institute_university_location'>Default Quezon City, Philippines
+                                                <p id='institute_university_location'>Default Quezon City, Philippines
                                                 </p>
                                             </div>
                                         </div>
@@ -414,7 +420,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_highest_educational_attainment'>Default Bachelor's / College Degree
+                                                <p id='highest_education_attainment'>Default Bachelor's / College Degree
                                                 </p>
                                             </div>
                                         </div>
@@ -425,7 +431,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_field_of_study'>Default Computer Science / Information Technology
+                                                <p id='field_of_study'>Default Computer Science / Information Technology
                                                 </p>
                                             </div>
                                         </div>
@@ -436,7 +442,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_major'>Information Technology Management</p>
+                                                <p id='major'>Information Technology Management</p>
                                             </div>
                                         </div>
                                         <div class="row  row-custom">
@@ -446,7 +452,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_date_graduated'>March 18, 1999</p>
+                                                <p id='graduation_date'>March 18, 1999</p>
                                             </div>
                                         </div>
 
@@ -467,7 +473,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p>Intern or looking for part-time job</p>
+                                                <p id="experience_level">Intern or looking for part-time job</p>
                                             </div>
                                         </div>
                                         <div class="row  row-custom">
@@ -477,7 +483,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis porro fugiat assumenda ipsum reprehenderit sapiente sit, quisquam quam quia similique? Quam consequuntur fuga ipsum eligendi assumenda,
+                                                <p id="experience_description">Lorem ipsum dolor sit, amet consectetur
+                                                    adipisicing elit. Corporis porro fugiat assumenda ipsum
+                                                    reprehenderit sapiente sit, quisquam quam quia similique? Quam
+                                                    consequuntur fuga ipsum eligendi assumenda,
                                                     aut tempore sunt vel?</p>
                                             </div>
                                         </div>
@@ -559,6 +568,71 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 trigger: 'hover'
             })
         });
+    </script>
+
+    <script>
+        const conn1 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_profile/' + localStorage.getItem('candidate_id_clicked')
+        })
+            .then(function (data) {
+                document.getElementById('full_name').innerHTML = data.data.full_name;
+                document.getElementById('full_name_1').innerHTML = data.data.full_name;
+                document.getElementById('gender').innerHTML = data.data.gender;
+                document.getElementById('birth_date').innerHTML = data.data.birth_date;
+                document.getElementById('nationality').innerHTML = data.data.nationality;
+                var address = data.data.city + ' ' + data.data.zip_code + ' ' + data.data.region + ' ' + data.data.country;
+                document.getElementById('address').innerHTML = address;
+            })
+            .catch(function (data, err) {
+                console.log(data);
+            })
+
+
+        const conn2 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_education_detail/' + localStorage.getItem('candidate_id_clicked')
+        })
+            .then(function (data) {
+                document.getElementById('institute_university_name').innerHTML = data.data.institute_university_name;
+                document.getElementById('institute_university_location').innerHTML = data.data.institute_university_location;
+                document.getElementById('highest_education_attainment').innerHTML = data.data.highest_education_attainment;
+                document.getElementById('major').innerHTML = data.data.major;
+                document.getElementById('field_of_study').innerHTML = data.data.field_of_study;
+                document.getElementById('graduation_date').innerHTML = data.data.graduation_date;
+            })
+            .catch(function (data, err) {
+                console.log(data);
+            })
+
+
+        const conn3 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_experience_detail/' + localStorage.getItem('candidate_id_clicked')
+        })
+            .then(function (data) {
+                document.getElementById('experience_level').innerHTML = data.data.experience_level;
+                document.getElementById('experience_description').innerHTML = data.data.experience_description;
+            })
+            .catch(function (data, err) {
+                console.log(data);
+            })
+    </script>
+
+    <script>
+        function grantAccess() {
+            const conn1 = axios({
+                method: 'put',
+                url: baseurl + 'candidate_profile/grantaccess/' + localStorage.getItem('candidate_id_clicked')
+            })
+                .then(function (data) {
+                    alert('Candidate Activated and Granted Dashboard Access.');
+                    return window.open('admin-review-candidate.html', '_self').reload();
+                })
+                .catch(function (data, err) {
+                    console.log(data);
+                })
+        }
     </script>
 </body>
 

@@ -52,7 +52,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item dropdown ">
                     <a class="navbar-right-item" data-toggle="dropdown" href="#">
                         <i class="fas fa-user-alt"></i>
-                        <span id="admin_display_name" class="user-name">ADMIN NAME HERE</span>
+                        <span id="admin_display_name" class="user-name">Admin</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
                         <a href="view-admin-profile.html" class="dropdown-item"><span><i
@@ -489,7 +489,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        document.getElementById("admin_email").innerHTML = localStorage.getItem("admin_email");
         const conn1 = axios({
             method: 'get',
             url: baseurl + 'candidate_profile/' + parseInt(localStorage.getItem("id_of_selected_candidate"))
