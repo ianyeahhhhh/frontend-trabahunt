@@ -61,11 +61,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </a>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
                         <!-- <div class="dropdown-divider "></div> -->
-                        <a href="employer-view-profile.html" class="dropdown-item "><span><i class="fas fa-user-circle"></i></span> Profile</a>
-                        <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i class="fas fa-sign-out-alt"></i></span> Logout</a>
+                        <a href="employer-view-profile.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="employer-branding-view-acc.html" class="dropdown-item "><span><i class="fas fa-user-lock"></i></span> Account</a>
+                        <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
+                                    class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
+            <!--/Right navbar links-->
+
         </nav>
         <!--NAV BAR END-->
 
@@ -290,7 +295,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script>
         $(document).ready(function () {
             $(function () {
-                axios({
+                const conn1 = axios({
                     method: 'get',
                     url: baseurl + 'job_post/all/except_pending/' + localStorage.getItem('U_user_account_id')
                 })
@@ -332,13 +337,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function deleteJobAd() {
-            axios({
+            const conn1 = axios({
                 method: 'delete',
                 url: baseurl + 'job_post/' + localStorage.getItem('job_post_id_clicked')
             })
                 .then(function (data) {
                     alert('Job Post Deleted');
-                    window.open("employer-job-ads-list.html", "_self");
+                    window.open("employer-job-ads-list.html", "_self").reload();
                 })
                 .catch(function (data, err) {
                     console.error(err);

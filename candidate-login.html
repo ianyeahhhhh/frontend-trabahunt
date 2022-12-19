@@ -146,7 +146,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             $.validator.setDefaults({
                 submitHandler: function () {
                     var loginTime = new Date().toString();
-                    axios({
+                    const conn1 = axios({
                         method: 'post',
                         url: baseurl + 'login/',
                         data: {
@@ -167,31 +167,52 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             localStorage.setItem('U_updated_at', data.data.data.updated_at);
 
                             // SESSION INFO
-                            axios({
+                            const conn1 = axios({
                                 method: 'post',
                                 url: baseurl + 'session_info/',
                                 data: {
                                     user_account_id: localStorage.getItem('U_user_account_id'),
                                     time_of_login: loginTime,
-                                    time_of_logout: "LOGOUT_TIME"
+                                    time_of_logout: loginTime
                                 }
                             })
                                 .then(function (data) {
                                     localStorage.setItem("U_session_info_id", data.data.data.session_info_id);
                                     localStorage.setItem("loginTime", data.data.data.time_of_login);
 
-                                    axios({
+                                    const conn1 = axios({
                                         method: 'get',
                                         url: baseurl + 'candidate_profile/' + localStorage.getItem('U_user_account_id')
                                     })
                                         .then(function (data) {
+                                            localStorage.setItem('candidate_type', data.data.candidate_type);
                                             if (data.data.candidate_type == 'Direct Hire') {
-                                                alert("Candidate Login Successful. Redirecting to Dashboard...");
-                                                window.open("candidate-dashboard.html", "_self");
+                                                if (data.data.review_status == 'Setting Up') {
+                                                    alert("Complete Profile Setup First!");
+                                                    return window.open("candidate-register-profile.html", "_self").reload();
+                                                }
+                                                else if (data.data.review_status == 'For Reviewing') {
+                                                    alert("Account currently being reviewed.");
+                                                    return window.open("candidate-review-account-dashboard.html", "_self").reload();
+                                                }
+                                                else {
+                                                    alert("Candidate Login Successful. Redirecting to Dashboard...");
+                                                    return window.open("candidate-dashboard.html", "_self").reload();
+                                                }
                                             }
-                                            else{
-                                                alert("Candidate Login Successful. Redirecting to Dashboard...");
-                                                window.open("candidate-agent-dashboard.html", "_self");
+                                            else {
+                                                if (data.data.review_status == 'Setting Up') {
+                                                    alert("Complete Profile Setup First!");
+                                                    return window.open("candidate-register-profile.html", "_self").reload();
+                                                }
+                                                else if (data.data.review_status == 'For Reviewing') {
+                                                    alert("Account currently being reviewed.");
+                                                    return window.open("candidate-review-account-dashboard.html", "_self").reload();
+                                                }
+                                                else {
+                                                    alert("Candidate Login Successful. Redirecting to Dashboard...");
+                                                    return window.open("candidate-agent-dashboard.html", "_self").reload();
+                                                }
                                             }
                                         })
                                         .catch(function (data, err) {

@@ -62,11 +62,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- <div class="dropdown-divider "></div> -->
                         <a href="candidate-view-profile.html" class="dropdown-item "><span><i
                                     class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="candidate-direct-view-acc.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-lock"></i></span> Account</a>
                         <a href="candidate-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
                                     class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
+            <!--/Right navbar links-->
         </nav>
         <!--NAV BAR END-->
 
@@ -324,21 +327,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     <input id="display_nationality" type="text" class="form-control" placeholder="Enter nationality">
                                                 </div>
                                             </div>
-                                            <!-- <div class="row row-custom">
-                                                <div class="col-sm-3">
-                                                    <p class="text-muted">
-                                                        Employment Type
-                                                    </p>
-                                                </div>
-                                                <div class="col-8 form-group">
-                                                    <select id="display_candidate_type" class="form-control select2">
-                                                        <option selected disabled>Select employment type</option>
-                                                        <option value="Direct Hire">Direct Hire</option>
-                                                        <option value="Agency">Agency</option>
-                                                    </select>
-                                                </div>
-                                            </div> -->
-
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
@@ -504,45 +492,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </div>
                                                 </div>
                                             </div>
-                                            <hr>
-                                            <!--Account-->
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <strong>
-                                                        <i class="fas fa-user-lock"></i> Account Details
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                            <div class="row  row-custom">
-                                                <div class="col-sm-3">
-                                                    <p class="text-muted">
-                                                        Contact Number
-                                                    </p>
-                                                </div>
-                                                <div class="col-8">
-                                                    <input id="contact_number" class="form-control" placeholder="Ex. 09123456789">
-                                                </div>
-                                            </div>
-                                            <div class="row  row-custom">
-                                                <div class="col-sm-3">
-                                                    <p class="text-muted">
-                                                        Email
-                                                    </p>
-                                                </div>
-                                                <div class="col-8">
-                                                    <input id="email" type="email" class="form-control" placeholder="sample@sample.com">
-                                                </div>
-                                            </div>
-                                            <div class="row  row-custom">
-                                                <div class="col-sm-3">
-                                                    <p class="text-muted">
-                                                        Password
-                                                    </p>
-                                                </div>
-                                                <div class="col-8">
-                                                    <input id="password" type="password" class="form-control" placeholder="Enter password">
-                                                </div>
-                                            </div>
+
                                         </div>
                                         <div class="card-footer">
                                             <button type="button" class="btn btn-success" onclick="editSave()">Save</button>
@@ -589,7 +539,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'candidate_profile/' + localStorage.getItem('U_user_account_id')
         })
@@ -608,7 +558,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 document.getElementById('display_country').value = data.data.country;
                 document.getElementById('display_nationality').value = data.data.nationality;
 
-                axios({
+                const conn1 = axios({
                     method: 'get',
                     url: baseurl + 'candidate_education_detail/' + localStorage.getItem('U_user_account_id')
                 })
@@ -620,7 +570,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         document.getElementById('display_major').value = data.data.major;
                         document.getElementById('display_date_graduated').value = data.data.graduation_date;
 
-                        axios({
+                        const conn1 = axios({
                             method: 'get',
                             url: baseurl + 'candidate_experience_detail/' + localStorage.getItem('U_user_account_id')
                         })
@@ -628,18 +578,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 document.getElementById("experience_level").value = data.data.experience_level;
                                 document.getElementById("experience_description").value = data.data.experience_description;
                                 document.getElementById("year_month_work_experience").value = data.data.year_month_work_experience;
-
-                                axios({
-                                    method: 'get',
-                                    url: baseurl + 'user_account/' + localStorage.getItem('U_user_account_id')
-                                })
-                                    .then(function (data) {
-                                        document.getElementById("email").value = data.data.email;
-                                        document.getElementById("contact_number").value = data.data.contact_number;
-                                    })
-                                    .catch(function (data, err) {
-                                        console.error(err);
-                                    })
                             })
                             .catch(function (data, err) {
                                 console.error(err);
@@ -658,7 +596,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function editSave() {
-            axios({
+            const conn1 = axios({
                 method: 'put',
                 url: baseurl + 'candidate_profile/' + localStorage.getItem('U_user_account_id'),
                 data: {
@@ -675,13 +613,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     nationality: $("#display_nationality").val(),
                     candidate_type: localStorage.getItem('candidate_type'),
                     candidate_image: "",
-                    status_from_hr: "None",
+                    review_status: "None",
                     age: 21,
                     user_account_id: localStorage.getItem('U_user_account_id')
                 }
             })
                 .then(function (data) {
-                    axios({
+                    const conn1 = axios({
                         method: 'put',
                         url: baseurl + 'candidate_education_detail/' + localStorage.getItem('U_user_account_id'),
                         data: {
@@ -695,7 +633,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                     })
                         .then(function (data) {
-                            axios({
+                            const conn1 = axios({
                                 method: 'put',
                                 url: baseurl + 'candidate_experience_detail/' + localStorage.getItem('U_user_account_id'),
                                 data: {
@@ -706,28 +644,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 }
                             })
                                 .then(function (data) {
-                                    axios({
-                                        method: 'put',
-                                        url: baseurl + 'user_account/' + localStorage.getItem('U_user_account_id'),
-                                        data: {
-                                            email: $("#email").val(),
-                                            password: $("#password").val(),
-                                            contact_number: $("#contact_number").val(),
-                                            user_account_type: 'Candidate',
-                                            account_status: 'Active'
-                                        }
-                                    })
-                                        .then(function (data) {
-                                            alert('Candidate Details Updated.');
-                                            window.open('candidate-view-profile.html', '_self');
-                                        })
-                                        .catch(function (data, err) {
-                                            console.error(err);
-                                        })
+                                    alert('Candidate Details Updated.');
+                                    window.open('candidate-view-profile.html', '_self').reload();
                                 })
                                 .catch(function (data, err) {
                                     console.error(err);
-                                    console.log(data);
                                 })
                         })
                         .catch(function (data, err) {
@@ -743,13 +664,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
         function deactivate() {
-            axios({
+            const conn1 = axios({
                 method: 'delete',
                 url: baseurl + 'user_account/' + localStorage.getItem('U_user_account_id')
             })
                 .then(function (data) {
                     alert('User Account Deactivated');
-                    window.open('candidate-logout.html', '_self');
+                    window.open('candidate-logout.html', '_self').reload();
                 })
                 .catch(function (data, err) {
                     console.error(err);

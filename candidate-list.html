@@ -55,15 +55,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <ul class="navbar-nav ml-auto ">
                 <li class="nav-item dropdown ">
                     <a class="navbar-right-item" data-toggle="dropdown" href="#">
-                        <i class="far fa-user "></i>
-                        <span id="admin_email" class="user-name ">Admin Name Here</span>
+                        <i class="fas fa-user-alt"></i>
+                        <span id="admin_display_name" class="user-name">ADMIN NAME HERE</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
-                        <a href="edit-admin-profile.html" class="dropdown-item "><span><i class="fas fa-user-circle"></i></span> Profile</a>
-                        <a href="admin-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i class="fas fa-sign-out-alt"></i></span> Logout</a>
+                        <a href="view-admin-profile.html" class="dropdown-item"><span><i
+                            class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="admin-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
+                            class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
+            <!--/Right navbar links-->
+
         </nav>
         <!--NAV BAR END-->
 
@@ -105,6 +109,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </li>
                                 <li class="nav-item ">
                                     <a href="employer-list.html" class="nav-link ">
+                                        <p>Employers</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="# " class="nav-link ">
+                                <i class="nav-icon fas fa-eye"></i>
+                                <p style="margin-right: 1rem; ">
+                                    Review Accounts
+                                </p>
+                                <span><i class="right fas fa-angle-left "></i></span>
+                            </a>
+                            <ul class="nav nav-treeview ">
+                                <li class="nav-item ">
+                                    <a href="admin-review-candidate.html" class="nav-link ">
+                                        <p>Candidates</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="admin-review-employers.html" class="nav-link ">
                                         <p>Employers</p>
                                     </a>
                                 </li>
@@ -181,6 +206,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </nav>
             </div>
             <!-- /.sidebar -->
+
         </aside>
         <!--SIDE BAR END-->
 
@@ -221,19 +247,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th style="text-align:center">User_Account_ID</th>
+                                    <th style="text-align:center">User Account ID</th>
                                     <th style="text-align:center">Email</th>
-                                    <th style="text-align:center">Contact_Number</th>
-                                    <th style="text-align:center">Account_Status</th>
+                                    <th style="text-align:center">Contact Number</th>
+                                    <th style="text-align:center">Account Status</th>
                                     <th style="text-align:center">Actions</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th style="text-align:center">User_Account_ID</th>
+                                    <th style="text-align:center">User Account ID</th>
                                     <th style="text-align:center">Email</th>
-                                    <th style="text-align:center">Contact_Number</th>
-                                    <th style="text-align:center">Account_Status</th>
+                                    <th style="text-align:center">Contact Number</th>
+                                    <th style="text-align:center">Account Status</th>
                                     <th style="text-align:center">Actions</th>
                                 </tr>
                             </tfoot>
@@ -244,7 +270,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- /.card -->
                 <!--DATATABLE END-->
             </div>
-
         </div>
 
         <footer class="main-footer ">
@@ -286,7 +311,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script>
         $(document).ready(function () {
             $(function () {
-                axios({
+                const conn1 = axios({
                     method: 'get',
                     url: baseurl + 'user_account/all_candidate'
                 })
@@ -307,7 +332,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             ],
                             "responsive": true,
                             "lengthChange": true,
-                            "autoWidth": false,
+                            "autoWidth": true,
                             "searching": true
                         })
                         $('#example1').on('click', 'tbody .btn-sm', function () {
@@ -324,7 +349,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function viewSpecificCandidate() {
-            window.open('view-candidate-profile.html', '_self');
+            window.open('view-candidate-profile.html', '_self').reload();
         }
     </script>
 

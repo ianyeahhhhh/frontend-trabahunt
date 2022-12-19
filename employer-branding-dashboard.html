@@ -58,6 +58,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- <div class="dropdown-divider "></div> -->
                         <a href="employer-view-profile.html" class="dropdown-item "><span><i
                                     class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="employer-branding-view-acc.html" class="dropdown-item "><span><i class="fas fa-user-lock"></i></span> Account</a>
                         <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
                                     class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
@@ -263,7 +264,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'job_application/all/' + localStorage.getItem('U_user_account_id')
         })
@@ -276,7 +277,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        axios({
+        const conn2 = axios({
             method: 'get',
             url: baseurl + 'job_post/all/accepted/' + localStorage.getItem('U_user_account_id')
         })
@@ -289,7 +290,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        axios({
+        const conn3 = axios({
             method: 'get',
             url: baseurl + 'job_post/all/rejected/' + localStorage.getItem('U_user_account_id')
         })
@@ -302,7 +303,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        axios({
+        const conn4 = axios({
             method: 'get',
             url: baseurl + 'job_post/all/pending/' + localStorage.getItem('U_user_account_id')
         })

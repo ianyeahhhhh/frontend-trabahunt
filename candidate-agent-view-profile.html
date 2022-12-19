@@ -60,6 +60,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- <div class="dropdown-divider "></div> -->
                         <a href="candidate-agent-view-profile.html" class="dropdown-item "><span><i
                                     class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="candidate-agent-view-acc.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-lock"></i></span> Account</a>
                         <a href="candidate-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
                                     class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
@@ -151,7 +153,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <!-- Profile -->
                                 <div class="card card-success">
                                     <div class="card-header">
-                                        <h3 class="card-title"><b>My Profile</b></h3>
+                                        <h3 class="card-title"><b>My profile</b></h3>
                                         <a href="candidate-agent-edit-profile.html" class="float-right"><i
                                                 class="fas fa-edit"></i> Edit</a>
                                     </div>
@@ -381,45 +383,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             </div>
 
                                         </div>
-                                        <!--Account-->
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <strong>
-                                                    <i class="fas fa-user-lock"></i> Account Details
-                                                </strong>
-                                            </div>
-                                        </div>
-                                        <div class="row  row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Contact Number
-                                                </p>
-                                            </div>
-                                            <div class="col-8">
-                                                <p id="display_contact_number">Sample Contact Number</p>
-                                            </div>
-                                        </div>
-                                        <div class="row  row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Email
-                                                </p>
-                                            </div>
-                                            <div class="col-8">
-                                                <p id="display_email_1">Sample@sample.com</p>
-                                            </div>
-                                        </div>
-                                        <!-- <div class="row  row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Password
-                                                </p>
-                                            </div>
-                                            <div class="col-8">
-                                                <p>******</p>
-                                            </div>
-                                        </div> -->
                                     </div>
 
                                 </div>
@@ -456,7 +419,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'candidate_profile/' + localStorage.getItem('U_user_account_id')
         })
@@ -470,7 +433,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 document.getElementById('display_nationality').innerHTML = data.data.nationality;
                 document.getElementById('display_candidate_type').innerHTML = data.data.candidate_type;
 
-                axios({
+                const conn1 = axios({
                     method: 'get',
                     url: baseurl + 'candidate_education_detail/' + localStorage.getItem('U_user_account_id')
                 })
@@ -482,27 +445,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         document.getElementById('display_major').innerHTML = data.data.major;
                         document.getElementById('display_date_graduated').innerHTML = data.data.graduation_date;
 
-                        axios({
+                        const conn1 = axios({
                             method: 'get',
-                            url: baseurl + 'user_account/' + localStorage.getItem('U_user_account_id')
+                            url: baseurl + 'candidate_experience_detail/' + localStorage.getItem('U_user_account_id')
                         })
                             .then(function (data) {
-                                document.getElementById("display_email").innerHTML = data.data.email;
-                                document.getElementById("display_email_1").innerHTML = data.data.email;
-                                document.getElementById('display_contact_number').innerHTML = data.data.contact_number;
-
-                                axios({
-                                    method: 'get',
-                                    url: baseurl + 'candidate_experience_detail/' + localStorage.getItem('U_user_account_id')
-                                })
-                                    .then(function (data) {
-                                        document.getElementById("display_experience_level").innerHTML = data.data.experience_level;
-                                        document.getElementById("display_work_experience").innerHTML = data.data.year_month_work_experience;
-                                        document.getElementById("display_experience_description").innerHTML = data.data.experience_description;
-                                    })
-                                    .catch(function (data, err) {
-                                        console.error(err);
-                                    })
+                                document.getElementById("display_experience_level").innerHTML = data.data.experience_level;
+                                document.getElementById("display_work_experience").innerHTML = data.data.year_month_work_experience;
+                                document.getElementById("display_experience_description").innerHTML = data.data.experience_description;
                             })
                             .catch(function (data, err) {
                                 console.error(err);

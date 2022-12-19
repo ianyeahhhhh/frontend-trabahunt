@@ -175,6 +175,10 @@ body {
     background-color: #66B8ED;
 }
 
+.nav-custom-review {
+    background-color: #939393;
+}
+
 [tabindex="-1"]:focus:not(:focus-visible) {
     outline: 0!important
 }

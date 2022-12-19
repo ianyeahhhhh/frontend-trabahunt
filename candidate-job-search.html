@@ -61,11 +61,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </a>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
                         <!-- <div class="dropdown-divider "></div> -->
-                        <a href="candidate-view-profile.html" class="dropdown-item "><span><i class="fas fa-user-circle"></i></span> Profile</a>
-                        <a href="candidate-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i class="fas fa-sign-out-alt"></i></span> Logout</a>
+                        <a href="candidate-view-profile.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="candidate-direct-view-acc.html" class="dropdown-item "><span><i class="fas fa-user-lock"></i></span> Account</a>
+                        <a href="candidate-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
+                                    class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
+            <!--/Right navbar links-->
+
         </nav>
         <!--NAV BAR END-->
 
@@ -225,7 +230,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script>
         $(document).ready(function () {
             $(function () {
-                axios({
+                const conn1 = axios({
                     method: 'get',
                     url: baseurl + 'job_post/all/except_pending_for_candidate/'
                 })
@@ -266,7 +271,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function viewSpecificJobAd() {
-            window.open("candidate-job-ads-details.html", "_self");
+            window.open("candidate-job-ads-details.html", "_self").reload();
         }
     </script>
     <!--DATATABLE SCRIPT END-->

@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
     <script>
         var logoutTime = new Date().toString();
-        axios({
+        const conn1 = axios({
             method: 'put',
             url: baseurl + 'session_info/' + parseInt(localStorage.getItem("E_session_info_id")),
             data: {
@@ -24,7 +24,7 @@
                 alert("Employer Logged Out");
                 if (localStorage.getItem('E_userSession') != null) {
                     localStorage.clear();
-                    window.open("employer-home.html", "_self");
+                    window.open("employer-home.html", "_self").reload();
                 }
             })
             .catch(function (data, error) {

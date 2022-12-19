@@ -11,10 +11,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Candidate | Job Search</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
     <!-- BS Stepper -->
@@ -48,9 +46,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
-                <li class=" nav-item d-none d-sm-inline-block ">
-                    <h5 class="navbar-header"><b>Job search</b></h5>
-                </li>
+                    <li class=" nav-item d-none d-sm-inline-block ">
+                        <h5 class="navbar-header"><b>Job search</b></h5>
+                    </li>
                 </li>
             </ul>
 
@@ -63,11 +61,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </a>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
                         <!-- <div class="dropdown-divider "></div> -->
-                        <a href="candidate-view-profile.html" class="dropdown-item ">Profile</a>
-                        <a href="candidate-logout.html" class="dropdown-item ">Logout</a>
+                        <a href="candidate-view-profile.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="candidate-direct-view-acc.html" class="dropdown-item "><span><i class="fas fa-user-lock"></i></span> Account</a>
+                        <a href="candidate-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
+                                    class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
+            <!--/Right navbar links-->
         </nav>
         <!--NAV BAR END-->
 
@@ -82,8 +84,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar -->
             <div class="sidebar">
                 <nav class="mt-2 ">
-                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
-                        data-accordion="false ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
                         <!-- Add icons to the links using the .nav-icon class
                            with font-awesome or any other icon font library -->
                         <li class="nav-item ">
@@ -168,8 +169,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     <i class="fas fa-clock" style="padding-right:.5rem;"></i> DEFAULT
                                                 </li>
                                                 <li>
-                                                    <i class="fas fa-map-marker-alt" style="padding-right:.5rem;"></i>
-                                                    DEFAULT
+                                                    <i class="fas fa-map-marker-alt" style="padding-right:.5rem;"></i> DEFAULT
                                                 </li>
                                             </ul>
                                         </div>
@@ -201,8 +201,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-6  form-group">
-                                                    <input id="full_name" type="text" class="form-control"
-                                                        placeholder="Enter your full name">
+                                                    <input id="full_name" type="text" class="form-control" placeholder="Enter your full name">
                                                 </div>
                                             </div>
                                             <div class="row row-custom">
@@ -212,8 +211,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-6  form-group">
-                                                    <input id="email" type="email" class="form-control"
-                                                        placeholder="Enter your email">
+                                                    <input id="email" type="email" class="form-control" placeholder="Enter your email">
                                                 </div>
                                             </div>
                                             <div class="row row-custom">
@@ -223,21 +221,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-6  form-group">
-                                                    <input id="contact_number" type="text" class="form-control"
-                                                        placeholder="Enter your contact number">
+                                                    <input id="contact_number" type="text" class="form-control" placeholder="Enter your contact number">
                                                 </div>
                                             </div>
                                             <p class="text-muted" style="font-size: 11px;">
-                                                By submitting this form, you agree to be contacted regarding your
-                                                request, and you are confirming you agree to our <span><a href="#"
+                                                By submitting this form, you agree to be contacted regarding your request, and you are confirming you agree to our <span><a href="#"
                                                         style="font-size: 11px;">Terms of Use</a></span> and <span><a
                                                         href="#" style="font-size: 11px;">Privacy Policy.</a></span>
                                             </p>
                                         </div>
                                         <!-- /.card-body -->
                                         <div class="card-footer">
-                                            <button type='button' class="btn btn-success"
-                                                onclick="submitApplication()">Submit
+                                            <button type='button' class="btn btn-success" onclick="submitApplication()">Submit
                                                 application</button>
                                         </div>
                                     </form>
@@ -291,7 +286,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function submitApplication() {
-            axios({
+            const conn1 = axios({
                 method: 'post',
                 url: baseurl + 'job_application/',
                 data: {
@@ -306,7 +301,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             })
                 .then(function (data) {
                     // alert('Job Application Submitted');
-                    axios({
+                    const conn1 = axios({
                         method: 'post',
                         url: baseurl + 'interview_info/',
                         data: {
@@ -324,7 +319,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         .then(function (data) {
                             // alert('interview_info created.');
                             alert('Job Application Submitted.');
-                            window.open('candidate-pending-job-app.html', '_self');
+                            window.open('candidate-pending-job-app.html', '_self').reload();
                         })
                         .catch(function (data, err) {
                             console.error(err);

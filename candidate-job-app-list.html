@@ -36,6 +36,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
+
     <body onload="if (localStorage.getItem('C_userSession')==null) self.location='candidate-home.html';"></body>
     <div class="wrapper">
         <!--NAV BAR START-->
@@ -60,11 +61,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </a>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
                         <!-- <div class="dropdown-divider "></div> -->
-                        <a href="candidate-view-profile.html" class="dropdown-item "><span><i class="fas fa-user-circle"></i></span> Profile</a>
-                        <a href="candidate-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i class="fas fa-sign-out-alt"></i></span> Logout</a>
+                        <a href="candidate-view-profile.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="candidate-direct-view-acc.html" class="dropdown-item "><span><i class="fas fa-user-lock"></i></span> Account</a>
+                        <a href="candidate-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
+                                    class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
+            <!--/Right navbar links-->
         </nav>
         <!--NAV BAR END-->
 
@@ -243,7 +248,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script>
         $(document).ready(function () {
             $(function () {
-                axios({
+                const conn1 = axios({
                     method: 'get',
                     url: baseurl + 'job_application/all/except_pending_candidate/' + localStorage.getItem('U_user_account_id')
                 })
@@ -269,7 +274,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         })
                         $('#example1').on('click', 'tbody .btn-sm', function () {
                             var data_row = table.row($(this).closest('tr')).data();
-                            console.log(data_row);
                             localStorage.setItem("job_application_id_clicked", data_row.job_application_id);
                             localStorage.setItem("job_post_id_clicked", data_row.job_post_id);
                         })
@@ -284,12 +288,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function viewJobApplication() {
-            window.open("candidate-job-app-history.html", "_self");
+            window.open("candidate-job-app-history.html", "_self").reload();
         }
 
 
         function viewJobAppStatus() {
-            window.open("candidate-job-app-status.html", "_self");
+            window.open("candidate-job-app-status.html", "_self").reload();
         }
     </script>
 

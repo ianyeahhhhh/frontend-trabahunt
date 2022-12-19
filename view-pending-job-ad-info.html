@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Admin | Job Ads Management</title>
+    <title>Admin | Job Ads Management</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -51,16 +51,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <ul class="navbar-nav ml-auto ">
                 <li class="nav-item dropdown ">
                     <a class="navbar-right-item" data-toggle="dropdown" href="#">
-                        <i class="far fa-user "></i>
-                        <span id="admin_display_name" class="user-name ">Admin Name Here</span>
+                        <i class="fas fa-user-alt"></i>
+                        <span id="admin_display_name" class="user-name">ADMIN NAME HERE</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
-                        <!-- <div class="dropdown-divider "></div> -->
-                        <a href="view-admin-profile.html" class="dropdown-item ">Profile</a>
-                        <a href="admin-logout.html " class="dropdown-item ">Logout</a>
+                        <a href="view-admin-profile.html" class="dropdown-item"><span><i
+                            class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="admin-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
+                            class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
+            <!--/Right navbar links-->
         </nav>
         <!--NAV BAR END-->
 
@@ -102,6 +104,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </li>
                                 <li class="nav-item ">
                                     <a href="employer-list.html" class="nav-link ">
+                                        <p>Employers</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="# " class="nav-link ">
+                                <i class="nav-icon fas fa-eye"></i>
+                                <p style="margin-right: 1rem; ">
+                                    Review Accounts
+                                </p>
+                                <span><i class="right fas fa-angle-left "></i></span>
+                            </a>
+                            <ul class="nav nav-treeview ">
+                                <li class="nav-item ">
+                                    <a href="admin-review-candidate.html" class="nav-link ">
+                                        <p>Candidates</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="admin-review-employers.html" class="nav-link ">
                                         <p>Employers</p>
                                     </a>
                                 </li>
@@ -480,7 +503,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'job_post/get_one/' + localStorage.getItem('job_post_id_clicked')
         })
@@ -491,7 +514,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 document.getElementById('display_job_description').innerHTML = data.data.job_description;
                 document.getElementById('display_job_post_status').innerHTML = data.data.job_post_status;
 
-                axios({
+                const conn2 = axios({
                     method: 'get',
                     url: baseurl + 'job_additional_info/' + localStorage.getItem('job_post_id_clicked')
                 })
@@ -501,7 +524,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         document.getElementById('display_career_level').innerHTML = data.data.career_level;
                         document.getElementById('display_job_type_name').innerHTML = data.data.job_type_name;
 
-                        axios({
+                        const conn3 = axios({
                             method: 'get',
                             url: baseurl + 'job_location/' + localStorage.getItem('job_post_id_clicked')
                         })
@@ -509,7 +532,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 var address = data.data.city + ", " + data.data.zip_code + " " + data.data.region + ", " + data.data.country;
                                 document.getElementById('display_address').innerHTML = address;
 
-                                axios({
+                                const conn4 = axios({
                                     method: 'get',
                                     url: baseurl + 'company_profile/' + localStorage.getItem('U_user_account_id')
                                 })
@@ -536,13 +559,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function approveJobAd() {
-            axios({
+            const conn1 = axios({
                 url: baseurl + 'job_post/accept_job_ad/' + localStorage.getItem('job_post_id_clicked'),
                 method: 'put'
             })
                 .then(function (data) {
                     alert('Job Post Approved/Accepted');
-                    window.open("job-ads-list.html", "_self");
+                    window.open("job-ads-list.html", "_self").reload();
                 })
                 .catch(function (data) {
                     alert('Error Accepting Job Post');
@@ -551,13 +574,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
         function rejectJobAd() {
-            axios({
+            const conn2 = axios({
                 url: baseurl + 'job_post/reject_job_ad/' + localStorage.getItem('job_post_id_clicked'),
                 method: 'put'
             })
                 .then(function (data) {
                     alert('Job Post Rejected');
-                    window.open("job-ads-list.html", "_self");
+                    window.open("job-ads-list.html", "_self").reload();
                 })
                 .catch(function (data) {
                     alert('Error Rejecting Job Post');

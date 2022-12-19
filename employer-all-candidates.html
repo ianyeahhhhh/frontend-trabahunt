@@ -384,7 +384,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script>
         $(document).ready(function () {
             $(function () {
-                axios({
+                const conn1 = axios({
                     method: 'get',
                     url: baseurl + 'job_application/all/enlisted/' + localStorage.getItem('U_user_account_id')
                 })
@@ -428,18 +428,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function viewJobApplication() {
-            window.open('employer-view-candidate-interview.html', '_self');
+            window.open('employer-view-candidate-interview.html', '_self').reload();
         }
 
         function acceptHire() {
-            axios({
+            const conn1 = axios({
                 method: 'put',
                 url: baseurl + 'job_application/accept/' + localStorage.getItem('job_application_id_clicked')
             })
                 .then(function (data) {
                     alert('Job Application Accepted.');
 
-                    axios({
+                    const conn2 = axios({
                         method: 'get',
                         url: baseurl + 'job_application/' + localStorage.getItem('job_application_id_clicked')
                     })
@@ -447,21 +447,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             localStorage.setItem('hired_full_name', data.data.full_name);
                             localStorage.setItem('hired_candidate_id', data.data.candidate_id);
 
-                            axios({
+                            const conn3 = axios({
                                 method: 'put',
                                 url: baseurl + 'interview_info/accept/' + localStorage.getItem('job_application_id_clicked')
                             })
                                 .then(function (data) {
                                     alert('Interview Accepted.');
 
-                                    axios({
+                                    const conn4 = axios({
                                         method: 'get',
                                         url: baseurl + 'job_post/get_one/' + localStorage.getItem('job_post_id_clicked')
                                     })
                                         .then(function (data) {
                                             localStorage.setItem('hired_position', data.data.job_position_level);
 
-                                            axios({
+                                            const conn5 = axios({
                                                 method: 'post',
                                                 url: baseurl + 'employee_info/',
                                                 data: {
@@ -473,7 +473,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             })
                                                 .then(function (data) {
                                                     alert('Employee is now Hired/Accepted.');
-                                                    window.open('employer-list-employee.html', '_self');
+                                                    window.open('employer-list-employee.html', '_self').reload();
                                                 })
                                                 .catch(function (data, err) {
                                                     console.error(err);
@@ -497,7 +497,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         }
 
         function reject_and_cancel() {
-            axios({
+            const conn1 = axios({
                 method: 'put',
                 url: baseurl + 'job_application/reject/' + localStorage.getItem('job_application_id_clicked')
             })
@@ -505,14 +505,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     console.log(data);
                     // alert('Applicant Rejected.');
 
-                    axios({
+                    const conn2 = axios({
                         method: 'put',
                         url: baseurl + 'interview_info/cancel/' + localStorage.getItem('job_application_id_clicked')
                     })
                         .then(function (data) {
                             // console.log(data);
                             alert('Applicant Rejected');
-                            window.open('employer-all-candidates.html', '_self');
+                            window.open('employer-all-candidates.html', '_self').reload();
 
                         })
                         .catch(function (data, err) {
@@ -525,7 +525,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         }
 
         function resched() {
-            axios({
+            const conn1 = axios({
                 method: 'put',
                 url: baseurl + 'interview_info/' + localStorage.getItem('job_application_id_clicked'),
                 data: {
@@ -541,7 +541,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 .then(function (data) {
                     // console.log(data);
                     alert('Interview Rescheduled');
-                    window.open('employer-all-candidates.html', '_self');
+                    window.open('employer-all-candidates.html', '_self').reload();
                 })
                 .catch(function (data, err) {
                     console.error(err);

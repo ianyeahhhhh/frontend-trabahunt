@@ -145,7 +145,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             $.validator.setDefaults({
                 submitHandler: function () {
                     //CREATE USER_ACCOUNT
-                    axios({
+                    const conn1 = axios({
                         method: 'post',
                         url: baseurl + 'user_account/',
                         data: {
@@ -167,7 +167,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                             if (document.getElementById("user_account_type").value == "Candidate") {
                                 // CREATE CANDIDATE_PROFILE
-                                axios({
+                                const conn2 = axios({
                                     method: 'post',
                                     url: baseurl + 'candidate_profile/',
                                     data: {
@@ -185,14 +185,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         country: "",
                                         nationality: "",
                                         candidate_image: "",
-                                        status_from_hr: "",
+                                        review_status: "Setting Up",
                                         user_account_id: parseInt(localStorage.getItem("U_user_account_id"))
                                     }
                                 })
                                     .then(function () {
                                         // alert("Candidate Profile Successfully Created.");
                                         // CREATE CANDIDATE_EDUCATION_DETAIL
-                                        axios({
+                                        const conn3 = axios({
                                             method: 'post',
                                             url: baseurl + 'candidate_education_detail/',
                                             data: {
@@ -208,7 +208,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             .then(function () {
                                                 // alert("Candidate Education Detail Successfully Created.");
                                                 //RESUME
-                                                axios({
+                                                const conn4 = axios({
                                                     method: 'post',
                                                     url: baseurl + 'candidate_resume/',
                                                     data: {
@@ -217,7 +217,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     }
                                                 })
                                                     .then(function (data) {
-                                                        axios({
+                                                        const conn5 = axios({
                                                             method: 'post',
                                                             url: baseurl + 'candidate_experience_detail/',
                                                             data: {
@@ -229,7 +229,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                         })
                                                             .then(function () {
                                                                 alert("Choose empoyment Type...");
-                                                                window.open("candidate-choose-employment.html", "_self");
+                                                                window.open("candidate-choose-employment.html", "_self").reload();
                                                             })
                                                             .catch(function (err, data) {
                                                                 console.error(err);
@@ -248,7 +248,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     })
                             } else if (document.getElementById("user_account_type").value == "Employer") {
                                 // CREATE COMPANY_PROFILE
-                                axios({
+                                const conn2 = axios({
                                     method: 'post',
                                     url: baseurl + 'company_profile/',
                                     data: {
@@ -257,13 +257,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         establishment_date: "",
                                         company_website_url: "",
                                         company_logo: "",
+                                        review_status: "Setting Up",
                                         user_account_id: parseInt(localStorage.getItem("U_user_account_id"))
                                     }
                                 })
                                     .then(function (data) {
                                         localStorage.setItem('company_id_when_created', data.data.data.company_id);
                                         // alert("Company Profile Creation Done.");
-                                        axios({
+                                        const conn3 = axios({
                                             method: 'post',
                                             url: baseurl + 'company_addition_info/',
                                             data: {
@@ -272,14 +273,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 country: "",
                                                 region: "",
                                                 zip_code: "",
-                                                city: "",
-                                                company_contact_number: ""
+                                                city: ""
                                             }
                                         })
                                             .then(function () {
                                                 // alert("Company Addition Info Creation Done. Please choose your subscription package.");
                                                 alert("User account created. Please choose your subscription package.");
-                                                window.open("employer-choose-subscription.html", "_self");
+                                                window.open("employer-choose-subscription.html", "_self").reload();
                                             })
                                             .catch(function (err) {
                                                 console.error(err);

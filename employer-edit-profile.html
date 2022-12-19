@@ -58,11 +58,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- <div class="dropdown-divider "></div> -->
                         <a href="employer-view-profile.html" class="dropdown-item "><span><i
                                     class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="employer-branding-view-acc.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-lock"></i></span> Account</a>
                         <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
                                     class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
+            <!--/Right navbar links-->
+
         </nav>
         <!--NAV BAR END-->
 
@@ -283,16 +287,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <div class="row row-custom">
                                                 <div class="col-sm-3">
                                                     <p class="text-muted">
-                                                        Contact Number
-                                                    </p>
-                                                </div>
-                                                <div class="col-8">
-                                                    <input id="display_company_contact_number_1" type="text" class="form-control" placeholder="Ex: 09123456789">
-                                                </div>
-                                            </div>
-                                            <div class="row row-custom">
-                                                <div class="col-sm-3">
-                                                    <p class="text-muted">
                                                         Address
                                                     </p>
                                                 </div>
@@ -344,47 +338,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </div>
                                                 </div>
                                             </div>
-                                            <hr>
-                                            <!--Account-->
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <strong>
-                                                        <i class="fas fa-user-lock"></i> Account Details
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                            <div class="row  row-custom">
-                                                <div class="col-sm-3">
-                                                    <p class="text-muted">
-                                                        Contact Number
-                                                    </p>
-                                                </div>
-                                                <div class="col-8">
-                                                    <input id="contact_number" class="form-control" placeholder="Ex. 090000000000">
-                                                </div>
-                                            </div>
-                                            <div class="row  row-custom">
-                                                <div class="col-sm-3">
-                                                    <p class="text-muted">
-                                                        Email
-                                                    </p>
-                                                </div>
-                                                <div class="col-8">
-                                                    <input id="email" type="email" class="form-control" placeholder="sample@sample.com">
-                                                </div>
-                                            </div>
-                                            <div class="row  row-custom">
-                                                <div class="col-sm-3">
-                                                    <p class="text-muted">
-                                                        Password
-                                                    </p>
-                                                </div>
-                                                <div class="col-8">
-                                                    <input id="password" type="password" class="form-control" placeholder="Enter password">
-                                                </div>
-                                            </div>
-
-
                                             <!-- /.card-body -->
                                         </div>
                                         <div class="card-footer">
@@ -419,7 +372,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
 
     <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'company_profile/' + localStorage.getItem('U_user_account_id')
         })
@@ -430,7 +383,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 document.getElementById('display_establishment_date_1').value = data.data.establishment_date;
                 document.getElementById('display_company_website_url').value = data.data.company_website_url;
 
-                axios({
+                const conn2 = axios({
                     method: 'get',
                     url: baseurl + 'company_addition_info/' + localStorage.getItem('U_user_account_id')
                 })
@@ -444,19 +397,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         document.getElementById('display_country').value = data.data.country;
                         var address = data.data.city + ', ' + data.data.zip_code + " " + data.data.region + ', ' + data.data.country;
                         document.getElementById('display_address').innerHTML = address;
-
-                        axios({
-                            method: 'get',
-                            url: baseurl + 'user_account/' + localStorage.getItem('U_user_account_id')
-                        })
-                            .then(function (data) {
-                                document.getElementById("employer_display_name").innerHTML = data.data.email;
-                                document.getElementById("email").value = data.data.email;
-                                document.getElementById("contact_number").value = data.data.contact_number;
-                            })
-                            .catch(function (data, err) {
-                                console.error(err);
-                            })
                     })
                     .catch(function (data, err) {
                         console.error(err);
@@ -469,7 +409,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function saveEdit() {
-            axios({
+            const conn1 = axios({
                 method: 'put',
                 url: baseurl + 'company_profile/' + localStorage.getItem('U_user_account_id'),
                 data: {
@@ -483,7 +423,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             })
                 .then(function (data) {
                     // alert('Commpany Profile Updated.');
-                    axios({
+                    const conn2 = axios({
                         method: 'put',
                         url: baseurl + 'company_addition_info/' + localStorage.getItem('U_user_account_id'),
                         data: {
@@ -497,26 +437,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                     })
                         .then(function (data) {
-                            // alert('Commpany Additional Info Updated.');
-
-                            axios({
-                                method: 'put',
-                                url: baseurl + 'user_account/' + localStorage.getItem('U_user_account_id'),
-                                data: {
-                                    email: $("#email").val(),
-                                    password: $("#password").val(),
-                                    contact_number: $("#contact_number").val(),
-                                    user_account_type: 'Employer',
-                                    account_status: 'Active'
-                                }
-                            })
-                                .then(function (data) {
-                                    alert('Employer Details Updated.');
-                                    window.open('employer-view-profile.html', '_self');
-                                })
-                                .catch(function (data, err) {
-                                    console.error(err);
-                                })
+                            alert('Employer Details Updated');
+                            window.open('employer-view-profile.html', '_self').reload();
                         })
                         .catch(function (data, err) {
                             console.error(err);

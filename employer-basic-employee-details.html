@@ -51,15 +51,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item dropdown ">
                     <a class="navbar-right-item" data-toggle="dropdown" href="#">
                         <i class="fas fa-user-alt"></i>
-                        <span id="admin_display_name" class="user-name">COMPANY NAME HERE</span>
+                        <span id="employer_display_name" class="user-name">COMPANY NAME HERE</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
                         <!-- <div class="dropdown-divider "></div> -->
-                        <a href="employer-basic-view-profile.html" class="dropdown-item ">Profile</a>
-                        <a href="employer-logout.html" class="dropdown-item ">Logout</a>
+                        <a href="employer-basic-view-profile.html" class="dropdown-item "><span><i
+                            class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="employer-basic-view-acc.html" class="dropdown-item "><span><i class="fas fa-user-lock"></i></span> Account</a>
+                        <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
+                            class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
+            <!--/Right navbar links-->
+
         </nav>
         <!--NAV BAR END-->
 
@@ -424,7 +429,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         document.getElementById("admin_email").innerHTML = localStorage.getItem("admin_email");
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'candidate_profile/' + parseInt(localStorage.getItem("id_of_selected_candidate"))
         })
@@ -437,7 +442,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 document.getElementById("display_address").innerHTML = address;
                 document.getElementById("display_nationality").innerHTML = data.data.nationality;
 
-                axios({
+                const conn2 = axios({
                     method: 'get',
                     url: baseurl + 'candidate_education_detail/' + parseInt(localStorage.getItem("id_of_selected_candidate"))
                 })
@@ -462,13 +467,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function deactivateCandidate() {
-            authAxios({
+            const conn1 = authAxios({
                 method: 'delete',
                 url: baseurl + 'user_account/' + parseInt(localStorage.getItem("id_of_selected_candidate"))
             })
                 .then(function (data) {
                     alert("Candidate Deactivated.");
-                    window.open("candidate-list.html", "_self");
+                    window.open("candidate-list.html", "_self").reload();
                 })
                 .catch(function (data, err) {
                     alert("Error deactivating candidate.");
