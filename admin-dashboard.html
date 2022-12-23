@@ -11,8 +11,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Admin | Dashboard</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
     <!-- BS Stepper -->
@@ -26,23 +28,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
     <!-- Theme style -->
     <link rel="stylesheet " href="dist/css/adminlte.min.css ">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="icon" href="dist/img/logo-head.png" type="image/x-icon">
     <script src="global-variables.js"></script>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-
-    <!-- <body onload="if (localStorage.getItem('adminSession')==null) self.location='admin-home.html';"></body> -->
     <div class="wrapper">
         <!--NAV BAR START-->
         <nav class="main-header navbar navbar-expand nav-custom">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-                    <li class=" nav-item d-none d-sm-inline-block ">
-                        <h5 class="navbar-header"><b>Dashboard</b></h5>
-                    </li>
+                    <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
+                <li class=" nav-item d-none d-sm-inline-block ">
+                    <h5 class="navbar-header"><b>Dashboard</b></h5>
+                </li>
                 </li>
             </ul>
 
@@ -54,11 +57,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <span id="admin_display_name" class="user-name">ADMIN NAME HERE</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
-                        <a href="view-admin-profile.html" class="dropdown-item ">Profile</a>
-                        <a href="admin-logout.html" class="dropdown-item ">Logout</a>
+                        <a href="view-admin-profile.html" class="dropdown-item"><span><i
+                                    class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="admin-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
+                                    class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
+            <!--/Right navbar links-->
         </nav>
         <!--NAV BAR END-->
 
@@ -73,7 +79,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar -->
             <div class="sidebar">
                 <nav class="mt-2 ">
-                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
+                        data-accordion="false ">
                         <!-- Add icons to the links using the .nav-icon class
                            with font-awesome or any other icon font library -->
                         <li class="nav-item ">
@@ -100,6 +107,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </li>
                                 <li class="nav-item ">
                                     <a href="employer-list.html" class="nav-link ">
+                                        <p>Employers</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="# " class="nav-link ">
+                                <i class="nav-icon fas fa-eye"></i>
+                                <p style="margin-right: 1rem; ">
+                                    Review Accounts
+                                </p>
+                                <span><i class="right fas fa-angle-left "></i></span>
+                            </a>
+                            <ul class="nav nav-treeview ">
+                                <li class="nav-item ">
+                                    <a href="admin-review-candidate.html" class="nav-link ">
+                                        <p>Candidates</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="admin-review-employers.html" class="nav-link ">
                                         <p>Employers</p>
                                     </a>
                                 </li>
@@ -176,61 +204,71 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </nav>
             </div>
             <!-- /.sidebar -->
+
         </aside>
         <!--SIDE BAR END-->
 
         <div class="content-wrapper">
             <div class="container-fluid" style="padding: 2rem 1rem;">
                 <div class="row">
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <div class="info-box">
-                            <span class="info-box-icon bg-info"><i class="fas fa-building"></i></span>
-                            <div class="info-box-content">
-                                <span class="info-box-text">Total Employers</span>
-                                <span class="info-box-number">1,410</span>
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-info">
+                            <div class="inner">
+                                <h3>150</h3>
+                                <p>Employers</p>
                             </div>
-                            <!-- /.info-box-content -->
+                            <div class="icon">
+                                <i class="fa fa-building"></i>
+                            </div>
+                            <a href="employer-list.html" class="small-box-footer">More info <i
+                                    class="fas fa-arrow-circle-right"></i></a>
                         </div>
-                        <!-- /.info-box -->
                     </div>
                     <!-- /.col -->
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <div class="info-box">
-                            <span class="info-box-icon bg-success"><i class="fas fa-check-circle"></i></span>
-
-                            <div class="info-box-content">
-                                <span class="info-box-text">Accepted Job Ads</span>
-                                <span class="info-box-number">410</span>
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-success">
+                            <div class="inner">
+                                <h3>452</h3>
+                                <p>Accepted Job Ads</p>
                             </div>
-                            <!-- /.info-box-content -->
+                            <div class="icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <a href="job-ads-list.html" class="small-box-footer">More info <i
+                                    class="fas fa-arrow-circle-right"></i></a>
                         </div>
-                        <!-- /.info-box -->
                     </div>
                     <!-- /.col -->
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <div class="info-box">
-                            <span class="info-box-icon bg-danger"><i class="fas fa-times-circle"></i></span>
-
-                            <div class="info-box-content">
-                                <span class="info-box-text">Rejected Job Ads</span>
-                                <span class="info-box-number">13,648</span>
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-danger">
+                            <div class="inner">
+                                <h3>12</h3>
+                                <p>Rejected Job Ads</p>
                             </div>
-                            <!-- /.info-box-content -->
+                            <div class="icon">
+                                <i class="fas fa-times-circle"></i>
+                            </div>
+                            <a href="job-ads-list.html" class="small-box-footer">More info <i
+                                    class="fas fa-arrow-circle-right"></i></a>
                         </div>
-                        <!-- /.info-box -->
                     </div>
                     <!-- /.col -->
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <div class="info-box">
-                            <span class="info-box-icon bg-warning"><i class="fas fa-clock"></i></span>
-
-                            <div class="info-box-content">
-                                <span class="info-box-text">Pending Job Ads</span>
-                                <span class="info-box-number">93,139</span>
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-warning">
+                            <div class="inner">
+                                <h3>55</h3>
+                                <p>Pending Job Ads</p>
                             </div>
-                            <!-- /.info-box-content -->
+                            <div class="icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <a href="pending-job-ads.html" class="small-box-footer">More info <i
+                                    class="fas fa-arrow-circle-right"></i></a>
                         </div>
-                        <!-- /.info-box -->
                     </div>
                     <!-- /.col -->
                 </div>
@@ -256,6 +294,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- AdminLTE App -->
     <script src="../../dist/js/adminlte.min.js "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
         document.getElementById("admin_display_name").innerHTML = localStorage.getItem("admin_email");

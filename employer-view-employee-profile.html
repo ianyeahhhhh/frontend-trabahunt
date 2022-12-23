@@ -31,8 +31,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-
-    <body onload="if (localStorage.getItem('E_userSession')==null) self.location='employer-login.html';"></body>
     <div class="wrapper">
         <!--NAV BAR START-->
         <nav class="main-header navbar navbar-expand nav-custom-emp">
@@ -58,11 +56,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- <div class="dropdown-divider "></div> -->
                         <a href="employer-view-profile.html" class="dropdown-item "><span><i
                                     class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="employer-branding-view-acc.html" class="dropdown-item "><span><i class="fas fa-user-lock"></i></span> Account</a>
                         <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
                                     class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
+            <!--/Right navbar links-->
+
         </nav>
         <!--NAV BAR END-->
 
@@ -479,13 +480,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- AdminLTE App -->
     <script src="../../dist/js/adminlte.min.js "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script>
+    <script type="module">
         document.getElementById("employer_display_name").innerHTML = localStorage.getItem("U_email");
-    </script>
 
-    <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'candidate_profile/' + localStorage.getItem('candidate_id_clicked')
         })
@@ -498,7 +498,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 document.getElementById('display_address').innerHTML = address;
                 document.getElementById('display_nationality').innerHTML = data.data.nationality;
 
-                axios({
+                const conn2 = axios({
                     method: 'get',
                     url: baseurl + 'candidate_education_detail/' + localStorage.getItem('candidate_id_clicked')
                 })
@@ -510,7 +510,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         document.getElementById('display_major').innerHTML = data.data.major;
                         document.getElementById('display_date_graduated').innerHTML = data.data.graduation_date;
 
-                        axios({
+                        const conn3 = axios({
                             method: 'get',
                             url: baseurl + 'employee_info/get_one/' + localStorage.getItem('employee_id_clicked')
                         })

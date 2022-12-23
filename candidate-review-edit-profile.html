@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Review Account</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
+    <!-- BS Stepper -->
+    <link rel="stylesheet" href="/plugins/bs-stepper/css/bs-stepper.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="../../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet " href="dist/css/adminlte.min.css ">
+    <link rel="icon" href="dist/img/logo-head.png" type="image/x-icon">
+    <script src="global-variables.js"></script>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <!--NAV BAR START-->
+        <nav class="main-header navbar navbar-expand nav-custom-review">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
+                <li class=" nav-item d-none d-sm-inline-block ">
+                    <h5 class="navbar-header"><b>Dashboard</b></h5>
+                </li>
+                </li>
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto ">
+                <li class="nav-item dropdown ">
+                    <a class="navbar-right-item" data-toggle="dropdown" href="#">
+                        <i class="fas fa-user-alt"></i>
+                        <span id="candidate_display_name" class="user-name">CANDIDATE NAME HERE</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
+                        <a href="candidate-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
+                                    class="fas fa-sign-out-alt"></i></span> Logout</a>
+                    </div>
+                </li>
+            </ul>
+            <!--/Right navbar links-->
+        </nav>
+        <!--NAV BAR END-->
+
+        <!--SIDE BAR START-->
+        <aside class="main-sidebar main-sidebar-custom sidebar-light-primary elevation-4 ">
+            <!-- Brand Logo -->
+            <a href="candidate-dashboard.html" class="brand-link">
+                <img src="/dist/img/logo-head.png " alt="TrabaHunt Logo " class="brand-image ">
+                <span class="brand-text font-weight-bold ">TrabaHunt</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <nav class="mt-2 ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
+                        data-accordion="false ">
+                        <!-- Add icons to the links using the .nav-icon class
+                           with font-awesome or any other icon font library -->
+                        <li class="nav-item ">
+                            <a href="account-review-dashboard.html" class="nav-link ">
+                                <i class="nav-icon fas fa-columns "></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- /.sidebar -->
+        </aside>
+        <!--SIDE BAR END-->
+
+        <!--remarks MODAL-->
+        <!--modal start-->
+        <div class="modal fade" id="remarks-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Remarks</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Please make sure that the information needed are complete to ensure account enabling:<br> •
+                            Personal Information <br> • Education Detail <br> • Work Experience
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <div class="content-wrapper">
+            <div class="container-fluid" style="padding: 2rem 1rem;">
+                <div class="row">
+                    <div class="col-10">
+                        <div class="callout callout-warning">
+                            <p id="date_created" class="float-right"> Date created</p>
+                            <p><b>Account Status</b></p>
+                            <hr>
+                            <p><b>For Reviewing</b></p>
+                            <a href="" data-toggle="modal" data-target="#remarks-modal">View admin remarks</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10">
+                        <!-- Profile -->
+                        <div class="card card-warning">
+                            <!-- /.card-header -->
+                            <div class="card-header">
+                                <h3 class="card-title"><b>Edit my profile</b></h3>
+                                <a href="candidate-review-account-dashboard.html" class="float-right"><i
+                                        class="fas fa-eye"></i> View</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <strong>
+                                            <i class="fas fa-user"></i> INFORMATION
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Name
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input id="first_name" type="text" class="form-control"
+                                            placeholder="First name">
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input id="middle_name" type="text" class="form-control"
+                                            placeholder="Middle name">
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input id="last_name" type="text" class="form-control" placeholder="Last name">
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input id="suffix_name" type="text" class="form-control"
+                                            placeholder="Suffix name">
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Gender
+                                        </p>
+                                    </div>
+                                    <div class="col-8 form-group">
+                                        <select type="select" id="gender" name="gender" class="form-control select2">
+                                            <option value="" selected="selected" disabled="disabled">Select
+                                                gender</option>
+                                            <option value="Male" label="Male">Male</option>
+                                            <option value="Female" label="Female">Female</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Birthdate
+                                        </p>
+                                    </div>
+                                    <div class="col-8 form-group">
+                                        <input id="birth_date" type="text" class="form-control"
+                                            placeholder="Ex: December 25, 2000">
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Address
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input id="country" type="text" class="form-control" placeholder="Country">
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted text-hidden">
+
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input id="region" type="text" class="form-control" placeholder="Region">
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted text-hidden">
+
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input id="zip_code" type="text" class="form-control" placeholder="Zip Code">
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted text-hidden">
+
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input id="city" type="text" class="form-control" placeholder="City">
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Nationality
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input id="nationality" type="text" class="form-control"
+                                            placeholder="Enter nationality">
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <strong>
+                                            <i class="fas fa-graduation-cap"></i> EDUCATION
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Insitute/ University Name
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input id="institute_university_name" type="text" class="form-control"
+                                            placeholder="Enter Institute/University Name">
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Location
+                                        </p>
+                                    </div>
+                                    <div class="col-8 form-group">
+                                        <input id="institute_university_location" type="text" class="form-control"
+                                            placeholder="Enter location">
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Highest Educational Attainment
+                                        </p>
+                                    </div>
+                                    <div class="col-8 form-group">
+                                        <select id="highest_education_attainment" class="form-control select2">
+                                            <option selected disabled>Select qualification</option>
+                                            <option value="High School Diploma">High School Diploma</option>
+                                            <option value="Vocational Diploma/Short Course Certificate">
+                                                Vocational
+                                                Diploma/Short Course Certificate</option>
+                                            <option value="Bachelor's/College Degree">Bachelor's/College
+                                                Degree
+                                            </option>
+                                            <option value="Post Graduate Diploma/Master's Degree">Post
+                                                Graduate
+                                                Diploma/Master's Degree</option>
+                                            <option value="Professional License">Professional License
+                                                (Passed
+                                                Board/Bar/Professional License Exam)</option>
+                                            <option value="Doctorate Degree">Doctorate Degree</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Field of Study
+                                        </p>
+                                    </div>
+                                    <div class="col-8 form-group">
+                                        <select id="field_of_study" class="form-control select2">
+                                            <option selected disabled>Select field of study</option>
+                                            <option value="Accounting">Accounting</option>
+                                            <option value="Information Technology">Information Technology
+                                            </option>
+                                            <option value="Entrepreneurship">Entrepreneurship</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row  row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Major
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input id="major" type="text" class="form-control"
+                                            placeholder="Ex: Computer Science">
+                                    </div>
+                                </div>
+                                <div class="row  row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Date Graduated
+                                        </p>
+                                    </div>
+                                    <div class="col-4">
+                                        <select id="month" class="form-control select2">
+                                            <option selected="selected" disabled="disabled">Month</option>
+                                            <option>January</option>
+                                            <option>February</option>
+                                            <option>March</option>
+                                            <option>April</option>
+                                            <option>May</option>
+                                            <option>June</option>
+                                            <option>July</option>
+                                            <option>August</option>
+                                            <option>September</option>
+                                            <option>October</option>
+                                            <option>November</option>
+                                            <option>December</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-2 form-group">
+                                        <select id="year" class="form-control select2">
+                                            <option selected="selected" disabled="disabled">Year</option>
+                                            <option value="1940">1940</option>
+                                            <option value="1941">1941</option>
+                                            <option value="1942">1942</option>
+                                            <option value="1943">1943</option>
+                                            <option value="1944">1944</option>
+                                            <option value="1945">1945</option>
+                                            <option value="1946">1946</option>
+                                            <option value="1947">1947</option>
+                                            <option value="1948">1948</option>
+                                            <option value="1949">1949</option>
+                                            <option value="1950">1950</option>
+                                            <option value="1951">1951</option>
+                                            <option value="1952">1952</option>
+                                            <option value="1953">1953</option>
+                                            <option value="1954">1954</option>
+                                            <option value="1955">1955</option>
+                                            <option value="1956">1956</option>
+                                            <option value="1957">1957</option>
+                                            <option value="1958">1958</option>
+                                            <option value="1959">1959</option>
+                                            <option value="1960">1960</option>
+                                            <option value="1961">1961</option>
+                                            <option value="1962">1962</option>
+                                            <option value="1963">1963</option>
+                                            <option value="1964">1964</option>
+                                            <option value="1965">1965</option>
+                                            <option value="1966">1966</option>
+                                            <option value="1967">1967</option>
+                                            <option value="1968">1968</option>
+                                            <option value="1969">1969</option>
+                                            <option value="1970">1970</option>
+                                            <option value="1971">1971</option>
+                                            <option value="1972">1972</option>
+                                            <option value="1973">1973</option>
+                                            <option value="1974">1974</option>
+                                            <option value="1975">1975</option>
+                                            <option value="1976">1976</option>
+                                            <option value="1977">1977</option>
+                                            <option value="1978">1978</option>
+                                            <option value="1979">1979</option>
+                                            <option value="1980">1980</option>
+                                            <option value="1981">1981</option>
+                                            <option value="1982">1982</option>
+                                            <option value="1983">1983</option>
+                                            <option value="1984">1984</option>
+                                            <option value="1985">1985</option>
+                                            <option value="1986">1986</option>
+                                            <option value="1987">1987</option>
+                                            <option value="1988">1988</option>
+                                            <option value="1989">1989</option>
+                                            <option value="1990">1990</option>
+                                            <option value="1991">1991</option>
+                                            <option value="1992">1992</option>
+                                            <option value="1993">1993</option>
+                                            <option value="1994">1994</option>
+                                            <option value="1995">1995</option>
+                                            <option value="1996">1996</option>
+                                            <option value="1997">1997</option>
+                                            <option value="1998">1998</option>
+                                            <option value="1999">1999</option>
+                                            <option value="2000">2000</option>
+                                            <option value="2001">2001</option>
+                                            <option value="2002">2002</option>
+                                            <option value="2003">2003</option>
+                                            <option value="2004">2004</option>
+                                            <option value="2005">2005</option>
+                                            <option value="2006">2006</option>
+                                            <option value="2007">2007</option>
+                                            <option value="2008">2008</option>
+                                            <option value="2009">2009</option>
+                                            <option value="2010">2010</option>
+                                            <option value="2011">2011</option>
+                                            <option value="2012">2012</option>
+                                            <option value="2013">2013</option>
+                                            <option value="2014">2014</option>
+                                            <option value="2015">2015</option>
+                                            <option value="2016">2016</option>
+                                            <option value="2017">2017</option>
+                                            <option value="2018">2018</option>
+                                            <option value="2019">2019</option>
+                                            <option value="2020">2020</option>
+                                            <option value="2021">2021</option>
+                                            <option value="2022">2022</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <!--EXP DETAIL START-->
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <strong>
+                                            <i class="fas fa-map-marker-alt mr-1"></i> EXPERIENCE DETAIL
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div class="row  row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Experience Level
+                                        </p>
+                                    </div>
+                                    <div class="col-8 form-group">
+                                        <select id="experience_level" class="form-control select2">
+                                            <option selected disabled>Select experience</option>
+                                            <option value="Fresh Graduate">Fresh Graduate</option>
+                                            <option value="Looking for Part-time Job">Looking for Part-time
+                                                Job</option>
+                                            <option value="Internship">Internship</option>
+                                            <option value="With Work Experience">With Work Experience
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row  row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Work Experience (If without work experience, kindly leave this blank.)
+                                        </p>
+                                    </div>
+                                    <div class="col-8 form-group">
+                                        <input id="year_month_work_experience" type="text" class="form-control"
+                                            placeholder="Ex: 2 years or 11 months">
+                                    </div>
+                                </div>
+                                <div class="row  row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Description (If without work experience, kindly leave this blank.)
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <textarea id="experience_description" class="form-control" rows="3"
+                                            placeholder="Description"></textarea>
+                                    </div>
+                                </div>
+
+
+                                <hr>
+
+                                <!--RESUME-->
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <strong>
+                                            <i class="fas fa-file"></i> RESUME
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div class="row  row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Upload Resume
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="customFile">
+                                            <label class="custom-file-label" for="customFile">Choose
+                                                file</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card-footer">
+                                <button type="button" class="btn btn-success" onclick="editSave()">Save</button>
+                            </div>
+                        </div>
+
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <footer class="main-footer ">
+            <div class="float-right d-none d-sm-block ">
+                <b>Traba</b>Hunt
+            </div>
+            <strong>Copyright &copy; 2022 All rights reserved.
+        </footer>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js "></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js "></script>
+    <!-- overlayScrollbars -->
+    <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js "></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="module">
+        document.getElementById("candidate_display_name").innerHTML = localStorage.getItem("U_email");
+
+        const conn1 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_profile/' + localStorage.getItem('U_user_account_id')
+        })
+            .then(function (data) {
+                var date_created = String(data.data.created_at);
+                document.getElementById('date_created').innerHTML = 'Date Created(YYYY-MM-DD): ' + date_created.substring(0, 10);
+
+                document.getElementById('first_name').value = data.data.first_name;
+                document.getElementById('middle_name').value = data.data.middle_name;
+                document.getElementById('last_name').value = data.data.last_name;
+                document.getElementById('suffix_name').value = data.data.suffix_name;
+                document.getElementById('gender').value = data.data.gender;
+                document.getElementById('birth_date').value = data.data.birth_date;
+                document.getElementById('country').value = data.data.country;
+                document.getElementById('region').value = data.data.region;
+                document.getElementById('zip_code').value = data.data.zip_code;
+                document.getElementById('city').value = data.data.city;
+                document.getElementById('nationality').value = data.data.nationality;
+            })
+            .catch(function (data, err) {
+                // console.error(err);
+                // console.log(data);
+            });
+
+
+        const conn2 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_education_detail/' + localStorage.getItem('U_user_account_id')
+        })
+            .then(function (data) {
+                document.getElementById('institute_university_name').value = data.data.institute_university_name;
+                document.getElementById('institute_university_location').value = data.data.institute_university_location;
+                document.getElementById('field_of_study').value = data.data.field_of_study;
+                document.getElementById('highest_education_attainment').value = data.data.highest_education_attainment;
+                document.getElementById('major').value = data.data.major;
+                var grad_date = data.data.graduation_date;
+                var month = (grad_date).substring(0, grad_date.indexOf(' '));
+                var year = (grad_date).substring(grad_date.indexOf(' ') + 1);
+                document.getElementById('month').value = month;
+                document.getElementById('year').value = year;
+            })
+            .catch(function (data, err) {
+                // console.log(data);
+            })
+
+
+        const conn3 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_experience_detail/' + localStorage.getItem('U_user_account_id')
+        })
+            .then(function (data) {
+                document.getElementById('experience_level').value = data.data.experience_level;
+                document.getElementById('experience_description').value = data.data.experience_description;
+                document.getElementById('year_month_work_experience').value = data.data.year_month_work_experience;
+            })
+            .catch(function (data, err) {
+                console.log(data);
+            })
+    </script>
+
+    <script>
+        function editSave() {
+            const conn1 = axios({
+                method: 'put',
+                url: baseurl + 'candidate_profile/' + localStorage.getItem('U_user_account_id'),
+                data: {
+                    first_name: $('#first_name').val(),
+                    middle_name: $('#middle_name').val(),
+                    last_name: $('#last_name').val(),
+                    suffix_name: $('#suffix_name').val(),
+                    gender: $('#gender').val(),
+                    birth_date: $('#birth_date').val(),
+                    age: 21,
+                    zip_code: $('#zip_code').val(),
+                    city: $('#city').val(),
+                    region: $('#region').val(),
+                    country: $('#country').val(),
+                    nationality: $('#nationality').val(),
+                    review_status: 'For Reviewing',
+                    candidate_image: '',
+                    candidate_type: localStorage.getItem('candidate_type'),
+                    user_account_id: localStorage.getItem('U_user_account_id')
+                }
+            })
+                .then(function (data) {
+                    const conn2 = axios({
+                        method: 'put',
+                        url: baseurl + 'candidate_education_detail/' + localStorage.getItem('U_user_account_id'),
+                        data: {
+                            institute_university_name: $('#institute_university_name').val(),
+                            institute_university_location: $('#institute_university_location').val(),
+                            highest_education_attainment: $('#highest_education_attainment').val(),
+                            field_of_study: $('#field_of_study').val(),
+                            major: $('#major').val(),
+                            graduation_date: $('#month').val() + ' ' + $('#year').val(),
+                            user_account_id: localStorage.getItem('U_user_account_id')
+                        }
+                    })
+                        .then(function (data) {
+                            const conn3 = axios({
+                                method: 'put',
+                                url: baseurl + 'candidate_experience_detail/' + localStorage.getItem('U_user_account_id'),
+                                data: {
+                                    experience_level: $('#experience_level').val(),
+                                    experience_description: $('#experience_description').val(),
+                                    year_month_work_experience: $('#year_month_work_experience').val(),
+                                    user_account_id: localStorage.getItem('U_user_account_id')
+                                }
+                            })
+                                .then(function (data) {
+                                    Swal.fire(
+                                        'Profile Updated!',
+                                        '',
+                                        'success'
+                                    )
+                                        .then(function () {
+                                            window.open('candidate-review-account-dashboard.html', '_self').reload();
+                                        })
+                                })
+                                .catch(function (data, err) {
+                                    Swal.fire(
+                                        'Error!',
+                                        'Complete your details',
+                                        'error'
+                                    )
+                                        .then(function () {
+
+                                        })
+                                })
+                        })
+                        .catch(function (data, err) {
+                            Swal.fire(
+                                'Error!',
+                                'Complete your details',
+                                'error'
+                            )
+                                .then(function () {
+
+                                })
+                        })
+                })
+                .catch(function (data, err) {
+                    Swal.fire(
+                        'Error!',
+                        'Complete your details',
+                        'error'
+                    )
+                        .then(function () {
+
+                        })
+                });
+        }
+    </script>
+
+</body>
+
+</html>

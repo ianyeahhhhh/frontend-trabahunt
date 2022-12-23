@@ -87,16 +87,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="/plugins/jquery-validation/jquery.validate.min.js "></script>
     <script src="/plugins/jquery-validation/additional-methods.min.js "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
         function chooseDirectHire() {
-            axios({
+            const conn1 = axios({
                 method: 'put',
                 url: baseurl + 'candidate_profile/todirecthire/' + localStorage.getItem('U_user_account_id')
             })
                 .then(function (data) {
-                    alert("User account created. Please log-in now.");
-                    window.open("candidate-login.html", "_self");
+                    localStorage.setItem('candidate_type', data.data.candidate_type);
+                    Swal.fire(
+                        'Candidate Type Chosen!',
+                        'Redirecting to Login Page...',
+                        'success'
+                    )
+                        .then(function () {
+                            window.open("candidate-login.html", "_self").reload();
+                        })
                 })
                 .catch(function (data, err) {
                     console.error(err);
@@ -104,13 +112,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
         }
 
         function chooseAgency() {
-            axios({
+            const conn1 = axios({
                 method: 'put',
                 url: baseurl + 'candidate_profile/toagency/' + localStorage.getItem('U_user_account_id')
             })
                 .then(function (data) {
-                    alert("User account created. Please log-in now.");
-                    window.open("candidate-login.html", "_self");
+                    localStorage.setItem('candidate_type', data.data.candidate_type);
+                    Swal.fire(
+                        'Candidate Type Chosen!',
+                        'Redirecting to Login Page...',
+                        'success'
+                    )
+                        .then(function () {
+                            window.open("candidate-login.html", "_self").reload();
+                        })
                 })
                 .catch(function (data, err) {
                     console.error(err);

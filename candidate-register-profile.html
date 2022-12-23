@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> TrabaHunt | Registration</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
+    <!-- BS Stepper -->
+    <link rel="stylesheet" href="/plugins/bs-stepper/css/bs-stepper.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet " href="dist/css/adminlte.min.css ">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="/plugins/toastr/toastr.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+    <link rel="icon" href="dist/img/logo-head.png" type="image/x-icon">
+    <script src="global-variables.js"></script>
+</head>
+
+<!-- Modal -->
+<div class="modal fade" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalScrollableTitle"><b>TERMS AND CONDITIONS</b></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h6><span><b>1. AGREEMENT TO TERMS</b></span><br></h6>
+                <p align="justify" style="font-size: 13px;">These Terms of Use constitute a legally binding agreement
+                    made between you, whether personally or on behalf of an entity (“you”) and TrabaHunt ("Company,"
+                    “we," “us," or “our”), concerning your access to and use of the <span><a style="font-size: 13px;"
+                            href="https://trabahunt.herokuapp.com">trabahunt.herokuapp.com</a></span> website as well as
+                    any other media form, media channel, mobile website or mobile application related, linked, or
+                    otherwise connected thereto (collectively, the “Site”). We are registered in the Philippines and
+                    have our registered office
+                    at Quezon City, Metro Manila. You agree that by accessing the Site, you have read, understood, and
+                    agreed to be bound by all of these Terms of Use. IF YOU DO NOT AGREE WITH ALL OF THESE TERMS OF USE,
+                    THEN YOU ARE EXPRESSLY PROHIBITED
+                    FROM USING THE SITE AND YOU MUST DISCONTINUE USE IMMEDIATELY.</p>
+                <p align="justify" style="font-size: 13px;">Supplemental terms and conditions or documents that may be
+                    posted on the Site from time to time are hereby expressly incorporated herein by reference. We
+                    reserve the right, in our sole discretion, to make changes or modifications to these
+                    Terms of Use at any time and for any reason. We will alert you about any changes by updating the
+                    “Last updated” date of these Terms of Use, and you waive any right to receive specific notice of
+                    each such change. Please ensure that
+                    you check the applicable Terms every time you use our Site so that you understand which Terms apply.
+                    You will be subject to, and will be deemed to have been made aware of and to have accepted, the
+                    changes in any revised Terms of Use
+                    by your continued use of the Site after the date such revised Terms of Use are posted.</p>
+                <p align="justify" style="font-size: 13px;">The information provided on the Site is not intended for
+                    distribution to or use by any person or entity in any jurisdiction or country where such
+                    distribution or use would be contrary to law or regulation or which would subject us to any
+                    registration requirement within such jurisdiction or country. Accordingly, those persons who choose
+                    to access the Site from other locations do so on their own initiative and are solely responsible for
+                    compliance with local laws, if
+                    and to the extent local laws are applicable. <br><br> The Site is intended for users who are at
+                    least 18 years old. Persons under the age of 18 are not permitted to use or register for the Site.
+                </p> <br>
+                <h6><span><b>2. INTELLECTUAL PROPERTY RIGHTS</b></span><br></h6>
+                <p align="justify" style="font-size: 13px;">Unless otherwise indicated, the Site is our proprietary
+                    property and all source code, databases, functionality, software, website designs, audio, video,
+                    text, photographs, and graphics on the Site (collectively, the “Content”) and the
+                    trademarks, service marks, and logos contained therein (the “Marks”) are owned or controlled by us
+                    or licensed to us, and are protected by copyright and trademark laws and various other intellectual
+                    property rights and unfair competition
+                    laws of the United States, international copyright laws, and international conventions. The Content
+                    and the Marks are provided on the Site “AS IS” for your information and personal use only. Except as
+                    expressly provided in these Terms
+                    of Use, no part of the Site and no Content or Marks may be copied, reproduced, aggregated,
+                    republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed,
+                    sold, licensed, or otherwise exploited for
+                    any commercial purpose whatsoever, without our express prior written permission. <br><br> Provided
+                    that you are eligible to use the Site, you are granted a limited license to access and use the Site
+                    and to download or print a copy
+                    of any portion of the Content to which you have properly gained access solely for your personal,
+                    non-commercial use. We reserve all rights not expressly granted to you in and to the Site, the
+                    Content and the Marks.</p> <br>
+                <h6><span><b>3. USER REPRESENTATIONS</b></span><br></h6>
+                <p align="justify" style="font-size: 13px;">By using the Site, you represent and warrant that: (1) all
+                    registration information you submit will be true, accurate, current, and complete; (2) you will
+                    maintain the accuracy of such information and promptly update such registration
+                    information as necessary; (3) you have the legal capacity and you agree to comply with these Terms
+                    of Use; (4) you are not a minor in the jurisdiction in which you reside; (5) you will not access the
+                    Site through automated or non-human
+                    means, whether through a bot, script, or otherwise; (6) you will not use the Site for any illegal or
+                    unauthorized purpose; and (7) your use of the Site will not violate any applicable law or
+                    regulation. <br><br> If you provide any
+                    information that is untrue, inaccurate, not current, or incomplete, we have the right to suspend or
+                    terminate your account and refuse any and all current or future use of the Site (or any portion
+                    thereof).</p>
+                <br>
+                <h6><span><b>4. USER REGISTRATION</b></span><br></h6>
+                <p align="justify" style="font-size: 13px;">You may be required to register with the Site. You agree to
+                    keep your password confidential and will be responsible for all use of your account and password. We
+                    reserve the right to remove, reclaim, or change a username you select if we
+                    determine, in our sole discretion, that such username is inappropriate, obscene, or otherwise
+                    objectionable.</p> <br>
+                <h6><span><b>5. PROHIBITED ACTIVITIES</b></span><br></h6>
+                <p align="justify" style="font-size: 13px;">You may not access or use the Site for any purpose other
+                    than that for which we make the Site available. The Site may not be used in connection with any
+                    commercial endeavors except those that are specifically endorsed or approved by us.
+
+                    <br><br>As a user of the Site, you agree not to: <br>
+
+                <ul align="justify" style="font-size: 13px; margin-left: 1rem;">
+                    <li>Systematically retrieve data or other content from the Site to create or compile, directly or
+                        indirectly, a collection, compilation, database, or directory without written permission from
+                        us.</li>
+                    <li>Trick, defraud, or mislead us and other users, especially in any attempt to learn sensitive
+                        account information such as user passwords.</li>
+                    <li>Circumvent, disable, or otherwise interfere with security-related features of the Site,
+                        including features that prevent or restrict the use or copying of any Content or enforce
+                        limitations on the use of the Site and/or the Content
+                        contained therein.</li>
+                    <li>Disparage, tarnish, or otherwise harm, in our opinion, us and/or the Site.</li>
+                    <li>Use any information obtained from the Site in order to harass, abuse, or harm another person.
+                    </li>
+                    <li>Make improper use of our support services or submit false reports of abuse or misconduct.</li>
+                    <li>Use the Site in a manner inconsistent with any applicable laws or regulations.</li>
+                    <li>Engage in unauthorized framing of or linking to the Site.</li>
+                    <li>Upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other
+                        material, including excessive use of capital letters and spamming (continuous posting of
+                        repetitive text), that interferes with any party’s
+                        uninterrupted use and enjoyment of the Site or modifies, impairs, disrupts, alters, or
+                        interferes with the use, features, functions, operation, or maintenance of the Site.</li>
+                    <li>Engage in any automated use of the system, such as using scripts to send comments or messages,
+                        or using any data mining, robots, or similar data gathering and extraction tools.</li>
+                    <li>Delete the copyright or other proprietary rights notice from any Content.</li>
+                    <li>Attempt to impersonate another user or person or use the username of another user.</li>
+                    <li>Upload or transmit (or attempt to upload or to transmit) any material that acts as a passive or
+                        active information collection or transmission mechanism, including without limitation, clear
+                        graphics interchange formats (“gifs”),
+                        1×1 pixels, web bugs, cookies, or other similar devices (sometimes referred to as “spyware” or
+                        “passive collection mechanisms” or “pcms”).</li>
+                    <li>Interfere with, disrupt, or create an undue burden on the Site or the networks or services
+                        connected to the Site.</li>
+                    <li>Harass, annoy, intimidate, or threaten any of our employees or agents engaged in providing any
+                        portion of the Site to you.</li>
+                    <li>Attempt to bypass any measures of the Site designed to prevent or restrict access to the Site,
+                        or any portion of the Site.</li>
+                    <li>Copy or adapt the Site’s software, including but not limited to Flash, PHP, HTML, JavaScript, or
+                        other code.</li>
+                    <li>Except as permitted by applicable law, decipher, decompile, disassemble, or reverse engineer any
+                        of the software comprising or in any way making up a part of the Site.</li>
+                    <li>Except as may be the result of standard search engine or Internet browser usage, use, launch,
+                        develop, or distribute any automated system, including without limitation, any spider, robot,
+                        cheat utility, scraper, or offline reader
+                        that accesses the Site, or using or launching any unauthorized script or other software.</li>
+                    <li>Use a buying agent or purchasing agent to make purchases on the Site.</li>
+                    <li>Make any unauthorized use of the Site, including collecting usernames and/or email addresses of
+                        users by electronic or other means for the purpose of sending unsolicited email, or creating
+                        user accounts by automated means or under
+                        false pretenses.</li>
+                    <li>Use the Site as part of any effort to compete with us or otherwise use the Site and/or the
+                        Content for any revenue-generating endeavor or commercial enterprise.</li>
+                    <li>Attempt to upload or transmit viruses, Trojan horses, or other materials (including excessive
+                        use of capital letters and spamming) that interferes with any party's uninterrupted use of your
+                        Site and its features.</li>
+                    <li>Impersonate another user or person or use the username of another user.</li>
+                    <li>Upload any materials that actively or passively collects information or acts as a transmission
+                        mechanism (includes gifs, 1x1 pixels, web bugs, cookies, spyware, pcms, etc.)</li>
+                    <li>Interfere, disrupt, or create an undue burden on your Site, networks, or services.</li>
+                </ul>
+                </p><br>
+                <h6><span><b>6. USER GENERATED CONTRIBUTIONS</b></span><br></h6>
+                <p align="justify" style="font-size: 13px;">The Site may invite you to chat, contribute to, or
+                    participate in blogs, message boards, online forums, and other functionality, and may provide you
+                    with the opportunity to create, submit, post, display, transmit, perform, publish, distribute,
+                    or broadcast content and materials to us or on the Site, including but not limited to text,
+                    writings, video, audio, photographs, graphics, comments, suggestions, or personal information or
+                    other material (collectively, "Contributions").
+                    Contributions may be viewable by other users of the Site and through third-party websites. As such,
+                    any Contributions you transmit may be treated as non-confidential and non-proprietary. When you
+                    create or make available any Contributions,
+                    you thereby represent and warrant that:<br>
+
+                <ul align="justify" style="font-size: 13px; margin-left: 1rem;">
+                    <li>The creation, distribution, transmission, public display, or performance, and the accessing,
+                        downloading, or copying of your Contributions do not and will not infringe the proprietary
+                        rights, including but not limited to the copyright,
+                        patent, trademark, trade secret, or moral rights of any third party.</li>
+                    <li>You are the creator and owner of or have the necessary licenses, rights, consents, releases, and
+                        permissions to use and to authorize us, the Site, and other users of the Site to use your
+                        Contributions in any manner contemplated
+                        by the Site and these Terms of Use.</li>
+                    <li>You have the written consent, release, and/or permission of each and every identifiable
+                        individual person in your Contributions to use the name or likeness of each and every such
+                        identifiable individual person to enable inclusion
+                        and use of your Contributions in any manner contemplated by the Site and these Terms of Use.
+                    </li>
+                    <li>Your Contributions are not false, inaccurate, or misleading.</li>
+                    <li>Your Contributions are not unsolicited or unauthorized advertising, promotional materials,
+                        pyramid schemes, chain letters, spam, mass mailings, or other forms of solicitation.</li>
+                    <li>Your Contributions are not obscene, lewd, lascivious, filthy, violent, harassing, libelous,
+                        slanderous, or otherwise objectionable (as determined by us).</li>
+                    <li>Your Contributions do not ridicule, mock, disparage, intimidate, or abuse anyone.</li>
+                    <li>Your Contributions are not used to harass or threaten (in the legal sense of those terms) any
+                        other person and to promote violence against a specific person or class of people.</li>
+                    <li>Your Contributions do not violate any applicable law, regulation, or rule.</li>
+                    <li>Your Contributions do not violate the privacy or publicity rights of any third party.</li>
+                    <li>Your Contributions do not violate any applicable law concerning child pornography, or otherwise
+                        intended to protect the health or well-being of minors.</li>
+                    <li>Your Contributions do not include any offensive comments that are connected to race, national
+                        origin, gender, sexual preference, or physical handicap.</li>
+                    <li>Your Contributions do not otherwise violate, or link to material that violates, any provision of
+                        these Terms of Use, or any applicable law or regulation</li>
+                </ul>
+                </p>
+                <p align="justify" style="font-size: 13px;">
+                    Any use of the Site in violation of the foregoing violates these Terms of Use and may result in,
+                    among other things, termination or suspension of your rights to use the Site.
+                </p><br>
+                <h6><span><b>7. CONTRIBUTION LICENSE</b></span><br></h6>
+                <p align="justify" style="font-size: 13px;">
+                    By posting your Contributions to any part of the Site or making Contributions accessible to the Site
+                    by linking your account from the Site to any of your social networking accounts, you automatically
+                    grant, and you represent and warrant that you have
+                    the right to grant, to us an unrestricted, unlimited, irrevocable, perpetual, non-exclusive,
+                    transferable, royalty-free, fully-paid, worldwide right, and license to host, use, copy, reproduce,
+                    disclose, sell, resell, publish, broadcast,
+                    retitle, archive, store, cache, publicly perform, publicly display, reformat, translate, transmit,
+                    excerpt (in whole or in part), and distribute such Contributions (including, without limitation,
+                    your image and voice) for any purpose,
+                    commercial, advertising, or otherwise, and to prepare derivative works of, or incorporate into other
+                    works, such Contributions, and grant and authorize sublicenses of the foregoing. The use and
+                    distribution may occur in any media formats
+                    and through any media channels. <br><br> This license will apply to any form, media, or technology
+                    now known or hereafter developed, and includes our use of your name, company name, and franchise
+                    name, as applicable,
+                    and any of the trademarks, service marks, trade names, logos, and personal and commercial images you
+                    provide. You waive all moral rights in your Contributions, and you warrant that moral rights have
+                    not otherwise been asserted in your
+                    Contributions. <br> <br> We do not assert any ownership over your Contributions. You retain full
+                    ownership of all of your Contributions and any intellectual property rights or other proprietary
+                    rights associated with your Contributions.
+                    We are not liable for any statements or representations in your Contributions provided by you in any
+                    area on the Site. You are solely responsible for your Contributions to the Site and you expressly
+                    agree to exonerate us from any and
+                    all responsibility and to refrain from any legal action against us regarding your Contributions.
+                    <br><br> We have the right, in our sole and absolute discretion, (1) to edit, redact, or otherwise
+                    change any Contributions; (2) to re-categorize
+                    any Contributions to place them in more appropriate locations on the Site; and (3) to pre-screen or
+                    delete any Contributions at any time and for any reason, without notice. We have no obligation to
+                    monitor your Contributions.
+                </p><br>
+                <h6><span><b>8. SOCIAL MEDIA</b></span><br></h6>
+                <p align="justify" style="font-size: 13px;">As part of the functionality of the Site, you may link your
+                    account with online accounts you have with third-party service providers (each such account, a
+                    “Third-Party Account”) by either: (1) providing your Third-Party Account login information
+                    through the Site; or (2) allowing us to access your Third-Party Account, as is permitted under the
+                    applicable terms and conditions that govern your use of each Third-Party Account. You represent and
+                    warrant that you are entitled to
+                    disclose your Third-Party Account login information to us and/or grant us access to your Third-Party
+                    Account, without breach by you of any of the terms and conditions that govern your use of the
+                    applicable Third-Party Account, and
+                    without obligating us to pay any fees or making us subject to any usage limitations imposed by the
+                    third-party service provider of the Third-Party Account. By granting us access to any Third-Party
+                    Accounts, you understand that (1)
+                    we may access, make available, and store (if applicable) any content that you have provided to and
+                    stored in your Third-Party Account (the “Social Network Content”) so that it is available on and
+                    through the Site via your account,
+                    including without limitation any friend lists and (2) we may submit to and receive from your
+                    Third-Party Account additional information to the extent you are notified when you link your account
+                    with the Third-Party Account. Depending
+                    on the Third-Party Accounts you choose and subject to the privacy settings that you have set in such
+                    Third-Party Accounts, personally identifiable information that you post to your Third-Party Accounts
+                    may be available on and through
+                    your account on the Site. Please note that if a Third-Party Account or associated service becomes
+                    unavailable or our access to such Third Party Account is terminated by the third-party service
+                    provider, then Social Network Content
+                    may no longer be available on and through the Site. You will have the ability to disable the
+                    connection between your account on the Site and your Third-Party Accounts at any time. PLEASE NOTE
+                    THAT YOUR RELATIONSHIP WITH THE THIRD-PARTY
+                    SERVICE PROVIDERS ASSOCIATED WITH YOUR THIRD-PARTY ACCOUNTS IS GOVERNED SOLELY BY YOUR AGREEMENT(S)
+                    WITH SUCH THIRD-PARTY SERVICE PROVIDERS. We make no effort to review any Social Network Content for
+                    any purpose, including but not
+                    limited to, for accuracy, legality, or non-infringement, and we are not responsible for any Social
+                    Network Content. You acknowledge and agree that we may access your email address book associated
+                    with a Third-Party Account and your
+                    contacts list stored on your mobile device or tablet computer solely for purposes of identifying and
+                    informing you of those contacts who have also registered to use the Site. You can deactivate the
+                    connection between the Site and your
+                    Third-Party Account by contacting us using the contact information below or through your account
+                    settings (if applicable). We will attempt to delete any information stored on our servers that was
+                    obtained through such Third-Party Account,
+                    except the username and profile picture that become associated with your account.</p> <br>
+                <h6><span><b>9. SUBMISSIONS</b></span><br></h6>
+                <p align="justify" style="font-size: 13px;">You acknowledge and agree that any questions, comments,
+                    suggestions, ideas, feedback, or other information regarding the Site ("Submissions") provided by
+                    you to us are non-confidential and shall become our sole property. We shall own exclusive
+                    rights, including all intellectual property rights, and shall be entitled to the unrestricted use
+                    and dissemination of these Submissions for any lawful purpose, commercial or otherwise, without
+                    acknowledgment or compensation to you.
+                    You hereby waive all moral rights to any such Submissions, and you hereby warrant that any such
+                    Submissions are original with you or that you have the right to submit such Submissions. You agree
+                    there shall be no recourse against us
+                    for any alleged or actual infringement or misappropriation of any proprietary right in your
+                    Submissions.</p><br>
+                <h6><span><b>10. SITE MANAGEMENT</b></span><br></h6>
+                <p align="justify" style="font-size: 13px;">We reserve the right, but not the obligation, to: (1)
+                    monitor the Site for violations of these Terms of Use; (2) take appropriate legal action against
+                    anyone who, in our sole discretion, violates the law or these Terms of Use, including
+                    without limitation, reporting such user to law enforcement authorities; (3) in our sole discretion
+                    and without limitation, refuse, restrict access to, limit the availability of, or disable (to the
+                    extent technologically feasible) any
+                    of your Contributions or any portion thereof; (4) in our sole discretion and without limitation,
+                    notice, or liability, to remove from the Site or otherwise disable all files and content that are
+                    excessive in size or are in any way
+                    burdensome to our systems; and (5) otherwise manage the Site in a manner designed to protect our
+                    rights and property and to facilitate the proper functioning of the Site.</p> <br>
+                <h6><span><b>11. PRIVACY POLICY</b></span><br></h6>
+                <p align="justify" style="font-size: 13px;">We care about data privacy and security. By using the Site,
+                    you agree to be bound by our Privacy Policy posted on the Site, which is incorporated into these
+                    Terms of Use. Please be advised the Site is hosted in the Philippines. If you
+                    access the Site from any other region of the world with laws or other requirements governing
+                    personal data collection, use, or disclosure that differ from applicable laws in the Philippines,
+                    then through your continued use of the Site,
+                    you are transferring your data to the Philippines, and you agree to have your data transferred to
+                    and processed in the Philippines.</p> <br>
+                <h6><span><b>12. TERM AND TERMINATION</b></span><br></h6>
+                <p align="justify" style="font-size: 13px;">These Terms of Use shall remain in full force and effect
+                    while you use the Site. WITHOUT LIMITING ANY OTHER PROVISION OF THESE TERMS OF USE, WE RESERVE THE
+                    RIGHT TO, IN OUR SOLE DISCRETION AND WITHOUT NOTICE OR LIABILITY, DENY ACCESS TO
+                    AND USE OF THE SITE (INCLUDING BLOCKING CERTAIN IP ADDRESSES), TO ANY PERSON FOR ANY REASON OR FOR
+                    NO REASON, INCLUDING WITHOUT LIMITATION FOR BREACH OF ANY REPRESENTATION, WARRANTY, OR COVENANT
+                    CONTAINED IN THESE TERMS OF USE OR OF
+                    ANY APPLICABLE LAW OR REGULATION. WE MAY TERMINATE YOUR USE OR PARTICIPATION IN THE SITE OR DELETE
+                    YOUR ACCOUNT AND ANY CONTENT OR INFORMATION THAT YOU POSTED AT ANY TIME, WITHOUT WARNING, IN OUR
+                    SOLE DISCRETION.
+                    <br><br> If we terminate or suspend your account for any reason, you are prohibited from registering
+                    and creating a new account under your name, a fake or borrowed name, or the name of any third party,
+                    even if you may be acting on
+                    behalf of the third party. In addition to terminating or suspending your account, we reserve the
+                    right to take appropriate legal action, including without limitation pursuing civil, criminal, and
+                    injunctive redress.
+                </p>
+                <br>
+                <h6><span><b>13. MODIFICATIONS AND INTERRUPTIONS</b></span><br></h6>
+                <p align="justify" style="font-size: 13px;">We reserve the right to change, modify, or remove the
+                    contents of the Site at any time or for any reason at our sole discretion without notice. However,
+                    we have no obligation to update any information on our Site. We also reserve the right
+                    to modify or discontinue all or part of the Site without notice at any time. We will not be liable
+                    to you or any third party for any modification, price change, suspension, or discontinuance of the
+                    Site. <br><br> We cannot guarantee
+                    the Site will be available at all times. We may experience hardware, software, or other problems or
+                    need to perform maintenance related to the Site, resulting in interruptions, delays, or errors. We
+                    reserve the right to change, revise,
+                    update, suspend, discontinue, or otherwise modify the Site at any time or for any reason without
+                    notice to you. You agree that we have no liability whatsoever for any loss, damage, or inconvenience
+                    caused by your inability to access
+                    or use the Site during any downtime or discontinuance of the Site. Nothing in these Terms of Use
+                    will be construed to obligate us to maintain and support the Site or to supply any corrections,
+                    updates, or releases in connection therewith.</p>
+                <br>
+                <h6><span><b>14. GOVERNING LAW</b></span><br></h6>
+                <p align="justify" style="font-size: 13px;">These Terms shall be governed by and defined following the
+                    laws of the Philippines. TrabaHunt and yourself irrevocably consent that the courts of the
+                    Philippines shall have exclusive jurisdiction to resolve any dispute which may arise
+                    in connection with these terms.</p> <br>
+                <h6><span><b>15. DISPUTE RESOLUTION</b></span><br></h6>
+                <p align="justify" style="font-size: 13px;"><b>Informal Negotiations</b><br>To expedite resolution and
+                    control the cost of any dispute, controversy, or claim related to these Terms of Use (each "Dispute"
+                    and collectively, the “Disputes”) brought by either you or us (individually,
+                    a “Party” and collectively, the “Parties”), the Parties agree to first attempt to negotiate any
+                    Dispute (except those Disputes expressly provided below) informally for at least fifteen (15) days
+                    before initiating arbitration. Such
+                    informal negotiations commence upon written notice from one Party to the other Party.</p>
+                <p align="justify" style="font-size: 13px;"><b>Binding Arbitration</b><br>Any dispute arising out of or
+                    in connection with this contract, including any question regarding its existence, validity, or
+                    termination, shall be referred to and finally resolved by the International Commercial
+                    Arbitration Court under the European Arbitration Chamber (Belgium, Brussels, Avenue Louise, 146)
+                    according to the Rules of this ICAC, which, as a result of referring to it, is considered as the
+                    part of this clause. The number of arbitrators
+                    shall be five (5). The seat, or legal place, of arbitration shall be Quezon City, Philippines. The
+                    language of the proceedings shall be English. The governing law of the contract shall be the
+                    substantive law of the Philippines.</p>
+                <p align="justify" style="font-size: 13px;"><b>Restrictions</b><br>The Parties agree that any
+                    arbitration shall be limited to the Dispute between the Parties individually. To the full extent
+                    permitted by law, (a) no arbitration shall be joined with any other proceeding; (b) there
+                    is no right or authority for any Dispute to be arbitrated on a class-action basis or to utilize
+                    class action procedures; and (c) there is no right or authority for any Dispute to be brought in a
+                    purported representative capacity on
+                    behalf of the general public or any other persons.</p>
+                <p align="justify" style="font-size: 13px;"><b>Exceptions to Informal Negotiations and
+                        Arbitration</b><br>The Parties agree that the following Disputes are not subject to the above
+                    provisions concerning informal negotiations and binding arbitration: (a) any Disputes seeking to
+                    enforce
+                    or protect, or concerning the validity of, any of the intellectual property rights of a Party; (b)
+                    any Dispute related to, or arising from, allegations of theft, piracy, invasion of privacy, or
+                    unauthorized use; and (c) any claim for
+                    injunctive relief. If this provision is found to be illegal or unenforceable, then neither Party
+                    will elect to arbitrate any Dispute falling within that portion of this provision found to be
+                    illegal or unenforceable and such Dispute
+                    shall be decided by a court of competent jurisdiction within the courts listed for jurisdiction
+                    above, and the Parties agree to submit to the personal jurisdiction of that court.</p> <br>
+                <h6><span><b>16. CORRECTIONS</b></span><br></h6>
+                <p align="justify" style="font-size: 13px;">There may be information on the Site that contains
+                    typographical errors, inaccuracies, or omissions, including descriptions, pricing, availability, and
+                    various other information. We reserve the right to correct any errors, inaccuracies,
+                    or omissions and to change or update the information on the Site at any time, without prior notice.
+                </p> <br>
+                <h6><span><b>17. DISCLAIMER</b></span><br></h6>
+                <p align="justify" style="font-size: 13px;">THE SITE IS PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU
+                    AGREE THAT YOUR USE OF THE SITE AND OUR SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT
+                    PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION
+                    WITH THE SITE AND YOUR USE THEREOF, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
+                    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE MAKE NO WARRANTIES OR
+                    REPRESENTATIONS ABOUT THE ACCURACY OR COMPLETENESS
+                    OF THE SITE’S CONTENT OR THE CONTENT OF ANY WEBSITES LINKED TO THE SITE AND WE WILL ASSUME NO
+                    LIABILITY OR RESPONSIBILITY FOR ANY (1) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT AND MATERIALS,
+                    (2) PERSONAL INJURY OR PROPERTY DAMAGE,
+                    OF ANY NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO AND USE OF THE SITE, (3) ANY UNAUTHORIZED
+                    ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION AND/OR FINANCIAL
+                    INFORMATION STORED THEREIN, (4) ANY INTERRUPTION
+                    OR CESSATION OF TRANSMISSION TO OR FROM THE SITE, (5) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE
+                    WHICH MAY BE TRANSMITTED TO OR THROUGH THE SITE BY ANY THIRD PARTY, AND/OR (6) ANY ERRORS OR
+                    OMISSIONS IN ANY CONTENT AND MATERIALS
+                    OR FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF ANY CONTENT POSTED,
+                    TRANSMITTED, OR OTHERWISE MADE AVAILABLE VIA THE SITE. WE DO NOT WARRANT, ENDORSE, GUARANTEE, OR
+                    ASSUME RESPONSIBILITY FOR ANY PRODUCT OR
+                    SERVICE ADVERTISED OR OFFERED BY A THIRD PARTY THROUGH THE SITE, ANY HYPERLINKED WEBSITE, OR ANY
+                    WEBSITE OR MOBILE APPLICATION FEATURED IN ANY BANNER OR OTHER ADVERTISING, AND WE WILL NOT BE A
+                    PARTY TO OR IN ANY WAY BE RESPONSIBLE
+                    FOR MONITORING ANY TRANSACTION BETWEEN YOU AND ANY THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES. AS
+                    WITH THE PURCHASE OF A PRODUCT OR SERVICE THROUGH ANY MEDIUM OR IN ANY ENVIRONMENT, YOU SHOULD USE
+                    YOUR BEST JUDGMENT AND EXERCISE
+                    CAUTION WHERE APPROPRIATE.</p> <br>
+                <h6><span><b>18. LIMITATIONS OF LIABILITY</b></span><br></h6>
+                <p align="justify" style="font-size: 13px;">IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS
+                    BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL,
+                    SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA,
+                    OR OTHER DAMAGES ARISING FROM YOUR USE OF THE SITE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY
+                    OF SUCH DAMAGES. NOTWITHSTANDING ANYTHING TO THE CONTRARY CONTAINED HEREIN, OUR LIABILITY TO YOU FOR
+                    ANY CAUSE WHATSOEVER AND REGARDLESS
+                    OF THE FORM OF THE ACTION, WILL AT ALL TIMES BE LIMITED TO $180.00 USD. CERTAIN US STATE LAWS AND
+                    INTERNATIONAL LAWS DO NOT ALLOW LIMITATIONS ON IMPLIED WARRANTIES OR THE EXCLUSION OR LIMITATION OF
+                    CERTAIN DAMAGES. IF THESE LAWS APPLY
+                    TO YOU, SOME OR ALL OF THE ABOVE DISCLAIMERS OR LIMITATIONS MAY NOT APPLY TO YOU, AND YOU MAY HAVE
+                    ADDITIONAL RIGHTS.</p> <br>
+                <h6><span><b>19. INDEMNIFICATION</b></span><br></h6>
+                <p align="justify" style="font-size: 13px;">You agree to defend, indemnify, and hold us harmless,
+                    including our subsidiaries, affiliates, and all of our respective officers, agents, partners, and
+                    employees, from and against any loss, damage, liability, claim, or demand, including
+                    reasonable attorneys’ fees and expenses, made by any third party due to or arising out of: (1) your
+                    Contributions; (2) use of the Site; (3) breach of these Terms of Use; (4) any breach of your
+                    representations and warranties set forth
+                    in these Terms of Use; (5) your violation of the rights of a third party, including but not limited
+                    to intellectual property rights; or (6) any overt harmful act toward any other user of the Site with
+                    whom you connected via the Site.
+                    Notwithstanding the foregoing, we reserve the right, at your expense, to assume the exclusive
+                    defense and control of any matter for which you are required to indemnify us, and you agree to
+                    cooperate, at your expense, with our defense
+                    of such claims. We will use reasonable efforts to notify you of any such claim, action, or
+                    proceeding which is subject to this indemnification upon becoming aware of it.</p> <br>
+                <h6><span><b>20. USER DATA</b></span><br></h6>
+                <p align="justify" style="font-size: 13px;">We will maintain certain data that you transmit to the Site
+                    for the purpose of managing the performance of the Site, as well as data relating to your use of the
+                    Site. Although we perform regular routine backups of data, you are solely
+                    responsible for all data that you transmit or that relates to any activity you have undertaken using
+                    the Site. You agree that we shall have no liability to you for any loss or corruption of any such
+                    data, and you hereby waive any right
+                    of action against us arising from any such loss or corruption of such data.</p> <br>
+                <h6><span><b>21. ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES</b></span><br></h6>
+                <p align="justify" style="font-size: 13px;">Visiting the Site, sending us emails, and completing online
+                    forms constitute electronic communications. You consent to receive electronic communications, and
+                    you agree that all agreements, notices, disclosures, and other communications
+                    we provide to you electronically, via email and on the Site, satisfy any legal requirement that such
+                    communication be in writing. YOU HEREBY AGREE TO THE USE OF ELECTRONIC SIGNATURES, CONTRACTS,
+                    ORDERS, AND OTHER RECORDS, AND TO ELECTRONIC
+                    DELIVERY OF NOTICES, POLICIES, AND RECORDS OF TRANSACTIONS INITIATED OR COMPLETED BY US OR VIA THE
+                    SITE. You hereby waive any rights or requirements under any statutes, regulations, rules,
+                    ordinances, or other laws in any jurisdiction
+                    which require an original signature or delivery or retention of non-electronic records, or to
+                    payments or the granting of credits by any means other than electronic means.</p> <br>
+                <h6><span><b>22. MISCELLANEOUS</b></span><br></h6>
+                <p align="justify" style="font-size: 13px;">These Terms of Use and any policies or operating rules
+                    posted by us on the Site or in respect to the Site constitute the entire agreement and understanding
+                    between you and us. Our failure to exercise or enforce any right or provision of
+                    these Terms of Use shall not operate as a waiver of such right or provision. These Terms of Use
+                    operate to the fullest extent permissible by law. We may assign any or all of our rights and
+                    obligations to others at any time. We shall
+                    not be responsible or liable for any loss, damage, delay, or failure to act caused by any cause
+                    beyond our reasonable control. If any provision or part of a provision of these Terms of Use is
+                    determined to be unlawful, void, or unenforceable,
+                    that provision or part of the provision is deemed severable from these Terms of Use and does not
+                    affect the validity and enforceability of any remaining provisions. There is no joint venture,
+                    partnership, employment or agency relationship
+                    created between you and us as a result of these Terms of Use or use of the Site. You agree that
+                    these Terms of Use will not be construed against us by virtue of having drafted them. You hereby
+                    waive any and all defenses you may have
+                    based on the electronic form of these Terms of Use and the lack of signing by the parties hereto to
+                    execute these Terms of Use.</p> <br>
+                <h6><span><b>23. CONTACT US</b></span><br></h6>
+                <p align="justify" style="font-size: 13px;">In order to resolve a complaint regarding the Site or to
+                    receive further information regarding use of the Site, please contact us at: <br><br><b>TrabaHunt
+                        <br> Quezon City, Metro Manila <br> Philippines <br> trabahunt.support@gmail.com</b></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/Modal-->
+
+<body>
+    <div class="bg-container login-page">
+        <div class="col-md-6">
+            <div class="card card-default">
+                <div class="card-header text-center">
+                    <h3>
+                        <b>Setup your profile as candidate</b>
+                    </h3>
+                    <h6>
+                        My preferences for career opportunities
+                    </h6>
+                </div>
+                <div class="card-body p-0">
+                    <div class="bs-stepper">
+                        <div class="bs-stepper-header" role="tablist">
+                            <!-- your steps here -->
+                            <div class="step" data-target="#info-part">
+                                <button type="button" class="step-trigger" role="tab" aria-controls="workExp-part"
+                                    id="workExp-part-trigger">
+                                    <span class="bs-stepper-circle">1</span>
+                                    <span class="bs-stepper-label">Profile Information</span>
+                                </button>
+                            </div>
+                            <div class="line"></div>
+                            <div class="step" data-target="#education-part">
+                                <button type="button" class="step-trigger" role="tab" aria-controls="education-part"
+                                    id="education-part-trigger">
+                                    <span class="bs-stepper-circle">2</span>
+                                    <span class="bs-stepper-label">Education</span>
+                                </button>
+                            </div>
+                            <div class="line"></div>
+                            <div class="step" data-target="#experience-part">
+                                <button type="button" class="step-trigger" role="tab" aria-controls="experience-part"
+                                    id="experience-part-trigger">
+                                    <span class="bs-stepper-circle">3</span>
+                                    <span class="bs-stepper-label">Experience</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="bs-stepper-content">
+                            <!-- your steps content here -->
+                            <!--INFO PART-->
+                            <div id="info-part" class="content" role="tabpanel" aria-labelledby="info-part-trigger">
+
+                                <div class="form-group">
+                                    <label>Full Name<span class="required-sign"> *</span></label>
+                                    <div class="row">
+                                        <div class="col-4 form-group">
+                                            <input type="text" name="firstName" class="form-control" id="firstName"
+                                                placeholder="First Name">
+                                        </div>
+                                        <div class="col-3 form-group">
+                                            <input type="text" name="middleName" class="form-control" id="middleName"
+                                                placeholder="Middle Name">
+                                        </div>
+                                        <div class="col-3 form-group">
+                                            <input type="text" name="lastName" class="form-control" id="lastName"
+                                                placeholder="Last Name">
+                                        </div>
+                                        <div class="col-2 form-group">
+                                            <input type="text" name="suffixName" class="form-control" id="suffixName"
+                                                placeholder="Suffix">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label>Gender<span class="required-sign"> *</span></label>
+                                            <select id='gender' class="form-control select2">
+                                                <option selected="selected" disabled="disabled">Select
+                                                    gender</option>
+                                                <option>Male</option>
+                                                <option>Female</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-6">
+                                            <!-- Date -->
+                                            <div class="form-group">
+                                                <label>Birth Date<span class="required-sign"> *</span></label>
+                                                <div class="input-group date" name="bdate" id="reservationdate"
+                                                    data-target-input="nearest">
+                                                    <input id='birthdate' type="text"
+                                                        class="form-control datetimepicker-input"
+                                                        data-target="#reservationdate" />
+                                                    <div class="input-group-append" data-target="#reservationdate"
+                                                        data-toggle="datetimepicker">
+                                                        <div class="input-group-text"><i class="fa fa-calendar"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <label for="">Address<span class="required-sign"> *</span></label>
+                                    <div class="row">
+                                        <div class="col-3 form-group">
+                                            <input type="text" name="zipCode" class="form-control" id="zip_code"
+                                                placeholder="Zip Code">
+                                        </div>
+                                        <div class="col-3 form-group">
+                                            <input type="text" name="city" class="form-control" id="city"
+                                                placeholder="City">
+                                        </div>
+                                        <div class="col-3 form-group">
+                                            <input type="text" name="region" class="form-control" id="region"
+                                                placeholder="Region">
+                                        </div>
+                                        <div class="col-3 form-group">
+                                            <input type="text" name="country" class="form-control" id="country"
+                                                placeholder="Country">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-6 form-group">
+                                            <label>Nationality<span class="required-sign"> *</span></label>
+                                            <select id='nationality' class="form-control select2">
+                                                <option selected="selected" disabled="disabled">Select nationality
+                                                </option>
+                                                <option value="afghan">Afghan</option>
+                                                <option value="albanian">Albanian</option>
+                                                <option value="algerian">Algerian</option>
+                                                <option value="american">American</option>
+                                                <option value="andorran">Andorran</option>
+                                                <option value="angolan">Angolan</option>
+                                                <option value="antiguans">Antiguans</option>
+                                                <option value="argentinean">Argentinean</option>
+                                                <option value="armenian">Armenian</option>
+                                                <option value="australian">Australian</option>
+                                                <option value="austrian">Austrian</option>
+                                                <option value="azerbaijani">Azerbaijani</option>
+                                                <option value="bahamian">Bahamian</option>
+                                                <option value="bahraini">Bahraini</option>
+                                                <option value="bangladeshi">Bangladeshi</option>
+                                                <option value="barbadian">Barbadian</option>
+                                                <option value="barbudans">Barbudans</option>
+                                                <option value="batswana">Batswana</option>
+                                                <option value="belarusian">Belarusian</option>
+                                                <option value="belgian">Belgian</option>
+                                                <option value="belizean">Belizean</option>
+                                                <option value="beninese">Beninese</option>
+                                                <option value="bhutanese">Bhutanese</option>
+                                                <option value="bolivian">Bolivian</option>
+                                                <option value="bosnian">Bosnian</option>
+                                                <option value="brazilian">Brazilian</option>
+                                                <option value="british">British</option>
+                                                <option value="bruneian">Bruneian</option>
+                                                <option value="bulgarian">Bulgarian</option>
+                                                <option value="burkinabe">Burkinabe</option>
+                                                <option value="burmese">Burmese</option>
+                                                <option value="burundian">Burundian</option>
+                                                <option value="cambodian">Cambodian</option>
+                                                <option value="cameroonian">Cameroonian</option>
+                                                <option value="canadian">Canadian</option>
+                                                <option value="cape verdean">Cape Verdean</option>
+                                                <option value="central african">Central African</option>
+                                                <option value="chadian">Chadian</option>
+                                                <option value="chilean">Chilean</option>
+                                                <option value="chinese">Chinese</option>
+                                                <option value="colombian">Colombian</option>
+                                                <option value="comoran">Comoran</option>
+                                                <option value="congolese">Congolese</option>
+                                                <option value="costa rican">Costa Rican</option>
+                                                <option value="croatian">Croatian</option>
+                                                <option value="cuban">Cuban</option>
+                                                <option value="cypriot">Cypriot</option>
+                                                <option value="czech">Czech</option>
+                                                <option value="danish">Danish</option>
+                                                <option value="djibouti">Djibouti</option>
+                                                <option value="dominican">Dominican</option>
+                                                <option value="dutch">Dutch</option>
+                                                <option value="east timorese">East Timorese</option>
+                                                <option value="ecuadorean">Ecuadorean</option>
+                                                <option value="egyptian">Egyptian</option>
+                                                <option value="emirian">Emirian</option>
+                                                <option value="equatorial guinean">Equatorial Guinean</option>
+                                                <option value="eritrean">Eritrean</option>
+                                                <option value="estonian">Estonian</option>
+                                                <option value="ethiopian">Ethiopian</option>
+                                                <option value="fijian">Fijian</option>
+                                                <option value="filipino">Filipino</option>
+                                                <option value="finnish">Finnish</option>
+                                                <option value="french">French</option>
+                                                <option value="gabonese">Gabonese</option>
+                                                <option value="gambian">Gambian</option>
+                                                <option value="georgian">Georgian</option>
+                                                <option value="german">German</option>
+                                                <option value="ghanaian">Ghanaian</option>
+                                                <option value="greek">Greek</option>
+                                                <option value="grenadian">Grenadian</option>
+                                                <option value="guatemalan">Guatemalan</option>
+                                                <option value="guinea-bissauan">Guinea-Bissauan</option>
+                                                <option value="guinean">Guinean</option>
+                                                <option value="guyanese">Guyanese</option>
+                                                <option value="haitian">Haitian</option>
+                                                <option value="herzegovinian">Herzegovinian</option>
+                                                <option value="honduran">Honduran</option>
+                                                <option value="hungarian">Hungarian</option>
+                                                <option value="icelander">Icelander</option>
+                                                <option value="indian">Indian</option>
+                                                <option value="indonesian">Indonesian</option>
+                                                <option value="iranian">Iranian</option>
+                                                <option value="iraqi">Iraqi</option>
+                                                <option value="irish">Irish</option>
+                                                <option value="israeli">Israeli</option>
+                                                <option value="italian">Italian</option>
+                                                <option value="ivorian">Ivorian</option>
+                                                <option value="jamaican">Jamaican</option>
+                                                <option value="japanese">Japanese</option>
+                                                <option value="jordanian">Jordanian</option>
+                                                <option value="kazakhstani">Kazakhstani</option>
+                                                <option value="kenyan">Kenyan</option>
+                                                <option value="kittian and nevisian">Kittian and Nevisian</option>
+                                                <option value="kuwaiti">Kuwaiti</option>
+                                                <option value="kyrgyz">Kyrgyz</option>
+                                                <option value="laotian">Laotian</option>
+                                                <option value="latvian">Latvian</option>
+                                                <option value="lebanese">Lebanese</option>
+                                                <option value="liberian">Liberian</option>
+                                                <option value="libyan">Libyan</option>
+                                                <option value="liechtensteiner">Liechtensteiner</option>
+                                                <option value="lithuanian">Lithuanian</option>
+                                                <option value="luxembourger">Luxembourger</option>
+                                                <option value="macedonian">Macedonian</option>
+                                                <option value="malagasy">Malagasy</option>
+                                                <option value="malawian">Malawian</option>
+                                                <option value="malaysian">Malaysian</option>
+                                                <option value="maldivan">Maldivan</option>
+                                                <option value="malian">Malian</option>
+                                                <option value="maltese">Maltese</option>
+                                                <option value="marshallese">Marshallese</option>
+                                                <option value="mauritanian">Mauritanian</option>
+                                                <option value="mauritian">Mauritian</option>
+                                                <option value="mexican">Mexican</option>
+                                                <option value="micronesian">Micronesian</option>
+                                                <option value="moldovan">Moldovan</option>
+                                                <option value="monacan">Monacan</option>
+                                                <option value="mongolian">Mongolian</option>
+                                                <option value="moroccan">Moroccan</option>
+                                                <option value="mosotho">Mosotho</option>
+                                                <option value="motswana">Motswana</option>
+                                                <option value="mozambican">Mozambican</option>
+                                                <option value="namibian">Namibian</option>
+                                                <option value="nauruan">Nauruan</option>
+                                                <option value="nepalese">Nepalese</option>
+                                                <option value="new zealander">New Zealander</option>
+                                                <option value="ni-vanuatu">Ni-Vanuatu</option>
+                                                <option value="nicaraguan">Nicaraguan</option>
+                                                <option value="nigerien">Nigerien</option>
+                                                <option value="north korean">North Korean</option>
+                                                <option value="northern irish">Northern Irish</option>
+                                                <option value="norwegian">Norwegian</option>
+                                                <option value="omani">Omani</option>
+                                                <option value="pakistani">Pakistani</option>
+                                                <option value="palauan">Palauan</option>
+                                                <option value="panamanian">Panamanian</option>
+                                                <option value="papua new guinean">Papua New Guinean</option>
+                                                <option value="paraguayan">Paraguayan</option>
+                                                <option value="peruvian">Peruvian</option>
+                                                <option value="polish">Polish</option>
+                                                <option value="portuguese">Portuguese</option>
+                                                <option value="qatari">Qatari</option>
+                                                <option value="romanian">Romanian</option>
+                                                <option value="russian">Russian</option>
+                                                <option value="rwandan">Rwandan</option>
+                                                <option value="saint lucian">Saint Lucian</option>
+                                                <option value="salvadoran">Salvadoran</option>
+                                                <option value="samoan">Samoan</option>
+                                                <option value="san marinese">San Marinese</option>
+                                                <option value="sao tomean">Sao Tomean</option>
+                                                <option value="saudi">Saudi</option>
+                                                <option value="scottish">Scottish</option>
+                                                <option value="senegalese">Senegalese</option>
+                                                <option value="serbian">Serbian</option>
+                                                <option value="seychellois">Seychellois</option>
+                                                <option value="sierra leonean">Sierra Leonean</option>
+                                                <option value="singaporean">Singaporean</option>
+                                                <option value="slovakian">Slovakian</option>
+                                                <option value="slovenian">Slovenian</option>
+                                                <option value="solomon islander">Solomon Islander</option>
+                                                <option value="somali">Somali</option>
+                                                <option value="south african">South African</option>
+                                                <option value="south korean">South Korean</option>
+                                                <option value="spanish">Spanish</option>
+                                                <option value="sri lankan">Sri Lankan</option>
+                                                <option value="sudanese">Sudanese</option>
+                                                <option value="surinamer">Surinamer</option>
+                                                <option value="swazi">Swazi</option>
+                                                <option value="swedish">Swedish</option>
+                                                <option value="swiss">Swiss</option>
+                                                <option value="syrian">Syrian</option>
+                                                <option value="taiwanese">Taiwanese</option>
+                                                <option value="tajik">Tajik</option>
+                                                <option value="tanzanian">Tanzanian</option>
+                                                <option value="thai">Thai</option>
+                                                <option value="togolese">Togolese</option>
+                                                <option value="tongan">Tongan</option>
+                                                <option value="trinidadian or tobagonian">Trinidadian or Tobagonian
+                                                </option>
+                                                <option value="tunisian">Tunisian</option>
+                                                <option value="turkish">Turkish</option>
+                                                <option value="tuvaluan">Tuvaluan</option>
+                                                <option value="ugandan">Ugandan</option>
+                                                <option value="ukrainian">Ukrainian</option>
+                                                <option value="uruguayan">Uruguayan</option>
+                                                <option value="uzbekistani">Uzbekistani</option>
+                                                <option value="venezuelan">Venezuelan</option>
+                                                <option value="vietnamese">Vietnamese</option>
+                                                <option value="welsh">Welsh</option>
+                                                <option value="yemenite">Yemenite</option>
+                                                <option value="zambian">Zambian</option>
+                                                <option value="zimbabwean">Zimbabwean</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-6 form-group">
+                                            <label>Image</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="customFile">
+                                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-success" onclick="stepper.next()">Next</button>
+                                </div>
+
+                            </div>
+                            <!--/INFO PART END/-->
+
+                            <!--EDUC PART-->
+                            <div id="education-part" class="content" role="tabpanel"
+                                aria-labelledby="education-part-trigger">
+                                <div class="row">
+                                    <div class="col-6 form-group">
+                                        <label>Institute/ University Name</label>
+                                        <div class="input-group">
+                                            <input id="institute_university_name" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-6 form-group">
+                                        <label>Institute/ University Location</label>
+                                        <div class="input-group">
+                                            <input id="institute_university_location" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <label class="col-6">Educational Attainment</label>
+                                <label class="col-5">Date Graduated</label>
+                                <!-- <label class="col-5">Field of Study</label> -->
+                                <div class="row">
+                                    <div class="col-6 form-group">
+                                        <select id="highest_educational_attainment" class="form-control select2">
+                                            <option selected="selected" disabled="disabled">Select qualification
+                                            </option>
+                                            <option>High School Diploma</option>
+                                            <option>Vocational Diploma/Short Course Certificate</option>
+                                            <option>Bachelor's/College Degree</option>
+                                            <option>Post Graduate Diploma/Master's Degree</option>
+                                            <option>Professional License (Passed Board/Bar/Professional License Exam)
+                                            </option>
+                                            <option>Doctorate Degree</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-4">
+                                        <select id="month" class="form-control select2">
+                                            <option selected="selected" disabled="disabled">Month</option>
+                                            <option>January</option>
+                                            <option>February</option>
+                                            <option>March</option>
+                                            <option>April</option>
+                                            <option>May</option>
+                                            <option>June</option>
+                                            <option>July</option>
+                                            <option>August</option>
+                                            <option>September</option>
+                                            <option>October</option>
+                                            <option>November</option>
+                                            <option>December</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-2 form-group">
+                                        <select id="year" class="form-control select2">
+                                            <option selected="selected" disabled="disabled">Year</option>
+                                            <option value="1940">1940</option>
+                                            <option value="1941">1941</option>
+                                            <option value="1942">1942</option>
+                                            <option value="1943">1943</option>
+                                            <option value="1944">1944</option>
+                                            <option value="1945">1945</option>
+                                            <option value="1946">1946</option>
+                                            <option value="1947">1947</option>
+                                            <option value="1948">1948</option>
+                                            <option value="1949">1949</option>
+                                            <option value="1950">1950</option>
+                                            <option value="1951">1951</option>
+                                            <option value="1952">1952</option>
+                                            <option value="1953">1953</option>
+                                            <option value="1954">1954</option>
+                                            <option value="1955">1955</option>
+                                            <option value="1956">1956</option>
+                                            <option value="1957">1957</option>
+                                            <option value="1958">1958</option>
+                                            <option value="1959">1959</option>
+                                            <option value="1960">1960</option>
+                                            <option value="1961">1961</option>
+                                            <option value="1962">1962</option>
+                                            <option value="1963">1963</option>
+                                            <option value="1964">1964</option>
+                                            <option value="1965">1965</option>
+                                            <option value="1966">1966</option>
+                                            <option value="1967">1967</option>
+                                            <option value="1968">1968</option>
+                                            <option value="1969">1969</option>
+                                            <option value="1970">1970</option>
+                                            <option value="1971">1971</option>
+                                            <option value="1972">1972</option>
+                                            <option value="1973">1973</option>
+                                            <option value="1974">1974</option>
+                                            <option value="1975">1975</option>
+                                            <option value="1976">1976</option>
+                                            <option value="1977">1977</option>
+                                            <option value="1978">1978</option>
+                                            <option value="1979">1979</option>
+                                            <option value="1980">1980</option>
+                                            <option value="1981">1981</option>
+                                            <option value="1982">1982</option>
+                                            <option value="1983">1983</option>
+                                            <option value="1984">1984</option>
+                                            <option value="1985">1985</option>
+                                            <option value="1986">1986</option>
+                                            <option value="1987">1987</option>
+                                            <option value="1988">1988</option>
+                                            <option value="1989">1989</option>
+                                            <option value="1990">1990</option>
+                                            <option value="1991">1991</option>
+                                            <option value="1992">1992</option>
+                                            <option value="1993">1993</option>
+                                            <option value="1994">1994</option>
+                                            <option value="1995">1995</option>
+                                            <option value="1996">1996</option>
+                                            <option value="1997">1997</option>
+                                            <option value="1998">1998</option>
+                                            <option value="1999">1999</option>
+                                            <option value="2000">2000</option>
+                                            <option value="2001">2001</option>
+                                            <option value="2002">2002</option>
+                                            <option value="2003">2003</option>
+                                            <option value="2004">2004</option>
+                                            <option value="2005">2005</option>
+                                            <option value="2006">2006</option>
+                                            <option value="2007">2007</option>
+                                            <option value="2008">2008</option>
+                                            <option value="2009">2009</option>
+                                            <option value="2010">2010</option>
+                                            <option value="2011">2011</option>
+                                            <option value="2012">2012</option>
+                                            <option value="2013">2013</option>
+                                            <option value="2014">2014</option>
+                                            <option value="2015">2015</option>
+                                            <option value="2016">2016</option>
+                                            <option value="2017">2017</option>
+                                            <option value="2018">2018</option>
+                                            <option value="2019">2019</option>
+                                            <option value="2020">2020</option>
+                                            <option value="2021">2021</option>
+                                            <option value="2022">2022</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6 form-group">
+                                        <label>Field of study</label>
+                                        <select id="field_of_study" class="form-control select2">
+                                            <option selected="selected" disabled="disabled">Select field of study
+                                            </option>
+                                            <option disabled="disabled">Administration</option>
+                                            <option>Public Administration</option>
+                                            <option>Office Administration</option>
+                                            <option>Customs Administration</option>
+                                            <option>Healthcare Management & Administration</option>
+                                            <option>Legal Administration</option>
+                                            <option disabled="disabled">Agriculture</option>
+                                            <option>Animal Science & Production</option>
+                                            <option>Crop Science & Agronomy</option>
+                                            <option>Fisheries</option>
+                                            <option>Forestry</option>
+                                            <option>Agricultural Technology</option>
+                                            <option>Agricultural Engineering</option>
+                                            <option disabled="disabled">Aircraft & Aviation</option>
+                                            <option>Aviation</option>
+                                            <option>Aircraft Maintenance & Technology</option>
+                                            <option>Architecture</option>
+                                            <option disabled="disabled">Arts and Design</option>
+                                            <option>Graphic Design</option>
+                                            <option>Visual Communication</option>
+                                            <option>Animation</option>
+                                            <option>Fine Arts</option>
+                                            <option>Interior Design</option>
+                                            <option>Art Education Teachers</option>
+                                            <option>Theater and Performing Arts</option>
+                                            <option>Industrial Design</option>
+                                            <option>Painting</option>
+                                            <option disabled="disabled">Business</option>
+                                            <option>Business Administration</option>
+                                            <option>Accountancy/ Accounting</option>
+                                            <option>Marketing</option>
+                                            <option>Management</option>
+                                            <option>Finance & Banking</option>
+                                            <option>Human Resources</option>
+                                            <option>Bookkeeping</option>
+                                            <option>Entrepreneurship</option>
+                                            <option>Economics</option>
+                                            <option>Real Estate</option>
+                                            <option>Advertising</option>
+                                            <option disabled="disabled">Communication & Information Science</option>
+                                            <option>Communcation</option>
+                                            <option>Library and Information Science</option>
+                                            <option>Journalism</option>
+                                            <option>Visual Communication</option>
+                                            <option>Information Management</option>
+                                            <option>Broadcasting</option>
+                                            <option>Public Relations</option>
+                                            <option disabled="disabled">Engineering</option>
+                                            <option>Computer Engineering</option>
+                                            <option>Civil Engineering</option>
+                                            <option>Electronics and Communications Engineering</option>
+                                            <option>Electrical Engineering</option>
+                                            <option>Mechanical Engineering</option>
+                                            <option>Industrial Engineering</option>
+                                            <option>Marine Engineering</option>
+                                            <option>Agricultural Engineering</option>
+                                            <option>Chemical Engineering</option>
+                                            <option>Geodetic Engineering</option>
+                                            <option>Environmental Engineering</option>
+                                            <option>Sanitary Engineering</option>
+                                            <option>Aeronautical Engineering</option>
+                                            <option>Mining Engineering</option>
+                                            <option disabled="disabled">Humanities</option>
+                                            <option>History</option>
+                                            <option>Philosophy</option>
+                                            <option>Literature and Writing</option>
+                                            <option>Linguistics</option>
+                                            <option>Philippine Studies</option>
+                                            <option disabled="disabled">IT, Computer Science & Programming</option>
+                                            <option>Information Technology (IT)</option>
+                                            <option>Computer Science</option>
+                                            <option>Computer Engineering</option>
+                                            <option disabled="disabled">Language</option>
+                                            <option>English</option>
+                                            <option>Filipino</option>
+                                            <option>Law</option>
+                                            <option disabled="disabled">Maritime</option>
+                                            <option>Maritime Transportation</option>
+                                            <option disabled="disabled">Medical & Healthcare</option>
+                                            <option>Nursing</option>
+                                            <option>Midwifery</option>
+                                            <option>Medical Technology</option>
+                                            <option>Caregiving</option>
+                                            <option>Pharmacy</option>
+                                            <option>Nutrition</option>
+                                            <option>Healthcare Management & Administration</option>
+                                            <option>Doctor of Medicine</option>
+                                            <option>Health Education</option>
+                                            <option>Public Health</option>
+                                            <option>Dentistry</option>
+                                            <option>Occupational Therapy</option>
+                                            <option>Veterinary</option>
+                                            <option>Radiologic Technology</option>
+                                            <option>Optometry</option>
+                                            <option>Physical Therapy</option>
+                                            <option>Music</option>
+                                            <option disabled="disabled">Professional & Technical Courses</option>
+                                            <option>Computer Technology</option>
+                                            <option>Electrical Technology</option>
+                                            <option>Automotive Technology</option>
+                                            <option>Industrial Technology</option>
+                                            <option>Electronics Technology</option>
+                                            <option>Food Technology</option>
+                                            <option>Mechanical Technology</option>
+                                            <option>Refrigeration & Air Conditioning</option>
+                                            <option>Agricultural Technology</option>
+                                            <option>Drafting Technology</option>
+                                            <option>Welding & Fabrication</option>
+                                            <option>Garments & Apparel</option>
+                                            <option>Civil Technology</option>
+                                            <option>Aircraft Maintenance & Technology</option>
+                                            <option>Carpentry and Wood Technology</option>
+                                            <option>Religion & Theology</option>
+                                            <option disabled="disabled">Science</option>
+                                            <option>Mathematics</option>
+                                            <option>Biology</option>
+                                            <option>Environmental Studies & Ecology</option>
+                                            <option>Chemistry</option>
+                                            <option>Physics</option>
+                                            <option>Physiology</option>
+                                            <option>Microbiology</option>
+                                            <option>Statistics</option>
+                                            <option>Geology</option>
+                                            <option disabled="disabled">Social Science</option>
+                                            <option>Criminology</option>
+                                            <option>Psychology & Behavioral Science</option>
+                                            <option>Political Science</option>
+                                            <option>Social Work</option>
+                                            <option>Sociology</option>
+                                            <option>Community & Rural Development</option>
+                                            <option>International Studies</option>
+                                            <option>International Relations</option>
+                                            <option>Anthropology</option>
+                                            <option disabled="disabled">Teacher Education</option>
+                                            <option>Secondary Education Teachers</option>
+                                            <option>Elementary Education Teachers</option>
+                                            <option>Math & Science Teachers</option>
+                                            <option>Educational Management</option>
+                                            <option>Physical Education Teachers</option>
+                                            <option>Early Childhood Education</option>
+                                            <option>Special Education Teachers</option>
+                                            <option>Guidance and Counselling</option>
+                                            <option>Industrial & Technical Education Teachers</option>
+                                            <option>Religion & Values Education</option>
+                                            <option>Health Education</option>
+                                            <option>Art Education Teachers</option>
+                                            <option disabled="disabled">Tourism, Hospitality & Culinary</option>
+                                            <option>Hotel & Restaurant Management</option>
+                                            <option>Tourism</option>
+                                            <option>Culinary Arts and Kitchen Operations</option>
+                                            <option>Housekeeping</option>
+                                            <option>Bartending</option>
+                                            <option>Cruise Line Operations</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6 form-group">
+                                        <label>Major</label>
+                                        <div class="input-group">
+                                            <input id="major" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
+                                <button class="btn btn-success" onclick="stepper.next()">Next</button>
+                            </div>
+                            <!--/EDUC PART END/-->
+
+                            <!--EXP PART-->
+                            <div id="experience-part" class="content" role="tabpanel"
+                                aria-labelledby="experience-part-trigger">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-6 form-group">
+                                            <label>Experience level</label>
+                                            <select id="experience_level" class="form-control select2">
+                                                <option selected disabled>Select experience</option>
+                                                <option value="Fresh Graduate">Fresh Graduate</option>
+                                                <option value="Looking for Part-time Job">Looking for Part-time
+                                                    Job</option>
+                                                <option value="Internship">Internship</option>
+                                                <option value="With Work Experience">With Work Experience
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="col-6 form-group">
+                                            <label>Work Experience</label>
+                                            <div class="input-group">
+                                                <input id="year_month_work_experience" type="text" class="form-control"
+                                                    placeholder="Ex: 2 years or 11 months">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-10 form-group">
+                                            <label>Description (If without work experience, kindly leave this
+                                                blank.)</label>
+                                            <div class="input-group">
+                                                <textarea id="experience_description" class="form-control" rows="3"
+                                                    placeholder="Description"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 form-group">
+                                            <label>Resume</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="customFile">
+                                                <label class="custom-file-label" for="customFile">Upload resume</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
+                                    <button type="submit" onclick=registerProfile()
+                                        class="btn btn-success">Submit</button>
+                                    <div style="margin-top: .5rem; font-size: 12px;">
+                                        <p class="text-muted">By submitting this form, you agree to be contacted
+                                            regarding your request, and you are confirming you agree to our
+                                            <span><a href="#" data-toggle="modal" data-target="#termsModal"
+                                                    style="font-size: 12px;">Terms and Conditions.</a></span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--//EXP PART END-->
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+    <!-- /.card -->
+    </div>
+    <!-- /.login-box -->
+    </div>
+    <!-- REQUIRED SCRIPTS -->
+
+    <!-- jQuery -->
+    <script src="/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Select2 -->
+    <script src="/plugins/select2/js/select2.full.min.js"></script>
+    <!-- Bootstrap4 Duallistbox -->
+    <script src="/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+    <!-- InputMask -->
+    <script src="/plugins/moment/moment.min.js"></script>
+    <script src="/plugins/inputmask/jquery.inputmask.min.js"></script>
+    <!-- date-range-picker -->
+    <script src="/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- bootstrap color picker -->
+    <script src="/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Bootstrap Switch -->
+    <script src="/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+    <!-- BS-Stepper -->
+    <script src="/plugins/bs-stepper/js/bs-stepper.min.js"></script>
+    <!-- dropzonejs -->
+    <script src="/plugins/dropzone/min/dropzone.min.js"></script>
+    <!-- jquery-validation -->
+    <script src="/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="/plugins/jquery-validation/additional-methods.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Page specific script -->
+    <script>
+        $(function () {
+            //Initialize Select2 Elements
+            $('.select2').select2()
+
+            //Initialize Select2 Elements
+            $('.select2bs4').select2({
+                theme: 'bootstrap4'
+            })
+
+            //Datemask dd/mm/yyyy
+            $('#datemask').inputmask('dd/mm/yyyy', {
+                'placeholder': 'dd/mm/yyyy'
+            })
+            //Datemask2 mm/dd/yyyy
+            $('#datemask2').inputmask('mm/dd/yyyy', {
+                'placeholder': 'mm/dd/yyyy'
+            })
+            //Money Euro
+            $('[data-mask]').inputmask()
+
+            //Date picker
+            $('#reservationdate').datetimepicker({
+                format: 'L'
+            });
+
+            //Date and time picker
+            $('#reservationdatetime').datetimepicker({
+                icons: {
+                    time: 'far fa-clock'
+                }
+            });
+
+            //Date range picker
+            $('#reservation').daterangepicker()
+            //Date range picker with time picker
+            $('#reservationtime').daterangepicker({
+                timePicker: true,
+                timePickerIncrement: 30,
+                locale: {
+                    format: 'MM/DD/YYYY hh:mm A'
+                }
+            })
+            //Date range as a button
+            $('#daterange-btn').daterangepicker({
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                },
+                startDate: moment().subtract(29, 'days'),
+                endDate: moment()
+            },
+                function (start, end) {
+                    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+                }
+            )
+
+            //Timepicker
+            $('#timepicker').datetimepicker({
+                format: 'LT'
+            })
+
+            //Bootstrap Duallistbox
+            $('.duallistbox').bootstrapDualListbox()
+
+            //Colorpicker
+            $('.my-colorpicker1').colorpicker()
+            //color picker with addon
+            $('.my-colorpicker2').colorpicker()
+
+            $('.my-colorpicker2').on('colorpickerChange', function (event) {
+                $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+            })
+
+            $("input[data-bootstrap-switch]").each(function () {
+                $(this).bootstrapSwitch('state', $(this).prop('checked'));
+            })
+
+        })
+        // BS-Stepper Init
+        document.addEventListener('DOMContentLoaded', function () {
+            window.stepper = new Stepper(document.querySelector('.bs-stepper'))
+        })
+
+        // DropzoneJS Demo Code Start
+        Dropzone.autoDiscover = false
+
+        // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
+        var previewNode = document.querySelector("#template")
+        previewNode.id = ""
+        var previewTemplate = previewNode.parentNode.innerHTML
+        previewNode.parentNode.removeChild(previewNode)
+
+        var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
+            url: "/target-url", // Set the url
+            thumbnailWidth: 80,
+            thumbnailHeight: 80,
+            parallelUploads: 20,
+            previewTemplate: previewTemplate,
+            autoQueue: false, // Make sure the files aren't queued until manually added
+            previewsContainer: "#previews", // Define the container to display the previews
+            clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
+        })
+
+        myDropzone.on("addedfile", function (file) {
+            // Hookup the start button
+            file.previewElement.querySelector(".start").onclick = function () {
+                myDropzone.enqueueFile(file)
+            }
+        })
+
+        // Update the total progress bar
+        myDropzone.on("totaluploadprogress", function (progress) {
+            document.querySelector("#total-progress .progress-bar").style.width = progress + "%"
+        })
+
+        myDropzone.on("sending", function (file) {
+            // Show the total progress bar when upload starts
+            document.querySelector("#total-progress").style.opacity = "1"
+            // And disable the start button
+            file.previewElement.querySelector(".start").setAttribute("disabled", "disabled")
+        })
+
+        // Hide the total progress bar when nothing's uploading anymore
+        myDropzone.on("queuecomplete", function (progress) {
+            document.querySelector("#total-progress").style.opacity = "0"
+        })
+
+        // Setup the buttons for all transfers
+        // The "add files" button doesn't need to be setup because the config
+        // `clickable` has already been specified.
+        document.querySelector("#actions .start").onclick = function () {
+            myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED))
+        }
+        document.querySelector("#actions .cancel").onclick = function () {
+            myDropzone.removeAllFiles(true)
+        }
+        // DropzoneJS Demo Code End
+
+        function toggleDivStudent() {
+            var displayStatus = document.getElementById("noWorkExp");
+            if (displayStatus.style.display == 'block') {
+                //If the div is hidden, show it
+                displayStatus.style.display = 'none';
+            } else {
+                //If the div is shown, hide it
+                displayStatus.style.display = 'none';
+            }
+        }
+
+        function toggleDivWorking() {
+            var displayStatus = document.getElementById("workExp");
+            if (displayStatus.style.display == 'none') {
+                //If the div is hidden, show it
+                displayStatus.style.display = 'block';
+            }
+            var displayStatusWork = document.getElementById("noWorkExp");
+            if (displayStatusWork.style.display == 'none') {
+                displayStatusWork.style.display = 'block';
+            }
+        }
+    </script>
+
+    <script>
+        $(function () {
+            $.validator.setDefaults({
+                submitHandler: function () {
+
+                }
+            });
+            $('#infoPart').validate({
+                rules: {
+                    firstName: {
+                        required: true
+                    },
+                    contactNo: {
+                        required: true,
+                        minlength: 11
+                    },
+                    password: {
+                        required: true,
+                        minlength: 8
+                    },
+                    retypePassword: {
+                        required: true,
+                        minlength: 8,
+                        equalTo: "#password"
+                    },
+                    terms: {
+                        required: true
+                    },
+                },
+                messages: {
+                    firstName: {
+                        required: "Please enter your first name"
+                    },
+                    contactNo: {
+                        required: "Please enter your contact number",
+                        minlength: "Invalid contact number"
+                    },
+                    password: {
+                        required: "Please provide a password",
+                        minlength: "Password must be at least 8 characters long"
+                    },
+                    retypePassword: {
+                        required: "Please re-type your password",
+                        minlength: "Password must be at least 8 characters long",
+                        equalTo: "Password didn't match"
+                    },
+                    terms: "Please accept our terms"
+                },
+                errorElement: 'span',
+                errorPlacement: function (error, element) {
+                    error.addClass('invalid-feedback');
+                    element.closest('.form-group').append(error);
+                },
+                highlight: function (element, errorClass, validClass) {
+                    $(element).addClass('is-invalid');
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                    $(element).removeClass('is-invalid');
+                },
+            });
+            //Initialize Select2 Elements
+            $('.select2').select2()
+
+            //Initialize Select2 Elements
+            $('.select2bs4').select2({
+                theme: 'bootstrap4'
+            });
+
+        });
+    </script>
+
+    <script>
+        function registerProfile() {
+            const conn1 = axios({
+                method: 'put',
+                url: baseurl + 'candidate_profile/' + localStorage.getItem('U_user_account_id'),
+                data: {
+                    first_name: $('#firstName').val(),
+                    middle_name: $('#middleName').val(),
+                    last_name: $('#lastName').val(),
+                    suffix_name: $('#suffixName').val(),
+                    gender: $('#gender').val(),
+                    birth_date: $('#birthdate').val(),
+                    age: 21,
+                    zip_code: $('#zip_code').val(),
+                    city: $('#city').val(),
+                    region: $('#region').val(),
+                    country: $('#country').val(),
+                    nationality: $('#nationality').val(),
+                    review_status: 'For Reviewing',
+                    candidate_image: '',
+                    candidate_type: localStorage.getItem('candidate_type'),
+                    user_account_id: localStorage.getItem('U_user_account_id')
+                }
+            })
+                .then(function (data) {
+                    // console.log(data);
+
+                    const conn2 = axios({
+                        method: 'put',
+                        url: baseurl + 'candidate_education_detail/' + localStorage.getItem('U_user_account_id'),
+                        data: {
+                            institute_university_name: $('#institute_university_name').val(),
+                            institute_university_location: $('#institute_university_location').val(),
+                            highest_education_attainment: $('#highest_educational_attainment').val(),
+                            field_of_study: $('#field_of_study').val(),
+                            major: $('#major').val(),
+                            graduation_date: $('#month').val() + ' ' + $('#year').val(),
+                            user_account_id: localStorage.getItem('U_user_account_id')
+                        }
+                    })
+                        .then(function (data) {
+                            // console.log(data);
+
+                            const conn3 = axios({
+                                method: 'put',
+                                url: baseurl + 'candidate_experience_detail/' + localStorage.getItem('U_user_account_id'),
+                                data: {
+                                    experience_level: $('#experience_level').val(),
+                                    experience_description: $('#experience_description').val(),
+                                    year_month_work_experience: $('#year_month_work_experience').val(),
+                                    user_account_id: localStorage.getItem('U_user_account_id')
+                                }
+                            })
+                                .then(function (data) {
+                                    Swal.fire(
+                                        'Profile Setup Complete!',
+                                        'Redirecting to Dashboard...',
+                                        'success'
+                                    )
+                                        .then(function () {
+                                            window.open('candidate-review-account-dashboard.html', '_self').reload();
+                                        })
+                                })
+                                .catch(function (data, err) {
+                                    Swal.fire(
+                                        'Double Check your Details!',
+                                        '',
+                                        'error'
+                                    )
+                                        .then(function () {
+                                        })
+                                })
+                        })
+                        .catch(function (data, err) {
+                            Swal.fire(
+                                'Double Check your Details!',
+                                '',
+                                'error'
+                            )
+                                .then(function () {
+                                })
+                        })
+                })
+                .catch(function (data, err) {
+                    Swal.fire(
+                        'Double Check your Details!',
+                        '',
+                        'error'
+                    )
+                        .then(function () {
+                        })
+                });
+        }
+    </script>
+
+</body>
+
+</html>
