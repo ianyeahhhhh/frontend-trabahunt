@@ -11,8 +11,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Employer | Job Ads Management</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
     <!-- BS Stepper -->
@@ -31,8 +33,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-
-    <!-- <body onload="if (localStorage.getItem('E_userSession')==null) self.location='employer-login.html';"></body> -->
     <div class="wrapper">
         <!--NAV BAR START-->
         <nav class="main-header navbar navbar-expand nav-custom-emp">
@@ -41,9 +41,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
-                    <li class=" nav-item d-none d-sm-inline-block ">
-                        <h5 class="navbar-header"><b>Job Advertisement management</b></h5>
-                    </li>
+                <li class=" nav-item d-none d-sm-inline-block ">
+                    <h5 class="navbar-header"><b>Job Advertisement management</b></h5>
+                </li>
                 </li>
             </ul>
 
@@ -58,11 +58,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- <div class="dropdown-divider "></div> -->
                         <a href="employer-view-profile.html" class="dropdown-item "><span><i
                                     class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="employer-branding-view-acc.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-lock"></i></span> Account</a>
                         <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
                                     class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
+            <!--/Right navbar links-->
+
         </nav>
         <!--NAV BAR END-->
 
@@ -77,7 +81,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar -->
             <div class="sidebar">
                 <nav class="mt-2 ">
-                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
+                        data-accordion="false ">
                         <!-- Add icons to the links using the .nav-icon class
                            with font-awesome or any other icon font library -->
                         <li class="nav-item ">
@@ -205,7 +210,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </p>
                                     </div>
                                     <div class="col-6  form-group">
-                                        <input id="job_title" type="text" name="job_title" class="form-control" placeholder="Enter job title">
+                                        <input id="job_title" type="text" name="job_title" class="form-control"
+                                            placeholder="Enter job title">
                                     </div>
                                 </div>
                                 <div class="row row-custom">
@@ -215,7 +221,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </p>
                                     </div>
                                     <div class="col-6  form-group">
-                                        <input id="job_position_level" type="text" name="job_position" class="form-control" placeholder="Enter job position">
+                                        <input id="job_position_level" type="text" name="job_position"
+                                            class="form-control" placeholder="Enter job position">
                                     </div>
                                 </div>
                                 <div class="row row-custom">
@@ -404,7 +411,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </p>
                                     </div>
                                     <div class="col-6">
-                                        <textarea id="job_description" class="form-control" rows="3" placeholder="Description"></textarea>
+                                        <textarea id="job_description" class="form-control" rows="3"
+                                            placeholder="Description"></textarea>
                                     </div>
                                 </div>
 
@@ -426,7 +434,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <select id="job_specialization_name" name="job_specialization_name" size="1" class="form-control select2" style="width: 100%;">
+                                            <select id="job_specialization_name" name="job_specialization_name" size="1"
+                                                class="form-control select2" style="width: 100%;">
                                                 <option value="" selected="selected" disabled="disabled">Select job
                                                     specialization
                                                 </option>
@@ -468,7 +477,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </p>
                                     </div>
                                     <div class="col-6">
-                                        <textarea id="job_qualification" class="form-control" rows="3" placeholder="Job qualification"></textarea>
+                                        <textarea id="job_qualification" class="form-control" rows="3"
+                                            placeholder="Job qualification"></textarea>
                                     </div>
                                 </div>
                                 <div class="row row-custom">
@@ -478,7 +488,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </p>
                                     </div>
                                     <div class="col-6">
-                                        <input id="career_level" type="text" class="form-control" placeholder="Enter career level">
+                                        <input id="career_level" type="text" class="form-control"
+                                            placeholder="Enter career level">
                                     </div>
                                 </div>
                                 <div class="row row-custom">
@@ -488,7 +499,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </p>
                                     </div>
                                     <div class="col-6 form-group">
-                                        <select id="job_type_name" name="job_type" size="1" class="form-control select2" style="width: 100%;">
+                                        <select id="job_type_name" name="job_type" size="1" class="form-control select2"
+                                            style="width: 100%;">
                                             <option value="" selected="selected" disabled="disabled">Select job type
                                             </option>
                                             <option value="Full-time" label="Afghan afghani">Full-time</option>
@@ -515,7 +527,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </p>
                                     </div>
                                     <div class="col-6 form-group">
-                                        <input id="city" name="city" type="text" class="form-control" placeholder="Enter city">
+                                        <input id="city" name="city" type="text" class="form-control"
+                                            placeholder="Enter city">
                                     </div>
                                 </div>
                                 <div class="row  row-custom">
@@ -525,7 +538,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </p>
                                     </div>
                                     <div class="col-6 form-group">
-                                        <input id="zip_code" name="zip_code" type="text" class="form-control" placeholder="Enter zipcode">
+                                        <input id="zip_code" name="zip_code" type="text" class="form-control"
+                                            placeholder="Enter zipcode">
                                     </div>
                                 </div>
                                 <div class="row row-custom">
@@ -535,7 +549,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </p>
                                     </div>
                                     <div class="col-6 form-group">
-                                        <input id="region" name="region" type="text" class="form-control" placeholder="Enter region">
+                                        <input id="region" name="region" type="text" class="form-control"
+                                            placeholder="Enter region">
                                     </div>
                                 </div>
                                 <div class="row row-custom">
@@ -545,7 +560,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </p>
                                     </div>
                                     <div class="col-6 form-group">
-                                        <input id="country" name="country" type="text" class="form-control" placeholder="Enter country">
+                                        <input id="country" name="country" type="text" class="form-control"
+                                            placeholder="Enter country">
                                     </div>
                                 </div>
                             </div>
@@ -587,25 +603,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="/plugins/jquery-validation/jquery.validate.min.js"></script>
     <script src="/plugins/jquery-validation/additional-methods.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script>
+    <script type="module">
         document.getElementById("employer_display_name").innerHTML = localStorage.getItem("U_email");
-    </script>
 
-    <script>
         $(function () {
             //Initialize Select2 Elements
             $('.select2').select2()
         });
-    </script>
 
-    <!-- Page specific script -->
-    <script>
         $(function () {
             $.validator.setDefaults({
                 submitHandler: function () {
                     // CREATE JOB LOCATION FIRST FOR JOB LOCATION ID
-                    axios({
+                    const conn1 = axios({
                         url: baseurl + 'job_location/',
                         method: 'post',
                         data: {
@@ -623,7 +635,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             localStorage.setItem('E_job_location_id', data.data.data.job_location_id);
                             var salary = document.getElementById("currency").value + " MIN: " + $("#salary_min").val() + " MAX: " + $("#salary_max").val();
 
-                            axios({
+                            const conn2 = axios({
                                 url: baseurl + 'job_post/',
                                 method: 'post',
                                 data: {
@@ -643,7 +655,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     console.log(data);
                                     console.log('------');
 
-                                    axios({
+                                    const conn3 = axios({
                                         url: baseurl + 'job_location/' + localStorage.getItem('E_job_post_id'),
                                         method: 'put',
                                         data: {
@@ -659,7 +671,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             console.log(data);
                                             console.log('------');
 
-                                            axios({
+                                            const conn4 = axios({
                                                 url: baseurl + 'job_additional_info/',
                                                 method: 'post',
                                                 data: {
@@ -671,30 +683,53 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 }
                                             })
                                                 .then(function (data) {
-                                                    console.log('create job additional info');
-                                                    console.log(data);
-                                                    console.log('------');
-                                                    alert('Job Ads Posted.');
-                                                    window.open("employer-job-ads-list.html", "_self");
+                                                    Swal.fire(
+                                                        'Job Ads Posted!',
+                                                        '',
+                                                        'success'
+                                                    )
+                                                        .then(function () {
+                                                            window.open("employer-job-ads-list.html", "_self").reload();
+                                                        })
                                                 })
                                                 .catch(function (data, err) {
-                                                    alert("JOB ADDITIONAL INFO CREATION FAILED");
-                                                    console.error(err);
+                                                    Swal.fire(
+                                                        'Job Additional Info Failed!',
+                                                        '',
+                                                        'error'
+                                                    )
+                                                        .then(function () {
+                                                        })
                                                 })
                                         })
                                         .catch(function (data, err) {
-                                            alert("JOB LOCATION (JOB_POST_ID FAILED)");
-                                            console.error(err);
+                                            Swal.fire(
+                                                'Job Location (job post id) Info Failed!',
+                                                '',
+                                                'error'
+                                            )
+                                                .then(function () {
+                                                })
                                         })
                                 })
                                 .catch(function (data, err) {
-                                    alert("JOB POST CREATION FAILED");
-                                    console.error(err);
+                                    Swal.fire(
+                                        'Job Post Info Failed!',
+                                        '',
+                                        'error'
+                                    )
+                                        .then(function () {
+                                        })
                                 })
                         })
                         .catch(function (data, err) {
-                            alert("JOB LOCATION CREATION FAILED");
-                            console.error(err);
+                            Swal.fire(
+                                'Job Location Info Failed!',
+                                '',
+                                'error'
+                            )
+                                .then(function () {
+                                })
                         })
                 }
             });

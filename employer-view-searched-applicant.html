@@ -11,8 +11,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Employer | Search Applicants</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
     <!-- BS Stepper -->
@@ -31,8 +33,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-
-    <!--<body onload="if (localStorage.getItem('E_userSession')==null) self.location='employer-login.html';"></body>-->
     <div class="wrapper">
         <!--NAV BAR START-->
         <nav class="main-header navbar navbar-expand nav-custom-emp">
@@ -41,9 +41,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
-                    <li class=" nav-item d-none d-sm-inline-block ">
-                        <h5 class="navbar-header"><b>Search applicants</b></h5>
-                    </li>
+                <li class=" nav-item d-none d-sm-inline-block ">
+                    <h5 class="navbar-header"><b>Search applicants</b></h5>
+                </li>
                 </li>
             </ul>
 
@@ -58,11 +58,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- <div class="dropdown-divider "></div> -->
                         <a href="employer-view-profile.html" class="dropdown-item "><span><i
                                     class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="employer-branding-view-acc.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-lock"></i></span> Account</a>
                         <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
                                     class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
+            <!--/Right navbar links-->
+
         </nav>
         <!--NAV BAR END-->
 
@@ -77,7 +81,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar -->
             <div class="sidebar">
                 <nav class="mt-2 ">
-                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
+                        data-accordion="false ">
                         <!-- Add icons to the links using the .nav-icon class
                            with font-awesome or any other icon font library -->
                         <li class="nav-item ">
@@ -190,7 +195,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="card card-sticky card-success card-outline">
                                     <div class="card-body box-profile">
                                         <div class="text-center">
-                                            <img class="profile-user-img img-fluid img-circle" src="/dist/img/empty-image.jpg" alt="User profile picture">
+                                            <img class="profile-user-img img-fluid img-circle"
+                                                src="/dist/img/empty-image.jpg" alt="User profile picture">
                                         </div>
                                         <h3 id="display_full_name" class="profile-username text-center">Marcus Erean
                                         </h3>
@@ -199,7 +205,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                                         <ul class="list-group list-group-unbordered mb-3">
                                             <li class="list-group-item">
-                                                <span><i class="fas fa-envelope"></i></span> <a class="float-right">marcus@gmail.com</a>
+                                                <span><i class="fas fa-envelope"></i></span> <a
+                                                    class="float-right">marcus@gmail.com</a>
                                             </li>
                                             <li class="list-group-item">
                                                 <i class="fas fa-phone-alt"></i> <a class="float-right">+63 914 361
@@ -310,7 +317,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_institute_university_name'>Default Insitute/ University Name
+                                                <p id='display_institute_university_name'>Default Insitute/ University
+                                                    Name
                                                 </p>
                                             </div>
                                         </div>
@@ -321,7 +329,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_institute_university_location'>Default Quezon City, Philippines
+                                                <p id='display_institute_university_location'>Default Quezon City,
+                                                    Philippines
                                                 </p>
                                             </div>
                                         </div>
@@ -332,7 +341,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_highest_education_attainment'>Default Bachelor's / College Degree
+                                                <p id='display_highest_education_attainment'>Default Bachelor's /
+                                                    College Degree
                                                 </p>
                                             </div>
                                         </div>
@@ -343,7 +353,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_field_of_study'>Default Computer Science / Information Technology
+                                                <p id='display_field_of_study'>Default Computer Science / Information
+                                                    Technology
                                                 </p>
                                             </div>
                                         </div>
@@ -395,7 +406,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis porro fugiat assumenda ipsum reprehenderit sapiente sit, quisquam quam quia similique? Quam consequuntur fuga ipsum eligendi assumenda,
+                                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis
+                                                    porro fugiat assumenda ipsum reprehenderit sapiente sit, quisquam
+                                                    quam quia similique? Quam consequuntur fuga ipsum eligendi
+                                                    assumenda,
                                                     aut tempore sunt vel?</p>
                                             </div>
                                         </div>
@@ -451,13 +465,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- AdminLTE App -->
     <script src="../../dist/js/adminlte.min.js "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script>
+    <script type="module">
         document.getElementById("employer_display_name").innerHTML = localStorage.getItem("U_email");
-    </script>
 
-    <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'candidate_profile/' + localStorage.getItem('user_account_id_clicked')
         })
@@ -470,7 +483,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 document.getElementById('display_address').innerHTML = address;
                 document.getElementById('display_nationality').innerHTML = data.data.nationality;
 
-                axios({
+                const conn2 = axios({
                     method: 'get',
                     url: baseurl + 'candidate_education_detail/' + localStorage.getItem('user_account_id_clicked')
                 })

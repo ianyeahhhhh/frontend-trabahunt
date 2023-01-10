@@ -11,8 +11,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Employer | Request Form</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
     <!-- BS Stepper -->
@@ -31,7 +33,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-    <!-- <body onload="if (localStorage.getItem('adminSession')==null) self.location='admin-home.html';"></body> -->
     <div class="wrapper">
         <!--NAV BAR START-->
         <nav class="main-header navbar navbar-expand nav-custom">
@@ -40,9 +41,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
-                    <li class=" nav-item d-none d-sm-inline-block ">
-                        <h5 class="navbar-header"><b>Request Form</b></h5>
-                    </li>
+                <li class=" nav-item d-none d-sm-inline-block ">
+                    <h5 class="navbar-header"><b>Request Form</b></h5>
+                </li>
                 </li>
             </ul>
 
@@ -55,16 +56,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </a>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
                         <!-- <div class="dropdown-divider "></div> -->
-                        <a href="employer-basic-view-profile.html" class="dropdown-item ">Profile</a>
-                        <a href="employer-logout.html" class="dropdown-item ">Logout</a>
+                        <a href="employer-basic-view-profile.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="employer-basic-view-acc.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-lock"></i></span> Account</a>
+                        <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
+                                    class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
+            <!--/Right navbar links-->
+
         </nav>
         <!--NAV BAR END-->
 
         <!--SIDE BAR START-->
-        <aside class="main-sidebar sidebar-light-primary elevation-4 ">
+        <aside class="main-sidebar main-sidebar-custom sidebar-light-primary elevation-4 ">
             <!-- Brand Logo -->
             <a href="/employer-basic-dashboard.html " class="brand-link">
                 <img src="/dist/img/logo-head.png " alt="TrabaHunt Logo " class="brand-image ">
@@ -74,7 +81,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar -->
             <div class="sidebar">
                 <nav class="mt-2 ">
-                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
+                        data-accordion="false ">
                         <!-- Add icons to the links using the .nav-icon class
                            with font-awesome or any other icon font library -->
                         <li class="nav-item ">
@@ -138,6 +146,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </ul>
                 </nav>
             </div>
+            <div class="sidebar-custom">
+                <a href="employer-basic-faqs.html" class="btn btn-link">Need Help?</a>
+            </div>
             <!-- /.sidebar -->
         </aside>
         <!--SIDE BAR END-->
@@ -170,7 +181,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-6  form-group">
-                                                    <input id="job_position" type="text" name="job_position" class="form-control" placeholder="Enter job position">
+                                                    <input id="job_position" type="text" name="job_position"
+                                                        class="form-control" placeholder="Enter job position">
                                                 </div>
                                             </div>
                                             <div class="row row-custom">
@@ -181,7 +193,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </div>
                                                 <div class="col-2">
                                                     <div class="form-group">
-                                                        <select id="currency" class="form-control select2" style="width: 100%;">
+                                                        <select id="currency" class="form-control select2"
+                                                            style="width: 100%;">
                                                             <option selected="selected" disabled="disabled">Currency
                                                             </option>
                                                             <option value="AFN" label="Afghan afghani">AFN</option>
@@ -363,10 +376,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </div>
                                                 </div>
                                                 <div class="col-2">
-                                                    <input id="salary_min" type="text" class="form-control" placeholder="Min">
+                                                    <input id="salary_min" type="text" class="form-control"
+                                                        placeholder="Min">
                                                 </div>
                                                 <div class="col-2">
-                                                    <input id="salary_max" type="text" class="form-control" placeholder="Max">
+                                                    <input id="salary_max" type="text" class="form-control"
+                                                        placeholder="Max">
                                                 </div>
                                             </div>
 
@@ -388,7 +403,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </div>
                                                 <div class="col-6">
                                                     <div class="form-group">
-                                                        <select id="job_specialization_name" name="job_specialization_name" size="1" class="form-control select2" style="width: 100%;">
+                                                        <select id="job_specialization_name"
+                                                            name="job_specialization_name" size="1"
+                                                            class="form-control select2" style="width: 100%;">
                                                             <option value="" selected="selected" disabled="disabled">
                                                                 Select job
                                                                 specialization
@@ -445,7 +462,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-6 form-group">
-                                                    <select id="job_type_name" name="job_type" size="1" class="form-control select2" style="width: 100%;">
+                                                    <select id="job_type_name" name="job_type" size="1"
+                                                        class="form-control select2" style="width: 100%;">
                                                         <option value="" selected="selected" disabled="disabled">Select
                                                             job type
                                                         </option>
@@ -477,7 +495,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-6 form-group">
-                                                    <input id="city" name="city" type="text" class="form-control" placeholder="Enter city">
+                                                    <input id="city" name="city" type="text" class="form-control"
+                                                        placeholder="Enter city">
                                                 </div>
                                             </div>
                                             <div class="row  row-custom">
@@ -487,7 +506,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-6 form-group">
-                                                    <input id="zip_code" name="zip_code" type="text" class="form-control" placeholder="Enter zipcode">
+                                                    <input id="zip_code" name="zip_code" type="text"
+                                                        class="form-control" placeholder="Enter zipcode">
                                                 </div>
                                             </div>
                                             <div class="row row-custom">
@@ -497,7 +517,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-6 form-group">
-                                                    <input id="region" name="region" type="text" class="form-control" placeholder="Enter region">
+                                                    <input id="region" name="region" type="text" class="form-control"
+                                                        placeholder="Enter region">
                                                 </div>
                                             </div>
                                             <div class="row row-custom">
@@ -507,7 +528,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-6 form-group">
-                                                    <input id="country" name="country" type="text" class="form-control" placeholder="Enter country">
+                                                    <input id="country" name="country" type="text" class="form-control"
+                                                        placeholder="Enter country">
                                                 </div>
                                             </div>
                                         </div>
@@ -551,24 +573,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="/plugins/jquery-validation/jquery.validate.min.js"></script>
     <script src="/plugins/jquery-validation/additional-methods.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script>
+    <script type="module">
         document.getElementById("employer_display_name").innerHTML = localStorage.getItem("U_email");
-    </script>
 
-    <script>
         $(function () {
             //Initialize Select2 Elements
             $('.select2').select2()
         });
-    </script>
 
-    <!-- Page specific script -->
-    <script>
         $(function () {
             $.validator.setDefaults({
                 submitHandler: function () {
-                    axios({
+                    const conn1 = axios({
                         method: 'post',
                         url: baseurl + 'request_form',
                         data: {
@@ -587,9 +605,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                     })
                         .then(function (data) {
-                            console.log(data);
-                            alert('Request Form submitted.');
-                            window.open('employer-request-history.html', '_self');
+                            Swal.fire(
+                                'Request Form Submitted!',
+                                '',
+                                'success'
+                            )
+                                .then(function () {
+                                    window.open('employer-request-history.html', '_self').reload();
+                                })
                         })
                         .catch(function (data, err) {
                             console.log(data);

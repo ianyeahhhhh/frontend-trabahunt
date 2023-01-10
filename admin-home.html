@@ -85,12 +85,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="/plugins/jquery-validation/jquery.validate.min.js"></script>
     <script src="/plugins/jquery-validation/additional-methods.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script>
+    <script type="module">
         $(function () {
             $.validator.setDefaults({
                 submitHandler: function () {
-                    axios({
+                    const conn1 = axios({
                         method: 'post',
                         url: baseurl + 'admin_login/',
                         data: {
@@ -102,18 +103,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         },
                     })
                         .then(function (data) {
-                            console.log(data);
                             localStorage.setItem("adminSession", data.data.access_token);
                             localStorage.setItem("admin_id", data.data.data.admin_id);
                             localStorage.setItem("admin_email", data.data.data.email);
                             localStorage.setItem("admin_password", data.data.data.password);
-                            alert("Admin Login Success.");
-                            window.open("admin-dashboard.html", "_self");
+
+                            Swal.fire(
+                                'Login Success!',
+                                '',
+                                'success'
+                            )
+                                .then(function () {
+                                    window.open("admin-dashboard.html", "_self").reload();
+                                })
+
                         })
                         .catch(function (err, data) {
-                            alert("Invalid Credentials. Please try again...");
-                            console.error(err);
-                            console.log(data);
+                            Swal.fire(
+                                'Invalid Credentials',
+                                '',
+                                'error'
+                            )
+                                .then(function () {
+
+                                })
                         })
                 }
             });
