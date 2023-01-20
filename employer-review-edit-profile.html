@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Review Account</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
+    <!-- BS Stepper -->
+    <link rel="stylesheet" href="/plugins/bs-stepper/css/bs-stepper.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="../../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet " href="dist/css/adminlte.min.css ">
+    <link rel="icon" href="dist/img/logo-head.png" type="image/x-icon">
+    <script src="global-variables.js"></script>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <!--NAV BAR START-->
+        <nav class="main-header navbar navbar-expand nav-custom-review">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
+                <li class=" nav-item d-none d-sm-inline-block ">
+                    <h5 class="navbar-header"><b>Dashboard</b></h5>
+                </li>
+                </li>
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto ">
+                <li class="nav-item dropdown ">
+                    <a class="navbar-right-item" data-toggle="dropdown" href="#">
+                        <i class="fas fa-user-alt"></i>
+                        <span id="candidate_display_name" class="user-name">EMPLOYER NAME HERE</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
+                        <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
+                                    class="fas fa-sign-out-alt"></i></span> Logout</a>
+                    </div>
+                </li>
+            </ul>
+            <!--/Right navbar links-->
+        </nav>
+        <!--NAV BAR END-->
+
+        <!--SIDE BAR START-->
+        <aside class="main-sidebar main-sidebar-custom sidebar-light-primary elevation-4 ">
+            <!-- Brand Logo -->
+            <a href="candidate-dashboard.html" class="brand-link">
+                <img src="/dist/img/logo-head.png " alt="TrabaHunt Logo " class="brand-image ">
+                <span class="brand-text font-weight-bold ">TrabaHunt</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <nav class="mt-2 ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
+                        data-accordion="false ">
+                        <!-- Add icons to the links using the .nav-icon class
+                           with font-awesome or any other icon font library -->
+                        <li class="nav-item ">
+                            <a href="account-review-dashboard.html" class="nav-link ">
+                                <i class="nav-icon fas fa-columns "></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- /.sidebar -->
+        </aside>
+        <!--SIDE BAR END-->
+
+        <!--remarks MODAL-->
+        <!--modal start-->
+        <div class="modal fade" id="remarks-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><b>Remarks</b></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p> Your account is currently being reviewed...
+                            <br><br>Please make sure that the information needed are complete to ensure account
+                            enabling:<br> • Company Information <br> • Additional Information <br> • Legal Documents
+                            <br><br>Account will be reviewed within the day and you can access your complete dashboard
+                            once reviewing is successful.
+                            <br><br>Come back again after some time :)
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <div class="content-wrapper">
+            <div class="container-fluid" style="padding: 2rem 1rem;">
+                <div class="row">
+                    <div class="col-10">
+                        <div class="callout callout-warning">
+                            <p id="date_created" class="float-right"> Date created</p>
+                            <p> <b>Account status</b> </p>
+                            <hr>
+                            <p><b>For Reviewing</b></p>
+                            <a href="" data-toggle="modal" data-target="#remarks-modal">View admin remarks</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10">
+                        <!-- Profile -->
+                        <div class="card card-warning">
+                            <!-- /.card-header -->
+                            <div class="card-header">
+                                <h3 class="card-title"><b>Edit my profile</b></h3>
+                                <a href="employer-review-account-dashboard.html" class="float-right"><i
+                                        class="fas fa-eye"></i> View</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <strong>
+                                            <i class="fas fa-info-circle"></i> INFORMATION
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Company Name
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input id="company_name" type="text" class="form-control"
+                                            placeholder="Enter company name">
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Establishment Date
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input id="establishment_date" type="text" class="form-control"
+                                            placeholder="Enter establishment date">
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Website (optional)
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input id="company_website_url" type="text" class="form-control"
+                                            placeholder="Enter website URL">
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-3">
+                                        <p class="text-muted">Company Description</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="input-group">
+                                            <textarea id="profile_description" class="form-control" rows="3"
+                                                placeholder="Description"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+
+                                <!--ADD INFO-->
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <strong>
+                                            <i class="fas fa-question-circle"></i> ADDITIONAL INFORMATION
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Registration Number
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input id="registration_number" type="text" class="form-control"
+                                            placeholder="Enter registration number">
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Address
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input id="country" type="text" class="form-control" placeholder="Country">
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted text-hidden">
+
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input id="region" type="text" class="form-control" placeholder="Region">
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted text-hidden">
+
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input id="zip_code" type="text" class="form-control" placeholder="Zip Code">
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted text-hidden">
+
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input id="city" type="text" class="form-control" placeholder="City">
+                                    </div>
+                                </div>
+                                <div class="row row-custom">
+                                    <div class="col-sm-3">
+                                        <p class="text-muted">
+                                            Legal Document/s (pdf)
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="custom-file">
+                                            <form action="">
+                                                <input type="file" id="legalDocument" name="legalDocument">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <div class="card-footer">
+                                <button type="button" class="btn btn-success" onclick="saveEdit()">Save</button>
+                            </div>
+
+                        </div>
+
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <footer class="main-footer ">
+            <div class="float-right d-none d-sm-block ">
+                <b>Traba</b>Hunt
+            </div>
+            <strong>Copyright &copy; 2022 All rights reserved.
+        </footer>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js "></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js "></script>
+    <!-- overlayScrollbars -->
+    <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js "></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="module">
+        document.getElementById("candidate_display_name").innerHTML = localStorage.getItem("U_email");
+
+        const conn1 = axios({
+            method: 'get',
+            url: baseurl + 'company_profile/' + localStorage.getItem('U_user_account_id')
+        })
+            .then(function (data) {
+                document.getElementById('company_name').value = data.data.company_name;
+                document.getElementById('establishment_date').value = data.data.establishment_date;
+                document.getElementById('company_website_url').value = data.data.company_website_url;
+                document.getElementById('profile_description').value = data.data.profile_description;
+                document.getElementById('date_created').innerHTML = 'Date Created (YYYY-MM-DD): ' + String(data.data.created_at).substring(0, 10);
+            })
+            .catch(function (data, err) {
+                console.log(data);
+            })
+
+        const conn2 = axios({
+            method: 'get',
+            url: baseurl + 'company_addition_info/' + localStorage.getItem('U_user_account_id')
+        })
+            .then(function (data) {
+                document.getElementById('registration_number').value = data.data.registration_number;
+                document.getElementById('country').value = data.data.country;
+                document.getElementById('zip_code').value = data.data.zip_code;
+                document.getElementById('region').value = data.data.region;
+                document.getElementById('city').value = data.data.city;
+            })
+            .catch(function (data, err) {
+                console.log(data);
+            })
+    </script>
+
+    <script>
+        function saveEdit() {
+            const conn1 = axios({
+                method: 'put',
+                url: baseurl + 'company_profile/' + localStorage.getItem('U_user_account_id'),
+                data: {
+                    company_name: $('#company_name').val(),
+                    profile_description: $('#profile_description').val(),
+                    establishment_date: $('#establishment_date').val(),
+                    company_website_url: $('#company_website_url').val(),
+                    company_logo: '',
+                    review_status: 'For Reviewing',
+                    user_account_id: localStorage.getItem('U_user_account_id')
+                }
+            })
+                .then(function (data) {
+                    const conn2 = axios({
+                        method: 'put',
+                        url: baseurl + 'company_addition_info/' + localStorage.getItem('U_user_account_id'),
+                        data: {
+                            registration_number: $('#registration_number').val(),
+                            country: $('#country').val(),
+                            region: $('#region').val(),
+                            zip_code: $('#zip_code').val(),
+                            city: $('#city').val(),
+                            user_account_id: localStorage.getItem('U_user_account_id')
+                        }
+                    })
+                        .then(function (data) {
+                            const legal_document = document.getElementById('legalDocument').files[0];
+
+                            var formData1 = new FormData();
+                            formData1.append('pdf_file', legal_document);
+
+                            var path = $('#legalDocument').val();
+                            var filename = path.replace(/^.*\\/, "");
+                            var ext = filename.split('.').reverse()[0];
+
+                            if (ext == 'pdf') {
+                                const conn4 = axios({
+                                    method: 'post',
+                                    url: baseurl + 'aws_files/',
+                                    data: formData1,
+                                    headers: {
+                                        "Content-Type": "multipart/form-data",
+                                    }
+                                })
+                                    .then(function (data) {
+                                        const conn6 = axios({
+                                            method: 'put',
+                                            url: baseurl + 'company_legal_document/' + localStorage.getItem('U_user_account_id'),
+                                            data: {
+                                                user_account_id: localStorage.getItem('U_user_account_id'),
+                                                legal_document: filename
+                                            }
+                                        })
+                                            .then(function (data) {
+                                                const conn3 = axios({
+                                                    method: 'delete',
+                                                    url: baseurl + 'aws_files/',
+                                                    data: {
+                                                        filename: localStorage.getItem('legal_document_file_name')
+                                                    }
+                                                })
+                                                    .then(function (data) {
+                                                        Swal.fire(
+                                                            'Profile Updated!',
+                                                            '',
+                                                            'success'
+                                                        )
+                                                            .then(function () {
+                                                                window.open('employer-review-account-dashboard.html', '_self').reload();
+                                                            })
+                                                    })
+                                                    .catch(function (data, err) {
+                                                        Swal.fire(
+                                                            'AWS Error!',
+                                                            'Deleting a File.',
+                                                            'error'
+                                                        )
+                                                            .then(function () {
+                                                                console.log(data);
+                                                            })
+                                                    })
+                                            })
+                                            .catch(function (data, err) {
+                                                Swal.fire(
+                                                    'Legal Document Error!',
+                                                    '',
+                                                    'error'
+                                                )
+                                                    .then(function () {
+                                                        console.log(data);
+                                                    })
+                                            })
+                                    })
+                                    .catch(function (data, err) {
+                                        Swal.fire(
+                                            'AWS Error!',
+                                            'Posting Legal Documents',
+                                            'error'
+                                        )
+                                            .then(function () {
+                                                console.log(data);
+                                            })
+                                    })
+                            }
+                            else {
+                                Swal.fire(
+                                    'File Error!',
+                                    'Legal Document must be a PDF.',
+                                    'error'
+                                )
+                                    .then(function () {
+                                        console.log(data);
+                                    })
+                            }
+                        })
+                        .catch(function (data) {
+                            Swal.fire(
+                                'Company Addition Info!',
+                                '',
+                                'error'
+                            )
+                                .then(function () {
+                                    console.log(data);
+                                })
+                        })
+                })
+                .catch(function (data, err) {
+                    Swal.fire(
+                        'Company Profile Error!',
+                        '',
+                        'error'
+                    )
+                        .then(function () {
+                            console.log(data);
+                        })
+                })
+        }
+    </script>
+
+</body>
+
+</html>

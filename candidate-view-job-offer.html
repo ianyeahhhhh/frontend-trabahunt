@@ -31,8 +31,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-
-    <!-- <body onload="if (localStorage.getItem('C_userSession')==null) self.location='candidate-login.html';"></body> -->
     <div class="wrapper">
         <!--NAV BAR START-->
         <nav class="main-header navbar navbar-expand nav-custom-candidate">
@@ -58,11 +56,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- <div class="dropdown-divider "></div> -->
                         <a href="candidate-view-profile.html" class="dropdown-item "><span><i
                                     class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="candidate-direct-view-acc.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-lock"></i></span> Account</a>
+                        <a href="candidate-direct-resume.html" class="dropdown-item "><span><i class="fas fa-file-alt"></i></span> Resume</a>
                         <a href="candidate-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
                                     class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
+            <!--/Right navbar links-->
+
         </nav>
         <!--NAV BAR END-->
 
@@ -363,13 +366,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- AdminLTE App -->
     <script src="../../dist/js/adminlte.min.js "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script>
+    <script type="module">
         document.getElementById("candidate_display_name").innerHTML = localStorage.getItem("U_email");
-    </script>
 
-    <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'job_offer/for_employer/' + localStorage.getItem('job_offer_id_clicked')
         })
@@ -381,7 +383,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 document.getElementById('display_job_location').innerHTML = job_location;
                 document.getElementById('display_job_offer_description').innerHTML = data.data.job_offer_description;
 
-                axios({
+                const conn1 = axios({
                     method: 'get',
                     url: baseurl + 'interview_info/' + localStorage.getItem('interview_info_id_clicked')
                 })
@@ -391,7 +393,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         document.getElementById('display_interview_location').innerHTML = data.data.interview_location;
                         document.getElementById('display_interview_additional_info').innerHTML = data.data.interview_additional_info;
 
-                        axios({
+                        const conn1 = axios({
                             method: 'get',
                             url: baseurl + 'company_profile/' + localStorage.getItem('company_id_clicked')
                         })
@@ -413,13 +415,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function acceptJobOffer() {
-            axios({
+            const conn1 = axios({
                 method: 'put',
                 url: baseurl + 'job_offer/accept/' + localStorage.getItem('job_offer_id_clicked')
             })
                 .then(function (data) {
-                    alert('Job offer accepted.');
-                    window.open('candidate-list-job-offers.html', '_self');
+                    Swal.fire(
+                        'Job Offer Accepted!',
+                        '',
+                        'success'
+                    )
+                        .then(function () {
+                            window.open('candidate-list-job-offers.html', '_self').reload();
+                        })
                 })
                 .catch(function (data, err) {
                     console.error(err);
@@ -427,13 +435,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
         }
 
         function rejectJobOffer() {
-            axios({
+            const conn1 = axios({
                 method: 'put',
                 url: baseurl + 'job_offer/reject/' + localStorage.getItem('job_offer_id_clicked')
             })
                 .then(function (data) {
-                    alert('Job offer rejected.');
-                    window.open('candidate-list-job-offers.html', '_self');
+                    Swal.fire(
+                        'Job Offer Rejected!',
+                        '',
+                        'success'
+                    )
+                        .then(function () {
+                            window.open('candidate-list-job-offers.html', '_self').reload();
+                        })
                 })
                 .catch(function (data, err) {
                     console.error(err);

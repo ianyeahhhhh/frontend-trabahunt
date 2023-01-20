@@ -36,8 +36,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-
-    <body onload="if (localStorage.getItem('C_userSession')==null) self.location='candidate-home.html';"></body>
     <div class="wrapper">
         <!--NAV BAR START-->
         <nav class="main-header navbar navbar-expand nav-custom-candidate">
@@ -61,11 +59,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </a>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
                         <!-- <div class="dropdown-divider "></div> -->
-                        <a href="candidate-view-profile.html" class="dropdown-item "><span><i class="fas fa-user-circle"></i></span> Profile</a>
-                        <a href="candidate-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i class="fas fa-sign-out-alt"></i></span> Logout</a>
+                        <a href="candidate-view-profile.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="candidate-direct-view-acc.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-lock"></i></span> Account</a>
+                        <a href="candidate-direct-resume.html" class="dropdown-item "><span><i class="fas fa-file-alt"></i></span> Resume</a>
+                        <a href="candidate-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
+                                    class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
+            <!--/Right navbar links-->
         </nav>
         <!--NAV BAR END-->
 
@@ -385,13 +389,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script>
+    <script type="module">
         document.getElementById("candidate_display_name").innerHTML = localStorage.getItem("U_email");
-    </script>
 
-    <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'job_post/get_one/' + localStorage.getItem("job_post_id_clicked")
         })
@@ -401,7 +404,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 document.getElementById('display_salary').innerHTML = data.data.salary;
                 document.getElementById('display_job_description').innerHTML = data.data.job_description;
 
-                axios({
+                const conn1 = axios({
                     method: 'get',
                     url: baseurl + 'job_location/' + localStorage.getItem("job_post_id_clicked")
                 })
@@ -409,7 +412,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         var address = data.data.city + ", " + data.data.zip_code + " " + data.data.region + ", " + data.data.country;
                         document.getElementById('display_address').innerHTML = address;
 
-                        axios({
+                        const conn1 = axios({
                             method: 'get',
                             url: baseurl + 'job_additional_info/' + localStorage.getItem("job_post_id_clicked")
                         })
@@ -419,7 +422,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 document.getElementById('display_career_level').innerHTML = data.data.career_level;
                                 document.getElementById('display_job_type_name').innerHTML = data.data.job_type_name;
 
-                                axios({
+                                const conn1 = axios({
                                     method: 'get',
                                     url: baseurl + 'company_profile/' + localStorage.getItem("company_id_clicked")
                                 })

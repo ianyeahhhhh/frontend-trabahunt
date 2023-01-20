@@ -175,6 +175,10 @@ body {
     background-color: #66B8ED;
 }
 
+.nav-custom-review {
+    background-color: #939393;
+}
+
 [tabindex="-1"]:focus:not(:focus-visible) {
     outline: 0!important
 }
@@ -34281,7 +34285,7 @@ a.disabled.mailbox-attachment-close {
     box-shadow: 0 0 1px rgba(0, 0, 0, .125), 0 1px 3px rgba(0, 0, 0, .2);
     display: block;
     margin-bottom: 20px;
-    position: relative
+    position: relative;
 }
 
 .small-box>.inner {

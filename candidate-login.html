@@ -47,16 +47,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </div>
                         <div class="row">
                             <div class="col-8">
-                                <div class="icheck-primary">
-                                    <input type="checkbox" id="remember">
-                                    <label for="remember">
-                                        Remember Me
-                                    </label>
-
-                                </div>
-                            </div>
-                            <div class="col-4 text-right">
-                                <a href="forgot-pass.html">Forgot?</a>
+                                <a href="forgot-pass.html">Forgot your password?</a>
                             </div>
                         </div>
                     </div>
@@ -139,14 +130,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="/plugins/jquery-validation/jquery.validate.min.js"></script>
     <script src="/plugins/jquery-validation/additional-methods.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Page specific script -->
-    <script>
+    <script type="module">
         $(function () {
             $.validator.setDefaults({
                 submitHandler: function () {
                     var loginTime = new Date().toString();
-                    axios({
+                    const conn1 = axios({
                         method: 'post',
                         url: baseurl + 'login/',
                         data: {
@@ -167,47 +159,138 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             localStorage.setItem('U_updated_at', data.data.data.updated_at);
 
                             // SESSION INFO
-                            axios({
+                            const conn1 = axios({
                                 method: 'post',
                                 url: baseurl + 'session_info/',
                                 data: {
                                     user_account_id: localStorage.getItem('U_user_account_id'),
                                     time_of_login: loginTime,
-                                    time_of_logout: "LOGOUT_TIME"
+                                    time_of_logout: loginTime
                                 }
                             })
                                 .then(function (data) {
                                     localStorage.setItem("U_session_info_id", data.data.data.session_info_id);
                                     localStorage.setItem("loginTime", data.data.data.time_of_login);
 
-                                    axios({
+                                    const conn2 = axios({
                                         method: 'get',
                                         url: baseurl + 'candidate_profile/' + localStorage.getItem('U_user_account_id')
                                     })
                                         .then(function (data) {
-                                            if (data.data.candidate_type == 'Direct Hire') {
-                                                alert("Candidate Login Successful. Redirecting to Dashboard...");
-                                                window.open("candidate-dashboard.html", "_self");
+                                            if (data.data == null) {
+                                                Swal.fire(
+                                                    'Login Success!',
+                                                    'Setup Your Profile First!',
+                                                    'success'
+                                                )
+                                                    .then(function () {
+                                                        window.open("candidate-register-profile.html", "_self").reload();
+                                                    })
                                             }
-                                            else{
-                                                alert("Candidate Login Successful. Redirecting to Dashboard...");
-                                                window.open("candidate-agent-dashboard.html", "_self");
+
+                                            else {
+                                                if (data.data.candidate_type == 'Direct Hire') {
+                                                    if (data.data.review_status == 'Setting Up') {
+                                                        Swal.fire(
+                                                            'Login Success!',
+                                                            'Redirecting to Dashboard...',
+                                                            'success'
+                                                        )
+                                                            .then(function () {
+                                                                window.open("candidate-register-profile.html", "_self").reload();
+                                                            })
+                                                    }
+
+                                                    else if (data.data.review_status == 'For Reviewing') {
+                                                        Swal.fire(
+                                                            'Login Success!',
+                                                            'Redirecting to Dashboard...',
+                                                            'success'
+                                                        )
+                                                            .then(function () {
+                                                                window.open("candidate-review-account-dashboard.html", "_self").reload();
+                                                            })
+                                                    }
+
+                                                    else if (data.data.review_status == 'Active') {
+                                                        Swal.fire(
+                                                            'Login Success!',
+                                                            'Redirecting to Dashboard...',
+                                                            'success'
+                                                        )
+                                                            .then(function () {
+                                                                window.open("candidate-dashboard.html", "_self").reload();
+                                                            })
+                                                    }
+                                                }
+
+                                                else if (data.data.candidate_type == 'Agency') {
+                                                    if (data.data.review_status == 'Setting Up') {
+                                                        Swal.fire(
+                                                            'Login Success!',
+                                                            'Redirecting to Dashboard...',
+                                                            'success'
+                                                        )
+                                                            .then(function () {
+                                                                window.open("candidate-register-profile.html", "_self").reload();
+                                                            })
+                                                    }
+
+                                                    else if (data.data.review_status == 'For Reviewing') {
+                                                        Swal.fire(
+                                                            'Login Success!',
+                                                            'Redirecting to Dashboard...',
+                                                            'success'
+                                                        )
+                                                            .then(function () {
+                                                                window.open("candidate-review-account-dashboard.html", "_self").reload();
+                                                            })
+                                                    }
+
+                                                    else if (data.data.review_status == 'Active') {
+                                                        Swal.fire(
+                                                            'Login Success!',
+                                                            'Redirecting to Dashboard...',
+                                                            'success'
+                                                        )
+                                                            .then(function () {
+                                                                window.open("candidate-agent-dashboard.html", "_self").reload();
+                                                            })
+                                                    }
+                                                }
                                             }
                                         })
                                         .catch(function (data, err) {
-                                            console.error(err);
-                                        })
+                                            Swal.fire(
+                                                'System Error!',
+                                                'Please try again later...',
+                                                'error'
+                                            )
+                                                .then(function () {
 
+                                                })
+                                        })
                                 })
                                 .catch(function (data, err) {
-                                    alert("SESSION_INFO_FAILED");
-                                    console.error(err);
-                                    console.log(data);
+                                    Swal.fire(
+                                        'Session Info Failed !',
+                                        '',
+                                        'error'
+                                    )
+                                        .then(function () {
+
+                                        })
                                 })
                         })
                         .catch(function (err) {
-                            alert("Invalid Credentials. Please try again...");
-                            console.error(err);
+                            Swal.fire(
+                                'Invalid Credentials!',
+                                '',
+                                'error'
+                            )
+                                .then(function () {
+
+                                })
                         })
                 }
             });

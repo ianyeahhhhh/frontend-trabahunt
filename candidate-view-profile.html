@@ -31,8 +31,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-
-    <!-- <body onload="if (localStorage.getItem('C_userSession')==null) self.location='candidate-login.html';"></body> -->
     <div class="wrapper">
         <!--NAV BAR START-->
         <nav class="main-header navbar navbar-expand nav-custom-candidate">
@@ -58,11 +56,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- <div class="dropdown-divider "></div> -->
                         <a href="candidate-view-profile.html" class="dropdown-item "><span><i
                                     class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="candidate-direct-view-acc.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-lock"></i></span> Account</a>
+                        <a href="candidate-direct-resume.html" class="dropdown-item "><span><i class="fas fa-file-alt"></i></span> Resume</a>
                         <a href="candidate-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
                                     class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
+            <!--/Right navbar links-->
+
         </nav>
         <!--NAV BAR END-->
 
@@ -384,67 +387,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     aut tempore sunt vel?</p>
                                             </div>
                                         </div>
-
-                                        <hr>
-
-                                        <!--RESUME-->
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <strong>
-                                                    <i class="fas fa-file"></i> RESUME
-                                                </strong>
-                                            </div>
-                                        </div>
-                                        <div class="row  row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Uploaded Resume
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <a href="#">marcus-resume.pdf</a>
-                                            </div>
-
-                                        </div>
-                                        <!--Account-->
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <strong>
-                                                    <i class="fas fa-user-lock"></i> Account Details
-                                                </strong>
-                                            </div>
-                                        </div>
-                                        <div class="row  row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Contact Number
-                                                </p>
-                                            </div>
-                                            <div class="col-8">
-                                                <p id="display_contact_number">Sample Contact Number</p>
-                                            </div>
-                                        </div>
-                                        <div class="row  row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Email
-                                                </p>
-                                            </div>
-                                            <div class="col-8">
-                                                <p id="display_email_1">Sample@sample.com</p>
-                                            </div>
-                                        </div>
-                                        <!-- <div class="row  row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Password
-                                                </p>
-                                            </div>
-                                            <div class="col-8">
-                                                <p>******</p>
-                                            </div>
-                                        </div> -->
                                     </div>
 
                                 </div>
@@ -477,13 +419,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- AdminLTE App -->
     <script src="../../dist/js/adminlte.min.js "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script>
+    <script type="module">
         document.getElementById("candidate_display_name").innerHTML = localStorage.getItem("U_email");
-    </script>
 
-    <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'candidate_profile/' + localStorage.getItem('U_user_account_id')
         })
@@ -496,53 +437,40 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 document.getElementById('display_address').innerHTML = address;
                 document.getElementById('display_nationality').innerHTML = data.data.nationality;
                 document.getElementById('display_candidate_type').innerHTML = data.data.candidate_type;
-
-                axios({
-                    method: 'get',
-                    url: baseurl + 'candidate_education_detail/' + localStorage.getItem('U_user_account_id')
-                })
-                    .then(function (data) {
-                        document.getElementById('display_institute_university_name').innerHTML = data.data.institute_university_name;
-                        document.getElementById('display_institute_university_location').innerHTML = data.data.institute_university_location;
-                        document.getElementById('display_highest_education_attainment').innerHTML = data.data.highest_education_attainment;
-                        document.getElementById('display_field_of_study').innerHTML = data.data.field_of_study;
-                        document.getElementById('display_major').innerHTML = data.data.major;
-                        document.getElementById('display_date_graduated').innerHTML = data.data.graduation_date;
-
-                        axios({
-                            method: 'get',
-                            url: baseurl + 'user_account/' + localStorage.getItem('U_user_account_id')
-                        })
-                            .then(function (data) {
-                                document.getElementById("display_email").innerHTML = data.data.email;
-                                document.getElementById("display_email_1").innerHTML = data.data.email;
-                                document.getElementById('display_contact_number').innerHTML = data.data.contact_number;
-
-                                axios({
-                                    method: 'get',
-                                    url: baseurl + 'candidate_experience_detail/' + localStorage.getItem('U_user_account_id')
-                                })
-                                    .then(function (data) {
-                                        document.getElementById("display_experience_level").innerHTML = data.data.experience_level;
-                                        document.getElementById("display_work_experience").innerHTML = data.data.year_month_work_experience;
-                                        document.getElementById("display_experience_description").innerHTML = data.data.experience_description;
-                                    })
-                                    .catch(function (data, err) {
-                                        console.error(err);
-                                    })
-                            })
-                            .catch(function (data, err) {
-                                console.error(err);
-                            })
-                    })
-                    .catch(function (data, err) {
-                        console.error(err);
-                        console.log(data);
-                    })
             })
             .catch(function (data, err) {
                 console.error(err);
                 console.log(data);
+            })
+
+        const conn2 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_education_detail/' + localStorage.getItem('U_user_account_id')
+        })
+            .then(function (data) {
+                document.getElementById('display_institute_university_name').innerHTML = data.data.institute_university_name;
+                document.getElementById('display_institute_university_location').innerHTML = data.data.institute_university_location;
+                document.getElementById('display_highest_education_attainment').innerHTML = data.data.highest_education_attainment;
+                document.getElementById('display_field_of_study').innerHTML = data.data.field_of_study;
+                document.getElementById('display_major').innerHTML = data.data.major;
+                document.getElementById('display_date_graduated').innerHTML = data.data.graduation_date;
+            })
+            .catch(function (data, err) {
+                console.error(err);
+                console.log(data);
+            })
+
+        const conn3 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_experience_detail/' + localStorage.getItem('U_user_account_id')
+        })
+            .then(function (data) {
+                document.getElementById("display_experience_level").innerHTML = data.data.experience_level;
+                document.getElementById("display_work_experience").innerHTML = data.data.year_month_work_experience;
+                document.getElementById("display_experience_description").innerHTML = data.data.experience_description;
+            })
+            .catch(function (data, err) {
+                console.error(err);
             })
     </script>
 </body>
