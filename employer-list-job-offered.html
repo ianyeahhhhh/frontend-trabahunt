@@ -35,8 +35,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-
-    <!-- <body onload="if (localStorage.getItem('E_userSession')==null) self.location='employer-login.html';"></body> -->
     <div class="wrapper">
         <!--NAV BAR START-->
         <nav class="main-header navbar navbar-expand nav-custom-emp">
@@ -62,11 +60,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- <div class="dropdown-divider "></div> -->
                         <a href="employer-view-profile.html" class="dropdown-item "><span><i
                                     class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="employer-branding-view-acc.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-lock"></i></span> Account</a>
+                        <a href="employer-branding-legal.html" class="dropdown-item "><span><i class="fas fa-file-alt"></i></span> Legal</a>
                         <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
                                     class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
+            <!--/Right navbar links-->
+
         </nav>
         <!--NAV BAR END-->
 
@@ -297,13 +300,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script>
+    <script type="module">
         document.getElementById("employer_display_name").innerHTML = localStorage.getItem("U_email");
-    </script>
 
-    <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'job_offer/all_for_an_employer/' + localStorage.getItem('U_user_account_id')
         })
@@ -320,7 +322,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         {
                             data: function (data) {
                                 return "<button type='button' onclick='viewJobOffer()' class='btn btn-warning btn-sm'><i class='fas fa-eye'></i></button>"
-                                    // "   <button type='button' class='btn btn-danger btn-sm' data-toggle='modal' data-target='#cancel-offer-modal'><i class='fas fa-ban'></i></button>"
+                                // "   <button type='button' class='btn btn-danger btn-sm' data-toggle='modal' data-target='#cancel-offer-modal'><i class='fas fa-ban'></i></button>"
                             }
                         }
                     ],
@@ -343,17 +345,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function viewJobOffer() {
-            window.open('employer-view-job-offered.html', '_self');
+            window.open('employer-view-job-offered.html', '_self').reload();
         }
 
         function cancelOffer() {
-            axios({
+            const conn2 = axios({
                 method: 'put',
                 url: baseurl + 'job_offer/cancel/' + localStorage.getItem('job_offer_id_clicked')
             })
                 .then(function (data) {
-                    alert('Job Offer Cancelled');
-                    window.open('employer-list-job-offered.html', '_self');
+                    Swal.fire(
+                        'Job Offer Canceled!',
+                        '',
+                        'success'
+                    )
+                        .then(function () {
+                            window.open('employer-list-job-offered.html', '_self').reload();
+                        })
                 })
                 .catch(function (data, err) {
                     console.error(err);

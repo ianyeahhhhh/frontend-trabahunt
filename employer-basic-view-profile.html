@@ -11,10 +11,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Employer | Profile</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
     <!-- BS Stepper -->
@@ -33,7 +31,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-    <!-- <body onload="if (localStorage.getItem('adminSession')==null) self.location='admin-home.html';"></body> -->
     <div class="wrapper">
         <!--NAV BAR START-->
         <nav class="main-header navbar navbar-expand nav-custom">
@@ -42,9 +39,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
-                <li class=" nav-item d-none d-sm-inline-block ">
-                    <h5 class="navbar-header"><b>Profile</b></h5>
-                </li>
+                    <li class=" nav-item d-none d-sm-inline-block ">
+                        <h5 class="navbar-header"><b>Profile</b></h5>
+                    </li>
                 </li>
             </ul>
 
@@ -57,16 +54,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </a>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
                         <!-- <div class="dropdown-divider "></div> -->
-                        <a href="employer-view-profile.html" class="dropdown-item ">Profile</a>
-                        <a href="employer-logout.html" class="dropdown-item ">Logout</a>
+                        <a href="employer-basic-view-profile.html" class="dropdown-item "><span><i
+                            class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="employer-basic-view-acc.html" class="dropdown-item "><span><i class="fas fa-user-lock"></i></span> Account</a>
+                        <a href="employer-basic-legal.html" class="dropdown-item "><span><i class="fas fa-file-alt"></i></span> Legal</a>
+                        <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
+                            class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
+            <!--/Right navbar links-->
+
         </nav>
         <!--NAV BAR END-->
 
         <!--SIDE BAR START-->
-        <aside class="main-sidebar sidebar-light-primary elevation-4 ">
+        <aside class="main-sidebar main-sidebar-custom sidebar-light-primary elevation-4 ">
             <!-- Brand Logo -->
             <a href="/employer-basic-dashboard.html " class="brand-link">
                 <img src="/dist/img/logo-head.png " alt="TrabaHunt Logo " class="brand-image ">
@@ -76,8 +79,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar -->
             <div class="sidebar">
                 <nav class="mt-2 ">
-                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
-                        data-accordion="false ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
                         <!-- Add icons to the links using the .nav-icon class
                            with font-awesome or any other icon font library -->
                         <li class="nav-item ">
@@ -141,8 +143,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </ul>
                 </nav>
             </div>
+            <div class="sidebar-custom">
+                <a href="employer-basic-faqs.html" class="btn btn-link">Need Help?</a>
+            </div>
             <!-- /.sidebar -->
-
         </aside>
         <!--SIDE BAR END-->
 
@@ -156,23 +160,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="card card-sticky card-warning card-outline">
                                     <div class="card-body box-profile">
                                         <div class="text-center">
-                                            <img class="profile-user-img img-fluid img-circle"
-                                                src="/dist/img/company-empty-image.png" alt="User profile picture">
+                                            <img class="profile-user-img img-fluid img-circle" src="/dist/img/company-empty-image.png" alt="User profile picture">
                                         </div>
                                         <h3 id="display_company_name" class="profile-username text-center">Company Name
                                         </h3>
 
-                                        <p id="display_establishment_date" class="text-muted text-center">Establishment
-                                            Date Here</p>
+                                        <p id="display_establishment_date" class="text-muted text-center">Establishment Date Here</p>
 
                                         <ul class="list-group list-group-unbordered mb-3">
                                             <li class="list-group-item">
-                                                <span><i class="fas fa-phone-alt"></i></span> <a class="float-right"
-                                                    id="display_company_contact_number">Contact No. Here</a>
+                                                <span><i class="fas fa-phone-alt"></i></span> <a class="float-right" id="display_company_contact_number">Contact No. Here</a>
                                             </li>
                                             <li class="list-group-item">
-                                                <span><i class="fas fa-map-marker-alt"></i></span> <a
-                                                    class="float-right" id="display_address">Location Here</a>
+                                                <span><i class="fas fa-map-marker-alt"></i></span> <a class="float-right" id="display_address">Location Here</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -195,7 +195,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <strong>
-                                                    <i class="fas fa-info-circle"></i> INFORMATION
+                                                    <i class="fas fa-building"></i> INFORMATION
                                                 </strong>
                                             </div>
                                         </div>
@@ -235,6 +235,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                         </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Company Description
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="display_company_description">
+                                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod, mollitia. Consequatur libero impedit eaque sunt? Consectetur soluta beatae aperiam laboriosam aliquid modi corrupti ullam? Tempora et nulla reiciendis unde deserunt.
+                                                </p>
+                                            </div>
+                                        </div>
                                         <hr>
 
                                         <!--ADD INFO-->
@@ -260,18 +272,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="row row-custom">
                                             <div class="col-sm-3">
                                                 <p class="text-muted">
-                                                    Contact Number
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id="display_company_contact_number_1">
-                                                    Sample 09123456789
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
                                                     Address
                                                 </p>
                                             </div>
@@ -281,25 +281,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                         </div>
-                                        <div class="row row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Legal Document/s
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <a href="#">
-                                                    sample.pdf
-                                                </a>
-                                            </div>
-                                        </div>
                                         <hr>
 
                                         <!--PACKAGE-->
                                         <div class="row">
                                             <div class="col-sm-4">
                                                 <strong>
-                                                    <i class="fas fa-layer-group"></i> Package
+                                                    <i class="fas fa-layer-group"></i> PACKAGE
                                                 </strong>
                                             </div>
                                         </div>
@@ -347,54 +335,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 <span class="badge bg-danger">-</span>
                                             </div>
                                         </div>
-                                        <!--Account-->
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <strong>
-                                                    <i class="fas fa-user-lock"></i> Account Details
-                                                </strong>
-                                            </div>
-                                        </div>
-                                        <div class="row  row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Contact Number
-                                                </p>
-                                            </div>
-                                            <div class="col-8">
-                                                <p id="display_contact_number_2">09000000000</p>
-                                            </div>
-                                        </div>
-                                        <div class="row  row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Email
-                                                </p>
-                                            </div>
-                                            <div class="col-8">
-                                                <p id="display_email">Sample@sample.com</p>
-                                            </div>
-                                        </div>
-                                        <!-- <div class="row  row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Password
-                                                </p>
-                                            </div>
-                                            <div class="col-8">
-                                                <p>******</p>
-                                            </div>
-                                        </div> -->
+                                        <!-- /.card-body -->
                                     </div>
-
-                                    <!-- /.card-body -->
                                 </div>
                             </div>
+                            <!-- /.row -->
                         </div>
-                        <!-- /.row -->
+                        <!-- /.container-fluid -->
                     </div>
-                    <!-- /.container-fluid -->
                 </section>
             </div>
         </div>
@@ -405,67 +353,51 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
             <strong>Copyright &copy; 2022 All rights reserved.
         </footer>
-    </div>
 
-    <!-- jQuery -->
-    <script src="../../plugins/jquery/jquery.min.js "></script>
-    <!-- Bootstrap 4 -->
-    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js "></script>
-    <!-- overlayScrollbars -->
-    <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js "></script>
-    <!-- AdminLTE App -->
-    <script src="../../dist/js/adminlte.min.js "></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+        <!-- jQuery -->
+        <script src="../../plugins/jquery/jquery.min.js "></script>
+        <!-- Bootstrap 4 -->
+        <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js "></script>
+        <!-- overlayScrollbars -->
+        <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js "></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/adminlte.min.js "></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script>
-        document.getElementById("employer_display_name").innerHTML = localStorage.getItem("U_email");
-    </script>
+        <script type="module">
+            document.getElementById("employer_display_name").innerHTML = localStorage.getItem("U_email");
 
-    <script>
-        axios({
-            method: 'get',
-            url: baseurl + 'company_profile/' + localStorage.getItem('U_user_account_id')
-        })
-            .then(function (data) {
-                document.getElementById('display_company_name').innerHTML = data.data.company_name;
-                document.getElementById('display_company_name_1').innerHTML = data.data.company_name;
-                document.getElementById('display_establishment_date').innerHTML = data.data.establishment_date;
-                document.getElementById('display_establishment_date_1').innerHTML = data.data.establishment_date;
-                document.getElementById('display_company_website_url').innerHTML = data.data.company_website_url;
+            const conn1 = axios({
+                method: 'get',
+                url: baseurl + 'company_profile/' + localStorage.getItem('U_user_account_id')
+            })
+                .then(function (data) {
+                    document.getElementById('display_company_name').innerHTML = data.data.company_name;
+                    document.getElementById('display_company_name_1').innerHTML = data.data.company_name;
+                    document.getElementById('display_establishment_date').innerHTML = data.data.establishment_date;
+                    document.getElementById('display_establishment_date_1').innerHTML = data.data.establishment_date;
+                    document.getElementById('display_company_website_url').innerHTML = data.data.company_website_url;
 
-                axios({
-                    method: 'get',
-                    url: baseurl + 'company_addition_info/' + localStorage.getItem('U_user_account_id')
-                })
-                    .then(function (data) {
-                        document.getElementById('display_registration_number').innerHTML = data.data.registration_number;
-                        document.getElementById('display_company_contact_number').innerHTML = data.data.company_contact_number;
-                        document.getElementById('display_company_contact_number_1').innerHTML = data.data.company_contact_number;
-                        var address = data.data.city + ', ' + data.data.zip_code + " " + data.data.region + ', ' + data.data.country;
-                        document.getElementById('display_address').innerHTML = address;
-                        document.getElementById('display_address_1').innerHTML = address;
-
-                        axios({
-                            method: 'get',
-                            url: baseurl + 'user_account/' + localStorage.getItem('U_user_account_id')
+                    const conn2 = axios({
+                        method: 'get',
+                        url: baseurl + 'company_addition_info/' + localStorage.getItem('U_user_account_id')
+                    })
+                        .then(function (data) {
+                            document.getElementById('display_registration_number').innerHTML = data.data.registration_number;
+                            document.getElementById('display_company_contact_number_1').innerHTML = data.data.company_contact_number;
+                            var address = data.data.city + ', ' + data.data.zip_code + " " + data.data.region + ', ' + data.data.country;
+                            document.getElementById('display_address').innerHTML = address;
+                            document.getElementById('display_address_1').innerHTML = address;
                         })
-                            .then(function (data) {
-                                document.getElementById("employer_display_name").innerHTML = data.data.email;
-                                document.getElementById("display_email").innerHTML = data.data.email;
-                                document.getElementById("display_contact_number_2").innerHTML = data.data.contact_number;
-                            })
-                            .catch(function (data, err) {
-                                console.error(err);
-                            })
-                    })
-                    .catch(function (data, err) {
-                        console.error(err);
-                    })
-            })
-            .catch(function (data, err) {
-                console.error(err);
-            })
-    </script>
+                        .catch(function (data, err) {
+                            console.error(err);
+                        })
+                })
+                .catch(function (data, err) {
+                    console.error(err);
+                })
+        </script>
 </body>
 
 </html>

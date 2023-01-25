@@ -31,7 +31,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-    <!-- <body onload="if (localStorage.getItem('adminSession')==null) self.location='admin-home.html';"></body> -->
     <div class="wrapper">
         <!--NAV BAR START-->
         <nav class="main-header navbar navbar-expand nav-custom">
@@ -55,16 +54,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </a>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
                         <!-- <div class="dropdown-divider "></div> -->
-                        <a href="employer-basic-view-profile.html" class="dropdown-item ">Profile</a>
-                        <a href="employer-logout.html" class="dropdown-item ">Logout</a>
+                        <a href="employer-basic-view-profile.html" class="dropdown-item "><span><i
+                            class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="employer-basic-view-acc.html" class="dropdown-item "><span><i class="fas fa-user-lock"></i></span> Account</a>
+                        <a href="employer-basic-legal.html" class="dropdown-item "><span><i class="fas fa-file-alt"></i></span> Legal</a>
+                        <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
+                            class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
+            <!--/Right navbar links-->
+
         </nav>
         <!--NAV BAR END-->
 
         <!--SIDE BAR START-->
-        <aside class="main-sidebar sidebar-light-primary elevation-4 ">
+        <aside class="main-sidebar main-sidebar-custom sidebar-light-primary elevation-4 ">
             <!-- Brand Logo -->
             <a href="/employer-basic-dashboard.html " class="brand-link">
                 <img src="/dist/img/logo-head.png " alt="TrabaHunt Logo " class="brand-image ">
@@ -138,6 +143,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </ul>
                 </nav>
             </div>
+            <div class="sidebar-custom">
+                <a href="employer-basic-faqs.html" class="btn btn-link">Need Help?</a>
+            </div>
             <!-- /.sidebar -->
         </aside>
         <!--SIDE BAR END-->
@@ -145,9 +153,138 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="content-wrapper">
             <div class="container-fluid" style="padding: 2rem 1rem;">
                 <div class="row">
-
+                    <div class="col-lg-6 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-info">
+                            <div class="inner">
+                                <h3>150</h3>
+                                <p>Employees</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-user-tie"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i
+                                    class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-lg-6 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-warning">
+                            <div class="inner">
+                                <h3>55</h3>
+                                <p>Pending Request</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i
+                                    class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- /.col -->
                 </div>
                 <!-- /.row -->
+
+                <!--TABLE 1 -->
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header border-transparent">
+                                <h3 class="card-title"><b>Recently Hired Employees</b></h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table m-0">
+                                        <thead>
+                                            <tr>
+                                                <th>Job Position</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Sample</td>
+                                                <td>Sample Name of Applicant</td>
+                                                <td>Sample@email.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sample</td>
+                                                <td>Sample Name of Applicant</td>
+                                                <td>Sample@email.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sample</td>
+                                                <td>Sample Name of Applicant</td>
+                                                <td>Sample@email.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sample</td>
+                                                <td>Sample Name of Applicant</td>
+                                                <td>Sample@email.com</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.table-responsive -->
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer clearfix">
+                                <a href="employer-basic-employees.html" class="btn btn-sm btn-info float-left">View All Employees</a>
+                            </div>
+                            <!-- /.card-footer -->
+                        </div>
+                    </div>
+                    <!--TABLE 1 -->
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header border-transparent">
+                                <h3 class="card-title"><b>Request History</b></h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table m-0">
+                                        <thead>
+                                            <tr>
+                                                <th>Request ID</th>
+                                                <th>Job Position</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><span><a href="#">SampleID</a></span></td>
+                                                <td>Sample position</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span><a href="#">SampleID</a></span></td>
+                                                <td>Sample position</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span><a href="#">SampleID</a></span></td>
+                                                <td>Sample position</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span><a href="#">SampleID</a></span></td>
+                                                <td>Sample position</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span><a href="#">SampleID</a></span></td>
+                                                <td>Sample position</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.table-responsive -->
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.table1 -->
+                    </div>
+                    <!-- /.table1 -->
+                </div>
             </div>
 
         </div>
@@ -169,6 +306,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- AdminLTE App -->
     <script src="../../dist/js/adminlte.min.js "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
         document.getElementById("employer_display_name").innerHTML = localStorage.getItem("U_email");

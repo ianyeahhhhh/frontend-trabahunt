@@ -11,8 +11,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Admin | Dashboard</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
     <!-- BS Stepper -->
@@ -31,8 +33,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-
-    <!-- <body onload="if (localStorage.getItem('adminSession')==null) self.location='admin-home.html';"></body> -->
     <div class="wrapper">
         <!--NAV BAR START-->
         <nav class="main-header navbar navbar-expand nav-custom">
@@ -41,9 +41,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
-                    <li class=" nav-item d-none d-sm-inline-block ">
-                        <h5 class="navbar-header"><b>Request Details</b></h5>
-                    </li>
+                <li class=" nav-item d-none d-sm-inline-block ">
+                    <h5 class="navbar-header"><b>Request Details</b></h5>
+                </li>
                 </li>
             </ul>
 
@@ -55,11 +55,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <span id="admin_display_name" class="user-name">ADMIN NAME HERE</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
-                        <a href="view-admin-profile.html" class="dropdown-item ">Profile</a>
-                        <a href="admin-logout.html" class="dropdown-item ">Logout</a>
+                        <a href="view-admin-profile.html" class="dropdown-item"><span><i
+                                    class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="admin-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
+                                    class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
+            <!--/Right navbar links-->
+
         </nav>
         <!--NAV BAR END-->
 
@@ -74,7 +78,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar -->
             <div class="sidebar">
                 <nav class="mt-2 ">
-                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
+                        data-accordion="false ">
                         <!-- Add icons to the links using the .nav-icon class
                            with font-awesome or any other icon font library -->
                         <li class="nav-item ">
@@ -101,6 +106,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </li>
                                 <li class="nav-item ">
                                     <a href="employer-list.html" class="nav-link ">
+                                        <p>Employers</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="# " class="nav-link ">
+                                <i class="nav-icon fas fa-eye"></i>
+                                <p style="margin-right: 1rem; ">
+                                    Review Accounts
+                                </p>
+                                <span><i class="right fas fa-angle-left "></i></span>
+                            </a>
+                            <ul class="nav nav-treeview ">
+                                <li class="nav-item ">
+                                    <a href="admin-review-candidate.html" class="nav-link ">
+                                        <p>Candidates</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="admin-review-employers.html" class="nav-link ">
                                         <p>Employers</p>
                                     </a>
                                 </li>
@@ -177,6 +203,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </nav>
             </div>
             <!-- /.sidebar -->
+
         </aside>
         <!--SIDE BAR END-->
 
@@ -195,7 +222,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <p>Are you sure you want to remove this request?</p>
                         <form>
                             <div class="form-group">
-                                <textarea class="form-control" rows="2" id="reason" placeholder="Provide a reason..."></textarea>
+                                <textarea class="form-control" rows="2" id="reason"
+                                    placeholder="Provide a reason..."></textarea>
                             </div>
                         </form>
                     </div>
@@ -245,7 +273,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="card card-sticky card-outline">
                                     <div class="card-body box-profile">
                                         <div class="text-center">
-                                            <img class="profile-user-img img-fluid img-circle" src="/dist/img/company-empty-image.png" alt="User profile picture">
+                                            <img class="profile-user-img img-fluid img-circle"
+                                                src="/dist/img/company-empty-image.png" alt="User profile picture">
                                         </div>
                                         <h3 id='display_company_name_1' class="profile-username text-center">Modelo Inc.
                                         </h3>
@@ -255,16 +284,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                                         <ul class="list-group list-group-unbordered mb-3">
                                             <li class="list-group-item">
-                                                <i class="fas fa-globe"></i> <a id='display_company_website' class="float-right">www.modelo-inc.com</a>
+                                                <i class="fas fa-globe"></i> <a id='display_company_website'
+                                                    class="float-right">www.modelo-inc.com</a>
                                             </li>
                                             <li class="list-group-item">
-                                                <i class="fas fa-envelope"></i> <a id='display_company_contact_number' class="float-right">modelo-inc@gmail.com</a>
+                                                <i class="fas fa-envelope"></i> <a id='display_company_contact_number'
+                                                    class="float-right">modelo-inc@gmail.com</a>
                                             </li>
                                         </ul>
-                                        <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#transfer-request-modal"><span><i
+                                        <a href="#" class="btn btn-primary btn-block" data-toggle="modal"
+                                            data-target="#transfer-request-modal"><span><i
                                                     class="fas fa-paper-plane"></i></span> Transfer to HR</a>
                                         <hr>
-                                        <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#remove-request-modal"><span><i
+                                        <button type="button" class="btn btn-danger btn-block" data-toggle="modal"
+                                            data-target="#remove-request-modal"><span><i
                                                     class="fas fa-user-times"></i></span> Remove</button>
                                     </div>
                                     <!-- /.card-body -->
@@ -425,13 +458,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- AdminLTE App -->
     <script src="../../dist/js/adminlte.min.js "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script>
+    <script type="module">
         document.getElementById("admin_display_name").innerHTML = localStorage.getItem("admin_email");
-    </script>
 
-    <script>
-        axios({
+        const conn1 = axios({
             method: 'get',
             url: baseurl + 'company_profile/' + localStorage.getItem('user_account_id_clicked')
         })
@@ -441,15 +473,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             .catch(function (data, err) {
                 console.error(err);
             })
-    </script>
 
-    <script>
-        axios({
+        const conn2 = axios({
             method: 'get',
             url: baseurl + 'request_form/' + localStorage.getItem('request_id_clicked')
         })
             .then(function (data) {
-                console.log(data);
+                // console.log(data);
                 document.getElementById('job_position').innerHTML = data.data.job_position;
                 document.getElementById('salary_range').innerHTML = data.data.salary_range;
                 document.getElementById('job_specialization_name').innerHTML = data.data.job_specialization_name;

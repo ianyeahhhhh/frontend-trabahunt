@@ -8,11 +8,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Admin | Profile</title>
+    <title>Admin | Profile</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
     <!-- BS Stepper -->
@@ -39,9 +41,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
-                    <li class=" nav-item d-none d-sm-inline-block ">
-                        <h5 class="navbar-header"><b>Admin Profile</b></h5>
-                    </li>
+                <li class=" nav-item d-none d-sm-inline-block ">
+                    <h5 class="navbar-header"><b>Admin Profile</b></h5>
+                </li>
                 </li>
             </ul>
 
@@ -49,15 +51,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <ul class="navbar-nav ml-auto ">
                 <li class="nav-item dropdown ">
                     <a class="navbar-right-item" data-toggle="dropdown" href="#">
-                        <i class="far fa-user "></i>
-                        <span id="admin_email_1" class="user-name">Admin Name Here</span>
+                        <i class="fas fa-user-alt"></i>
+                        <span id="admin_display_name" class="user-name">ADMIN NAME HERE</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
-                        <a href="view-admin-profile.html" class="dropdown-item ">Profile</a>
-                        <a href="admin-logout.html" class="dropdown-item">Logout</a>
+                        <a href="view-admin-profile.html" class="dropdown-item"><span><i
+                                    class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="admin-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
+                                    class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
+            <!--/Right navbar links-->
         </nav>
         <!--NAV BAR END-->
 
@@ -72,7 +77,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar -->
             <div class="sidebar">
                 <nav class="mt-2 ">
-                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
+                        data-accordion="false ">
                         <!-- Add icons to the links using the .nav-icon class
                            with font-awesome or any other icon font library -->
                         <li class="nav-item ">
@@ -99,6 +105,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </li>
                                 <li class="nav-item ">
                                     <a href="employer-list.html" class="nav-link ">
+                                        <p>Employers</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="# " class="nav-link ">
+                                <i class="nav-icon fas fa-eye"></i>
+                                <p style="margin-right: 1rem; ">
+                                    Review Accounts
+                                </p>
+                                <span><i class="right fas fa-angle-left "></i></span>
+                            </a>
+                            <ul class="nav nav-treeview ">
+                                <li class="nav-item ">
+                                    <a href="admin-review-candidate.html" class="nav-link ">
+                                        <p>Candidates</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="admin-review-employers.html" class="nav-link ">
                                         <p>Employers</p>
                                     </a>
                                 </li>
@@ -188,15 +215,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="card card-sticky card-primary card-outline">
                                     <div class="card-body box-profile">
                                         <div class="text-center">
-                                            <img class="profile-user-img img-fluid img-circle" src="/dist/img/empty-image.jpg" alt="User profile picture">
+                                            <img class="profile-user-img img-fluid img-circle"
+                                                src="/dist/img/empty-image.jpg" alt="User profile picture">
                                         </div>
-                                        <h3 id="admin_full_name_1" class="profile-username text-center">Admin Name Here</h3>
+                                        <h3 id="admin_full_name_1" class="profile-username text-center">Admin Name Here
+                                        </h3>
 
                                         <p class="text-muted text-center">System Administrator</p>
 
                                         <ul class="list-group  mb-3">
                                             <li class="list-group-item">
-                                                <span><i class="fas fa-envelope"></i></span> <a id="admin_email_2" class="float-right">Admin Email Here</a>
+                                                <span><i class="fas fa-envelope"></i></span> <a id="admin_email_2"
+                                                    class="float-right">Admin Email Here</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -230,7 +260,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-8">
-                                                    <input id="first_name" type="text" class="form-control" placeholder="Enter first name">
+                                                    <input id="first_name" type="text" class="form-control"
+                                                        placeholder="Enter first name">
                                                 </div>
                                             </div>
                                             <div class="row row-custom">
@@ -240,7 +271,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-8">
-                                                    <input id="middle_name" type="text" class="form-control" placeholder="Enter middle name">
+                                                    <input id="middle_name" type="text" class="form-control"
+                                                        placeholder="Enter middle name">
                                                 </div>
                                             </div>
                                             <div class="row row-custom">
@@ -250,7 +282,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-8">
-                                                    <input id="last_name" type="text" class="form-control" placeholder="Enter last name">
+                                                    <input id="last_name" type="text" class="form-control"
+                                                        placeholder="Enter last name">
                                                 </div>
                                             </div>
                                             <div class="row row-custom">
@@ -260,7 +293,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-8">
-                                                    <input id="suffix_name" type="text" class="form-control" placeholder="ex: Sr., Jr, I, II, III, etc.">
+                                                    <input id="suffix_name" type="text" class="form-control"
+                                                        placeholder="ex: Sr., Jr, I, II, III, etc.">
                                                 </div>
                                             </div>
                                             <div class="row row-custom">
@@ -270,7 +304,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-8">
-                                                    <input id="email" type="email" class="form-control" placeholder="sample@gmail.com">
+                                                    <input id="email" type="email" class="form-control"
+                                                        placeholder="sample@gmail.com">
                                                 </div>
                                             </div>
                                             <div class="row row-custom">
@@ -280,12 +315,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-8">
-                                                    <input id="password" type="password" class="form-control" placeholder="Enter your password">
+                                                    <input id="password" type="password" class="form-control"
+                                                        placeholder="Enter your password">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="card-footer">
-                                            <button type="button" class="btn btn-success" onclick="editAdminProfile()">Save</button>
+                                            <button type="button" class="btn btn-success"
+                                                onclick="editAdminProfile()">Save</button>
                                         </div>
                                     </form>
 
@@ -322,12 +359,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="../../dist/js/adminlte.min.js "></script>
     <!-- Axios -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
-
-    <script>
-        document.getElementById("admin_full_name_1").innerHTML = localStorage.getItem("admin_full_name");
-        document.getElementById("admin_email_1").innerHTML = localStorage.getItem("admin_email");
-        document.getElementById("admin_email_2").innerHTML = localStorage.getItem("admin_email");
-    </script> -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Authorization Token -->
     <script>
@@ -338,12 +370,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
         })
     </script>
 
-     <!-- EDIT ADMIN PROFILE -->
-    <script>
+    <script type="module">
+        document.getElementById("admin_full_name_1").innerHTML = localStorage.getItem("admin_full_name");
+        document.getElementById("admin_email_1").innerHTML = localStorage.getItem("admin_email");
+        document.getElementById("admin_email_2").innerHTML = localStorage.getItem("admin_email");
+
+        // EDIT ADMIN PROFILE
         function editAdminProfile() {
             var fullName = $("#first_name").val() + " " + $("#middle_name").val() + " " + $("#last_name").val() + " " + $("#suffix_name").val();
             console.log(fullName);
-            authAxios({
+            const conn1 = authAxios({
                 method: 'put',
                 url: baseurl + 'admin_profile/' + parseInt(localStorage.getItem("admin_id")),
                 data: {
@@ -363,13 +399,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     console.log(data);
                     console.log(data.data.data.email);
                     console.log(data.data.data.full_name);
-                    alert("Admin Profile Updated Successfully.");
-                    window.open("view-admin-profile.html", "_self");
+
+                    Swal.fire(
+                        'Admin Profile Updated!',
+                        '',
+                        'success'
+                    )
+                        .then(function () {
+                            window.open("view-admin-profile.html", "_self").reload();
+                        })
                 })
                 .catch(function (data, err) {
-                    console.log(data);
-                    alert("Error Updating Admin Profile.");
-                    console.error(data);
+                    Swal.fire(
+                        'Error Updating!',
+                        '',
+                        'error'
+                    )
+                        .then(function () {
+
+                        })
                 })
         }
     </script>
