@@ -101,6 +101,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     last_name: "",
                     suffix_name: "",
                     email: "",
+                    hired_by: "",
                     birth_date: "",
                     sex: "",
                     block_number: "",
@@ -136,7 +137,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         'error'
                     )
                         .then(function () {
-                            window.open("candidate-login.html", "_self").reload();
+                            console.log(data);
                         })
                 })
         }
@@ -152,6 +153,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     last_name: "",
                     suffix_name: "",
                     email: "",
+                    hired_by: "",
                     birth_date: "",
                     sex: "",
                     block_number: "",
@@ -187,7 +189,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         'error'
                     )
                         .then(function () {
-                            window.open("candidate-login.html", "_self").reload();
+                            console.log(data);
                         })
                 })
         }

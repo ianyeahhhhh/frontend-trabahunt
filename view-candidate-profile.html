@@ -11,8 +11,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title> Admin | User Management</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
     <!-- BS Stepper -->
@@ -39,9 +41,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
-                    <li class=" nav-item d-none d-sm-inline-block ">
-                        <h5 class="navbar-header"><b>Dashboard</b></h5>
-                    </li>
+                <li class=" nav-item d-none d-sm-inline-block ">
+                    <h5 class="navbar-header"><b>Dashboard</b></h5>
+                </li>
                 </li>
             </ul>
 
@@ -75,7 +77,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar -->
             <div class="sidebar">
                 <nav class="mt-2 ">
-                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
+                        data-accordion="false ">
                         <!-- Add icons to the links using the .nav-icon class
                            with font-awesome or any other icon font library -->
                         <li class="nav-item ">
@@ -212,16 +215,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="card card-sticky card-success card-outline">
                                     <div class="card-body box-profile">
                                         <div class="text-center">
-                                            <img class="profile-user-img img-fluid img-circle" src="/dist/img/empty-image.jpg" alt="User profile picture">
+                                            <img class="profile-user-img img-fluid img-circle"
+                                                src="/dist/img/empty-image.jpg" alt="User profile picture">
                                         </div>
-                                        <h3 id="display_full_name" class="profile-username text-center">Default name
+                                        <h3 id="full_name" class="profile-username text-center">Default name
                                         </h3>
 
                                         <p class="text-muted text-center">Software Engineer</p>
 
                                         <ul class="list-group list-group-unbordered mb-3">
                                             <li class="list-group-item">
-                                                <span><i class="fas fa-envelope"></i></span> <a class="float-right">default@gmail.com</a>
+                                                <span><i class="fas fa-envelope"></i></span> <a
+                                                    class="float-right">default@gmail.com</a>
                                             </li>
                                             <li class="list-group-item">
                                                 <i class="fas fa-phone-alt"></i> <a class="float-right">+63 914 361
@@ -239,7 +244,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <!-- /.card-body -->
                                     <div class="card-body">
                                         <p><b>Deactivate Account</b></p>
-                                        <button type="button" class="btn btn-danger btn-block" onclick="deactivateCandidate()"><span><i
+                                        <button type="button" class="btn btn-danger btn-block"
+                                            onclick="deactivateCandidate()"><span><i
                                                     class="fas fa-user-times"></i></span><b>Deactivate</b>
                                         </button>
                                     </div>
@@ -283,8 +289,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id="gender">
-                                                    Male
+                                                <p id="sex">
+                                                    Default Male
                                                 </p>
                                             </div>
                                         </div>
@@ -297,18 +303,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <div class="col-9">
                                                 <p id='birth_date'>
                                                     Default September 13, 1999
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Age
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id='age'>
-                                                    Default age
                                                 </p>
                                             </div>
                                         </div>
@@ -344,7 +338,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             </div>
                                             <div class="col-9">
                                                 <p id='address'>
-                                                    Default Quezon City, 1001 NCR, Philippines
+                                                    Default
                                                 </p>
                                             </div>
                                         </div>
@@ -375,100 +369,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="row row-custom">
                                             <div class="col-sm-3">
                                                 <p class="text-muted">
-                                                    Review Status
+                                                    Employment Type
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='review_status'>
+                                                <p id='candidate_type'>
                                                     Default
                                                 </p>
                                             </div>
                                         </div>
                                         <!--/PERSONAL INFO-->
-
-                                        <hr>
-
-                                        <!--JOB INFO-->
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <strong>
-                                                    <i class="fas fa-briefcase"></i> JOB INFORMATION
-                                                </strong>
-                                            </div>
-                                        </div>
-                                        <div class="row row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Department
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id='department'>
-                                                    Default
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Position
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id='position'>
-                                                    Default
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Employee Category
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id='employee_category'>
-                                                    Default
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Employment Type
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id='employment_type'>
-                                                    Default
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Specialization
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id='specialization'>
-                                                    Default
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Date Hired
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id='date_hired'>
-                                                    Default
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <!--/JOB INFO-->
 
                                         <hr>
 
@@ -547,7 +457,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='institute_university_name'>Default Insitute/ University Name</p>
+                                                <p id='institute_name'>Default</p>
                                             </div>
                                         </div>
                                         <div class="row  row-custom">
@@ -557,7 +467,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='institute_university_location'>Default Quezon City, Philippines
+                                                <p id='institute_location'>Default
                                                 </p>
                                             </div>
                                         </div>
@@ -568,7 +478,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='highest_education_attainment'>Default Bachelor's / College Degree
+                                                <p id='highest_educational_attainment'>Default
                                                 </p>
                                             </div>
                                         </div>
@@ -579,7 +489,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='field_of_study'>Default Computer Science / Information Technology
+                                                <p id='field_of_study'>Default
                                                 </p>
                                             </div>
                                         </div>
@@ -600,7 +510,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='graduation_date'>March 18, 1999</p>
+                                                <p id='date_graduated'>Default</p>
                                             </div>
                                         </div>
                                         <!--/EDUC/-->
@@ -622,7 +532,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='mother_fullname'>Default</p>
+                                                <p id='mothers_name'>Default</p>
                                             </div>
                                         </div>
                                         <div class="row  row-custom">
@@ -652,7 +562,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='father_fullname'>Default</p>
+                                                <p id='fathers_name'>Default</p>
                                             </div>
                                         </div>
                                         <div class="row  row-custom">
@@ -710,11 +620,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="row  row-custom">
                                             <div class="col-sm-3">
                                                 <p class="text-muted">
-                                                    Year/Month Work Experience
+                                                    Work Experience
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id="year_month_work_experience">DEFAULT</p>
+                                                <p id="work_experience">DEFAULT</p>
                                             </div>
                                         </div>
                                         <div class="row  row-custom">
@@ -745,16 +655,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             </div>
                                             <div class="col-9">
                                                 <p id="certification">DEFAULT</p>
-                                            </div>
-                                        </div>
-                                        <div class="row  row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Description
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id="experience_description">DEFAULT</p>
                                             </div>
                                         </div>
 
@@ -907,7 +807,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id="name">DEFAULT</p>
+                                                <p id="emergency_name">DEFAULT</p>
                                             </div>
                                         </div>
                                         <div class="row  row-custom">
@@ -927,7 +827,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id="contact_number">DEFAULT</p>
+                                                <p id="emergency_contact_number">DEFAULT</p>
                                             </div>
                                         </div>
                                         <div class="row  row-custom">
@@ -937,7 +837,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id="address">DEFAULT</p>
+                                                <p id="emergency_address">DEFAULT</p>
                                             </div>
                                         </div>
                                         <!--/EMERGENCY/-->
@@ -998,60 +898,143 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script type="module">
         document.getElementById("admin_display_name").innerHTML = localStorage.getItem("admin_email");
 
-        const conn1 = axios({
+        const conn0 = axios({
             method: 'get',
-            url: baseurl + 'candidate_profile/' + parseInt(localStorage.getItem("id_of_selected_candidate"))
+            url: baseurl + 'user_account/' + localStorage.getItem('candidate_id_clicked')
         })
             .then(function (data) {
-                var address = data.data.city + ", " + data.data.zip_code + " " + data.data.region + ", " + data.data.country;
-                document.getElementById("display_full_name").innerHTML = data.data.full_name;
-                document.getElementById("display_full_name_1").innerHTML = data.data.full_name;
-                document.getElementById("display_gender").innerHTML = data.data.gender;
-                document.getElementById("display_address").innerHTML = address;
-                document.getElementById("display_nationality").innerHTML = data.data.nationality;
+                document.getElementById('email').innerHTML = data.data.email;
+                document.getElementById('contact_number').innerHTML = data.data.contact_number;
+            })
+            .catch(function (data) {
 
-                const conn2 = axios({
-                    method: 'get',
-                    url: baseurl + 'candidate_education_detail/' + parseInt(localStorage.getItem("id_of_selected_candidate"))
-                })
-                    .then(function (data) {
-                        document.getElementById("display_institute_university_name").innerHTML = data.data.institute_university_name;
-                        document.getElementById("display_institute_university_location").innerHTML = data.data.institute_university_location;
-                        document.getElementById("display_highest_educational_attainment").innerHTML = data.data.highest_education_attainment;
-                        document.getElementById("display_field_of_study").innerHTML = data.data.field_of_study;
-                        document.getElementById("display_major").innerHTML = data.data.major;
-                        document.getElementById("display_date_graduated").innerHTML = data.data.graduation_date;
+            })
 
-                        const conn3 = axios({
-                            method: 'get',
-                            url: baseurl + 'candidate_experience_detail/' + parseInt(localStorage.getItem("id_of_selected_candidate"))
-                        })
-                            .then(function (data) {
-                                document.getElementById("experience_level").innerHTML = data.data.experience_level;
-                                document.getElementById("year_month_work_experience").innerHTML = data.data.year_month_work_experience;
-                                document.getElementById("experience_description").innerHTML = data.data.experience_description;
-
-                                const conn4 = axios({
-                                    method: 'get',
-                                    url: baseurl + 'candidate_resume/' + localStorage.getItem('id_of_selected_candidate')
-                                })
-                                    .then(function (data) {
-                                        document.getElementById('resume').innerHTML = data.data.resume;
-                                        localStorage.setItem('resume_name', data.data.resume);
-                                    })
-                                    .catch(function (data, err) {
-                                        console.log(data);
-                                    })
-                            })
-                            .catch(function (data, err) {
-                                console.error(err);
-                            })
-                    })
-                    .catch(function (data, err) {
-                        console.error(err);
-                    })
+        const conn1 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_personal_information/' + localStorage.getItem('candidate_id_clicked')
+        })
+            .then(function (data) {
+                var full_name = data.data.first_name + ' ' + data.data.middle_name + ' ' + data.data.last_name + ' ' + data.data.suffix_name;
+                document.getElementById('full_name').innerHTML = full_name;
+                document.getElementById('full_name_1').innerHTML = full_name;
+                document.getElementById('sex').innerHTML = data.data.sex;
+                document.getElementById('birth_date').innerHTML = data.data.birth_date;
+                document.getElementById('nationality').innerHTML = data.data.nationality;
+                document.getElementById('civil_status').innerHTML = data.data.civil_status;
+                document.getElementById('candidate_type').innerHTML = data.data.candidate_type;
+                var address = data.data.city + ' ' + data.data.zip_code + ' ' + data.data.region + ' ' + data.data.country;
+                document.getElementById('address').innerHTML = address;
             })
             .catch(function (data, err) {
+                console.log(data);
+            })
+
+        const conn5 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_job_history/' + localStorage.getItem('candidate_id_clicked')
+        })
+            .then(function (data) {
+                document.getElementById('previous_job_title').innerHTML = data.data.previous_job_title;
+                document.getElementById('employer').innerHTML = data.data.employer;
+            })
+            .catch(function (data) {
+
+            })
+
+        const conn2 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_education/' + localStorage.getItem('candidate_id_clicked')
+        })
+            .then(function (data) {
+                document.getElementById('institute_name').innerHTML = data.data.institute_name;
+                document.getElementById('institute_location').innerHTML = data.data.institute_location;
+                document.getElementById('highest_educational_attainment').innerHTML = data.data.highest_educational_attainment;
+                document.getElementById('major').innerHTML = data.data.major;
+                document.getElementById('field_of_study').innerHTML = data.data.field_of_study;
+                document.getElementById('date_graduated').innerHTML = data.data.date_graduated;
+            })
+            .catch(function (data, err) {
+                console.log(data);
+            })
+
+        const conn3 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_experience_detail/' + localStorage.getItem('candidate_id_clicked')
+        })
+            .then(function (data) {
+                document.getElementById('experience_level').innerHTML = data.data.experience_level;
+                document.getElementById('work_experience').innerHTML = data.data.work_experience;
+                document.getElementById('personal_skills').innerHTML = data.data.personal_skills;
+                document.getElementById('achievements').innerHTML = data.data.achievements;
+                document.getElementById('certification').innerHTML = data.data.certification;
+            })
+            .catch(function (data, err) {
+                console.log(data);
+            })
+
+        const conn4 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_resume/' + localStorage.getItem('candidate_id_clicked')
+        })
+            .then(function (data) {
+                document.getElementById('resume').innerHTML = data.data.resume;
+                localStorage.setItem('resume_name', data.data.resume);
+            })
+            .catch(function (data, err) {
+                console.log(data);
+            })
+
+        const conn6 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_character_references/' + localStorage.getItem('candidate_id_clicked')
+        })
+            .then(function (data) {
+                document.getElementById('char_ref_name_1').innerHTML = data.data.char_ref_name_1;
+                document.getElementById('char_ref_name_2').innerHTML = data.data.char_ref_name_2;
+                document.getElementById('char_ref_name_3').innerHTML = data.data.char_ref_name_3;
+                document.getElementById('position_1').innerHTML = data.data.position_1;
+                document.getElementById('position_2').innerHTML = data.data.position_2;
+                document.getElementById('position_3').innerHTML = data.data.position_3;
+                document.getElementById('telephone_1').innerHTML = data.data.telephone_1;
+                document.getElementById('telephone_2').innerHTML = data.data.telephone_2;
+                document.getElementById('telephone_3').innerHTML = data.data.telephone_3;
+                document.getElementById('company_1').innerHTML = data.data.company_1;
+                document.getElementById('company_2').innerHTML = data.data.company_2;
+                document.getElementById('company_3').innerHTML = data.data.company_3;
+            })
+            .catch(function (data) {
+                console.log(data);
+            })
+
+        const conn7 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_family_background/' + localStorage.getItem('candidate_id_clicked')
+        })
+            .then(function (data) {
+                document.getElementById('mothers_name').innerHTML = data.data.mothers_name;
+                document.getElementById('mothers_occupation').innerHTML = data.data.mothers_occupation;
+                document.getElementById('mothers_birth_date').innerHTML = data.data.mothers_birth_date;
+                document.getElementById('fathers_name').innerHTML = data.data.fathers_name;
+                document.getElementById('fathers_occupation').innerHTML = data.data.fathers_occupation;
+                document.getElementById('fathers_birth_date').innerHTML = data.data.fathers_birth_date;
+                document.getElementById('number_of_siblings').innerHTML = data.data.number_of_siblings;
+            })
+            .catch(function (data) {
+                console.log(data);
+            })
+
+        const conn8 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_emergency_contact/' + localStorage.getItem('candidate_id_clicked')
+        })
+            .then(function (data) {
+                document.getElementById('emergency_name').innerHTML = data.data.name;
+                document.getElementById('relationship').innerHTML = data.data.relationship;
+                document.getElementById('emergency_address').innerHTML = data.data.address;
+                document.getElementById('emergency_contact_number').innerHTML = data.data.contact_number;
+            })
+            .catch(function (data) {
                 console.log(data);
             })
     </script>

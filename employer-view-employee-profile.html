@@ -489,7 +489,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         const conn1 = axios({
             method: 'get',
-            url: baseurl + 'candidate_profile/' + localStorage.getItem('candidate_id_clicked')
+            url: baseurl + 'candidate_personal_information/' + localStorage.getItem('candidate_id_clicked')
         })
             .then(function (data) {
                 document.getElementById('display_full_name').innerHTML = data.data.full_name;

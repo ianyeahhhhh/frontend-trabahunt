@@ -426,7 +426,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         const conn1 = axios({
             method: 'get',
-            url: baseurl + 'candidate_profile/' + parseInt(localStorage.getItem("id_of_selected_candidate"))
+            url: baseurl + 'candidate_personal_information/' + parseInt(localStorage.getItem("id_of_selected_candidate"))
         })
             .then(function (data) {
                 console.log(data);

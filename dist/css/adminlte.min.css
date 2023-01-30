@@ -133,6 +133,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    min-height: 683px;
 }
 
 .bg-container {

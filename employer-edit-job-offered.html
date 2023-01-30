@@ -611,7 +611,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                         const conn3 = axios({
                             method: 'get',
-                            url: baseurl + 'candidate_profile/' + localStorage.getItem('offered_to_id_clicked')
+                            url: baseurl + 'candidate_personal_information/' + localStorage.getItem('offered_to_id_clicked')
                         })
                             .then(function (data) {
                                 document.getElementById('display_full_name').innerHTML = data.data.full_name;
@@ -658,7 +658,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         method: 'put',
                         url: baseurl + 'interview_info/' + localStorage.getItem('interview_info_id_clicked'),
                         data: {
-                            candidate_profile_id: localStorage.getItem('offered_to_id_clicked'),
+                            candidate_personal_information_id: localStorage.getItem('offered_to_id_clicked'),
                             interview_date: $("#interview_date").val(),
                             interview_time: $("#interview_time").val(),
                             interview_location: $("#interview_location").val(),

@@ -274,90 +274,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                                         <hr>
 
-                                        <!--JOB INFO-->
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <strong>
-                                                    <i class="fas fa-briefcase"></i> JOB INFORMATION
-                                                </strong>
-                                            </div>
-                                        </div>
-                                        <div class="row row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Department
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id='department'>
-                                                    Default
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Position
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id='position'>
-                                                    Default
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Employee Category
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id='employee_category'>
-                                                    Default
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Employment Type
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id='employment_type'>
-                                                    Default
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Specialization
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id='specialization'>
-                                                    Default
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Date Hired
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id='date_hired'>
-                                                    Default
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <!--/JOB INFO-->
-
-                                        <hr>
-
                                         <!--JOB HISTORY-->
                                         <div class="row">
                                             <div class="col-sm-3">
@@ -864,7 +780,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         const conn1 = axios({
             method: 'get',
-            url: baseurl + 'candidate_profile/' + localStorage.getItem('U_user_account_id')
+            url: baseurl + 'candidate_personal_information/' + localStorage.getItem('U_user_account_id')
         })
             .then(function (data) {
                 document.getElementById('display_full_name').innerHTML = data.data.full_name;

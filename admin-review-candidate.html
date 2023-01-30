@@ -361,14 +361,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         const conn1 = axios({
             method: 'get',
-            url: baseurl + 'candidate_profile/'
+            url: baseurl + 'candidate_personal_information/'
         })
             .then(function (data) {
                 var table = $("#example1").DataTable({
                     data: data.data,
                     columns: [
-                        { data: 'candidate_profile_id' },
-                        { data: 'full_name' },
+                        { data: 'candidate_personal_information_id' },
+                        { data: 'last_name' },
                         { data: 'candidate_type' },
                         { data: 'created_at' },
                         { data: 'review_status' },
@@ -414,11 +414,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         function viewAcc() {
             return window.open('admin-review-candidate-details.html', '_self').reload();
         }
-
+        
         function grantAccess() {
             const conn1 = axios({
                 method: 'put',
-                url: baseurl + 'candidate_profile/grantaccess/' + localStorage.getItem('candidate_id_clicked')
+                url: baseurl + 'candidate_personal_information/grantaccess/' + localStorage.getItem('candidate_id_clicked')
             })
                 .then(function (data) {
                     Swal.fire(
@@ -427,7 +427,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         'success'
                     )
                         .then(function () {
-                            window.open('admin-review-candidate.html', '_self').reload();
+                            window.open('admin-review-candidate.html', '_self').reload();   
                         })
                 })
                 .catch(function (data, err) {

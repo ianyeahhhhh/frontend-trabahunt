@@ -177,14 +177,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                         Job Position<span class="required-sign"> *</span>
                                                     </p>
                                                 </div>
-                                                <div class="col-6  form-group">
+                                                <div class="col-6 form-group">
                                                     <input id="job_position" type="text" name="job_position" class="form-control" placeholder="Enter job position">
                                                 </div>
                                             </div>
                                             <div class="row row-custom">
                                                 <div class="col-sm-3">
                                                     <p class="text-muted">
-                                                        Monthly Salary Range
+                                                        Monthly Salary Range<span class="required-sign"> *</span>
                                                     </p>
                                                 </div>
                                                 <div class="col-2">
@@ -377,21 +377,74 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     <input id="salary_max" type="text" class="form-control" placeholder="Max">
                                                 </div>
                                             </div>
-
-                                            <hr>
-
-                                            <!--ADD INFO START-->
-                                            <div class="row">
-                                                <div class="col-sm-4">
-                                                    <strong>
-                                                        <i class="fas fa-info-circle"></i> ADDITIONAL INFORMATION
-                                                    </strong>
+                                            <div class="row row-custom">
+                                                <div class="col-sm-3">
+                                                    <p class="text-muted">
+                                                        Department<span class="required-sign"> *</span>
+                                                    </p>
+                                                </div>
+                                                <div class="col-6 form-group">
+                                                    <input id="department" type="text" class="form-control" placeholder="Enter department">
+                                                </div>
+                                            </div>
+                                            <div class="row row-custom">
+                                                <div class="col-sm-3">
+                                                    <p class="text-muted">
+                                                        Position<span class="required-sign"> *</span>
+                                                    </p>
+                                                </div>
+                                                <div class="col-6 form-group">
+                                                    <input id="position" type="text" class="form-control" placeholder="Enter position">
+                                                </div>
+                                            </div>
+                                            <div class="row row-custom">
+                                                <div class="col-sm-3">
+                                                    <p class="text-muted">
+                                                        Emloyment Category<span class="required-sign"> *</span>
+                                                    </p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <select id="job_type_name" name="job_type" size="1" class="form-control select2" style="width: 100%;">
+                                                            <option value="" selected="selected" disabled="disabled">Select
+                                                                employment category
+                                                            </option>
+                                                            <option value="Full-time" label="Full-time">Full-time
+                                                            </option>
+                                                            <option value="Part-time" label="Part-time">Part-time
+                                                            </option>
+                                                            <option value="Temporary" label="Temporary">Temporary
+                                                            </option>
+                                                            <option value="Internship" label="Internship">Internship
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row row-custom">
+                                                <div class="col-sm-3">
+                                                    <p class="text-muted">
+                                                        Employment Type<span class="required-sign"> *</span>
+                                                    </p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <select id="job_type_name" name="job_type" size="1" class="form-control select2" style="width: 100%;">
+                                                            <option value="" selected="selected" disabled="disabled">Select
+                                                                employment type
+                                                            </option>
+                                                            <option value="Direct Hire" label="Direct Hire">Direct Hire
+                                                            </option>
+                                                            <option value="Agency" label="Agency">Agency
+                                                            </option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="row  row-custom">
                                                 <div class="col-sm-3">
                                                     <p class="text-muted">
-                                                        Job Specialization <span class="required-sign"> *</span>
+                                                        Job Specialization<span class="required-sign"> *</span>
                                                     </p>
                                                 </div>
                                                 <div class="col-6">
@@ -446,28 +499,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </div>
                                             </div>
 
-                                            <div class="row row-custom">
-                                                <div class="col-sm-3">
-                                                    <p class="text-muted">
-                                                        Job Type <span class="required-sign"> *</span>
-                                                    </p>
-                                                </div>
-                                                <div class="col-6 form-group">
-                                                    <select id="job_type_name" name="job_type" size="1" class="form-control select2" style="width: 100%;">
-                                                        <option value="" selected="selected" disabled="disabled">Select
-                                                            job type
-                                                        </option>
-                                                        <option value="Full-time" label="Afghan afghani">Full-time
-                                                        </option>
-                                                        <option value="Part-time" label="Albanian lek">Part-time
-                                                        </option>
-                                                        <option value="Temporary" label="Algerian dinar">Temporary
-                                                        </option>
-                                                        <option value="Internship" label="Angolan kwanza">Internship
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                            </div>
                                             <hr>
 
                                             <!--JOB LOCATION-->
