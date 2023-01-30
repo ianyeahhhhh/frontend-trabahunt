@@ -194,6 +194,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Specialization</th>
                                     <th>Job Position</th>
                                     <th>Date Requested</th>
                                     <th>Status</th>
@@ -201,7 +202,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <!-- <tr>
                                     <td>1</td>
                                     <td>Software Engineer</td>
                                     <td>November 1, 2022</td>
@@ -217,11 +218,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 data-target='#cancel-request-modal'><i class='fas fa-ban'></i></button>
                                         </span>
                                     </td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Specialization</th>
                                     <th>Job Position</th>
                                     <th>Date Requested</th>
                                     <th>Status</th>
@@ -281,7 +283,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     data: data.data,
                     columns: [
                         { data: 'request_id' },
-                        { data: 'job_position' },
+                        { data: 'specialization' },
+                        { data: 'position' },
                         { data: 'created_at' },
                         { data: 'status' },
                         {
@@ -302,7 +305,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 $('#example1').on('click', 'tbody .btn-sm', function () {
                     var data_row = table.row($(this).closest('tr')).data();
                     localStorage.setItem('request_id_clicked', data_row.request_id);
-                    console.log(data_row.request_id);
                 })
             })
             .catch(function (data, err) {

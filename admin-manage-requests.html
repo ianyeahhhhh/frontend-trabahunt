@@ -280,15 +280,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <thead>
                                 <tr>
                                     <th>Request ID</th>
+                                    <th>Specialization</th>
                                     <th>Job Position</th>
-                                    <th>Job Specialization</th>
                                     <th>Date Requested</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <!-- <tr>
                                     <td>
                                         <a href="admin-request-details.html"><button type="button"
                                                 class="btn btn-warning btn-sm" data-toggle="tooltip"
@@ -306,7 +306,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 data-target="#remove-request-modal"><i class="fas fa-ban"></i></button>
                                         </span>
                                     </td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
                     </div>
@@ -361,8 +361,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     data: data.data,
                     columns: [
                         { data: 'request_id' },
-                        { data: 'job_position' },
-                        { data: 'job_specialization_name' },
+                        { data: 'specialization' },
+                        { data: 'position' },
                         { data: 'created_at' },
                         { data: 'status' },
                         {
