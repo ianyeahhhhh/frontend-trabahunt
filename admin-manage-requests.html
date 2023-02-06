@@ -223,7 +223,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Are you sure you want to remove this request?</p>
+                        <p>Are you sure you want to cancel this request?</p>
                         <form>
                             <div class="form-group">
                                 <textarea class="form-control" rows="2" id="reason"
@@ -233,7 +233,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" onclick="cancel()">Remove</button>
+                        <button type="button" class="btn btn-primary" onclick="cancel()">Cancel</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->
@@ -367,14 +367,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         { data: 'status' },
                         {
                             data: function (data) {
-                                return "<button type='button' onclick='viewRequest()' class='btn btn-warning btn-sm'" +
-                                    "data-toggle='tooltip' data-placement='top' title='View details'><i class='fas fa-eye'></i></button>    " +
-                                    "<span data-toggle='tooltip' data-placement='top' title='Transfer to HR'>" +
-                                    "<button type='button' class='btn btn-primary btn-sm'" +
-                                    "data-toggle='modal' data-target='#transfer-request-modal'><i class='fas fa-paper-plane'></i></button>  </span>" +
-                                    "<span data-toggle='tooltip' data-placement='top' title='Remove'>" +
-                                    "<button type='button' class='btn btn-danger btn-sm'" +
-                                    "data-toggle='modal' data-target='#remove-request-modal'><i class='fas fa-ban'></i> </button></span>"
+                                if (data.status == 'To be Reviewed') {
+                                    return "<button type='button' onclick='viewRequest()' class='btn btn-warning btn-sm'" +
+                                        "data-toggle='tooltip' data-placement='top' title='View details'><i class='fas fa-eye'></i></button>    " +
+                                        "<span data-toggle='tooltip' data-placement='top' title='Transfer to HR'>" +
+                                        "<button type='button' class='btn btn-primary btn-sm'" +
+                                        "data-toggle='modal' data-target='#transfer-request-modal'><i class='fas fa-paper-plane'></i></button>  </span>" +
+                                        "<span data-toggle='tooltip' data-placement='top' title='Remove'>" +
+                                        "<button type='button' class='btn btn-danger btn-sm'" +
+                                        "data-toggle='modal' data-target='#remove-request-modal'><i class='fas fa-ban'></i> </button></span>"
+                                }
+                                else if (data.status == 'Pending') {
+                                    return "<button type='button' onclick='viewRequest()' class='btn btn-warning btn-sm'" +
+                                        "data-toggle='tooltip' data-placement='top' title='View details'><i class='fas fa-eye'></i></button>    " +
+                                        "<span data-toggle='tooltip' data-placement='top' title='Remove'>" +
+                                        "<button type='button' class='btn btn-danger btn-sm'" +
+                                        "data-toggle='modal' data-target='#remove-request-modal'><i class='fas fa-ban'></i> </button></span>"
+                                }
+                                else {
+                                    return "<button type='button' onclick='viewRequest()' class='btn btn-warning btn-sm'" +
+                                        "data-toggle='tooltip' data-placement='top' title='View details'><i class='fas fa-eye'></i></button>"
+                                }
                             }
                         }
                     ],
@@ -407,7 +420,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
         }
 
         function transfer() {
-
+            const conn0 = axios({
+                method: 'put',
+                url: baseurl + 'request_form/to_pending/' + localStorage.getItem('request_id_clicked')
+            })
+                .then(function (data) {
+                    Swal.fire(
+                        'Request Form Submitted!',
+                        'To be reviewed by the Admin',
+                        'success'
+                    )
+                        .then(function () {
+                            window.open("admin-manage-requests.html", "_self").reload();
+                        })
+                })
+                .catch(function (data) {
+                    console.log(data);
+                })
         }
 
         function cancel() {
