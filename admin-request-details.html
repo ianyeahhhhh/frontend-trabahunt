@@ -276,7 +276,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <img class="profile-user-img img-fluid img-circle"
                                                 src="/dist/img/company-empty-image.png" alt="User profile picture">
                                         </div>
-                                        <h3 id='display_company_name' class="profile-username text-center">Modelo Inc.
+                                        <h3 id='display_company_name_1' class="profile-username text-center">Modelo Inc.
                                         </h3>
 
                                         <p class="text-muted text-center">Job Position here</p>
@@ -284,11 +284,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                                         <ul class="list-group list-group-unbordered mb-3">
                                             <li class="list-group-item">
-                                                <i class="fas fa-globe"></i> <a id='company_website'
+                                                <i class="fas fa-globe"></i> <a id='display_company_website'
                                                     class="float-right">www.modelo-inc.com</a>
                                             </li>
                                             <li class="list-group-item">
-                                                <i class="fas fa-envelope"></i> <a id='company_contact_number'
+                                                <i class="fas fa-envelope"></i> <a id='display_company_contact_number'
                                                     class="float-right">modelo-inc@gmail.com</a>
                                             </li>
                                         </ul>
@@ -323,12 +323,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="row row-custom">
                                             <div class="col-sm-3">
                                                 <p class="text-muted">
-                                                    Job Specialization
+                                                    Company Name
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='specialization'>
-                                                    DEFAULT
+                                                <p id='display_company_name'>
+                                                    DEFAULT Modelo Incorporation
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="row row-custom">
@@ -338,20 +339,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='position'>
-                                                    Default
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Department
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id='department'>
-                                                    DEFAULT
+                                                <p id='job_position'>
+                                                    DEFAULT Sample job position
                                                 </p>
                                             </div>
                                         </div>
@@ -363,19 +352,41 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             </div>
                                             <div class="col-9">
                                                 <p id='salary_range'>
-                                                    DEFAULT
+                                                    DEFAULT PHP 40,000 - 50,000
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <hr>
+
+                                        <!--ADDITIONAL INFO START-->
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <strong>
+                                                    <i class="fas fa-info-circle"></i> ADDITIONAL INFORMATION
+                                                </strong>
+                                            </div>
+                                        </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Job Specialization
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='job_specialization_name'>
+                                                    Sample
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="row row-custom">
                                             <div class="col-sm-3">
                                                 <p class="text-muted">
-                                                    Employment Type
+                                                    Job Type
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='employment_type'>
-                                                    Default
+                                                <p id='job_type_name'>
+                                                    DEFAULT Sample type
                                                 </p>
                                             </div>
                                         </div>
@@ -469,24 +480,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
         })
             .then(function (data) {
                 // console.log(data);
-                document.getElementById('position').innerHTML = data.data.position;
+                document.getElementById('job_position').innerHTML = data.data.job_position;
                 document.getElementById('salary_range').innerHTML = data.data.salary_range;
-                document.getElementById('specialization').innerHTML = data.data.specialization;
-                document.getElementById('department').innerHTML = data.data.department;
-                document.getElementById('employment_type').innerHTML = data.data.employment_type;
+                document.getElementById('job_specialization_name').innerHTML = data.data.job_specialization_name;
+                document.getElementById('job_type_name').innerHTML = data.data.job_type_name;
                 document.getElementById('display_address').innerHTML = data.data.city + ', ' + data.data.zip_code + ' ' + data.data.region + ', ' + data.data.country;
                 document.getElementById('status').innerHTML = data.data.status;
             })
             .catch(function (data, err) {
                 console.error(err);
             })
-    </script>
-
-    <script>
-        function transfer() {
-
-        }
-
     </script>
 </body>
 
