@@ -11,8 +11,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Employer | Legal</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
     <!-- BS Stepper -->
@@ -39,9 +41,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
-                    <li class=" nav-item d-none d-sm-inline-block ">
-                        <h5 class="navbar-header"><b>Legal</b></h5>
-                    </li>
+                <li class=" nav-item d-none d-sm-inline-block ">
+                    <h5 class="navbar-header"><b>Legal</b></h5>
+                </li>
                 </li>
             </ul>
 
@@ -55,11 +57,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
                         <!-- <div class="dropdown-divider "></div> -->
                         <a href="employer-basic-view-profile.html" class="dropdown-item "><span><i
-                            class="fas fa-user-circle"></i></span> Profile</a>
-                        <a href="employer-basic-view-acc.html" class="dropdown-item "><span><i class="fas fa-user-lock"></i></span> Account</a>
-                        <a href="employer-basic-legal.html" class="dropdown-item "><span><i class="fas fa-file-alt"></i></span> Legal</a>
+                                    class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="employer-basic-view-acc.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-lock"></i></span> Account</a>
+                        <a href="employer-basic-legal.html" class="dropdown-item "><span><i
+                                    class="fas fa-file-alt"></i></span> Legal</a>
                         <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
-                            class="fas fa-sign-out-alt"></i></span> Logout</a>
+                                    class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
@@ -79,7 +83,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar -->
             <div class="sidebar">
                 <nav class="mt-2 ">
-                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
+                        data-accordion="false ">
                         <!-- Add icons to the links using the .nav-icon class
                            with font-awesome or any other icon font library -->
                         <li class="nav-item ">
@@ -175,18 +180,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                         Legal Document/s
                                                     </p>
                                                 </div>
-                                                <div class="col-8">
+                                                <div class="col-6 form-group">
+                                                    <label>Legal Document</label>
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="customFile">
-                                                        <label class="custom-file-label" for="customFile">Choose
-                                                            file</label>
+                                                        <form>
+                                                            <input type="file" id="company_legal_document"
+                                                                name="company_legal_document">
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- /.card-body -->
                                         </div>
                                         <div class="card-footer">
-                                            <button type="button" class="btn btn-success" onclick="saveEdit()">Save</button>
+                                            <button id='save_button' type="button" class="btn btn-success"
+                                                onclick="saveEdit()">Save</button>
                                         </div>
                                     </div>
                                 </form>
@@ -195,14 +203,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </div>
                         <!-- /.container-fluid -->
                 </section>
-                </div>
             </div>
+        </div>
 
-            <footer class="main-footer ">
-                <div class="float-right d-none d-sm-block ">
-                    <b>Traba</b>Hunt
-                </div>
-                <strong>Copyright &copy; 2022 All rights reserved.
+        <footer class="main-footer ">
+            <div class="float-right d-none d-sm-block ">
+                <b>Traba</b>Hunt
+            </div>
+            <strong>Copyright &copy; 2022 All rights reserved.
         </footer>
     </div>
 
@@ -219,86 +227,113 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script type="module">
         document.getElementById("employer_display_name").innerHTML = localStorage.getItem("U_email");
-
-        const conn1 = axios({
-            method: 'get',
-            url: baseurl + 'company_profile/' + localStorage.getItem('U_user_account_id')
-        })
-            .then(function (data) {
-                document.getElementById('display_company_name').innerHTML = data.data.company_name;
-                document.getElementById('display_company_name_1').value = data.data.company_name;
-                document.getElementById('display_establishment_date').innerHTML = data.data.establishment_date;
-                document.getElementById('display_establishment_date_1').value = data.data.establishment_date;
-                document.getElementById('display_company_website_url').value = data.data.company_website_url;
-
-                const conn2 = axios({
-                    method: 'get',
-                    url: baseurl + 'company_addition_info/' + localStorage.getItem('U_user_account_id')
-                })
-                    .then(function (data) {
-                        document.getElementById('display_registration_number').value = data.data.registration_number;
-                        document.getElementById('display_city').value = data.data.city;
-                        document.getElementById('display_zip_code').value = data.data.zip_code;
-                        document.getElementById('display_region').value = data.data.region;
-                        document.getElementById('display_country').value = data.data.country;
-                        var address = data.data.city + ', ' + data.data.zip_code + " " + data.data.region + ', ' + data.data.country;
-                        document.getElementById('display_address').innerHTML = address;
-                    })
-                    .catch(function (data, err) {
-                        console.error(err);
-                    })
-            })
-            .catch(function (data, err) {
-                console.error(err);
-            })
     </script>
 
     <script>
         function saveEdit() {
-            const conn1 = axios({
-                method: 'put',
-                url: baseurl + 'company_profile/' + localStorage.getItem('U_user_account_id'),
-                data: {
-                    company_name: $("#display_company_name_1").val(),
-                    profile_description: 'Company Description Here',
-                    establishment_date: $("#display_establishment_date_1").val(),
-                    company_website_url: $("#display_company_website_url").val(),
-                    company_logo: 'Company Logo Here',
-                    user_account_id: localStorage.getItem('U_user_account_id')
-                }
-            })
-                .then(function (data) {
-                    // alert('Commpany Profile Updated.');
-                    const conn2 = axios({
-                        method: 'put',
-                        url: baseurl + 'company_addition_info/' + localStorage.getItem('U_user_account_id'),
-                        data: {
-                            registration_number: $("#display_registration_number").val(),
-                            country: $("#display_country").val(),
-                            region: $("#display_region").val(),
-                            zip_code: $("#display_zip_code").val(),
-                            city: $("#display_city").val(),
-                            company_contact_number: $("#display_company_contact_number_1").val(),
-                            user_account_id: localStorage.getItem('U_user_account_id')
-                        }
-                    })
-                        .then(function (data) {
-                            Swal.fire(
-                                'Employer Details Updated!',
-                                '',
-                                'success'
-                            )
-                                .then(function () {
-                                    window.open('employer-basic-view-profile.html', '_self').reload();
+            document.getElementById("save_button").disabled = true;
+            document.getElementById("save_button").innerHTML = 'Saving...';
+
+            const company_legal_document = document.getElementById('company_legal_document').files[0];
+
+            var formData1 = new FormData();
+            formData1.append('pdf_file', company_legal_document);
+
+            var path = $('#company_legal_document').val();
+            var filename = path.replace(/^.*\\/, "");
+            var ext = filename.split('.').reverse()[0];
+
+            if (ext == 'pdf') {
+                const conn1 = axios({
+                    method: 'delete',
+                    url: baseurl + 'aws_files/',
+                    data: {
+                        filename: localStorage.getItem('company_legal_document')
+                    }
+                })
+                    .then(function (data) {
+
+                        const conn2 = axios({
+                            method: 'post',
+                            url: baseurl + 'aws_files/',
+                            data: formData1,
+                            headers: {
+                                "Content-Type": "multipart/form-data",
+                            }
+                        })
+                            .then(function (data) {
+
+                                const conn3 = axios({
+                                    method: 'put',
+                                    url: baseurl + 'company_legal_document/' + localStorage.getItem('U_user_account_id'),
+                                    data: {
+                                        user_account_id: localStorage.getItem('U_user_account_id'),
+                                        legal_document: filename
+                                    }
                                 })
-                        })
-                        .catch(function (data, err) {
-                            console.error(err);
-                        })
-                })
-                .catch(function (data, err) {
-                    console.error(err);
-                })
+                                    .then(function (data) {
+                                        Swal.fire(
+                                            'Legal Document Updated!',
+                                            '',
+                                            'success'
+                                        )
+                                            .then(function () {
+                                                document.getElementById("save_button").disabled = false;
+                                                document.getElementById("save_button").innerHTML = 'Save';
+                                                window.open('employer-basic-legal.html', '_self').reload();
+                                            })
+                                    })
+                                    .catch(function (data, err) {
+                                        Swal.fire(
+                                            'Document Error',
+                                            '',
+                                            'error'
+                                        )
+                                            .then(function () {
+                                                document.getElementById("save_button").disabled = false;
+                                                document.getElementById("save_button").innerHTML = 'Save';
+                                                console.log(data);
+                                            })
+                                    })
+                            })
+                            .catch(function (data, err) {
+                                Swal.fire(
+                                    'AWS Error!',
+                                    'Posting File',
+                                    'error'
+                                )
+                                    .then(function () {
+                                        document.getElementById("save_button").disabled = false;
+                                        document.getElementById("save_button").innerHTML = 'Save';
+                                        console.log(data);
+                                    })
+                            })
+                    })
+                    .catch(function (data, err) {
+                        Swal.fire(
+                            'AWS Error!',
+                            'Deleting File',
+                            'error'
+                        )
+                            .then(function () {
+                                document.getElementById("save_button").disabled = false;
+                                document.getElementById("save_button").innerHTML = 'Save';
+                                console.log(data);
+                            })
+                    })
+            }
+            else {
+                Swal.fire(
+                    'Legal Document Error!',
+                    'File must be a pdf.',
+                    'error'
+                )
+                    .then(function () {
+                        document.getElementById("save_button").disabled = false;
+                        document.getElementById("save_button").innerHTML = 'Save';
+                        console.log(data);
+                    })
+            }
         }
     </script>
 </body>

@@ -51,7 +51,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <div class="social-auth-links text-center mt-2 mb-3 ">
-                                <button type="submit" class="btn btn-secondary btn-block">Log In</button>
+                                <button ID='login_button' type="submit" class="btn btn-secondary btn-block">Log
+                                    In</button>
                             </div>
                         </div>
                     </form>
@@ -77,6 +78,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         $(function () {
             $.validator.setDefaults({
                 submitHandler: function () {
+                    document.getElementById("login_button").disabled = true;
+                    document.getElementById("login_button").innerHTML = 'Logging in...';
+
                     const conn1 = axios({
                         method: 'post',
                         url: baseurl + 'admin_login/',
@@ -100,6 +104,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 'success'
                             )
                                 .then(function () {
+                                    document.getElementById("login_button").disabled = false;
+                                    document.getElementById("login_button").innerHTML = 'Log In';
                                     window.open("admin-dashboard.html", "_self").reload();
                                 })
 
@@ -111,7 +117,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 'error'
                             )
                                 .then(function () {
-
+                                    document.getElementById("login_button").disabled = false;
+                                    document.getElementById("login_button").innerHTML = 'Log In';
                                 })
                         })
                 }

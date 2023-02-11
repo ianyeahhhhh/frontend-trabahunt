@@ -11,8 +11,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Employer | History</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
     <!-- BS Stepper -->
@@ -39,9 +41,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
-                    <li class=" nav-item d-none d-sm-inline-block ">
-                        <h5 class="navbar-header"><b>Request History</b></h5>
-                    </li>
+                <li class=" nav-item d-none d-sm-inline-block ">
+                    <h5 class="navbar-header"><b>Request History</b></h5>
+                </li>
                 </li>
             </ul>
 
@@ -55,11 +57,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
                         <!-- <div class="dropdown-divider "></div> -->
                         <a href="employer-basic-view-profile.html" class="dropdown-item "><span><i
-                            class="fas fa-user-circle"></i></span> Profile</a>
-                        <a href="employer-basic-view-acc.html" class="dropdown-item "><span><i class="fas fa-user-lock"></i></span> Account</a>
-                        <a href="employer-basic-legal.html" class="dropdown-item "><span><i class="fas fa-file-alt"></i></span> Legal</a>
+                                    class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="employer-basic-view-acc.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-lock"></i></span> Account</a>
+                        <a href="employer-basic-legal.html" class="dropdown-item "><span><i
+                                    class="fas fa-file-alt"></i></span> Legal</a>
                         <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
-                            class="fas fa-sign-out-alt"></i></span> Logout</a>
+                                    class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
@@ -79,7 +83,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar -->
             <div class="sidebar">
                 <nav class="mt-2 ">
-                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
+                        data-accordion="false ">
                         <!-- Add icons to the links using the .nav-icon class
                            with font-awesome or any other icon font library -->
                         <li class="nav-item ">
@@ -162,11 +167,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p><span><b>This action cannot be undone</b></span>, are you sure you want to cancel this request?
+                        <p><span><b>This action cannot be undone</b></span>, are you sure you want to cancel this
+                            request?
                         </p>
                         <form>
                             <div class="form-group">
-                                <textarea class="form-control" rows="2" id="reason" placeholder="Provide a reason (optional)"></textarea>
+                                <textarea class="form-control" rows="2" id="reason"
+                                    placeholder="Provide a reason (optional)"></textarea>
                             </div>
                         </form>
                     </div>
@@ -289,10 +296,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         { data: 'status' },
                         {
                             data: function (data) {
-                                return "<button type='button' onclick=viewRequest() class='btn btn-warning btn-sm'" +
-                                    "data-toggle='tooltip' data-placement='top' title='View details'><i class='fas fa-eye'></i></button>" +
-                                    "<span data-toggle='tooltip' data-placement='top' title='Remove'> <button type='button' class='btn btn-danger btn-sm'" +
-                                    "data-toggle='modal' data-target='#cancel-request-modal'><i class='fas fa-ban'></i></button></span>"
+                                if (data.status == 'To be Reviewed') {
+                                    return "<button type='button' onclick=viewRequest() class='btn btn-warning btn-sm'" +
+                                        "data-toggle='tooltip' data-placement='top' title='View details'><i class='fas fa-eye'></i></button>" +
+                                        "<span data-toggle='tooltip' data-placement='top' title='Remove'> <button type='button' class='btn btn-danger btn-sm'" +
+                                        "data-toggle='modal' data-target='#cancel-request-modal'><i class='fas fa-ban'></i></button></span>"
+                                }
+                                else {
+                                    return "<button type='button' onclick=viewRequest() class='btn btn-warning btn-sm'" +
+                                        "data-toggle='tooltip' data-placement='top' title='View details'><i class='fas fa-eye'></i></button>"
+                                }
                             }
                         }
                     ],

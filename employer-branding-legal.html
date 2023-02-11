@@ -205,15 +205,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     Legal Document/s
                                                 </p>
                                             </div>
-                                            <div class="col-9">
-                                                <a href="#">
-                                                    sample.pdf
+                                            <div class="col-7">
+                                                <a id='company_legal_document' href="#" onclick="openLegal()">
+                                                    DEFAULT sample.pdf
                                                 </a>
                                             </div>
                                         </div>
+                                        <!-- /.card-body -->
                                     </div>
 
-                                    <!-- /.card-body -->
                                 </div>
                             </div>
                         </div>
@@ -248,34 +248,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         const conn1 = axios({
             method: 'get',
-            url: baseurl + 'company_profile/' + localStorage.getItem('U_user_account_id')
+            url: baseurl + 'company_legal_document/' + localStorage.getItem('U_user_account_id')
         })
             .then(function (data) {
-                document.getElementById('display_company_name').innerHTML = data.data.company_name;
-                document.getElementById('display_company_name_1').innerHTML = data.data.company_name;
-                document.getElementById('display_establishment_date').innerHTML = data.data.establishment_date;
-                document.getElementById('display_establishment_date_1').innerHTML = data.data.establishment_date;
-                document.getElementById('display_company_website_url').innerHTML = data.data.company_website_url;
-
-                const conn2 = axios({
-                    method: 'get',
-                    url: baseurl + 'company_addition_info/' + localStorage.getItem('U_user_account_id')
-                })
-                    .then(function (data) {
-                        document.getElementById('display_registration_number').innerHTML = data.data.registration_number;
-                        document.getElementById('display_company_contact_number').innerHTML = data.data.company_contact_number;
-                        document.getElementById('display_company_contact_number_1').innerHTML = data.data.company_contact_number;
-                        var address = data.data.city + ', ' + data.data.zip_code + " " + data.data.region + ', ' + data.data.country;
-                        document.getElementById('display_address').innerHTML = address;
-                        document.getElementById('display_address_1').innerHTML = address;
-                    })
-                    .catch(function (data, err) {
-                        console.error(err);
-                    })
+                document.getElementById('company_legal_document').innerHTML = data.data.legal_document;
+                localStorage.setItem('company_legal_document', data.data.legal_document);
             })
             .catch(function (data, err) {
-                console.error(err);
+                console.log(data);
             })
+    </script>
+
+    <script>
+        function openLegal() {
+            const conn1 = axios({
+                method: 'get',
+                url: baseurl + 'aws_files/' + localStorage.getItem('company_legal_document')
+            })
+                .then(function (data) {
+                    window.open(data.data);
+                })
+                .catch(function (data, err) {
+                    console.log(data);
+                })
+        }
     </script>
 </body>
 

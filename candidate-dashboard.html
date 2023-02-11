@@ -320,39 +320,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script type="module">
         document.getElementById("candidate_display_name").innerHTML = localStorage.getItem("U_email");
-
-        const conn1 = axios({
-            method: 'get',
-            url: baseurl + 'job_application/all/accepted_candidate/' + localStorage.getItem('U_user_account_id')
-        })
-            .then(function (data) {
-                document.getElementById("total_accepted_job_applications").innerHTML = data.data.length;
-            })
-            .catch(function (data, err) {
-                console.error(err);
-            })
-
-        const conn2 = axios({
-            method: 'get',
-            url: baseurl + 'job_application/all/rejected_candidate/' + localStorage.getItem('U_user_account_id')
-        })
-            .then(function (data) {
-                document.getElementById("total_rejected_job_applications").innerHTML = data.data.length;
-            })
-            .catch(function (data, err) {
-                console.error(err);
-            })
-
-        const conn3 = axios({
-            method: 'get',
-            url: baseurl + 'job_application/all/pending_candidate/' + localStorage.getItem('U_user_account_id')
-        })
-            .then(function (data) {
-                document.getElementById("total_pending_job_applications").innerHTML = data.data.length;
-            })
-            .catch(function (data, err) {
-                console.error(err);
-            })
     </script>
 </body>
 

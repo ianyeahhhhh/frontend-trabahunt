@@ -539,7 +539,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="card-footer">
                                             <!-- <button class="btn btn-outline-danger"
                                                 style="margin-right: 1rem;">Cancel</button> -->
-                                            <button type="button" class="btn btn-success" onclick="sendRequest()">Send
+                                            <button id="send_button" type="button" class="btn btn-success"
+                                                onclick="sendRequest()">Send
                                                 request</button>
                                         </div>
                                     </form>
@@ -581,6 +582,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script type="module">
         document.getElementById("employer_display_name").innerHTML = localStorage.getItem("U_email");
+
+        axios({
+            method: 'get',
+            url: baseurl + 'company_profile/' + localStorage.getItem('U_user_account_id')
+        })
+            .then(function (data) {
+                localStorage.setItem('company_name', data.data.company_name);
+                console.log(data);
+            })
+            .catch(function (data) {
+                console.log(data);
+            })
 
         $(function () {
             //Initialize Select2 Elements
@@ -663,12 +676,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function sendRequest() {
+            document.getElementById("send_button").disabled = true;
+            document.getElementById("send_button").innerHTML = 'Sending...';
             var salary_range = document.getElementById('currency').value + ' ' + $('#salary_min').val() + ' - ' + $('#salary_max').val();
             const conn1 = axios({
                 method: 'post',
                 url: baseurl + 'request_form/',
                 data: {
                     user_account_id: localStorage.getItem('U_user_account_id'),
+                    company_name: localStorage.getItem('company_name'),
                     position: $('#position').val(),
                     department: $('#department').val(),
                     specialization: document.getElementById('specialization').value,
@@ -678,7 +694,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     region: $('#region').val(),
                     country: $('#country').val(),
                     salary_range: salary_range,
-                    status: "Pending"
+                    status: "To be Reviewed"
                 }
             })
                 .then(function (data) {
@@ -688,10 +704,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         'success'
                     )
                         .then(function () {
+                            document.getElementById("send_button").disabled = false;
+                            document.getElementById("send_button").innerHTML = 'Send Request';
                             window.open('employer-request-history.html', '_self').reload();
                         })
                 })
                 .catch(function (data) {
+                    document.getElementById("send_button").disabled = false;
+                    document.getElementById("send_button").innerHTML = 'Send Request';
                     console.log(data);
                 })
         }

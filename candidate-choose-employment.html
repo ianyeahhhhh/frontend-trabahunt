@@ -39,7 +39,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="package-info">
 
                     <hr>
-                    <button class="btn btn-primary" style="width: 100%;" onclick="chooseDirectHire()">
+                    <button id='choose_button' class="btn btn-primary" style="width: 100%;"
+                        onclick="chooseDirectHire()">
                         Select
                     </button>
                 </div>
@@ -51,7 +52,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="package-info">
 
                     <hr>
-                    <button class="btn btn-primary" style="width: 100%;" onclick="chooseAgency()">
+                    <button id='choose_button' class="btn btn-primary" style="width: 100%;" onclick="chooseAgency()">
                         Select
                     </button>
                 </div>
@@ -91,6 +92,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function chooseDirectHire() {
+            document.getElementById("choose_button").disabled = true;
+            document.getElementById("choose_button").innerHTML = 'Choosing';
+
             const conn1 = axios({
                 method: 'post',
                 url: baseurl + 'candidate_personal_information/',
@@ -116,6 +120,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     civil_status: "",
                     review_status: "Setting Up",
                     candidate_image: "",
+                    hired_by: 0,
                     user_account_id: localStorage.getItem('U_user_account_id')
                 }
             })
@@ -127,6 +132,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         'success'
                     )
                         .then(function () {
+                            document.getElementById("choose_button").disabled = false;
+                            document.getElementById("choose_button").innerHTML = 'Choose';
                             window.open("candidate-login.html", "_self").reload();
                         })
                 })
@@ -137,6 +144,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         'error'
                     )
                         .then(function () {
+                            document.getElementById("choose_button").disabled = false;
+                            document.getElementById("choose_button").innerHTML = 'Choose';
                             console.log(data);
                         })
                 })
@@ -168,6 +177,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     civil_status: "",
                     review_status: "Setting Up",
                     candidate_image: "",
+                    hired_by: 0,
                     user_account_id: localStorage.getItem('U_user_account_id')
                 }
             })
@@ -179,6 +189,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         'success'
                     )
                         .then(function () {
+                            document.getElementById("choose_button").disabled = false;
+                            document.getElementById("choose_button").innerHTML = 'Choose';
                             window.open("candidate-login.html", "_self").reload();
                         })
                 })
@@ -189,6 +201,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         'error'
                     )
                         .then(function () {
+                            document.getElementById("choose_button").disabled = false;
+                            document.getElementById("choose_button").innerHTML = 'Choose';
                             console.log(data);
                         })
                 })

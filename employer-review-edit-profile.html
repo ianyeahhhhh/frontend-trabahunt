@@ -278,7 +278,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <!-- /.card-body -->
                             </div>
                             <div class="card-footer">
-                                <button type="button" class="btn btn-success" onclick="saveEdit()">Save</button>
+                                <button id='save_button' type="button" class="btn btn-success"
+                                    onclick="saveEdit()">Save</button>
                             </div>
 
                         </div>
@@ -346,6 +347,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function saveEdit() {
+            document.getElementById("save_button").disabled = true;
+            document.getElementById("save_button").innerHTML = 'Saving...';
+
             const conn1 = axios({
                 method: 'put',
                 url: baseurl + 'company_profile/' + localStorage.getItem('U_user_account_id'),
@@ -415,6 +419,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                             'success'
                                                         )
                                                             .then(function () {
+                                                                document.getElementById("save_button").disabled = false;
+                                                                document.getElementById("save_button").innerHTML = 'Save';
                                                                 window.open('employer-review-account-dashboard.html', '_self').reload();
                                                             })
                                                     })
@@ -425,6 +431,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                             'error'
                                                         )
                                                             .then(function () {
+                                                                document.getElementById("save_button").disabled = false;
+                                                                document.getElementById("save_button").innerHTML = 'Save';
                                                                 console.log(data);
                                                             })
                                                     })
@@ -436,6 +444,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     'error'
                                                 )
                                                     .then(function () {
+                                                        document.getElementById("save_button").disabled = false;
+                                                        document.getElementById("save_button").innerHTML = 'Save';
                                                         console.log(data);
                                                     })
                                             })
@@ -447,6 +457,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             'error'
                                         )
                                             .then(function () {
+                                                document.getElementById("save_button").disabled = false;
+                                                document.getElementById("save_button").innerHTML = 'Save';
                                                 console.log(data);
                                             })
                                     })
@@ -458,6 +470,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     'error'
                                 )
                                     .then(function () {
+                                        document.getElementById("save_button").disabled = false;
+                                        document.getElementById("save_button").innerHTML = 'Save';
                                         console.log(data);
                                     })
                             }
@@ -469,6 +483,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 'error'
                             )
                                 .then(function () {
+                                    document.getElementById("save_button").disabled = false;
+                                    document.getElementById("save_button").innerHTML = 'Save';
                                     console.log(data);
                                 })
                         })
@@ -480,6 +496,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         'error'
                     )
                         .then(function () {
+                            document.getElementById("save_button").disabled = false;
+                            document.getElementById("save_button").innerHTML = 'Save';
                             console.log(data);
                         })
                 })

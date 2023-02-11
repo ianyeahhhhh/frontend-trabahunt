@@ -656,7 +656,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </div>
                                     </div>
                                     <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
-                                    <button type="submit" onclick="registerProfile()"
+                                    <button id='submit_button' ype="submit" onclick="registerProfile()"
                                         class="btn btn-success">Submit</button>
                                     <div style="margin-top: .5rem; font-size: 12px;">
                                         <p class="text-muted">By submitting this form, you agree to be contacted
@@ -950,6 +950,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script>
         function registerProfile() {
+            document.getElementById("submit_button").disabled = true;
+            document.getElementById("submit_button").innerHTML = 'Registering...';
+
             const company_logo = document.getElementById('companyLogo').files[0];
             const legal_document = document.getElementById('legalDocuments').files[0];
 
@@ -1030,6 +1033,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                                 'success'
                                                             )
                                                                 .then(function () {
+                                                                    document.getElementById("submit_button").disabled = false;
+                                                                    document.getElementById("submit_button").innerHTML = 'Submit';
                                                                     window.open('employer-review-account-dashboard.html', '_self').reload();
                                                                 })
                                                         })
@@ -1040,6 +1045,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                                 'error'
                                                             )
                                                                 .then(function () {
+                                                                    document.getElementById("submit_button").disabled = false;
+                                                                    document.getElementById("submit_button").innerHTML = 'Submit';
                                                                     console.log(data);
                                                                 })
                                                         })
@@ -1051,6 +1058,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                         'error'
                                                     )
                                                         .then(function () {
+                                                            document.getElementById("submit_button").disabled = false;
+                                                            document.getElementById("submit_button").innerHTML = 'Submit';
                                                             console.log(data);
                                                         })
                                                 })
@@ -1062,6 +1071,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 'error'
                                             )
                                                 .then(function () {
+                                                    document.getElementById("submit_button").disabled = false;
+                                                    document.getElementById("submit_button").innerHTML = 'Submit';
                                                     console.log(data);
                                                 })
                                         })
@@ -1073,6 +1084,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         'error'
                                     )
                                         .then(function () {
+                                            document.getElementById("submit_button").disabled = false;
+                                            document.getElementById("submit_button").innerHTML = 'Submit';
                                             console.log(data);
                                         })
                                 })
@@ -1084,6 +1097,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 'error'
                             )
                                 .then(function (e) {
+                                    document.getElementById("submit_button").disabled = false;
+                                    document.getElementById("submit_button").innerHTML = 'Submit';
                                     console.log(data);
                                 })
                         })
@@ -1095,6 +1110,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         'error'
                     )
                         .then(function () {
+                            document.getElementById("submit_button").disabled = false;
+                            document.getElementById("submit_button").innerHTML = 'Submit';
                             console.log(data);
                         })
                 }
@@ -1106,6 +1123,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     'error'
                 )
                     .then(function () {
+                        document.getElementById("submit_button").disabled = false;
+                        document.getElementById("submit_button").innerHTML = 'Submit';
                         console.log(data);
                     })
             }

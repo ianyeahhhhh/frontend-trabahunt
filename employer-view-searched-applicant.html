@@ -11,8 +11,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Employer | Search Applicants</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
     <!-- BS Stepper -->
@@ -39,9 +41,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
-                    <li class=" nav-item d-none d-sm-inline-block ">
-                        <h5 class="navbar-header"><b>Search applicants</b></h5>
-                    </li>
+                <li class=" nav-item d-none d-sm-inline-block ">
+                    <h5 class="navbar-header"><b>Search applicants</b></h5>
+                </li>
                 </li>
             </ul>
 
@@ -58,7 +60,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     class="fas fa-user-circle"></i></span> Profile</a>
                         <a href="employer-branding-view-acc.html" class="dropdown-item "><span><i
                                     class="fas fa-user-lock"></i></span> Account</a>
-                        <a href="employer-branding-legal.html" class="dropdown-item "><span><i class="fas fa-file-alt"></i></span> Legal</a>
+                        <a href="employer-branding-legal.html" class="dropdown-item "><span><i
+                                    class="fas fa-file-alt"></i></span> Legal</a>
                         <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
                                     class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
@@ -80,7 +83,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar -->
             <div class="sidebar">
                 <nav class="mt-2 ">
-                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
+                        data-accordion="false ">
                         <!-- Add icons to the links using the .nav-icon class
                            with font-awesome or any other icon font library -->
                         <li class="nav-item ">
@@ -193,23 +197,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="card card-sticky card-success card-outline">
                                     <div class="card-body box-profile">
                                         <div class="text-center">
-                                            <img class="profile-user-img img-fluid img-circle" src="/dist/img/empty-image.jpg" alt="User profile picture">
+                                            <img class="profile-user-img img-fluid img-circle"
+                                                src="/dist/img/empty-image.jpg" alt="User profile picture">
                                         </div>
                                         <h3 id="display_full_name" class="profile-username text-center">Marcus Erean
                                         </h3>
 
-                                        <p class="text-muted text-center">Software Engineer</p>
+                                        <p id='title' class="text-muted text-center">Software Engineer</p>
 
                                         <ul class="list-group list-group-unbordered mb-3">
                                             <li class="list-group-item">
-                                                <span><i class="fas fa-envelope"></i></span> <a class="float-right">marcus@gmail.com</a>
+                                                <span><i class="fas fa-envelope"></i></span> <a id="email"
+                                                    class="float-right">marcus@gmail.com</a>
                                             </li>
                                             <li class="list-group-item">
-                                                <i class="fas fa-phone-alt"></i> <a class="float-right">+63 914 361
+                                                <i class="fas fa-phone-alt"></i> <a id='contact_number' class="float-right">+63 914 361
                                                     8544</a>
                                             </li>
                                             <li class="list-group-item">
-                                                <i class="fas fa-money-bill"></i> <a class="float-right">PHP 10,000</a>
+                                                <i class="fas fa-money-bill"></i> <a id="salary_range" class="float-right">PHP 10,000</a>
                                             </li>
                                         </ul>
 
@@ -230,10 +236,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <!-- /.card-header -->
 
                                     <div class="card-body">
+                                        <!--PERSONAL INFO-->
                                         <div class="row">
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-4">
                                                 <strong>
-                                                    <i class="fas fa-user"></i> INFORMATION
+                                                    <i class="fas fa-user"></i> PERSONAL INFORMATION
                                                 </strong>
                                             </div>
                                         </div>
@@ -244,20 +251,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id="display_full_name_1">
-                                                    Marcus Erean B. Modelo
+                                                <p id="full_name">
+                                                    Default
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="row row-custom">
                                             <div class="col-sm-3">
                                                 <p class="text-muted">
-                                                    Gender
+                                                    Default
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id="display_gender">
-                                                    Male
+                                                <p id="sex">
+                                                    Default
                                                 </p>
                                             </div>
                                         </div>
@@ -268,8 +275,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_birth_date'>
-                                                    September 13, 1999
+                                                <p id='birth_date'>
+                                                    Default
                                                 </p>
                                             </div>
                                         </div>
@@ -280,8 +287,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_address'>
-                                                    Quezon City, 1001 NCR, Philippines
+                                                <p id='address'>
+                                                    Default
                                                 </p>
                                             </div>
                                         </div>
@@ -292,13 +299,100 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_nationality'>
-                                                    Filipino
+                                                <p id='nationality'>
+                                                    Default
                                                 </p>
                                             </div>
                                         </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Civil Status
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='civil_status'>
+                                                    Default
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Employment Type
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='candidate_type'>
+                                                    Default
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <!--/PERSONAL INFO-->
 
                                         <hr>
+
+                                        <!--JOB HISTORY-->
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <strong>
+                                                    <i class="fas fa-history"></i> JOB HISTORY
+                                                </strong>
+                                            </div>
+                                        </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Previous Job Title
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='previous_job_title'>
+                                                    Default
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Employer
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='employer'>
+                                                    Default
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Start Date
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='start_date'>
+                                                    Default
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    End Date
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='end_date'>
+                                                    Default
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <!--/JOB HISTORY/-->
+
+                                        <hr>
+
+                                        <!--EDUC-->
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <strong>
@@ -313,8 +407,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_institute_university_name'>Default Insitute/ University Name
-                                                </p>
+                                                <p id='institute_name'>Default</p>
                                             </div>
                                         </div>
                                         <div class="row  row-custom">
@@ -324,7 +417,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_institute_university_location'>Default Quezon City, Philippines
+                                                <p id='institute_location'>Default
                                                 </p>
                                             </div>
                                         </div>
@@ -335,7 +428,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_highest_education_attainment'>Default Bachelor's / College Degree
+                                                <p id='highest_educational_attainment'>Default
                                                 </p>
                                             </div>
                                         </div>
@@ -346,7 +439,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_field_of_study'>Default Computer Science / Information Technology
+                                                <p id='field_of_study'>Default
                                                 </p>
                                             </div>
                                         </div>
@@ -357,7 +450,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_major'>Information Technology Management</p>
+                                                <p id='major'>Default</p>
                                             </div>
                                         </div>
                                         <div class="row  row-custom">
@@ -367,9 +460,92 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_date_graduated'>March 18, 1999</p>
+                                                <p id='date_graduated'>Default</p>
                                             </div>
                                         </div>
+                                        <!--/EDUC/-->
+
+                                        <hr>
+
+                                        <!--FAMILY-->
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <strong>
+                                                    <i class="fas fa-users"></i> FAMILY BACKGROUND
+                                                </strong>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Mother's Name
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='mothers_name'>Default</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Mother's Occupation
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='mothers_occupation'>Default</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Mother's Birthdate
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='mothers_birth_date'>Default</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Father's Name
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='fathers_name'>Default</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Father's Occupation
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='fathers_occupation'>Default</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Father's Birthdate
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='fathers_birth_date'>Default</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Number of Sibling/s
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='number_of_siblings'>Default</p>
+                                            </div>
+                                        </div>
+                                        <!--/FAMILY/-->
 
                                         <hr>
 
@@ -377,7 +553,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <strong>
-                                                    <i class="fas fa-map-marker-alt mr-1"></i> EXPERIENCE DETAIL
+                                                    <i class="fas fa-info-circle"></i> EXPERIENCE DETAIL
                                                 </strong>
                                             </div>
                                         </div>
@@ -388,20 +564,233 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p>Intern or looking for part-time job</p>
+                                                <p id="experience_level">DEFAULT</p>
                                             </div>
                                         </div>
                                         <div class="row  row-custom">
                                             <div class="col-sm-3">
                                                 <p class="text-muted">
-                                                    Description
+                                                    Work Experience
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis porro fugiat assumenda ipsum reprehenderit sapiente sit, quisquam quam quia similique? Quam consequuntur fuga ipsum eligendi assumenda,
-                                                    aut tempore sunt vel?</p>
+                                                <p id="work_experience">DEFAULT</p>
                                             </div>
                                         </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Personal Skills
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="personal_skills">DEFAULT</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Achievements
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="achievements">DEFAULT</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Certification
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="certification">DEFAULT</p>
+                                            </div>
+                                        </div>
+
+                                        <hr>
+
+                                        <!--CHARACTER REFERENCES-->
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <strong>
+                                                    <i class="fas fa-address-book"></i> CHARACTER REFERENCES
+                                                </strong>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Character Reference 1 Name
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="char_ref_name_1">DEFAULT</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Position
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="position_1">DEFAULT</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Telephone
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="telephone_1">DEFAULT</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Company
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="company_1">DEFAULT</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Character Reference 2 Name
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="char_ref_name_2">DEFAULT</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Position
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="position_2">DEFAULT</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Telephone
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="telephone_2">DEFAULT</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Company
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="company_2">DEFAULT</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Character Reference 3 Name
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="char_ref_name_3">DEFAULT</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Position
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="position_3">DEFAULT</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Telephone
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="telephone_3">DEFAULT</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Company
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="company_3">DEFAULT</p>
+                                            </div>
+                                        </div>
+                                        <!--/CHARACTER REFERENCES/-->
+
+                                        <hr>
+
+                                        <!--EMERGENCY-->
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <strong>
+                                                    <i class="fas fa-id-card"></i> EMERGENCY CONTACT
+                                                </strong>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Name
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="emergency_name">DEFAULT</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Relationship
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="relationship">DEFAULT</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Contact #
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="emergency_contact_number">DEFAULT</p>
+                                            </div>
+                                        </div>
+                                        <div class="row  row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Address
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id="emergency_address">DEFAULT</p>
+                                            </div>
+                                        </div>
+                                        <!--/EMERGENCY/-->
 
                                         <hr>
 
@@ -420,9 +809,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <a href="#">marcus-resume.pdf</a>
+                                                <a href="#" id="candidate_resume" onclick="openResume()">DEFAULT</a>
                                             </div>
                                         </div>
+                                        <!--/RESUME/-->
                                     </div>
 
                                     <!-- /.card-body -->
@@ -459,38 +849,175 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script type="module">
         document.getElementById("employer_display_name").innerHTML = localStorage.getItem("U_email");
 
+        const conn0 = axios({
+            method: 'get',
+            url: baseurl + 'user_account/' + localStorage.getItem('user_account_id_clicked')
+        })
+            .then(function (data) {
+                document.getElementById('contact_number').innerHTML = data.data.contact_number;
+            })
+            .catch(function (data, err) {
+                console.log(data);
+            });
+
         const conn1 = axios({
             method: 'get',
             url: baseurl + 'candidate_personal_information/' + localStorage.getItem('user_account_id_clicked')
         })
             .then(function (data) {
-                document.getElementById('display_full_name').innerHTML = data.data.full_name;
-                document.getElementById('display_full_name_1').innerHTML = data.data.full_name;
-                document.getElementById('display_gender').innerHTML = data.data.gender;
-                document.getElementById('display_birth_date').innerHTML = data.data.birth_date;
-                var address = data.data.city + ', ' + data.data.zip_code + " " + data.data.region + ', ' + data.data.country;
-                document.getElementById('display_address').innerHTML = address;
-                document.getElementById('display_nationality').innerHTML = data.data.nationality;
-
-                const conn2 = axios({
-                    method: 'get',
-                    url: baseurl + 'candidate_education_detail/' + localStorage.getItem('user_account_id_clicked')
-                })
-                    .then(function (data) {
-                        document.getElementById('display_institute_university_name').innerHTML = data.data.institute_university_name;
-                        document.getElementById('display_institute_university_location').innerHTML = data.data.institute_university_location;
-                        document.getElementById('display_highest_education_attainment').innerHTML = data.data.highest_education_attainment;
-                        document.getElementById('display_field_of_study').innerHTML = data.data.field_of_study;
-                        document.getElementById('display_major').innerHTML = data.data.major;
-                        document.getElementById('display_date_graduated').innerHTML = data.data.graduation_date;
-                    })
-                    .catch(function (data, err) {
-                        console.error(err);
-                    })
+                var full_name = data.data.first_name + ' ' + data.data.middle_name + ' ' + data.data.last_name + ' ' + data.data.suffix_name;
+                document.getElementById('full_name').innerHTML = full_name;
+                document.getElementById('display_full_name').innerHTML = full_name;
+                document.getElementById('sex').innerHTML = data.data.sex;
+                document.getElementById('email').innerHTML = data.data.email;
+                document.getElementById('birth_date').innerHTML = data.data.birth_date;
+                var address = data.data.city + ' ' + data.data.zip_code + " " + data.data.region + ' ' + data.data.country;
+                document.getElementById('address').innerHTML = address;
+                document.getElementById('nationality').innerHTML = data.data.nationality;
+                document.getElementById('civil_status').innerHTML = data.data.civil_status;
+                document.getElementById('candidate_type').innerHTML = data.data.candidate_type;
             })
             .catch(function (data, err) {
-                console.error(err);
+                console.log(data);
+            });
+
+        
+        const conn9 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_job_history/' + localStorage.getItem('user_account_id_clicked')
+        })
+            .then(function (data) {
+                document.getElementById('title').innerHTML = data.data.previous_job_title;
             })
+            .catch(function (data, err) {
+                console.log(data);
+            });
+
+
+        const conn2 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_education/' + localStorage.getItem('user_account_id_clicked')
+        })
+            .then(function (data) {
+                document.getElementById('institute_name').innerHTML = data.data.institute_name;
+                document.getElementById('institute_location').innerHTML = data.data.institute_location;
+                document.getElementById('highest_educational_attainment').innerHTML = data.data.highest_educational_attainment;
+                document.getElementById('field_of_study').innerHTML = data.data.field_of_study;
+                document.getElementById('major').innerHTML = data.data.major;
+                document.getElementById('date_graduated').innerHTML = data.data.date_graduated;
+            })
+            .catch(function (data, err) {
+                console.log(data);
+            });
+
+        const conn3 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_experience_detail/' + localStorage.getItem('user_account_id_clicked')
+        })
+            .then(function (data) {
+                document.getElementById("experience_level").innerHTML = data.data.experience_level;
+                document.getElementById("work_experience").innerHTML = data.data.work_experience;
+                document.getElementById("personal_skills").innerHTML = data.data.personal_skills;
+                document.getElementById("achievements").innerHTML = data.data.achievements;
+                document.getElementById("certification").innerHTML = data.data.certification;
+            })
+            .catch(function (data, err) {
+                console.log(data);
+            })
+
+        const conn4 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_resume/' + localStorage.getItem('user_account_id_clicked')
+        })
+            .then(function (data) {
+                document.getElementById('candidate_resume').innerHTML = data.data.resume;
+                localStorage.setItem('candidate_resume', data.data.resume);
+            })
+            .catch(function (data, err) {
+                console.log(data);
+            })
+
+        const conn5 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_family_background/' + localStorage.getItem('user_account_id_clicked')
+        })
+            .then(function (data) {
+                document.getElementById("mothers_name").innerHTML = data.data.mothers_name;
+                document.getElementById("mothers_occupation").innerHTML = data.data.mothers_occupation;
+                document.getElementById("mothers_birth_date").innerHTML = data.data.mothers_birth_date;
+                document.getElementById("fathers_name").innerHTML = data.data.fathers_name;
+                document.getElementById("fathers_occupation").innerHTML = data.data.fathers_occupation;
+                document.getElementById("fathers_birth_date").innerHTML = data.data.fathers_birth_date;
+                document.getElementById("number_of_siblings").innerHTML = data.data.number_of_siblings;
+            })
+            .catch(function (data) {
+                console.log(data);
+            })
+
+        const conn6 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_job_history/' + localStorage.getItem('user_account_id_clicked')
+        })
+            .then(function (data) {
+                document.getElementById("previous_job_title").innerHTML = data.data.previous_job_title;
+                document.getElementById("employer").innerHTML = data.data.employer;
+                document.getElementById("start_date").innerHTML = data.data.start_date;
+                document.getElementById("end_date").innerHTML = data.data.end_date;
+            })
+            .catch(function (data) {
+                console.log(data);
+            })
+
+        const conn7 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_character_references/' + localStorage.getItem('user_account_id_clicked')
+        })
+            .then(function (data) {
+                document.getElementById("char_ref_name_1").innerHTML = data.data.char_ref_name_1;
+                document.getElementById("char_ref_name_2").innerHTML = data.data.char_ref_name_2;
+                document.getElementById("char_ref_name_3").innerHTML = data.data.char_ref_name_3;
+                document.getElementById("position_1").innerHTML = data.data.position_1;
+                document.getElementById("position_2").innerHTML = data.data.position_2;
+                document.getElementById("position_3").innerHTML = data.data.position_3;
+                document.getElementById("telephone_1").innerHTML = data.data.telephone_1;
+                document.getElementById("telephone_2").innerHTML = data.data.telephone_2;
+                document.getElementById("telephone_3").innerHTML = data.data.telephone_3;
+                document.getElementById("company_1").innerHTML = data.data.company_1;
+                document.getElementById("company_2").innerHTML = data.data.company_2;
+                document.getElementById("company_3").innerHTML = data.data.company_3;
+            })
+            .catch(function (data) {
+                console.log(data);
+            })
+
+        const conn8 = axios({
+            method: 'get',
+            url: baseurl + 'candidate_emergency_contact/' + localStorage.getItem('user_account_id_clicked')
+        })
+            .then(function (data) {
+                document.getElementById("emergency_name").innerHTML = data.data.name;
+                document.getElementById("relationship").innerHTML = data.data.relationship;
+                document.getElementById("emergency_contact_number").innerHTML = data.data.contact_number;
+                document.getElementById("emergency_address").innerHTML = data.data.address;
+            })
+            .catch(function (data) {
+                console.log(data);
+            })
+    </script>
+
+    <script>
+        function openResume() {
+            const conn1 = axios({
+                method: 'get',
+                url: baseurl + 'aws_files/' + localStorage.getItem('candidate_resume')
+            })
+                .then(function (data) {
+                    window.open(data.data);
+                })
+                .catch(function (data, err) {
+                    console.log(data);
+                })
+        }
     </script>
 </body>
 

@@ -11,8 +11,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Employer | Job Offered</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
     <!-- BS Stepper -->
@@ -39,9 +41,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
-                    <li class=" nav-item d-none d-sm-inline-block ">
-                        <h5 class="navbar-header"><b>Job offered</b></h5>
-                    </li>
+                <li class=" nav-item d-none d-sm-inline-block ">
+                    <h5 class="navbar-header"><b>Job offered</b></h5>
+                </li>
                 </li>
             </ul>
 
@@ -58,7 +60,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     class="fas fa-user-circle"></i></span> Profile</a>
                         <a href="employer-branding-view-acc.html" class="dropdown-item "><span><i
                                     class="fas fa-user-lock"></i></span> Account</a>
-                        <a href="employer-branding-legal.html" class="dropdown-item "><span><i class="fas fa-file-alt"></i></span> Legal</a>
+                        <a href="employer-branding-legal.html" class="dropdown-item "><span><i
+                                    class="fas fa-file-alt"></i></span> Legal</a>
                         <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
                                     class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
@@ -80,7 +83,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar -->
             <div class="sidebar">
                 <nav class="mt-2 ">
-                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
+                        data-accordion="false ">
                         <!-- Add icons to the links using the .nav-icon class
                            with font-awesome or any other icon font library -->
                         <li class="nav-item ">
@@ -218,7 +222,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="card card-sticky card-success card-outline">
                                     <div class="card-body box-profile">
                                         <div class="text-center">
-                                            <img class="profile-user-img img-fluid img-circle" src="/dist/img/empty-image.jpg" alt="User profile picture">
+                                            <img class="profile-user-img img-fluid img-circle"
+                                                src="/dist/img/empty-image.jpg" alt="User profile picture">
                                         </div>
                                         <h3 id="display_full_name" class="profile-username text-center">Marcus Erean
                                         </h3>
@@ -227,7 +232,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                                         <ul class="list-group list-group-unbordered mb-3">
                                             <li class="list-group-item">
-                                                <span><i class="fas fa-envelope"></i></span> <a class="float-right">marcus@gmail.com</a>
+                                                <span><i class="fas fa-envelope"></i></span> <a
+                                                    class="float-right">marcus@gmail.com</a>
                                             </li>
                                             <li class="list-group-item">
                                                 <i class="fas fa-phone-alt"></i> <a class="float-right">+63 914 361
@@ -238,7 +244,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             </li>
                                         </ul>
 
-                                        <a class="btn btn-danger btn-block" data-toggle="modal" data-target="#cancel-offer-modal"><span><i class="fas fa-ban"></i></span>
+                                        <a class="btn btn-danger btn-block" data-toggle="modal"
+                                            data-target="#cancel-offer-modal"><span><i class="fas fa-ban"></i></span>
                                             <b>Cancel Offer</b></a>
                                     </div>
                                     <!-- /.card-body -->
@@ -418,6 +425,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         })
             .then(function (data) {
                 var job_location = data.data.city + ", " + data.data.zip_code + " " + data.data.region + ", " + data.data.country;
+
                 document.getElementById('display_job_title').innerHTML = data.data.job_title;
                 document.getElementById('display_job_position').innerHTML = data.data.job_position;
                 document.getElementById('display_salary').innerHTML = data.data.salary;
@@ -439,7 +447,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             url: baseurl + 'candidate_personal_information/' + localStorage.getItem('offered_to_id_clicked')
                         })
                             .then(function (data) {
-                                document.getElementById('display_full_name').innerHTML = data.data.full_name;
+                                document.getElementById('display_full_name').innerHTML = data.data.first_name+' '+data.data.middle_name+' '+data.data.last_name+' '+data.data.suffix_name;
                             })
                             .catch(function (data, err) {
                                 console.error(err);

@@ -54,7 +54,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <!-- /.card-body -->
                     <div class="card-footer">
                         <div class="social-auth-links text-center mt-2 mb-3 ">
-                            <button type="submit" class="btn btn-primary btn-block ">Log In</button>
+                            <button id='login_button' type="submit" class="btn btn-primary btn-block ">Log In</button>
                         </div>
                         <span>Don't have an account?</span><a href="signup.html" class="text-center"> Sign up
                             here</a>
@@ -86,6 +86,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         $(function () {
             $.validator.setDefaults({
                 submitHandler: function () {
+                    document.getElementById("login_button").disabled = true;
+                    document.getElementById("login_button").innerHTML = 'Logging in...';
+
                     var loginTime = new Date().toString();
                     const conn1 = axios({
                         method: 'post',
@@ -133,6 +136,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     'success'
                                                 )
                                                     .then(function () {
+                                                        document.getElementById("login_button").disabled = false;
+                                                        document.getElementById("login_button").innerHTML = 'Log in';
                                                         window.open("employer-register-profile.html", "_self").reload();
                                                     })
                                             }
@@ -144,6 +149,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     'success'
                                                 )
                                                     .then(function () {
+                                                        document.getElementById("login_button").disabled = false;
+                                                        document.getElementById("login_button").innerHTML = 'Log in';
                                                         window.open("employer-review-account-dashboard.html", "_self").reload();
                                                     })
                                             }
@@ -162,6 +169,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                                 'success'
                                                             )
                                                                 .then(function () {
+                                                                    document.getElementById("login_button").disabled = false;
+                                                                    document.getElementById("login_button").innerHTML = 'Log in';
                                                                     window.open("employer-basic-dashboard.html", "_self").reload();
                                                                 })
                                                         } else {
@@ -171,6 +180,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                                 'success'
                                                             )
                                                                 .then(function () {
+                                                                    document.getElementById("login_button").disabled = false;
+                                                                    document.getElementById("login_button").innerHTML = 'Log in';
                                                                     window.open("employer-branding-dashboard.html", "_self").reload();
                                                                 })
                                                         }
@@ -192,6 +203,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         'error'
                                     )
                                         .then(function () {
+                                            document.getElementById("login_button").disabled = false;
+                                            document.getElementById("login_button").innerHTML = 'Log in';
                                         })
                                 })
                         })
@@ -202,6 +215,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 'error'
                             )
                                 .then(function () {
+                                    document.getElementById("login_button").disabled = false;
+                                    document.getElementById("login_button").innerHTML = 'Log in';
                                 })
                         })
                 }

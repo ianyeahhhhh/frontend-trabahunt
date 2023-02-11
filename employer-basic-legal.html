@@ -11,8 +11,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Employer | Legal</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
     <!-- BS Stepper -->
@@ -39,9 +41,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
-                    <li class=" nav-item d-none d-sm-inline-block ">
-                        <h5 class="navbar-header"><b>Legal</b></h5>
-                    </li>
+                <li class=" nav-item d-none d-sm-inline-block ">
+                    <h5 class="navbar-header"><b>Legal</b></h5>
+                </li>
                 </li>
             </ul>
 
@@ -55,11 +57,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
                         <!-- <div class="dropdown-divider "></div> -->
                         <a href="employer-basic-view-profile.html" class="dropdown-item "><span><i
-                            class="fas fa-user-circle"></i></span> Profile</a>
-                        <a href="employer-basic-view-acc.html" class="dropdown-item "><span><i class="fas fa-user-lock"></i></span> Account</a>
-                        <a href="employer-basic-legal.html" class="dropdown-item "><span><i class="fas fa-file-alt"></i></span> Legal</a>
+                                    class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="employer-basic-view-acc.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-lock"></i></span> Account</a>
+                        <a href="employer-basic-legal.html" class="dropdown-item "><span><i
+                                    class="fas fa-file-alt"></i></span> Legal</a>
                         <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
-                            class="fas fa-sign-out-alt"></i></span> Logout</a>
+                                    class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
@@ -79,7 +83,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar -->
             <div class="sidebar">
                 <nav class="mt-2 ">
-                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
+                        data-accordion="false ">
                         <!-- Add icons to the links using the .nav-icon class
                            with font-awesome or any other icon font library -->
                         <li class="nav-item ">
@@ -173,8 +178,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-7">
-                                                <a href="#">
-                                                    sample.pdf
+                                                <a id='company_legal_document' href="#" onclick="openLegal()">
+                                                    DEFAULT sample.pdf
                                                 </a>
                                             </div>
                                         </div>
@@ -213,33 +218,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             const conn1 = axios({
                 method: 'get',
-                url: baseurl + 'company_profile/' + localStorage.getItem('U_user_account_id')
+                url: baseurl + 'company_legal_document/' + localStorage.getItem('U_user_account_id')
             })
                 .then(function (data) {
-                    document.getElementById('display_company_name').innerHTML = data.data.company_name;
-                    document.getElementById('display_company_name_1').innerHTML = data.data.company_name;
-                    document.getElementById('display_establishment_date').innerHTML = data.data.establishment_date;
-                    document.getElementById('display_establishment_date_1').innerHTML = data.data.establishment_date;
-                    document.getElementById('display_company_website_url').innerHTML = data.data.company_website_url;
-
-                    const conn2 = axios({
-                        method: 'get',
-                        url: baseurl + 'company_addition_info/' + localStorage.getItem('U_user_account_id')
-                    })
-                        .then(function (data) {
-                            document.getElementById('display_registration_number').innerHTML = data.data.registration_number;
-                            document.getElementById('display_company_contact_number_1').innerHTML = data.data.company_contact_number;
-                            var address = data.data.city + ', ' + data.data.zip_code + " " + data.data.region + ', ' + data.data.country;
-                            document.getElementById('display_address').innerHTML = address;
-                            document.getElementById('display_address_1').innerHTML = address;
-                        })
-                        .catch(function (data, err) {
-                            console.error(err);
-                        })
+                    document.getElementById('company_legal_document').innerHTML = data.data.legal_document;
+                    localStorage.setItem('company_legal_document', data.data.legal_document);
                 })
                 .catch(function (data, err) {
-                    console.error(err);
+                    console.log(data);
                 })
+        </script>
+
+        <script>
+            function openLegal() {
+                const conn1 = axios({
+                    method: 'get',
+                    url: baseurl + 'aws_files/' + localStorage.getItem('company_legal_document')
+                })
+                    .then(function (data) {
+                        window.open(data.data);
+                    })
+                    .catch(function (data, err) {
+                        console.log(data);
+                    })
+            }
         </script>
 </body>
 

@@ -11,8 +11,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Employer | Profile</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
     <!-- BS Stepper -->
@@ -39,9 +41,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
-                    <li class=" nav-item d-none d-sm-inline-block ">
-                        <h5 class="navbar-header"><b>Profile</b></h5>
-                    </li>
+                <li class=" nav-item d-none d-sm-inline-block ">
+                    <h5 class="navbar-header"><b>Profile</b></h5>
+                </li>
                 </li>
             </ul>
 
@@ -55,11 +57,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
                         <!-- <div class="dropdown-divider "></div> -->
                         <a href="employer-basic-view-profile.html" class="dropdown-item "><span><i
-                            class="fas fa-user-circle"></i></span> Profile</a>
-                        <a href="employer-basic-view-acc.html" class="dropdown-item "><span><i class="fas fa-user-lock"></i></span> Account</a>
-                        <a href="employer-basic-legal.html" class="dropdown-item "><span><i class="fas fa-file-alt"></i></span> Legal</a>
+                                    class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="employer-basic-view-acc.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-lock"></i></span> Account</a>
+                        <a href="employer-basic-legal.html" class="dropdown-item "><span><i
+                                    class="fas fa-file-alt"></i></span> Legal</a>
                         <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
-                            class="fas fa-sign-out-alt"></i></span> Logout</a>
+                                    class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
@@ -79,7 +83,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar -->
             <div class="sidebar">
                 <nav class="mt-2 ">
-                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
+                        data-accordion="false ">
                         <!-- Add icons to the links using the .nav-icon class
                            with font-awesome or any other icon font library -->
                         <li class="nav-item ">
@@ -162,19 +167,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="card card-sticky card-warning card-outline">
                                     <div class="card-body box-profile">
                                         <div class="text-center">
-                                            <img class="profile-user-img img-fluid img-circle" src="/dist/img/company-empty-image.png" alt="User profile picture">
+                                            <img class="profile-user-img img-fluid img-circle"
+                                                src="/dist/img/company-empty-image.png" alt="User profile picture">
                                         </div>
                                         <h3 id="display_company_name" class="profile-username text-center">Company Name
                                         </h3>
 
-                                        <p id="display_establishment_date" class="text-muted text-center">Establishment Date Here</p>
+                                        <p id="display_establishment_date" class="text-muted text-center">Establishment
+                                            Date Here</p>
 
                                         <ul class="list-group list-group-unbordered mb-3">
                                             <li class="list-group-item">
-                                                <span><i class="fas fa-phone-alt"></i></span> <a class="float-right" id="display_company_contact_number">Contact No. Here</a>
+                                                <span><i class="fas fa-phone-alt"></i></span> <a class="float-right"
+                                                    id="company_contact_number">Contact No. Here</a>
                                             </li>
                                             <li class="list-group-item">
-                                                <span><i class="fas fa-map-marker-alt"></i></span> <a class="float-right" id="display_address">Location Here</a>
+                                                <span><i class="fas fa-map-marker-alt"></i></span> <a
+                                                    class="float-right" id="display_address">Location Here</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -209,7 +218,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-8">
-                                                    <input id="display_company_name_1" type="text" class="form-control" placeholder="Enter company name">
+                                                    <input id="company_name" type="text" class="form-control"
+                                                        placeholder="Enter company name">
                                                 </div>
                                             </div>
                                             <div class="row row-custom">
@@ -219,7 +229,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-4">
-                                                    <select id="month" class="form-control select2">
+                                                    <select id="establishment_month" class="form-control select2">
                                                         <option selected="selected" disabled="disabled">Month</option>
                                                         <option>January</option>
                                                         <option>February</option>
@@ -235,44 +245,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                         <option>December</option>
                                                     </select>
                                                 </div>
-                                                <div class="col-2 form-group">
-                                                    <select id="day" class="form-control select2">
-                                                        <option selected="selected" disabled="disabled">Day</option>
-                                                        <option>1</option>
-                                                        <option>2</option>
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                        <option>5</option>
-                                                        <option>6</option>
-                                                        <option>7</option>
-                                                        <option>8</option>
-                                                        <option>9</option>
-                                                        <option>10</option>
-                                                        <option>11</option>
-                                                        <option>12</option>
-                                                        <option>13</option>
-                                                        <option>14</option>
-                                                        <option>15</option>
-                                                        <option>16</option>
-                                                        <option>17</option>
-                                                        <option>18</option>
-                                                        <option>19</option>
-                                                        <option>20</option>
-                                                        <option>21</option>
-                                                        <option>22</option>
-                                                        <option>23</option>
-                                                        <option>24</option>
-                                                        <option>25</option>
-                                                        <option>26</option>
-                                                        <option>27</option>
-                                                        <option>28</option>
-                                                        <option>29</option>
-                                                        <option>30</option>
-                                                        <option>31</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-2 form-group">
-                                                    <select id="year" class="form-control select2">
+                                                <div class="col-4 form-group">
+                                                    <select id="establishment_year" class="form-control select2">
                                                         <option selected="selected" disabled="disabled">Year</option>
                                                         <option value="1940">1940</option>
                                                         <option value="1941">1941</option>
@@ -367,7 +341,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-8">
-                                                    <input id="display_company_website_url" type="text" class="form-control" placeholder="Enter website URL">
+                                                    <input id="company_website_url" type="text" class="form-control"
+                                                        placeholder="Enter website URL">
+                                                </div>
+                                            </div>
+                                            <div class="row row-custom">
+                                                <div class="col-sm-3">
+                                                    <p class="text-muted">
+                                                        Company Description
+                                                    </p>
+                                                </div>
+                                                <div class="col-8">
+                                                    <input id="profile_description" type="text" class="form-control"
+                                                        placeholder="Enter company description">
                                                 </div>
                                             </div>
                                             <hr>
@@ -387,7 +373,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-8">
-                                                    <input id="display_registration_number" type="text" class="form-control" placeholder="Enter registration number">
+                                                    <input id="registration_number" type="text" class="form-control"
+                                                        placeholder="Enter registration number">
                                                 </div>
                                             </div>
                                             <div class="row row-custom">
@@ -397,7 +384,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-8">
-                                                    <input id="display_country" type="text" class="form-control" placeholder="Country">
+                                                    <input id="country" type="text" class="form-control"
+                                                        placeholder="Country">
                                                 </div>
                                             </div>
                                             <div class="row row-custom">
@@ -407,7 +395,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-8">
-                                                    <input id="display_region" type="text" class="form-control" placeholder="Region">
+                                                    <input id="region" type="text" class="form-control"
+                                                        placeholder="Region">
                                                 </div>
                                             </div>
                                             <div class="row row-custom">
@@ -417,7 +406,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-8">
-                                                    <input id="display_zip_code" type="text" class="form-control" placeholder="Zip Code">
+                                                    <input id="zip_code" type="text" class="form-control"
+                                                        placeholder="Zip Code">
                                                 </div>
                                             </div>
                                             <div class="row row-custom">
@@ -427,13 +417,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-8">
-                                                    <input id="display_city" type="text" class="form-control" placeholder="City">
+                                                    <input id="city" type="text" class="form-control"
+                                                        placeholder="City">
                                                 </div>
                                             </div>
                                             <!-- /.card-body -->
                                         </div>
                                         <div class="card-footer">
-                                            <button type="button" class="btn btn-success" onclick="saveEdit()">Save</button>
+                                            <button id='save_button' type="button" class="btn btn-success"
+                                                onclick="saveEdit()">Save</button>
                                         </div>
                                     </div>
                                 </form>
@@ -442,14 +434,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </div>
                         <!-- /.container-fluid -->
                 </section>
-                </div>
             </div>
+        </div>
 
-            <footer class="main-footer ">
-                <div class="float-right d-none d-sm-block ">
-                    <b>Traba</b>Hunt
-                </div>
-                <strong>Copyright &copy; 2022 All rights reserved.
+        <footer class="main-footer ">
+            <div class="float-right d-none d-sm-block ">
+                <b>Traba</b>Hunt
+            </div>
+            <strong>Copyright &copy; 2022 All rights reserved.
         </footer>
     </div>
 
@@ -467,66 +459,71 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script type="module">
         document.getElementById("employer_display_name").innerHTML = localStorage.getItem("U_email");
 
-        const conn1 = axios({
+        const conn0 = axios({
             method: 'get',
             url: baseurl + 'company_profile/' + localStorage.getItem('U_user_account_id')
         })
             .then(function (data) {
-                document.getElementById('display_company_name').innerHTML = data.data.company_name;
-                document.getElementById('display_company_name_1').value = data.data.company_name;
-                document.getElementById('display_establishment_date').innerHTML = data.data.establishment_date;
-                document.getElementById('display_establishment_date_1').value = data.data.establishment_date;
-                document.getElementById('display_company_website_url').value = data.data.company_website_url;
+                document.getElementById('company_name').value = data.data.company_name;
+                var establishment_date = (data.data.establishment_date).split(" ");
+                document.getElementById('establishment_month').value = establishment_date[0];
+                document.getElementById('establishment_year').value = establishment_date[1];
+                document.getElementById('company_website_url').value = data.data.company_website_url;
+                document.getElementById('profile_description').value = data.data.profile_description;
+                localStorage.setItem('company_logo', data.data.company_logo);
+            })
+            .catch(function (data) {
+                console.log(data);
+            })
 
-                const conn2 = axios({
-                    method: 'get',
-                    url: baseurl + 'company_addition_info/' + localStorage.getItem('U_user_account_id')
-                })
-                    .then(function (data) {
-                        document.getElementById('display_registration_number').value = data.data.registration_number;
-                        document.getElementById('display_city').value = data.data.city;
-                        document.getElementById('display_zip_code').value = data.data.zip_code;
-                        document.getElementById('display_region').value = data.data.region;
-                        document.getElementById('display_country').value = data.data.country;
-                        var address = data.data.city + ', ' + data.data.zip_code + " " + data.data.region + ', ' + data.data.country;
-                        document.getElementById('display_address').innerHTML = address;
-                    })
-                    .catch(function (data, err) {
-                        console.error(err);
-                    })
+        const conn1 = axios({
+            method: 'get',
+            url: baseurl + 'company_addition_info/' + localStorage.getItem('U_user_account_id')
+        })
+            .then(function (data) {
+                document.getElementById('registration_number').value = data.data.registration_number;
+                document.getElementById('country').value = data.data.country;
+                document.getElementById('zip_code').value = data.data.zip_code;
+                document.getElementById('region').value = data.data.region;
+                document.getElementById('country').value = data.data.country;
+                document.getElementById('city').value = data.data.city;
             })
-            .catch(function (data, err) {
-                console.error(err);
+            .catch(function (data) {
+                console.log(data);
             })
+
     </script>
 
     <script>
         function saveEdit() {
+            document.getElementById("save_button").disabled = true;
+            document.getElementById("save_button").innerHTML = 'Saving...';
+            var establishment_date = document.getElementById('establishment_month').value + ' ' + document.getElementById('establishment_year').value;
+
             const conn1 = axios({
                 method: 'put',
                 url: baseurl + 'company_profile/' + localStorage.getItem('U_user_account_id'),
                 data: {
-                    company_name: $("#display_company_name_1").val(),
-                    profile_description: 'Company Description Here',
-                    establishment_date: $("#display_establishment_date_1").val(),
-                    company_website_url: $("#display_company_website_url").val(),
-                    company_logo: 'Company Logo Here',
-                    user_account_id: localStorage.getItem('U_user_account_id')
+                    user_account_id: localStorage.getItem('U_user_account_id'),
+                    company_name: $('#company_name').val(),
+                    profile_description: $('#profile_description').val(),
+                    establishment_date: establishment_date,
+                    company_website_url: $('#company_website_url').val(),
+                    company_logo: localStorage.getItem('company_logo'),
+                    review_status: 'Active'
                 }
             })
                 .then(function (data) {
-                    // alert('Commpany Profile Updated.');
                     const conn2 = axios({
                         method: 'put',
                         url: baseurl + 'company_addition_info/' + localStorage.getItem('U_user_account_id'),
                         data: {
-                            registration_number: $("#display_registration_number").val(),
-                            country: $("#display_country").val(),
-                            region: $("#display_region").val(),
-                            zip_code: $("#display_zip_code").val(),
-                            city: $("#display_city").val(),
-                            company_contact_number: $("#display_company_contact_number_1").val(),
-                            user_account_id: localStorage.getItem('U_user_account_id')
+                            user_account_id: localStorage.getItem('U_user_account_id'),
+                            registration_number: $('#registration_number').val(),
+                            country: $('#company_website_url').val(),
+                            region: $('#region').val(),
+                            zip_code: $('#zip_code').val(),
+                            city: $('#city').val(),
                         }
                     })
                         .then(function (data) {
@@ -536,15 +533,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 'success'
                             )
                                 .then(function () {
+                                    document.getElementById("save_button").disabled = false;
+                                    document.getElementById("save_button").innerHTML = 'Save';
                                     window.open('employer-basic-view-profile.html', '_self').reload();
                                 })
                         })
                         .catch(function (data, err) {
-                            console.error(err);
+                            console.log(data);
+                            document.getElementById("save_button").disabled = false;
+                            document.getElementById("save_button").innerHTML = 'Save';
                         })
                 })
                 .catch(function (data, err) {
-                    console.error(err);
+                    console.log(data);
+                    document.getElementById("save_button").disabled = false;
+                    document.getElementById("save_button").innerHTML = 'Save';
                 })
         }
     </script>

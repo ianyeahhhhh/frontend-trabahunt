@@ -323,13 +323,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="row row-custom">
                                             <div class="col-sm-3">
                                                 <p class="text-muted">
-                                                    Company Name
+                                                    Job Specialization
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='display_company_name'>
-                                                    DEFAULT Modelo Incorporation
-                                                </p>
+                                                <p id='specialization'>
+                                                    DEFAULT
                                             </div>
                                         </div>
                                         <div class="row row-custom">
@@ -339,8 +338,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='job_position'>
-                                                    DEFAULT Sample job position
+                                                <p id='position'>
+                                                    Default
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row row-custom">
+                                            <div class="col-sm-3">
+                                                <p class="text-muted">
+                                                    Department
+                                                </p>
+                                            </div>
+                                            <div class="col-9">
+                                                <p id='department'>
+                                                    DEFAULT
                                                 </p>
                                             </div>
                                         </div>
@@ -352,41 +363,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             </div>
                                             <div class="col-9">
                                                 <p id='salary_range'>
-                                                    DEFAULT PHP 40,000 - 50,000
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <hr>
-
-                                        <!--ADDITIONAL INFO START-->
-                                        <div class="row">
-                                            <div class="col-sm-5">
-                                                <strong>
-                                                    <i class="fas fa-info-circle"></i> ADDITIONAL INFORMATION
-                                                </strong>
-                                            </div>
-                                        </div>
-                                        <div class="row row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Job Specialization
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id='job_specialization_name'>
-                                                    Sample
+                                                    DEFAULT
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="row row-custom">
                                             <div class="col-sm-3">
                                                 <p class="text-muted">
-                                                    Job Type
+                                                    Employment Type
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id='job_type_name'>
-                                                    DEFAULT Sample type
+                                                <p id='employment_type'>
+                                                    Default
                                                 </p>
                                             </div>
                                         </div>
@@ -468,7 +457,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             url: baseurl + 'company_profile/' + localStorage.getItem('user_account_id_clicked')
         })
             .then(function (data) {
-                document.getElementById('display_company_name').innerHTML = data.data.company_name;
+                document.getElementById('display_company_name_1').innerHTML = data.data.company_name;
             })
             .catch(function (data, err) {
                 console.error(err);
@@ -480,16 +469,46 @@ scratch. This page gets rid of all links and provides the needed markup only.
         })
             .then(function (data) {
                 // console.log(data);
-                document.getElementById('job_position').innerHTML = data.data.job_position;
+                document.getElementById('position').innerHTML = data.data.position;
                 document.getElementById('salary_range').innerHTML = data.data.salary_range;
-                document.getElementById('job_specialization_name').innerHTML = data.data.job_specialization_name;
-                document.getElementById('job_type_name').innerHTML = data.data.job_type_name;
+                document.getElementById('specialization').innerHTML = data.data.specialization;
+                document.getElementById('department').innerHTML = data.data.department;
+                document.getElementById('employment_type').innerHTML = data.data.employment_type;
                 document.getElementById('display_address').innerHTML = data.data.city + ', ' + data.data.zip_code + ' ' + data.data.region + ', ' + data.data.country;
                 document.getElementById('status').innerHTML = data.data.status;
             })
             .catch(function (data, err) {
                 console.error(err);
             })
+    </script>
+
+    <script>
+        function transfer() {
+            const conn3 = axios({
+                method: 'put',
+                url: baseurl + 'request_form/to_pending/' + localStorage.getItem('request_id_clicked')
+            })
+                .then(function (data) {
+                    Swal.fire(
+                        'Request Form Sent to HR!',
+                        '',
+                        'success'
+                    )
+                        .then(function () {
+                            window.open("admin-manage-requests.html", "_self").reload();
+                        })
+                })
+                .catch(function (data) {
+                    Swal.fire(
+                        'Error',
+                        '',
+                        'error'
+                    )
+                        .then(function () {
+                            console.log(data);
+                        })
+                })
+        }
     </script>
 </body>
 

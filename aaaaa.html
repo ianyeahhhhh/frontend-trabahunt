@@ -9,33 +9,19 @@
 </head>
 
 <body>
-    <button onclick="clicked()">CLICK ME</button>
-
-
-
-
-
-
-
+    <button id='enable' onclick="enable()">ENABLE</button>
+    <button id='disable' onclick="disable()">DISABLE</button>
+    <button id='toggle' >TOGGLE</button>
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
-        function clicked() {
-            Swal.fire({
-                title: 'Auto close alert!',
-                timer: 2000,
-                timerProgressBar: true,
-                didOpen: () => {
-                    Swal.showLoading()
-                },
-                willClose: () => {
-                }
-            }).then((result) => {
-                /* Read more about handling dismissals below */
-                if (result.dismiss === Swal.DismissReason.timer) {
-                    console.log('I was closed by the timer')
-                }
-            })
+        function enable() {
+            document.getElementById("toggle").disabled = false;
+        }
+
+        function disable() {
+            document.getElementById("toggle").disabled = true;
         }
     </script>
 

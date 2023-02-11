@@ -394,12 +394,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="col-3">
                                             <select id="timeAMPM" class="form-control select2">
                                                     <option selected="selected" disabled="disabled">AM/PM</option>
-                                                    <option>AM</option>
-                                                    <option>PM</option>
+                                                    <option value="AM">AM</option>
+                                                    <option value="PM">PM</option>
                                                 </select>
                                         </div>
-
-
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -440,8 +438,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Job Post ID</th>
-                                    <th>Candidate ID</th>
                                     <th>Candidate Full Name</th>
                                     <th>Email</th>
                                     <th>Date Applied</th>
@@ -449,32 +445,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>hehe</td>
-                                    <td>hehe</td>
-                                    <td>hehe</td>
-                                    <td>hehe</td>
-                                    <td>hehe</td>
-                                    <td>hehe</td>
-                                    <td>
-                                        <a href='employer-view-applicant-profile.html'><button type='button' class='btn btn-warning btn-sm'><i class='fas fa-eye'></i></button></a>
-                                        <button type='button' class='btn btn-success btn-sm' data-toggle="modal" data-target="#interview-info-modal"><i class="fas fa-check"></i></button>
-                                        <button type='button' class='btn btn-danger btn-sm' data-toggle="modal" data-target="#reject-applicant-modal"><i class="fas fa-times"></i></button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Job Post ID</th>
-                                    <th>Candidate ID</th>
-                                    <th>Candidate Full Name</th>
-                                    <th>Email</th>
-                                    <th>Date Applied</th>
-                                    <th>Job Application Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </tfoot>
                         </table>
                     </div>
                     <!-- /.card-body -->
@@ -530,8 +500,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         var table = $("#example1").DataTable({
                             data: data.data,
                             columns: [
-                                { data: 'job_post_id' },
-                                { data: 'candidate_id' },
                                 { data: 'full_name' },
                                 { data: 'email' },
                                 { data: 'created_at' },
@@ -557,7 +525,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         })
                         $('#example1').on('click', 'tbody .btn-sm', function () {
                             var data_row = table.row($(this).closest('tr')).data();
-                            localStorage.setItem("candidate_id_clicked", data_row.candidate_id);
+                            localStorage.setItem("candidate_personal_information_id", data_row.candidate_personal_information_id);
                             localStorage.setItem("job_application_id_clicked", data_row.job_application_id);
                             localStorage.setItem("job_post_id_clicked", data_row.job_post_id);
                         })

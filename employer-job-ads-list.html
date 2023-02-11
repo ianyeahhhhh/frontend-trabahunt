@@ -228,24 +228,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <!--wag i-center ung table headers-->
-                                    <th>ID</th>
                                     <th>Title</th>
+                                    <th>Job Position</th>
+                                    <th>Salary Range</th>
                                     <th>Date Published</th>
-                                    <th>Job Ad Status</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            <tfoot>
-                                <tr>
-                                    <!--wag i-center ung table headers-->
-                                    <th>ID</th>
-                                    <th>Title</th>
-                                    <th>Date Published</th>
-                                    <th>Job Ad Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </tfoot>
                         </table>
                     </div>
                     <!-- /.card-body -->
@@ -301,8 +291,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         var table = $("#example1").DataTable({
                             data: data.data,
                             columns: [
-                                { data: 'job_post_id' },
                                 { data: 'job_title' },
+                                { data: 'job_position_level' },
+                                { data: 'salary' },
                                 { data: 'updated_at' },
                                 { data: 'job_post_status' },
                                 {

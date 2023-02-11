@@ -201,7 +201,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <tr>
                                     <th>User Account ID</th>
                                     <th>Email</th>
-                                    <th>Contact Number</th>
+                                    <th>Last Name</th>
+                                    <th>First Name</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -219,14 +221,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 class="fas fa-paper-plane"></i></button></a>
                                 </td>
                             </tbody> -->
-                            <tfoot>
-                                <tr>
-                                    <th>User Account ID</th>
-                                    <th>Email</th>
-                                    <th>Contact Number</th>
-                                    <th>Action</th>
-                                </tr>
-                            </tfoot>
                         </table>
                     </div>
                     <!-- /.card-body -->
@@ -272,15 +266,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         const conn1 = axios({
             method: 'get',
-            url: baseurl + 'user_account/all_candidate'
+            url: baseurl + 'candidate_personal_information/all_possible_job_offer/'
         })
             .then(function (data) {
+                console.log(data);
                 var table = $("#example1").DataTable({
                     data: data.data,
                     columns: [
                         { data: 'user_account_id' },
                         { data: 'email' },
-                        { data: 'contact_number' },
+                        { data: 'last_name' },
+                        { data: 'first_name' },
+                        { data: 'review_status' },
                         {
                             data: null,
                             render: function (data) {
@@ -300,7 +297,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 })
             })
             .catch(function (data, err) {
-                console.error(err);
+                console.log(data);
             })
     </script>
 

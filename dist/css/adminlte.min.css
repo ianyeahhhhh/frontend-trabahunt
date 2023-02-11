@@ -136,6 +136,12 @@ body {
     min-height: 683px;
 }
 
+.register-title {
+    font-size: 17px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
 .bg-container {
     background-image: url('/dist/img/login-bg.png');
     background-size: cover;

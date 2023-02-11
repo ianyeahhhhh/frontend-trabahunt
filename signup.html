@@ -576,7 +576,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
                 <div class="card-footer">
                     <div class="col-4 float-right">
-                        <button class="btn btn-primary btn-block">Sign Up</button>
+                        <button id='signup_button' class="btn btn-primary btn-block">Sign Up</button>
                     </div>
                     <a href="candidate-home.html" class="text-center"><b>I already have an account</b></a>
                 </div>
@@ -624,6 +624,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         $(function () {
             $.validator.setDefaults({
                 submitHandler: function () {
+                    document.getElementById("signup_button").disabled = true;
+                    document.getElementById("signup_button").innerHTML = 'Signing Up...';
                     //CREATE USER_ACCOUNT
                     const conn1 = axios({
                         method: 'post',
@@ -652,6 +654,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     'success'
                                 )
                                     .then(function () {
+                                        document.getElementById("signup_button").disabled = false;
+                                        document.getElementById("signup_button").innerHTML = 'Sign Up';
                                         window.open("candidate-choose-employment.html", "_self").reload();
                                     })
                             }
@@ -663,6 +667,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     'success'
                                 )
                                     .then(function () {
+                                        document.getElementById("signup_button").disabled = false;
+                                        document.getElementById("signup_button").innerHTML = 'Sign Up';
                                         window.open("employer-choose-subscription.html", "_self").reload();
                                     })
                             }
@@ -674,6 +680,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 'error'
                             )
                                 .then(function () {
+                                    document.getElementById("signup_button").disabled = false;
+                                    document.getElementById("signup_button").innerHTML = 'Sign Up';
+                                    console.log(data);
                                 })
                         })
                 }

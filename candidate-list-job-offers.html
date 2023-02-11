@@ -272,6 +272,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             url: baseurl + 'job_offer/all_for_candidate/' + localStorage.getItem('U_user_account_id')
         })
             .then(function (data) {
+                console.log(localStorage.getItem('U_user_account_id'));
+                console.log(data);
                 var table = $("#example1").DataTable({
                     data: data.data,
                     columns: [
