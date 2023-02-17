@@ -271,9 +271,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td id="applicant_name">Sample</td>
-                                                <td id="applicant_email">Sample</td>
-                                                <td id="applicant_contact_number">Sample</td>
+                                                <td id="applicant_name">-</td>
+                                                <td id="applicant_email">-</td>
+                                                <td id="applicant_contact_number">-</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -307,9 +307,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Sample</td>
-                                                <td>Sample</td>
-                                                <td>Sample</td>
+                                                <td id="interview_date">-</td>
+                                                <td id="interview_time">-</td>
+                                                <td id="interview_location">-</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -397,10 +397,34 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 .then(function (data) {
                     if (data.data) {
                         document.getElementById("applicant_name").innerHTML = data.data.full_name;
-                        console.log(data);
+                        document.getElementById("applicant_email").innerHTML = data.data.email;
+                        document.getElementById("applicant_contact_number").innerHTML = data.data.contact_number;
                     }
                     else {
-                        console.log("no data");
+                        document.getElementById("applicant_name").innerHTML = "-";
+                        document.getElementById("applicant_email").innerHTML = "-";
+                        document.getElementById("applicant_contact_number").innerHTML = "-";
+                    }
+                })
+                .catch(function (data) {
+                    console.log(data);
+                })
+
+            const conn6 = axios({
+                method: 'get',
+                url: baseurl + 'interview_info/employer_side_most_recent/' + localStorage.getItem('U_user_account_id')
+            })
+                .then(function (data) {
+                    if (data.data) {
+                        console.log(data);
+                        document.getElementById("interview_date").innerHTML = data.data.interview_date;
+                        document.getElementById("interview_time").innerHTML = data.data.interview_time;
+                        document.getElementById("interview_location").innerHTML = data.data.interview_location;
+                    }
+                    else {
+                        document.getElementById("interview_date").innerHTML = "-";
+                        document.getElementById("interview_time").innerHTML = "-";
+                        document.getElementById("interview_location").innerHTML = "-";
                     }
                 })
                 .catch(function (data) {
