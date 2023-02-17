@@ -1289,7 +1289,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             var interview_time = document.getElementById('hour').value + ':' + document.getElementById('minute').value + ' ' + document.getElementById('timeAMPM').value
             const conn3 = axios({
                 method: 'put',
-                url: baseurl + 'interview_info/' + localStorage.getItem('job_application_id_clicked'),
+                url: baseurl + 'interview_info/' + localStorage.getItem('interview_info_id_clicked'),
                 data: {
                     candidate_personal_information_id: localStorage.getItem("candidate_personal_information_id"),
                     interview_date: interview_date,
@@ -1316,7 +1316,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 .then(function () {
                                     document.getElementById("submit_button").disabled = false;
                                     document.getElementById("submit_button").innerHTML = 'Submit';
-                                    window.open('employer-view-applicants.html', '_self').reload();
+                                    window.open('employer-all-candidates.html', '_self').reload();
                                 })
                         })
                         .catch(function (data, err) {

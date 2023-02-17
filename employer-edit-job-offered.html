@@ -613,8 +613,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
             url: baseurl + 'job_offer/for_employer/' + localStorage.getItem('job_offer_id_clicked')
         })
             .then(function (data) {
+                var salary = (data.data.salary).split(" ");
                 document.getElementById('job_title').value = data.data.job_title;
                 document.getElementById('job_position').value = data.data.job_position;
+                document.getElementById('currency').value = salary[0];
+                document.getElementById('salary_min').value = salary[1];
+                document.getElementById('salary_max').value = salary[3];
                 document.getElementById('city').value = data.data.city;
                 document.getElementById('region').value = data.data.region;
                 document.getElementById('zip_code').value = data.data.zip_code;
@@ -636,23 +640,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             url: baseurl + 'candidate_personal_information/' + localStorage.getItem('offered_to_id_clicked')
                         })
                             .then(function (data) {
-                                document.getElementById('display_full_name').innerHTML = data.data.full_name;
+                                var full_name = data.data.first_name+' '+data.data.middle_name+' '+data.data.last_name+' '+data.data.suffix_name;
+                                document.getElementById('display_full_name').innerHTML = full_name;
                             })
                             .catch(function (data, err) {
-                                console.error(err);
+                                console.log(data);
                             })
                     })
                     .catch(function (data, err) {
-                        console.error(err); monthly
+                        console.log(data);
                     })
             })
             .catch(function (data, err) {
-                console.error(err);
+                console.log(data);
             })
     </script>
 
     <script>
         function save() {
+            var salary = document.getElementById('currency').value + " " + $("#salary_min").val() + " - " + $("#salary_max").val();
             const conn1 = axios({
                 method: 'put',
                 url: baseurl + 'job_offer/' + localStorage.getItem('job_offer_id_clicked'),
@@ -660,7 +666,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     offered_to: localStorage.getItem('offered_to_id_clicked'),
                     job_title: $("#job_title").val(),
                     job_position: $("#job_position").val(),
-                    salary: document.getElementById('currency').value + " " + $("#monthly").val(),
+                    salary: salary,
                     city: $("#city").val(),
                     region: $("#region").val(),
                     zip_code: $("#zip_code").val(),
@@ -686,7 +692,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             interview_location: $("#interview_location").val(),
                             interview_additional_info: $("#interview_additional_info").val(),
                             interview_status: 'Pending',
-                            interview_remarks: 'Interview Remarks Here'
+                            interview_remarks: 'Interview Remarks Here',
+                            created_by: localStorage.getItem('U_user_account_id'),
+                            updated_by: localStorage.getItem('U_user_account_id'),
                         }
                     })
                         .then(function (data) {
@@ -700,11 +708,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 })
                         })
                         .catch(function (data, err) {
-                            console.error(err);
+                            console.log(data);
                         })
                 })
                 .catch(function (data, err) {
-                    console.error(err);
+                    console.log(data);
                 })
         }
     </script>

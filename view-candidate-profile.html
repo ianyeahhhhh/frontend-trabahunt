@@ -897,22 +897,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script type="module">
         document.getElementById("admin_display_name").innerHTML = localStorage.getItem("admin_email");
+        console.log(localStorage.getItem('candidate_personal_information_id_clicked'));
 
         const conn0 = axios({
             method: 'get',
-            url: baseurl + 'user_account/' + localStorage.getItem('candidate_id_clicked')
+            url: baseurl + 'user_account/' + localStorage.getItem('candidate_personal_information_id_clicked')
         })
             .then(function (data) {
                 document.getElementById('email').innerHTML = data.data.email;
                 document.getElementById('contact_number').innerHTML = data.data.contact_number;
             })
             .catch(function (data) {
-
+                console.log(data);
             })
 
         const conn1 = axios({
             method: 'get',
-            url: baseurl + 'candidate_personal_information/' + localStorage.getItem('candidate_id_clicked')
+            url: baseurl + 'candidate_personal_information/' + localStorage.getItem('candidate_personal_information_id_clicked')
         })
             .then(function (data) {
                 var full_name = data.data.first_name + ' ' + data.data.middle_name + ' ' + data.data.last_name + ' ' + data.data.suffix_name;
@@ -932,7 +933,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         const conn5 = axios({
             method: 'get',
-            url: baseurl + 'candidate_job_history/' + localStorage.getItem('candidate_id_clicked')
+            url: baseurl + 'candidate_job_history/' + localStorage.getItem('candidate_personal_information_id_clicked')
         })
             .then(function (data) {
                 document.getElementById('previous_job_title').innerHTML = data.data.previous_job_title;
@@ -944,7 +945,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         const conn2 = axios({
             method: 'get',
-            url: baseurl + 'candidate_education/' + localStorage.getItem('candidate_id_clicked')
+            url: baseurl + 'candidate_education/' + localStorage.getItem('candidate_personal_information_id_clicked')
         })
             .then(function (data) {
                 document.getElementById('institute_name').innerHTML = data.data.institute_name;
@@ -960,7 +961,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         const conn3 = axios({
             method: 'get',
-            url: baseurl + 'candidate_experience_detail/' + localStorage.getItem('candidate_id_clicked')
+            url: baseurl + 'candidate_experience_detail/' + localStorage.getItem('candidate_personal_information_id_clicked')
         })
             .then(function (data) {
                 document.getElementById('experience_level').innerHTML = data.data.experience_level;
@@ -975,7 +976,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         const conn4 = axios({
             method: 'get',
-            url: baseurl + 'candidate_resume/' + localStorage.getItem('candidate_id_clicked')
+            url: baseurl + 'candidate_resume/' + localStorage.getItem('candidate_personal_information_id_clicked')
         })
             .then(function (data) {
                 document.getElementById('resume').innerHTML = data.data.resume;
@@ -987,7 +988,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         const conn6 = axios({
             method: 'get',
-            url: baseurl + 'candidate_character_references/' + localStorage.getItem('candidate_id_clicked')
+            url: baseurl + 'candidate_character_references/' + localStorage.getItem('candidate_personal_information_id_clicked')
         })
             .then(function (data) {
                 document.getElementById('char_ref_name_1').innerHTML = data.data.char_ref_name_1;
@@ -1009,7 +1010,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         const conn7 = axios({
             method: 'get',
-            url: baseurl + 'candidate_family_background/' + localStorage.getItem('candidate_id_clicked')
+            url: baseurl + 'candidate_family_background/' + localStorage.getItem('candidate_personal_information_id_clicked')
         })
             .then(function (data) {
                 document.getElementById('mothers_name').innerHTML = data.data.mothers_name;
@@ -1026,7 +1027,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         const conn8 = axios({
             method: 'get',
-            url: baseurl + 'candidate_emergency_contact/' + localStorage.getItem('candidate_id_clicked')
+            url: baseurl + 'candidate_emergency_contact/' + localStorage.getItem('candidate_personal_information_id_clicked')
         })
             .then(function (data) {
                 document.getElementById('emergency_name').innerHTML = data.data.name;

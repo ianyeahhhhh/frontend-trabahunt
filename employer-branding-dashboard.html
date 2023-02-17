@@ -11,8 +11,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Employer | Dashboard</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
     <!-- BS Stepper -->
@@ -39,9 +41,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
-                    <li class=" nav-item d-none d-sm-inline-block ">
-                        <h5 class="navbar-header"><b>Dashboard</b></h5>
-                    </li>
+                <li class=" nav-item d-none d-sm-inline-block ">
+                    <h5 class="navbar-header"><b>Dashboard</b></h5>
+                </li>
                 </li>
             </ul>
 
@@ -58,7 +60,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     class="fas fa-user-circle"></i></span> Profile</a>
                         <a href="employer-branding-view-acc.html" class="dropdown-item "><span><i
                                     class="fas fa-user-lock"></i></span> Account</a>
-                        <a href="employer-branding-legal.html" class="dropdown-item "><span><i class="fas fa-file-alt"></i></span> Legal</a>
+                        <a href="employer-branding-legal.html" class="dropdown-item "><span><i
+                                    class="fas fa-file-alt"></i></span> Legal</a>
                         <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
                                     class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
@@ -78,7 +81,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar -->
             <div class="sidebar">
                 <nav class="mt-2 ">
-                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
+                        data-accordion="false ">
                         <!-- Add icons to the links using the .nav-icon class
                            with font-awesome or any other icon font library -->
                         <li class="nav-item ">
@@ -188,8 +192,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>150</h3>
-                                <p>Company Applicants</p>
+                                <h3 id="all_company_applicants">150</h3>
+                                <p>Job Applications Received</p>
                             </div>
                             <div class="icon">
                                 <i class="fa fa-users"></i>
@@ -203,7 +207,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>452</h3>
+                                <h3 id="all_accepted_job_ads">452</h3>
                                 <p>Accepted Job Ads</p>
                             </div>
                             <div class="icon">
@@ -218,7 +222,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- small box -->
                         <div class="small-box bg-danger">
                             <div class="inner">
-                                <h3>12</h3>
+                                <h3 id="all_rejected_job_ads">12</h3>
                                 <p>Rejected Job Ads</p>
                             </div>
                             <div class="icon">
@@ -233,7 +237,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- small box -->
                         <div class="small-box bg-warning">
                             <div class="inner">
-                                <h3>55</h3>
+                                <h3 id="all_pending_job_ads">55</h3>
                                 <p>Pending Job Ads</p>
                             </div>
                             <div class="icon">
@@ -249,10 +253,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                 <!--TABLE 1 -->
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-7">
                         <div class="card">
                             <div class="card-header border-transparent">
-                                <h3 class="card-title"><b>Recent Applicants</b></h3>
+                                <h3 class="card-title"><b>Most Recent Job Applicant</b></h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body p-0">
@@ -260,36 +264,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <table class="table m-0">
                                         <thead>
                                             <tr>
-                                                <th>Job Ad ID</th>
-                                                <th>Applicant ID</th>
-                                                <th>Name</th>
+                                                <th>Applicant Name</th>
                                                 <th>Email</th>
+                                                <th>Contact Number</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>SampleID</td>
-                                                <td>SampleID</td>
-                                                <td>Sample Name of Applicant</td>
-                                                <td>Sample@email.com</td>
-                                            </tr>
-                                            <tr>
-                                                <td>SampleID</td>
-                                                <td>SampleID</td>
-                                                <td>Sample Name of Applicant</td>
-                                                <td>Sample@email.com</td>
-                                            </tr>
-                                            <tr>
-                                                <td>SampleID</td>
-                                                <td>SampleID</td>
-                                                <td>Sample Name of Applicant</td>
-                                                <td>Sample@email.com</td>
-                                            </tr>
-                                            <tr>
-                                                <td>SampleID</td>
-                                                <td>SampleID</td>
-                                                <td>Sample Name of Applicant</td>
-                                                <td>Sample@email.com</td>
+                                                <td id="applicant_name">Sample</td>
+                                                <td id="applicant_email">Sample</td>
+                                                <td id="applicant_contact_number">Sample</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -298,16 +282,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer clearfix">
-                                <a href="employer-job-ads-list.html" class="btn btn-sm btn-info float-left">View All Applicants</a>
+                                <a href="employer-job-ads-list.html" class="btn btn-sm btn-info float-left">View All
+                                    Applicants</a>
                             </div>
                             <!-- /.card-footer -->
                         </div>
                     </div>
                     <!--TABLE 1 -->
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                         <div class="card">
                             <div class="card-header border-transparent">
-                                <h3 class="card-title"><b>Upcoming Interviews</b></h3>
+                                <h3 class="card-title"><b>Most Recent Upcoming Interview</b></h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body p-0">
@@ -315,30 +300,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <table class="table m-0">
                                         <thead>
                                             <tr>
-                                                <th>Candidate ID</th>
-                                                <th>Interview Date</th>
+                                                <th>Date</th>
+                                                <th>Time</th>
+                                                <th>Location</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><span><a href="#">SampleID</a></span></td>
-                                                <td>January 16, 2023 </td>
-                                            </tr>
-                                            <tr>
-                                                <td><span><a href="#">SampleID</a></span></td>
-                                                <td>January 19, 2023</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span><a href="#">SampleID</a></span></td>
-                                                <td>January 25, 2023</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span><a href="#">SampleID</a></span></td>
-                                                <td>January 26, 2023</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span><a href="#">SampleID</a></span></td>
-                                                <td>February 2, 2023</td>
+                                                <td>Sample</td>
+                                                <td>Sample</td>
+                                                <td>Sample</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -359,66 +330,83 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <b>Traba</b>Hunt
             </div>
             <strong>Copyright &copy; 2022 All rights reserved.
-    </footer>
+        </footer>
 
-    <!-- jQuery -->
-    <script src="../../plugins/jquery/jquery.min.js "></script>
-    <!-- Bootstrap 4 -->
-    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js "></script>
-    <!-- overlayScrollbars -->
-    <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js "></script>
-    <!-- AdminLTE App -->
-    <script src="../../dist/js/adminlte.min.js "></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- jQuery -->
+        <script src="../../plugins/jquery/jquery.min.js "></script>
+        <!-- Bootstrap 4 -->
+        <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js "></script>
+        <!-- overlayScrollbars -->
+        <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js "></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/adminlte.min.js "></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script type="module">
-        document.getElementById("employer_display_name").innerHTML = localStorage.getItem("U_email");
+        <script type="module">
+            document.getElementById("employer_display_name").innerHTML = localStorage.getItem("U_email");
 
-        const conn1 = axios({
-            method: 'get',
-            url: baseurl + 'job_application/all/' + localStorage.getItem('U_user_account_id')
-        })
-            .then(function (data) {
-                document.getElementById("display_total_applicants").innerHTML = data.data.length;
+            const conn1 = axios({
+                method: 'get',
+                url: baseurl + 'job_application/all/' + localStorage.getItem('U_user_account_id')
             })
-            .catch(function (data, err) {
-                console.error(err);
-            })
+                .then(function (data) {
+                    document.getElementById("all_company_applicants").innerHTML = data.data.length;
+                })
+                .catch(function (data) {
+                    console.log(data);
+                })
 
-        const conn2 = axios({
-            method: 'get',
-            url: baseurl + 'job_post/all/accepted/' + localStorage.getItem('U_user_account_id')
-        })
-            .then(function (data) {
-                document.getElementById("total_accepted_job_posts").innerHTML = data.data.length;
+            const conn2 = axios({
+                method: 'get',
+                url: baseurl + 'job_post/all/accepted/' + localStorage.getItem('U_user_account_id')
             })
-            .catch(function (data, err) {
-                console.error(err);
-            })
+                .then(function (data) {
+                    document.getElementById("all_accepted_job_ads").innerHTML = data.data.length;
+                })
+                .catch(function (data) {
+                    console.log(data);
+                })
 
-        const conn3 = axios({
-            method: 'get',
-            url: baseurl + 'job_post/all/rejected/' + localStorage.getItem('U_user_account_id')
-        })
-            .then(function (data) {
-                document.getElementById("total_rejected_job_posts").innerHTML = data.data.length;
+            const conn3 = axios({
+                method: 'get',
+                url: baseurl + 'job_post/all/rejected/' + localStorage.getItem('U_user_account_id')
             })
-            .catch(function (data, err) {
-                console.error(err);
-            })
+                .then(function (data) {
+                    document.getElementById("all_rejected_job_ads").innerHTML = data.data.length;
+                })
+                .catch(function (data) {
+                    console.log(data);
+                })
 
-        const conn4 = axios({
-            method: 'get',
-            url: baseurl + 'job_post/all/pending/' + localStorage.getItem('U_user_account_id')
-        })
-            .then(function (data) {
-                document.getElementById("total_pending_job_posts").innerHTML = data.data.length;
+            const conn4 = axios({
+                method: 'get',
+                url: baseurl + 'job_post/all/pending/' + localStorage.getItem('U_user_account_id')
             })
-            .catch(function (data, err) {
-                console.error(err);
+                .then(function (data) {
+                    document.getElementById("all_pending_job_ads").innerHTML = data.data.length;
+                })
+                .catch(function (data) {
+                    console.log(data);
+                })
+
+            const conn5 = axios({
+                method: 'get',
+                url: baseurl + 'job_application/most_recent/' + localStorage.getItem('U_user_account_id')
             })
-    </script>
+                .then(function (data) {
+                    if (data.data) {
+                        document.getElementById("applicant_name").innerHTML = data.data.full_name;
+                        console.log(data);
+                    }
+                    else {
+                        console.log("no data");
+                    }
+                })
+                .catch(function (data) {
+                    console.log(data);
+                })
+        </script>
 </body>
 
 </html>

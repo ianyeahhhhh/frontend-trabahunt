@@ -819,40 +819,42 @@ scratch. This page gets rid of all links and provides the needed markup only.
             document.getElementById("submit_button").disabled = true;
             document.getElementById("submit_button").innerHTML = 'Submitting...';
 
-            const conn1 = axios({
+            const conn0 = axios({
                 method: 'post',
-                url: baseurl + 'job_application/',
+                url: baseurl + 'interview_info/',
                 data: {
-                    full_name: $("#full_name").val(),
-                    email: $("#email").val(),
-                    contact_number: $("#contact_number").val(),
-                    candidate_personal_information_id: localStorage.getItem('U_user_account_id'),
-                    employer_id: localStorage.getItem('company_id_clicked'),
-                    job_application_status: 'Pending',
-                    job_post_id: localStorage.getItem('job_post_id_clicked')
+                    candidate_personal_information_id: localStorage.getItem("U_user_account_id"),
+                    interview_date: "",
+                    interview_time: "",
+                    interview_location: "",
+                    interview_additional_info: "",
+                    interview_status: "",
+                    interview_remarks: "",
+                    created_by: localStorage.getItem('company_id_clicked'),
+                    updated_by: localStorage.getItem('company_id_clicked')
                 }
             })
                 .then(function (data) {
-                    const conn1 = axios({
+                    localStorage.setItem('interview_info_id_clicked', data.data.data.interview_info_id);
+                    const conn2 = axios({
                         method: 'post',
-                        url: baseurl + 'interview_info/',
+                        url: baseurl + 'job_application/',
                         data: {
-                            candidate_personal_information_id: localStorage.getItem("U_user_account_id"),
-                            interview_date: "",
-                            interview_time: "",
-                            interview_location: "",
-                            interview_additional_info: "",
-                            interview_status: "",
-                            interview_remarks: "",
-                            created_by: localStorage.getItem('U_user_account_id'),
-                            updated_by: localStorage.getItem('U_user_account_id')
+                            full_name: $("#full_name").val(),
+                            email: $("#email").val(),
+                            contact_number: $("#contact_number").val(),
+                            candidate_personal_information_id: localStorage.getItem('U_user_account_id'),
+                            employer_id: localStorage.getItem('company_id_clicked'),
+                            interview_info_id: localStorage.getItem('interview_info_id_clicked'),
+                            job_application_status: 'Pending',
+                            job_post_id: localStorage.getItem('job_post_id_clicked')
                         }
                     })
                         .then(function (data) {
                             Swal.fire(
                                 'Job Application Submitted!',
                                 '',
-                                'success'
+                                'success'   
                             )
                                 .then(function () {
                                     document.getElementById("submit_button").disabled = false;
@@ -862,7 +864,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         })
                         .catch(function (data, err) {
                             Swal.fire(
-                                'Interview Info Error!',
+                                'Job Application Error',
                                 '',
                                 'error'
                             )
@@ -875,7 +877,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 })
                 .catch(function (data, err) {
                     Swal.fire(
-                        'Job Application Error',
+                        'Interview Info Error!',
                         '',
                         'error'
                     )
@@ -885,6 +887,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             console.log(data);
                         })
                 })
+
+
         }
     </script>
 

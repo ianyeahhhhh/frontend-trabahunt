@@ -385,11 +385,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <label>Time</label>
                                     <div class="row">
                                         <div class="col-4">
-                                            <input type="text" class="form-control" id="" placeholder="9" maxlength="2">
+                                            <input type="text" class="form-control" id="hour" placeholder="9" maxlength="2">
                                         </div>
                                         <p><b>:</b></p>
                                         <div class="col-4">
-                                            <input type="text" class="form-control" id="" placeholder="30" maxlength="2">
+                                            <input type="text" class="form-control" id="minute" placeholder="30" maxlength="2">
                                         </div>
                                         <div class="col-3">
                                             <select id="timeAMPM" class="form-control select2">
@@ -528,6 +528,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             localStorage.setItem("candidate_personal_information_id", data_row.candidate_personal_information_id);
                             localStorage.setItem("job_application_id_clicked", data_row.job_application_id);
                             localStorage.setItem("job_post_id_clicked", data_row.job_post_id);
+                            localStorage.setItem("interview_info_id_clicked", data_row.interview_info_id);
                         })
                     })
                     .catch(function (data, err) {
@@ -545,17 +546,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
         document.getElementById('display_job_title').innerHTML = localStorage.getItem('job_position_level_clicked');
 
         function enlist() {
+            var interview_date = document.getElementById('month').value + ' ' + document.getElementById('day').value + ' ' + document.getElementById('year').value;
+            var interview_time = document.getElementById('hour').value + ':' + document.getElementById('minute').value + ' ' + document.getElementById('timeAMPM').value
+
             const conn2 = axios({
                 method: 'put',
-                url: baseurl + 'interview_info/' + localStorage.getItem('job_application_id_clicked'),
+                url: baseurl + 'interview_info/' + localStorage.getItem('interview_info_id_clicked'),
                 data: {
-                    candidate_personal_information_id: localStorage.getItem("candidate_id_clicked"),
-                    interview_date: $("#interview_date").val(),
-                    interview_time: $("#interview_time").val(),
+                    candidate_personal_information_id: localStorage.getItem("candidate_personal_information_id"),
+                    interview_date: interview_date,
+                    interview_time: interview_time,
                     interview_location: $("#interview_location").val(),
                     interview_additional_info: $("#interview_additional_info").val(),
                     interview_remarks: 'INTERVIEW REMARKS',
-                    interview_status: 'Pending'
+                    interview_status: 'Pending',
+                    created_by: localStorage.getItem('U_user_account_id'),
+                    updated_by: localStorage.getItem('U_user_account_id'),
                 }
             })
                 .then(function (data) {
@@ -573,15 +579,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 'success'
                             )
                                 .then(function () {
-                                    window.open('employer-view-applicants.html', '_self').reload();
+                                    window.open('employer-all-candidates.html', '_self').reload();
                                 })
                         })
                         .catch(function (data, err) {
-                            console.error(err);
+                            console.log(data);
                         })
                 })
                 .catch(function (data, err) {
-                    console.error(err);
+                    console.log(data);
                 })
         }
 
@@ -601,7 +607,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         })
                 })
                 .catch(function (data, err) {
-                    console.error(err);
+                    console.log(data);
                 })
         }
     </script>

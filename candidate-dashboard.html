@@ -152,7 +152,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>452</h3>
+                                <h3 id="all_accepted_job_applications">452</h3>
                                 <p>Accepted Job Applications</p>
                             </div>
                             <div class="icon">
@@ -167,7 +167,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- small box -->
                         <div class="small-box bg-danger">
                             <div class="inner">
-                                <h3>12</h3>
+                                <h3 id="all_rejected_job_applications">12</h3>
                                 <p>Rejected Job Applications</p>
                             </div>
                             <div class="icon">
@@ -182,7 +182,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- small box -->
                         <div class="small-box bg-warning">
                             <div class="inner">
-                                <h3>55</h3>
+                                <h3 id="all_pending_job_applications">55</h3>
                                 <p>Pending Job Applications</p>
                             </div>
                             <div class="icon">
@@ -198,10 +198,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                 <!--TABLE 1 -->
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-7">
                         <div class="card">
                             <div class="card-header border-transparent">
-                                <h3 class="card-title"><b>Recent Job Offer</b></h3>
+                                <h3 class="card-title"><b>Most Recent Job Offer</b></h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body p-0">
@@ -209,31 +209,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <table class="table m-0">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
-                                                <th>Offered by</th>
+                                                <th>Job Title</th>
                                                 <th>Job Position</th>
+                                                <th>Salary Range</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>SampleID</td>
-                                                <td>Sample name</td>
-                                                <td>Sample job position</td>
-                                            </tr>
-                                            <tr>
-                                                <td>SampleID</td>
-                                                <td>Sample name</td>
-                                                <td>Sample job position</td>
-                                            </tr>
-                                            <tr>
-                                                <td>SampleID</td>
-                                                <td>Sample name</td>
-                                                <td>Sample job position</td>
-                                            </tr>
-                                            <tr>
-                                                <td>SampleID</td>
-                                                <td>Sample name</td>
-                                                <td>Sample job position</td>
+                                                <td id="recent_job_title">Sample</td>
+                                                <td id="recent_job_position">Sample</td>
+                                                <td id="recent_salary">Sample</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -248,10 +233,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </div>
                     </div>
                     <!--TABLE 2 -->
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                         <div class="card">
                             <div class="card-header border-transparent">
-                                <h3 class="card-title"><b>Upcoming Interviews</b></h3>
+                                <h3 class="card-title"><b>Most Recent Upcoming Interview</b></h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body p-0">
@@ -259,30 +244,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <table class="table m-0">
                                         <thead>
                                             <tr>
-                                                <th>Company Name</th>
-                                                <th>Interview Date</th>
+                                                <th>Date</th>
+                                                <th>Time</th>
+                                                <th>Location</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Sample company</td>
-                                                <td>January 16, 2023 </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Sample company</td>
-                                                <td>January 16, 2023 </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Sample company</td>
-                                                <td>January 16, 2023 </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Sample company</td>
-                                                <td>January 16, 2023 </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Sample company</td>
-                                                <td>January 16, 2023 </td>
+                                                <td id="recent_date">Sample</td>
+                                                <td id="recent_time">Sample</td>
+                                                <td id="recent_location">Sample</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -320,6 +291,39 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script type="module">
         document.getElementById("candidate_display_name").innerHTML = localStorage.getItem("U_email");
+
+        const conn0 = axios({
+            method: 'get',
+            url: baseurl + 'job_application/all/accepted_candidate/' + localStorage.getItem('U_user_account_id')
+        })
+        .then(function(data){
+            document.getElementById('all_accepted_job_applications').innerHTML = data.data.length;
+        })
+        .catch(function(data){
+            console.log(data);
+        })
+
+        const conn1 = axios({
+            method: 'get',
+            url: baseurl + 'job_application/all/rejected_candidate/' + localStorage.getItem('U_user_account_id')
+        })
+        .then(function(data){
+            document.getElementById('all_rejected_job_applications').innerHTML = data.data.length;
+        })
+        .catch(function(data){
+            console.log(data);
+        })
+
+        const conn2 = axios({
+            method: 'get',
+            url: baseurl + 'job_application/all/pending_candidate/' + localStorage.getItem('U_user_account_id')
+        })
+        .then(function(data){
+            document.getElementById('all_pending_job_applications').innerHTML = data.data.length;
+        })
+        .catch(function(data){
+            console.log(data);
+        })
     </script>
 </body>
 

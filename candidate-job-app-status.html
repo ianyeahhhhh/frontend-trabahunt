@@ -372,7 +372,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id="display_interview_date_and_time">Default date & time</p>
+                                                <p id="interview_date_and_time">Default date & time</p>
                                             </div>
                                         </div>
                                         <div class="row  row-custom">
@@ -382,7 +382,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id="display_interview_location">Default location</p>
+                                                <p id="interview_location">Default location</p>
                                             </div>
                                         </div>
                                         <div class="row  row-custom">
@@ -392,7 +392,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id="display_interview_status">Default status</p>
+                                                <p id="interview_status">Default status</p>
                                             </div>
                                         </div>
                                         <div class="row  row-custom">
@@ -402,7 +402,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id="display_interview_remarks">Default remarks</p>
+                                                <p id="interview_remarks">Default remarks</p>
                                             </div>
                                         </div>
                                         <div class="row  row-custom">
@@ -412,7 +412,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </p>
                                             </div>
                                             <div class="col-9">
-                                                <p id="display_interview_additional_info">Default additional information
+                                                <p id="interview_additional_info">Default additional information
                                                 </p>
                                             </div>
                                         </div>
@@ -458,7 +458,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
             url: baseurl + 'job_post/get_one/' + localStorage.getItem('job_post_id_clicked')
         })
             .then(function (data) {
-                console.log(data);
                 localStorage.setItem('company_id_clicked', data.data.user_account_id);
                 document.getElementById('display_job_title').innerHTML = data.data.job_title;
                 document.getElementById('display_job_position_level').innerHTML = data.data.job_position_level;
@@ -472,7 +471,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     url: baseurl + 'job_location/' + localStorage.getItem('job_post_id_clicked')
                 })
                     .then(function (data) {
-                        console.log(data);
                         var location = data.data.city + ", " + data.data.zip_code + " " + data.data.region + ", " + data.data.country;
                         document.getElementById('display_address').innerHTML = location;
 
@@ -481,7 +479,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             url: baseurl + 'job_additional_info/' + localStorage.getItem('job_post_id_clicked')
                         })
                             .then(function (data) {
-                                console.log(data);
                                 document.getElementById('display_job_specialization_name').innerHTML = data.data.job_specialization_name;
                                 document.getElementById('display_job_qualification').innerHTML = data.data.job_qualification;
                                 document.getElementById('display_career_level').innerHTML = data.data.career_level;
@@ -492,7 +489,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     url: baseurl + 'company_profile/' + localStorage.getItem('company_id_clicked')
                                 })
                                     .then(function (data) {
-                                        console.log(data);
                                         document.getElementById('display_company_name').innerHTML = data.data.company_name;
                                         document.getElementById('display_company_name_1').innerHTML = data.data.company_name;
 
@@ -502,30 +498,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         })
                                             .then(function (data) {
                                                 console.log(data);
-                                                document.getElementById('display_interview_date_and_time').innerHTML = data.data.interview_date+"   "+data.data.interview_time;
-                                                document.getElementById('display_interview_location').innerHTML = data.data.interview_location;
-                                                document.getElementById('display_interview_status').innerHTML = data.data.interview_status;
-                                                document.getElementById('display_interview_remarks').innerHTML = data.data.interview_remarks;
-                                                document.getElementById('display_interview_additional_info').innerHTML = data.data.interview_additional_info;
+                                                console.log(localStorage.getItem('job_application_id_clicked'));
+                                                document.getElementById('interview_date_and_time').innerHTML = data.data.interview_date+"   "+data.data.interview_time;
+                                                document.getElementById('interview_location').innerHTML = data.data.interview_location;
+                                                document.getElementById('interview_status').innerHTML = data.data.interview_status;
+                                                document.getElementById('interview_remarks').innerHTML = data.data.interview_remarks;
+                                                document.getElementById('interview_additional_info').innerHTML = data.data.interview_additional_info;
                                             })
                                             .catch(function (data, err) {
-                                                console.error(err);
+                                                console.log(data);
                                             })
                                     })
                                     .catch(function (data, err) {
-                                        console.error(err);
+                                        console.log(data);
                                     })
                             })
                             .catch(function (data, err) {
-                                console.error(err);
+                                console.log(data);
                             })
                     })
                     .catch(function (data, err) {
-                        console.error(err);
+                        console.log(data);
                     })
             })
             .catch(function (data, err) {
-                console.error(err);
+                console.log(data);
             })
     </script>
 </body>
