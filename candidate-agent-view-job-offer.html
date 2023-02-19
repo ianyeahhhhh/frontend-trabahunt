@@ -11,8 +11,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Candidate | Job Offers</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
     <!-- BS Stepper -->
@@ -39,9 +41,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
-                    <li class=" nav-item d-none d-sm-inline-block ">
-                        <h5 class="navbar-header"><b>Candidate Dashboard</b></h5>
-                    </li>
+                <li class=" nav-item d-none d-sm-inline-block ">
+                    <h5 class="navbar-header"><b>Candidate Dashboard</b></h5>
+                </li>
                 </li>
             </ul>
 
@@ -58,7 +60,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     class="fas fa-user-circle"></i></span> Profile</a>
                         <a href="candidate-agent-view-acc.html" class="dropdown-item "><span><i
                                     class="fas fa-user-lock"></i></span> Account</a>
-                        <a href="candidate-agent-resume.html" class="dropdown-item "><span><i class="fas fa-file-alt"></i></span> Resume</a>
+                        <a href="candidate-agent-resume.html" class="dropdown-item "><span><i
+                                    class="fas fa-file-alt"></i></span> Resume</a>
                         <a href="candidate-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
                                     class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
@@ -79,7 +82,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar -->
             <div class="sidebar">
                 <nav class="mt-2 ">
-                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
+                        data-accordion="false ">
                         <!-- Add icons to the links using the .nav-icon class
                            with font-awesome or any other icon font library -->
                         <li class="nav-item ">
@@ -119,19 +123,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="card card-sticky card-default card-outline">
                                     <div class="card-body box-profile">
                                         <div class="text-center">
-                                            <img class="profile-user-img img-fluid img-circle" src="/dist/img/company-empty-image.png" alt="User profile picture">
+                                            <img class="profile-user-img img-fluid img-circle"
+                                                src="/dist/img/company-empty-image.png" alt="User profile picture">
                                         </div>
                                         <h3 id="display_company_name" class="profile-username text-center">Company Name
                                         </h3>
 
-                                        <p class="text-muted text-center">Establishment Date Here</p>
+                                        <p id="establishment_date" class="text-muted text-center">Establishment Date Here</p>
 
                                         <ul class="list-group list-group-unbordered mb-3">
                                             <li class="list-group-item">
-                                                <span><i class="fas fa-phone-alt"></i></span> <a class="float-right" id="">Contact No. Here</a>
+                                                <span><i class="fas fa-phone-alt"></i></span> <a class="float-right"
+                                                    id="">Contact No. Here</a>
                                             </li>
                                             <li class="list-group-item">
-                                                <span><i class="fas fa-map-marker-alt"></i></span> <a class="float-right" id="">Location Here</a>
+                                                <span><i class="fas fa-map-marker-alt"></i></span> <a
+                                                    class="float-right" id="">Location Here</a>
                                             </li>
                                         </ul>
 
@@ -172,42 +179,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             </div>
                                             <div class="col-9">
                                                 <p id='position'>
-                                                    Default
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Employee Category
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id='employee_category'>
-                                                    Default
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Employment Type
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id='employment_type'>
-                                                    Default
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row row-custom">
-                                            <div class="col-sm-3">
-                                                <p class="text-muted">
-                                                    Specialization
-                                                </p>
-                                            </div>
-                                            <div class="col-9">
-                                                <p id='specialization'>
                                                     Default
                                                 </p>
                                             </div>
@@ -257,8 +228,47 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script>
+    <script type="module">
         document.getElementById("candidate_display_name").innerHTML = localStorage.getItem("U_email");
+
+        const conn0 = axios({
+            method: 'get',
+            url: baseurl + 'employee_info/one/' + localStorage.getItem("U_user_account_id")
+        })
+            .then(function (data) {
+                if (data.data) {
+                    localStorage.setItem('company_profile_id', data.data.hired_by);
+                    document.getElementById("full_name").innerHTML = data.data.full_name;
+                    document.getElementById("position").innerHTML = data.data.position;
+                    document.getElementById("date_hired").innerHTML = data.data.date_hired;
+                }
+                else {
+                    document.getElementById("full_name").innerHTML = "-";
+                    document.getElementById("position").innerHTML = "-";
+                    document.getElementById("date_hired").innerHTML = "-";
+                }
+            })
+            .catch(function (data) {
+                console.log(data);
+            })
+
+        const conn1 = axios({
+            method: 'get',
+            url: baseurl + 'company_profile/' + localStorage.getItem('company_profile_id')
+        })
+            .then(function (data) {
+                if (data.data){
+                    document.getElementById("display_company_name").innerHTML = data.data.company_name;
+                    document.getElementById("establishment_date").innerHTML = data.data.establishment_date;
+                }
+                else {
+                    document.getElementById("display_company_name").innerHTML = "Not Hired Yet";
+                    document.getElementById("establishment_date").innerHTML = "-";
+                }
+            })
+            .catch(function (data) {
+                console.log(data);
+            })
     </script>
 </body>
 

@@ -11,8 +11,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Employer | Dashboard</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
     <!-- BS Stepper -->
@@ -39,9 +41,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
-                    <li class=" nav-item d-none d-sm-inline-block ">
-                        <h5 class="navbar-header"><b>Dashboard</b></h5>
-                    </li>
+                <li class=" nav-item d-none d-sm-inline-block ">
+                    <h5 class="navbar-header"><b>Dashboard</b></h5>
+                </li>
                 </li>
             </ul>
 
@@ -55,11 +57,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right ">
                         <!-- <div class="dropdown-divider "></div> -->
                         <a href="employer-basic-view-profile.html" class="dropdown-item "><span><i
-                            class="fas fa-user-circle"></i></span> Profile</a>
-                        <a href="employer-basic-view-acc.html" class="dropdown-item "><span><i class="fas fa-user-lock"></i></span> Account</a>
-                        <a href="employer-basic-legal.html" class="dropdown-item "><span><i class="fas fa-file-alt"></i></span> Legal</a>
+                                    class="fas fa-user-circle"></i></span> Profile</a>
+                        <a href="employer-basic-view-acc.html" class="dropdown-item "><span><i
+                                    class="fas fa-user-lock"></i></span> Account</a>
+                        <a href="employer-basic-legal.html" class="dropdown-item "><span><i
+                                    class="fas fa-file-alt"></i></span> Legal</a>
                         <a href="employer-logout.html" class="dropdown-item" style="color:#D14A62;"><span><i
-                            class="fas fa-sign-out-alt"></i></span> Logout</a>
+                                    class="fas fa-sign-out-alt"></i></span> Logout</a>
                     </div>
                 </li>
             </ul>
@@ -79,7 +83,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar -->
             <div class="sidebar">
                 <nav class="mt-2 ">
-                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
+                        data-accordion="false ">
                         <!-- Add icons to the links using the .nav-icon class
                            with font-awesome or any other icon font library -->
                         <li class="nav-item ">
@@ -163,8 +168,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <div class="icon">
                                 <i class="fa fa-user-tie"></i>
                             </div>
-                            <a href="#" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
+                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- /.col -->
@@ -178,8 +182,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <div class="icon">
                                 <i class="fas fa-clock"></i>
                             </div>
-                            <a href="#" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
+                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- /.col -->
@@ -191,7 +194,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="col-md-8">
                         <div class="card">
                             <div class="card-header border-transparent">
-                                <h3 class="card-title"><b>Recently Hired Employees</b></h3>
+                                <h3 class="card-title"><b>Most Recently Hired Employee</b></h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body p-0">
@@ -201,29 +204,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <tr>
                                                 <th>Job Position</th>
                                                 <th>Name</th>
-                                                <th>Email</th>
+                                                <th>Date Hired</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Sample</td>
-                                                <td>Sample Name of Applicant</td>
-                                                <td>Sample@email.com</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Sample</td>
-                                                <td>Sample Name of Applicant</td>
-                                                <td>Sample@email.com</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Sample</td>
-                                                <td>Sample Name of Applicant</td>
-                                                <td>Sample@email.com</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Sample</td>
-                                                <td>Sample Name of Applicant</td>
-                                                <td>Sample@email.com</td>
+                                                <td id="recent_position">Sample</td>
+                                                <td id="recent_full_name">Sample</td>
+                                                <td id="recent_date_hired">Sample</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -232,7 +220,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer clearfix">
-                                <a href="employer-basic-employees.html" class="btn btn-sm btn-info float-left">View All Employees</a>
+                                <a href="employer-basic-employees.html" class="btn btn-sm btn-info float-left">View All
+                                    Employees</a>
                             </div>
                             <!-- /.card-footer -->
                         </div>
@@ -241,7 +230,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-header border-transparent">
-                                <h3 class="card-title"><b>Request History</b></h3>
+                                <h3 class="card-title"><b>Most Recent Request History</b></h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body p-0">
@@ -249,30 +238,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <table class="table m-0">
                                         <thead>
                                             <tr>
-                                                <th>Request ID</th>
+                                                <th>Specialization</th>
                                                 <th>Job Position</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><span><a href="#">SampleID</a></span></td>
-                                                <td>Sample position</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span><a href="#">SampleID</a></span></td>
-                                                <td>Sample position</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span><a href="#">SampleID</a></span></td>
-                                                <td>Sample position</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span><a href="#">SampleID</a></span></td>
-                                                <td>Sample position</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span><a href="#">SampleID</a></span></td>
-                                                <td>Sample position</td>
+                                                <td id="recent_specialization">Sample</td>
+                                                <td id="recent_position">Sample</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -308,8 +281,46 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script>
+    <script type="module">
         document.getElementById("employer_display_name").innerHTML = localStorage.getItem("U_email");
+
+        const conn0 = axios({
+            method: 'get',
+            url: baseurl + 'employee_info/one/' + localStorage.getItem("U_user_account_id")
+        })
+            .then(function (data) {
+                if (data.data) {
+                    document.getElementById("recent_full_name").innerHTML = data.data.full_name;
+                    document.getElementById("recent_position").innerHTML = data.data.position;
+                    document.getElementById("recent_date_hired").innerHTML = data.data.date_hired;
+                }
+                else {
+                    document.getElementById("recent_full_name").innerHTML = "-";
+                    document.getElementById("recent_position").innerHTML = "-";
+                    document.getElementById("recent_date_hired").innerHTML = "-";
+                }
+            })
+            .catch(function (data) {
+                console.log(data);
+            })
+
+        const conn1 = axios({
+            method: 'get',
+            url: baseurl + 'request_form/' + localStorage.getItem("U_user_account_id")
+        })
+            .then(function (data) {
+                if (data.data) {
+                    document.getElementById("recent_specialization").innerHTML = data.data.specialization;
+                    document.getElementById("recent_position").innerHTML = data.data.position;
+                }
+                else {
+                    document.getElementById("recent_specialization").innerHTML = "-";
+                    document.getElementById("recent_position").innerHTML = "-";
+                }
+            })
+            .catch(function (data) {
+                console.log(data);
+            })
     </script>
 </body>
 
