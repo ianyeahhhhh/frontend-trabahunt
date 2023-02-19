@@ -237,7 +237,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
         })
             .then(function (data) {
                 if (data.data) {
-                    localStorage.setItem('company_profile_id', data.data.hired_by);
                     document.getElementById("full_name").innerHTML = data.data.full_name;
                     document.getElementById("position").innerHTML = data.data.position;
                     document.getElementById("date_hired").innerHTML = data.data.date_hired;
@@ -254,7 +253,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         const conn1 = axios({
             method: 'get',
-            url: baseurl + 'company_profile/' + localStorage.getItem('company_profile_id')
+            url: baseurl + 'company_profile/' + localStorage.getItem('U_user_account_id')
         })
             .then(function (data) {
                 if (data.data){
