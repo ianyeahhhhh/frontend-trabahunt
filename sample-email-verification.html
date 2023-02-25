@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TrabaHunt | Email Verification</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel=" stylesheet " href="plugins/fontawesome-free/css/all.min.css ">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet " href="dist/css/adminlte.min.css ">
+    <link rel="icon" href="dist/img/logo-head.png" type="image/x-icon">
+    <script src="global-variables.js"></script>
+</head>
+
+<body>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <div class="bg-container login-page">
+        <form>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="email" id="sent_to">Enter code sent to </label>
+                    <input type="text" class="form-control" id="otpInput" placeholder="eg. 198234">
+                </div>
+            </div>
+            <div class="social-auth-links text-center mt-2 mb-3 ">
+                <button id='send_button' type="button" class="btn btn-primary btn-block " onclick="send()">Send
+                    OTP</button>
+            </div>
+            <div class="social-auth-links text-center mt-2 mb-3 ">
+                <button id='verify_button' type="button" class="btn btn-primary btn-block "
+                    onclick="verify()">Verify</button>
+            </div>
+        </form>
+    </div>
+
+    <script type="module">
+        document.getElementById('sent_to').innerHTML = "Enter OTP send to " + localStorage.getItem('U_email');
+    </script>
+
+    <script>
+        function send() {
+            var otp = Math.floor(100000 + Math.random() * 900000);
+            localStorage.setItem('otp', otp);
+            Email.send({
+                Host: "smtp.elasticemail.com",
+                Username: "system.trabahunt@gmail.com",
+                Password: "983B3E9C85CFE9231E873E56D8D39147A4A2",
+                To: "cayetanojohnchris@gmail.com",
+                From: "system.trabahunt@gmail.com",
+                Subject: "Verify your code.",
+                Body: "Your code is " + otp
+            }).then(
+                message => alert('otp is ', otp)
+            );
+        }
+
+        function verify() {
+            if (document.getElementById('otpInput').value == localStorage.getItem('otp')){
+                alert('success');
+            }
+            else{
+                alert('wrong otp');
+            }
+        }
+    </script>
+</body>
+
+</html>

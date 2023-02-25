@@ -35,6 +35,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
+    <body onload="if (localStorage.getItem('adminSession')==null) self.location='admin-home.html';"></body>
     <div class="wrapper">
         <!--NAV BAR START-->
         <nav class="main-header navbar navbar-expand nav-custom">
