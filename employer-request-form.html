@@ -11,10 +11,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Employer | Request Form</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel=" stylesheet " href="/plugins/fontawesome-free/css/all.min.css ">
     <!-- BS Stepper -->
@@ -33,7 +31,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-    <body onload="if (localStorage.getItem('E_userSession')==null) self.location='index.html';"></body>
+    <!-- <body onload="if (localStorage.getItem('E_userSession')==null) self.location='index.html';"></body> -->
     <div class="wrapper">
         <!--NAV BAR START-->
         <nav class="main-header navbar navbar-expand nav-custom">
@@ -42,9 +40,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a class="navbar-left-item " class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
-                <li class=" nav-item d-none d-sm-inline-block ">
-                    <h5 class="navbar-header"><b>Request Form</b></h5>
-                </li>
+                    <li class=" nav-item d-none d-sm-inline-block ">
+                        <h5 class="navbar-header"><b>Request Form</b></h5>
+                    </li>
                 </li>
             </ul>
 
@@ -84,8 +82,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar -->
             <div class="sidebar">
                 <nav class="mt-2 ">
-                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
-                        data-accordion="false ">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false ">
                         <!-- Add icons to the links using the .nav-icon class
                            with font-awesome or any other icon font library -->
                         <li class="nav-item ">
@@ -185,8 +182,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </div>
                                                 <div class="col-6">
                                                     <div class="form-group">
-                                                        <select id="specialization" name="job_specialization_name"
-                                                            size="1" class="form-control select2" style="width: 100%;">
+                                                        <select id="specialization" name="job_specialization_name" size="1" class="form-control select2" style="width: 100%;">
                                                             <option value="" selected="selected" disabled="disabled">
                                                                 Select job
                                                                 specialization
@@ -242,8 +238,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-6 form-group">
-                                                    <input id="department" type="text" class="form-control"
-                                                        placeholder="Enter department">
+                                                    <input id="department" type="text" class="form-control" placeholder="Enter department">
                                                 </div>
                                             </div>
                                             <div class="row row-custom">
@@ -253,8 +248,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-6 form-group">
-                                                    <input id="position" type="text" name="job_position"
-                                                        class="form-control" placeholder="Enter job position">
+                                                    <input id="position" type="text" name="job_position" class="form-control" placeholder="Enter job position">
                                                 </div>
                                             </div>
                                             <div class="row row-custom">
@@ -265,8 +259,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </div>
                                                 <div class="col-6">
                                                     <div class="form-group">
-                                                        <select id="employment_type" name="job_type" size="1"
-                                                            class="form-control select2" style="width: 100%;">
+                                                        <select id="employment_type" name="job_type" size="1" class="form-control select2" style="width: 100%;">
                                                             <option value="" selected="selected" disabled="disabled">
                                                                 Select
                                                                 Employment Type
@@ -291,8 +284,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </div>
                                                 <div class="col-2">
                                                     <div class="form-group">
-                                                        <select id="currency" class="form-control select2"
-                                                            style="width: 100%;">
+                                                        <select id="currency" class="form-control select2" style="width: 100%;">
                                                             <option selected="selected" disabled="disabled">Currency
                                                             </option>
                                                             <option value="AFN" label="Afghan afghani">AFN</option>
@@ -474,12 +466,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </div>
                                                 </div>
                                                 <div class="col-2">
-                                                    <input id="salary_min" type="text" class="form-control"
-                                                        placeholder="Min">
+                                                    <input id="salary_min" type="text" class="form-control" placeholder="Min">
                                                 </div>
                                                 <div class="col-2">
-                                                    <input id="salary_max" type="text" class="form-control"
-                                                        placeholder="Max">
+                                                    <input id="salary_max" type="text" class="form-control" placeholder="Max">
                                                 </div>
                                             </div>
                                             <hr>
@@ -499,8 +489,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-6 form-group">
-                                                    <input id="city" name="city" type="text" class="form-control"
-                                                        placeholder="Enter city">
+                                                    <input id="city" name="city" type="text" class="form-control" placeholder="Enter city">
                                                 </div>
                                             </div>
                                             <div class="row  row-custom">
@@ -510,8 +499,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-6 form-group">
-                                                    <input id="zip_code" name="zip_code" type="text"
-                                                        class="form-control" placeholder="Enter zipcode">
+                                                    <input id="zip_code" name="zip_code" type="text" class="form-control" placeholder="Enter zipcode">
                                                 </div>
                                             </div>
                                             <div class="row row-custom">
@@ -521,8 +509,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-6 form-group">
-                                                    <input id="region" name="region" type="text" class="form-control"
-                                                        placeholder="Enter region">
+                                                    <input id="region" name="region" type="text" class="form-control" placeholder="Enter region">
                                                 </div>
                                             </div>
                                             <div class="row row-custom">
@@ -532,16 +519,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </p>
                                                 </div>
                                                 <div class="col-6 form-group">
-                                                    <input id="country" name="country" type="text" class="form-control"
-                                                        placeholder="Enter country">
+                                                    <input id="country" name="country" type="text" class="form-control" placeholder="Enter country">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="card-footer">
                                             <!-- <button class="btn btn-outline-danger"
                                                 style="margin-right: 1rem;">Cancel</button> -->
-                                            <button id="send_button" type="button" class="btn btn-success"
-                                                onclick="sendRequest()">Send
+                                            <button id="send_button" type="button" class="btn btn-success" onclick="sendRequest()">Send
                                                 request</button>
                                         </div>
                                     </form>
